@@ -16,8 +16,8 @@ public class Email
 {
       public void enviarEmail(String destinatario,String menssage){
     	  
-    	  Properties props = new Properties();
-          /** Parâmetros de conexão com servidor Gmail */
+    	    Properties props = new Properties();
+          // Parâmetros de conexão com servidor Gmail 
 		 
 			props.put("mail.smtp.auth", "true");
 			props.put("mail.smtp.starttls.enable", "true");
@@ -28,17 +28,17 @@ public class Email
                       new javax.mail.Authenticator() {
                            protected PasswordAuthentication getPasswordAuthentication()
                            {
-                                 return new PasswordAuthentication("jorliano32@gmail.com", "leandrogmail");
+                                 return new PasswordAuthentication("siscefsite@gmail.com", "projetosite");
                            }
                       });
 
-          /** Ativa Debug para sessão */
+          // Ativa Debug para sessão 
           session.setDebug(true);
 
           try {
 
                 Message message = new MimeMessage(session);
-                message.setFrom(new InternetAddress("jorliano32@gmail.com")); //Remetente
+                message.setFrom(new InternetAddress("siscefsite@gmail.com")); //Remetente
 
                 Address[] toUser = InternetAddress //Destinatário(s)
                            .parse(destinatario);  
@@ -46,7 +46,7 @@ public class Email
                 message.setRecipients(Message.RecipientType.TO, toUser);
                 message.setSubject("projeto SISCEF");//Assunto
                 message.setText(menssage);
-                /**Método para enviar a mensagem criada*/
+                //Método para enviar a mensagem criada
                 Transport.send(message);
 
                // Alerta.info("Dados enviado com sucesso");
@@ -55,12 +55,12 @@ public class Email
                 throw new RuntimeException(e);
           }
 		
+    	 /* 
     	  
     	  
     	  
-    	  
-         /*   Properties props = new Properties();
-            /** Parâmetros de conexão com servidor Gmail 
+            Properties props = new Properties();
+            // Parâmetros de conexão com servidor Gmail 
             props.put("mail.smtp.host", "smtp.gmail.com");
             props.put("mail.smtp.socketFactory.port", "465");
             props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
@@ -71,17 +71,17 @@ public class Email
                         new javax.mail.Authenticator() {
                              protected PasswordAuthentication getPasswordAuthentication()
                              {
-                                   return new PasswordAuthentication("jorliano32@gmail.com", "leandrogmail");
+                                   return new PasswordAuthentication("siscefsite@gmail.com", "projetosiste");
                              }
                         });
 
-            /** Ativa Debug para sessão 
+            // Ativa Debug para sessão 
             session.setDebug(true);
 
             try {
 
                   Message message = new MimeMessage(session);
-                  message.setFrom(new InternetAddress("jorliano32@gmail.com")); //Remetente
+                  message.setFrom(new InternetAddress("siscefsite@gmail.com")); //Remetente
 
                   Address[] toUser = InternetAddress //Destinatário(s)
                              .parse(destinatario);  
@@ -89,7 +89,7 @@ public class Email
                   message.setRecipients(Message.RecipientType.TO, toUser);
                   message.setSubject("Comentario do site ");//Assunto
                   message.setText(menssage);
-                  /**Método para enviar a mensagem criada
+                  //Método para enviar a mensagem criada
                   Transport.send(message);
 
                  // Alerta.info("Dados enviado com sucesso");

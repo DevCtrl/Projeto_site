@@ -12,70 +12,10 @@ import com.jor.site.entidade.ProdutoFornecido;
 import com.jor.site.util.Alerta;
 import com.jor.site.util.HibernateUtil;
 
-public class ProdutoFornecidoControler {
-  Session session;
-  public void inserir(ProdutoFornecido ProdutoFornecido) {
-		session = HibernateUtil.getSessionFactory().openSession();
-		try {
-			session.beginTransaction();
-			session.save(ProdutoFornecido);
-			session.getTransaction().commit();
-		}
-		catch(ExceptionInInitializerError er)
-		{
-			System.out.println("Erro ao Incluir ProdutoFornecido "+er.getLocalizedMessage());
-			Alerta.info("erro ao cadastra ProdutoFornecido");
-		}
-		finally {	
-			Alerta.info("ProdutoFornecido "+ProdutoFornecido.getNome()+" adicionado");
-			session.close();
-		}		
-	}
-  public void alterar(ProdutoFornecido ProdutoFornecido) {
-		session = HibernateUtil.getSessionFactory().openSession();
-		try {
-			session.beginTransaction();
-			session.update(ProdutoFornecido);
-			session.getTransaction().commit();
-		}
-		catch(ExceptionInInitializerError er)
-		{
-			System.out.println("Erro ao Incluir ProdutoFornecido "+er.getLocalizedMessage());
-			Alerta.info("erro ao editar ProdutoFornecido");
-		}
-		finally {	
-			Alerta.info("ProdutoFornecido "+ProdutoFornecido.getNome()+" editado com sucesso");
-			session.close();
-		}		
-	}
-	public void deletar(ProdutoFornecido ProdutoFornecido)
-	{
-		session = HibernateUtil.getSessionFactory().openSession();
-		try{
-			
-			if (session.getTransaction() != null && session.getTransaction().isActive()) {
-			   session.getTransaction().commit();			   
-			} else{
-				session.beginTransaction();
-				session.delete(ProdutoFornecido);			
-				session.getTransaction().commit();
-			}
-		}
-		catch(ExceptionInInitializerError er)
-		{			
-			System.out.println("Erro ao Deletar ProdutoFornecido "+er.getLocalizedMessage());
-		}
-		finally
-		{
-			Alerta.info("ProdutoFornecido "+ProdutoFornecido.getNome()+" deletado com sucesso");
-			session.close();
-			System.out.println("sesao foi fechada para deletar");
-		}
-	}
+public class ProdutoFornecidoControler extends Controler{
+  Session session;	
 	
-	
-	
-	public List buscaProdutoFornecidos(String data,int id) {
+	public List buscaProdutoFornecidos(String data,long id) {
 		session = HibernateUtil.getSessionFactory().openSession();
 		try {
 	    	
@@ -97,27 +37,7 @@ public class ProdutoFornecidoControler {
 		
 		return null;
 	}
-	public ProdutoFornecido buscaProdutoNome(String nome) {
-		session = HibernateUtil.getSessionFactory().openSession();
-		try {
-	    	
-	    	session.beginTransaction();
-	        Query q = session.createQuery ("from ProdutoFornecido where nome = '"+nome+"'");
-	        	       
-	        ProdutoFornecido pf = (ProdutoFornecido) q.uniqueResult();
-	        
-	        session.close();	       
-	        if(pf == null)
-	         return pf = new ProdutoFornecido();	
-	        else
-	         return pf;	
-	       
-	    } catch (Exception e) {
-	         System.out.println("erro ao pesquisar p "+e.getMessage());
-	    }
-		return null;
-	}
-	
-	
+
+			
 	
 }

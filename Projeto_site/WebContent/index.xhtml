@@ -3,7 +3,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"	
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
-<head>
+<h:head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content=""/>
@@ -44,7 +44,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png"/>
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png"/>
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png"/>
-</head><!--/head-->
+</h:head><!--/head-->
 
 <body class="homepage">
 
@@ -720,7 +720,9 @@
                             <i class="fa fa-phone"></i>
                         </div>
                         <div class="media-body">
-                            <h2>Faça parte de nossa equipe FLP Clicando <a href="#">aqui</a> </h2>
+                            <h2>Faça parte de nossa equipe FLP Clicando <a target="_blank" href="http://www.foreverliving.com.br/novoDistribuidor.php?sponsorFLP=550001632484">aqui</a> 
+                            
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -775,9 +777,10 @@
 				        
 				    });
 	</script>
+	<!-- Iniciar slide revolutin -->
 	<script>
     var revapi;
-
+   
 	jQuery(document).ready(function() {
 
 		   revapi = jQuery('.fullwidthbanner').revolution(

@@ -20,7 +20,7 @@ public class ProdutoFornecido {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.REMOVE)
 	@JoinColumn(name="id_parceria")	
 	private Parceria parceria;	
 	

@@ -56,15 +56,16 @@ public class VendaBen {
 	public VendaBen(){
 		
 		
-		  lisPro = comando.listarDados();
-		  lisCli = comandoCli.listarDados();
+		  lisPro = comando.listarDados("Produto");
+		  lisCli = comandoCli.listarDados("Cliente");
 	}
 		
 	public String add()
 	{
 	 Produto pesquisaEstque = new Produto();
-	 pesquisaEstque = (Produto) comando.buscaProduto(pd.getId());
-	 
+	 pesquisaEstque = (Produto) comando.buscarClassePorId("Produto",pd.getId());
+	 if(pesquisaEstque == null)
+		 pesquisaEstque = new Produto();
 	    if(pesquisaEstque.getQuantidade() >= getQuantidade()){
 			subtotal = quantidade * pd.getValor_Revenda();
 			pd.setComprado(subtotal);
@@ -95,13 +96,13 @@ public class VendaBen {
 					   cli.setId(255);
 					
 					vd.setCliente(cli);
-					pd = (Produto) comando.buscaProduto(lisCarrinho.get(i).getId());
+					pd = (Produto) comando.buscarClassePorId("Produto",lisCarrinho.get(i).getId());				
 					vd.setProduto(pd);								
 					vd.setData(new SimpleDateFormat("dd/MM/yyyy").format(new Date()) );
 			    	vd.setComprado(lisCarrinho.get(i).getComprado());
 					
 					
-					comandoVd.inserir(vd);
+					comandoVd.inserir(vd,"Venda realizada com sucesso");
 					//diminuir do estoque
 					comandoVd.diminuirEstoque(lisCarrinho.get(i).getId(), lisCarrinho.get(i).getQuantidade());
 				}	
@@ -122,7 +123,10 @@ public class VendaBen {
 	  }
 	}
 	public void buscaVenda(){
-		cliPesquisado = (Cliente) comandoCli.buscaCliente(cliPesquisado.getNome()); 
+		cliPesquisado = (Cliente) comandoCli.buscarClassePorNome("Cliente",cliPesquisado.getNome()); 
+		if(cliPesquisado == null){
+			cliPesquisado = new Cliente();
+		}
 		if(cliPesquisado.getId() != 0)	{			
 			lisVendido = comandoVd.buscaVenda(cliPesquisado.getId(),dataPesquisaVenda);
 			if(lisVendido.isEmpty()){
@@ -173,7 +177,7 @@ public class VendaBen {
 	public void trocar(){
 		
 		if(produtoTroca1.getNome()!= "" && produtoTroca2.getNome()!= ""){
-			System.out.println(produtoTroca1.getId()+" "+produtoTroca1.getNome()+" "+quantidadeTroca1);
+			
 			comandoVd.diminuirEstoque(produtoTroca1.getId(), quantidadeTroca1);
 		    comandoVd.aumentaEstoque(produtoTroca2.getId(), quantidadeTroca2);
 		   
@@ -191,12 +195,14 @@ public class VendaBen {
 	}
 	public void buscaProduto()
 	{  			
-		lisPro = comando.buscaProdutos(pd.getNome());		
+		lisPro = comando.buscarListaPorNome("Produto", pd.getNome());		
 		
 	}	
 	public String buscaCliente()
 	{ 
-		cliPesquisado = (Cliente) comandoCli.buscaCliente(ClientePesquisa); 
+		cliPesquisado = (Cliente) comandoCli.buscarClassePorNome("Cliente",ClientePesquisa); 
+		if(cliPesquisado == null)
+			cliPesquisado = new Cliente();
 		if(cliPesquisado.getId() != 0)	{			
 			cli.setNome(cliPesquisado.getNome());
 			cli = cliPesquisado;
@@ -206,18 +212,17 @@ public class VendaBen {
 		return "null";
 	}
 	public void buscaClientes(){
-		lisCli = comandoCli.buscaClientes(ClientePesquisa);
+		lisCli = comandoCli.buscarListaPorNome("Cliente",ClientePesquisa);
 	}
 	public String buscapg(){
 		if(cliPesquisado.getId() != 0)
 		{
-			lisPro = comando.listarDados();
+			lisPro = comando.listarDados("Produto");
 			 if(lisCarrinho.size() > 0)
 			  {
 				
 				for (int i = 0; i < lisCarrinho.size();i++) {					
-					for (int j = 0; j < lisPro.size(); j++) {
-						System.out.println(lisCarrinho.get(i).getNome() +"="+ lisPro.get(j).getNome());
+					for (int j = 0; j < lisPro.size(); j++) {						
 						if(lisCarrinho.get(i).getNome().equals(lisPro.get(j).getNome())){							
 							lisPro.get(j).setQuantidade(lisPro.get(j).getQuantidade()-lisCarrinho.get(i).getQuantidade());											
 						    
@@ -251,7 +256,7 @@ public class VendaBen {
 		return lisPro;
 	}
 	public void setLisPro(List lisPro) {
-		this.lisPro = comando.listarDados();
+		this.lisPro = comando.listarDados("Produto");
 	}
 	public List getLisCarrinho() {
 		return lisCarrinho;

@@ -80,7 +80,7 @@ public class SiteBen {
     public String detalhesSite(){   	
     	System.out.println("metodo chamado");
     	System.out.println(produto.getNome());
-    	produto = (Produto) new ProdutoControler().buscaProduto(produto.getId());
+    	produto = (Produto) new ProdutoControler().buscarClassePorId("Produto",produto.getId());
     	System.out.println(produto.getNome());
     	return "descricao.xhtml";
     }
@@ -214,6 +214,11 @@ public class SiteBen {
 	   	util.Upload(foto,"slide/slide3.jpg");    	
 	   	return null;
   } 
+   public String slide4(){
+	   	if(foto != null)
+	   	util.Upload(foto,"slide/slide4.jpg");    	
+	   	return null;
+ } 
 // enviar email
    public void sendEmail(){
 	   Email em = new Email();
@@ -221,12 +226,13 @@ public class SiteBen {
 			            +"Telefone : "+telefoneMenssage+" Email : "+emailMenssage+"\n"
 			            +"Menssage : "+conteudoMenssage+"\n"+"Objetivo : "+objetivoMenssage;
 	  
-	   em.enviarEmail("jorliano@hotmail.com", conteudo);
 	   nomeMenssage = "";
 	   telefoneMenssage ="";
 	   emailMenssage="";
 	   conteudoMenssage="";
 	   objetivoMenssage="";
+	   em.enviarEmail("jorliano@hotmail.com", conteudo);
+	 
    }
  //enviar email solicitar produto
    public  void senEmailProduto(){
@@ -234,22 +240,26 @@ public class SiteBen {
 	   String conteudo = "Nome : "+nomeMenssage+" Telefone : "+telefoneMenssage+"\n"
 			            +"Produto solicitado : "+produto.getNome()+" Quantidade :"+quantidade+"\n"
 			            +"Menssage : "+conteudoMenssage;
-	  
-	   em.enviarEmail("jorliano@hotmail.com", conteudo);
+	   
 	   nomeMenssage = "";
 	   telefoneMenssage ="";	   
 	   conteudoMenssage="";
 	   quantidade = 1;
+	   
+	   em.enviarEmail("jorliano@hotmail.com", conteudo);
+	 
    }
  
 //pesquisar tipo produtos
  public  void pesquisar() {	
 		 paginaAtual = 0;
 	  listaProduto = new ProdutoControler().buscaProdutoPor(categoria, ordenar, ordenarTipo, priceMin, priceMax,paginaAtual);		
+      listaProduto = comando.diminuirTextoPesquisado(listaProduto);
  }
 //pesquisar tipo prodsutos
  public  void pesquisarPaginas() {					
 	 listaProduto = new ProdutoControler().buscaProdutoPor(categoria, ordenar, ordenarTipo, priceMin, priceMax,paginaAtual);		
+	 listaProduto = comando.diminuirTextoPesquisado(listaProduto);
  }
 //paginar
 	 public void paginarAnterio(){

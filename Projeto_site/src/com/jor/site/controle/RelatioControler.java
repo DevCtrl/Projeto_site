@@ -23,6 +23,7 @@ public class RelatioControler {
 	 Calendar cal = Calendar.getInstance(); 
 	 List<Produto> listaDataProduto= new ArrayList<Produto>();
 	 List<Cliente> listaDataCliente= new ArrayList<Cliente>();
+	 
 	 private int janeiro = 0,fevereiro =0,marco = 0,abril =0,maio = 0,junho = 0,
 			 julho=0,agosto=0,setembro =0,outubro = 0,novembro =0,dezembro =0;
 	 private int janeiro2 = 0,fevereiro2 =0,marco2 = 0,abril2 =0,maio2 = 0,junho2 = 0,
@@ -65,9 +66,10 @@ public class RelatioControler {
 		{
 			DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
             try {
-				date = (java.util.Date)formatter.parse((String) li.get(i).getDataCadastro());
-				relatorioMeses();
-				
+            	if(li.get(i).getDataCadastro() != null){
+				  date = (java.util.Date)formatter.parse((String) li.get(i).getDataCadastro());
+				  relatorioMeses();
+            	}
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -83,9 +85,10 @@ public class RelatioControler {
 			{
 				DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
 	            try {
-					date = (java.util.Date)formatter.parse((String) li.get(i).getDataCadastro());
-					relatorioMeses2();
-					
+	            	if(li.get(i).getDataCadastro() != null){
+					   date = (java.util.Date)formatter.parse((String) li.get(i).getDataCadastro());
+					   relatorioMeses2();
+	            	}
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -95,8 +98,7 @@ public class RelatioControler {
 			}		 
 		}
 	 public void relatorioMeses(){
-		 cal.setTime(date);
-			System.out.println(cal.get(Calendar.MONTH) );
+		 cal.setTime(date);			
 			if(cal.get(Calendar.MONTH) == 0)
 			    janeiro++;
 			if(cal.get(Calendar.MONTH) == 1)
@@ -123,8 +125,7 @@ public class RelatioControler {
 			    dezembro++;
 	 }
 	 public void relatorioMeses2(){
-		 cal.setTime(date);
-			System.out.println(cal.get(Calendar.MONTH) );
+		 cal.setTime(date);			
 			if(cal.get(Calendar.MONTH) == 0)
 			    janeiro2++;
 			if(cal.get(Calendar.MONTH) == 1)
@@ -154,7 +155,7 @@ public class RelatioControler {
 	 public List<Produto> relatorioVenda(){
 		 List<Produto> listPro = new ArrayList<Produto>();
 		 List<Produto> listResultado = new ArrayList<Produto>();
-		 listPro = new ProdutoControler().listarDados();
+		 listPro = new ProdutoControler().listarDados("Produto");
 		 List<Venda> lisVen = new ArrayList<Venda>();
 		 session = HibernateUtil.getSessionFactory().openSession();
 		 Criteria cri =session.createCriteria(Venda.class);

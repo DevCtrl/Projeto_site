@@ -26,7 +26,7 @@ public class ClienteBen {
 		
 	public ClienteBen()
 	{
-		lista =  comando.listarDados();			
+		lista =  comando.listarDados("Cliente");			
 	}
 	
 	
@@ -34,11 +34,14 @@ public class ClienteBen {
 	{
 		
 		if(cliente.getId() == 0){	
-			clienteSelecionado = (Cliente) comando.buscaCliente(cliente.getNome());
+			clienteSelecionado = (Cliente) comando.buscarClassePorNome("Cliente", cliente.getNome());
+			if(clienteSelecionado == null){
+				clienteSelecionado = new Cliente();
+			}
 			if(clienteSelecionado.getNome() == null){
 				
-				comando.inserir(cliente);
-				lista = comando.listarDados();
+				comando.inserir(cliente, "Cliente "+cliente.getNome()+" slavo com sucesso");
+				lista = comando.listarDados("Cliente");
 				cliente = new Cliente();
 			}
 						
@@ -49,8 +52,8 @@ public class ClienteBen {
 			
 		}
 		else{			
-			comando.alterar(cliente);	
-			lista = comando.listarDados();
+			comando.alterar(cliente,"Cliente "+cliente.getNome()+" alterado com sucesso");	
+			lista = comando.listarDados("Cliente");
 			cliente = new Cliente();
 		}		
 		
@@ -71,15 +74,15 @@ public class ClienteBen {
 	}
 	public String deletar()
 	{		
-		comando.deletar(cliente);			
-		lista = comando.listarDados();
+		comando.deletar(cliente,"Cliente "+cliente.getNome()+" Deletado com sucesso");			
+		lista = comando.listarDados("Cliente");
 		cliente = new Cliente();
 		
 		return "cliente.xhtml";
 	}
 	public String buscaCliente()
 	{		
-		lista = comando.buscaClientes(cliente.getNome());
+		lista = comando.buscarListaPorNome("Cliente",cliente.getNome());
 		return "null";
 	}
 

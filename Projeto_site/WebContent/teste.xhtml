@@ -6,13 +6,26 @@
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
     xmlns:p="http://primefaces.org/ui">
 <h:head>
+<style>
+    .ui-datagrid{border: none !important;}  
+    .ui-datagrid-content {border: none !important;}  
+    
+</style>
 </h:head>
 <body>
   
-     <h:form>
-        <h:commandButton value="ok" actionListener="#{benTeste.sendEmail}"></h:commandButton>
-     </h:form>
-     
+      <p:dataGrid id="grid" var="list" value="#{benSite.listaProduto}"   columns="4"  layout="grid" 
+        rows="12" 
+        
+        >
+					           <p:panel id="p" styleClass="ui-datagrid" >
+					                
+												<img src="#{request.contextPath}#{list.urlImagem}" class="img-responsive" /> 
+																
+											   				         
+					        
+								    </p:panel>			
+								 </p:dataGrid>
  
  </body> 
 </html>

@@ -77,19 +77,19 @@
 							<!-- shop items start -->
 							<h:form id="form2">	
 							<div class="masonry-grid-fitrows row grid-space-20">
-							 
-							 <p:dataGrid id="grid" var="list" value="#{benSite.listaProduto}" style="width: 100%"  columns="4" styleClass="table table-responcive table-hover" rows="10"> 	
-					           <p:panel >
+							
+							 <p:dataGrid id="grid" var="list" style="width: 100%" value="#{benSite.listaProduto}"   columns="4" layout="grid" rows="10"> 	
+					           <p:panel styleClass="ui-datagrid" >
 					                <div class="  masonry-grid-item">
-														<div class="listing-item">
-															<div class="overlay-container">
-																<img src="#{request.contextPath}#{list.urlImagem}" class="img-responsive" /> 
+										<div class="listing-item">
+											<div class="overlay-container">
+												<img src="#{request.contextPath}#{list.urlImagem}" class="img-responsive" /> 
 																
-																<h:commandLink styleClass="overlay small " action="#{benSite.detalhesSite}"><span >Veja Detalhes</span>
-																   <f:setPropertyActionListener value="#{list}" target="#{benSite.produto}"></f:setPropertyActionListener>
-																</h:commandLink>																
-															</div>
-															<div class="listing-item-body clearfix">
+											    <h:commandLink styleClass="overlay small " action="#{benSite.detalhesSite}"><span >Veja Detalhes</span>
+												  <f:setPropertyActionListener value="#{list}" target="#{benSite.produto}"></f:setPropertyActionListener>
+												</h:commandLink>																
+												</div>
+													<div class="listing-item-body clearfix">
 																<h3 class="title"><a href="shop-product.html">#{list.nome}</a></h3>											
 																<p>#{list.descricao}</p>
 																<span class="price"> 
@@ -101,7 +101,7 @@
 																</div>
 															</div>
 														</div>
-													</div>     					         
+													</div>    					         
 					        
 								    </p:panel>			
 								 </p:dataGrid>																															

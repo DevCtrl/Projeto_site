@@ -65,7 +65,24 @@ public class SiteControler {
     //dimiui o conteudo da descrição do produto   
    	public List diminuirTexto(){
    		List<Produto> p = new ArrayList<Produto>();
-   		p = new ProdutoControler().listarDados();
+   		p = new ProdutoControler().listarDados("Produto");
+   		
+   		for (int i = 0; i < p.size(); i++) {
+   			int fim = 50;
+   			
+   			if( p.get(i).getDescricao() != null){
+   			   if(p.get(i).getDescricao().length() < 50)
+   				   fim = p.get(i).getDescricao().length();
+   			   
+   				String texto = p.get(i).getDescricao().substring(0,fim);
+   				p.get(i).setDescricao(texto);
+   			}else
+   				p.get(i).setDescricao("sem texto");
+   			
+   		}
+   		return p;
+   	}
+   	public List diminuirTextoPesquisado(List<Produto> p){   		
    		
    		for (int i = 0; i < p.size(); i++) {
    			int fim = 50;

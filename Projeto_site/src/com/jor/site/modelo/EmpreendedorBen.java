@@ -31,7 +31,7 @@ public class EmpreendedorBen  {
 		
 	public EmpreendedorBen()
 	{
-		lista =  comando.listarDados();			
+		lista =  comando.listarDados("Empreendedor");			
 	}
 	
 	
@@ -39,11 +39,13 @@ public class EmpreendedorBen  {
 	{
 		
 		if(empreendedor.getId() == 0){	
-			empreendedorSelecionado = (Empreendedor) comando.buscaEmpreendedor(empreendedor.getNome());
+			empreendedorSelecionado = (Empreendedor) comando.buscarClassePorNome("Empreendedor",empreendedor.getNome());
+			if(empreendedorSelecionado == null)
+				empreendedorSelecionado = new Empreendedor();
 			if(empreendedorSelecionado.getNome() == null){
 				
-				comando.inserir(empreendedor);
-				lista = comando.listarDados();
+				comando.inserir(empreendedor,"Empreendedor "+empreendedor.getNome()+" salvo com sucesso");
+				lista = comando.listarDados("Empreendedor");
 				empreendedor = new Empreendedor();
 			}
 						
@@ -54,8 +56,8 @@ public class EmpreendedorBen  {
 			
 		}
 		else{			
-			comando.alterar(empreendedor);	
-			lista = comando.listarDados();
+			comando.alterar(empreendedor,"Empreendedor alterado com sucesso");	
+			lista = comando.listarDados("Empreendedor");
 			empreendedor = new Empreendedor();
 		}		
 		
@@ -76,15 +78,15 @@ public class EmpreendedorBen  {
 	}
 	public String deletar()
 	{		
-		comando.deletar(empreendedor);			
-		lista = comando.listarDados();
+		comando.deletar(empreendedor,"Deletado"+empreendedor.getNome()+" com sucesso");			
+		lista = comando.listarDados("Empreendedor");
 		empreendedor = new Empreendedor();
 		
 		return "empreendedor.xhtml";
 	}
 	public String buscaEmpreendedor()
 	{		
-		lista = comando.buscaEmpreendedors(empreendedor.getNome());
+		lista = comando.buscarListaPorNome("Empreendedor", empreendedor.getNome());
 		return "null";
 	}
 

@@ -30,7 +30,9 @@
              #{list.fone} 
           </h:column> 
           <h:column>             
-             <h:commandButton value="Excluir" styleClass="btn btn-danger"></h:commandButton> 
+             <h:commandButton value="Excluir" actionListener="#{benParceria.deletarParceria}" styleClass="btn btn-danger">
+                <f:setPropertyActionListener target="#{benParceria.parceria}" value="#{list}"></f:setPropertyActionListener>
+             </h:commandButton> 
           </h:column>          
       </h:dataTable> 
      <!-- final da tabela -->            

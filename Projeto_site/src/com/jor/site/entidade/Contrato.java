@@ -18,9 +18,9 @@ public class Contrato {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id ;
+	private long id ;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="id_parceria")	
 	private Parceria parceria;
 	
@@ -32,10 +32,12 @@ public class Contrato {
 	private String DataInicial;
 	@Column(name="datafinal")
 	private String DataFinal;
-	public int getId() {
+	
+	
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public Parceria getParceria() {

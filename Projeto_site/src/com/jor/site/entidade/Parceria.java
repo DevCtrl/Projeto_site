@@ -13,7 +13,7 @@ public class Parceria {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private long id;
 	
 	@Column(name= "nome")
 	private String Nome;
@@ -29,10 +29,12 @@ public class Parceria {
 	private String Email;
 	@Column(name= "rg")
 	private String Rg;
-	public int getId() {
+	
+	
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getNome() {

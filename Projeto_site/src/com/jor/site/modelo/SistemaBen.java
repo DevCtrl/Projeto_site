@@ -41,10 +41,10 @@ public class SistemaBen {
 	
 	public SistemaBen()
 	{
-		listc = new ClienteControler().listarDados();
-		listp = new ProdutoControler().listarDados();
-		listv = new ParceriaControler().listarDados();
-		liste = new EmpreendedorControler().listarDados();
+		listc = new ClienteControler().listarDados("Cliente");
+		listp = new ProdutoControler().listarDados("Produto");
+		listv = new ParceriaControler().listarDados("Parceria");
+		liste = new EmpreendedorControler().listarDados("Empreendedor");
 		
 			quanteC = listc.size();
 		    quanteP = listp.size();		

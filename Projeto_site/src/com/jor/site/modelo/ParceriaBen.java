@@ -45,27 +45,27 @@ public class ParceriaBen {
 	
 	public ParceriaBen() {
 		
-		 listaParceria = comandoParceria.listarDados();
+		 listaParceria = comandoParceria.listarDados("Parceria");
 	}
 	public void inserirParceria()
 	{
 		if(parceria.getId() == 0){		
-		   comandoParceria.inserir(parceria);
+		   comandoParceria.inserir(parceria,"Vendedor "+parceria.getNome()+" cadastrado com sucesso");
 		   parceria = new Parceria();
 		} 
 		else
-		   comandoParceria.alterar(parceria);				
+		   comandoParceria.alterar(parceria,"Vendedor "+parceria.getNome()+" alterado com sucesso");				
 		
-		listaParceria = comandoParceria.listarDados();
+		listaParceria = comandoParceria.listarDados("Parceria");
 	}
 	public void deletarParceria()
 	{
-		comandoParceria.deletar(parceria);		
-		listaParceria = comandoParceria.listarDados();
+		comandoParceria.deletar(Parceria,"Vendedor "+parceria.getNome()+" deletado com sucesso");		
+		listaParceria = comandoParceria.listarDados("Parceria");
 		
 	}
 	public void buscaParceria(){		
-	    listaParceria = comandoParceria.buscaParcerias(parceria.getNome());
+	    listaParceria = comandoParceria.buscarListaPorNome("Parceria", parceria.getNome());
 	}
 	public String pagina(){
 		return "parcerias.xhtml";
@@ -84,11 +84,11 @@ public class ParceriaBen {
 		if(contrato.getId() == 0){
 			System.out.println(parceria.getId());
 			 contrato.setParceria(parceria);
-			 comandoContrato.inserir(contrato);
+			 comandoContrato.inserir(contrato," Contrato salvo com sucesso");
 		}
 		  
 		else
-		   comandoContrato.alterar(contrato);		
+		   comandoContrato.alterar(contrato,"Contrato alterado com sucesso");		
 		contrato = new Contrato();
 		
 	  }
@@ -98,12 +98,12 @@ public class ParceriaBen {
 	}
 	public void deletarContrato()
 	{
-		comandoContrato.deletar(contrato);
+		comandoContrato.deletar(contrato,"Contrato deletado com sucesso");
 		contrato = new Contrato();	
 		
 	}
 	public void buscaContratoId(){
-	    contrato = (Contrato) comandoContrato.buscaContrato(contrato.getId());
+	    contrato = (Contrato) comandoContrato.buscarClassePorId("Contrato", contrato.getId());
 	}
 	//Fornecimento de Produtos
 	public String inserirProdutoFornecido()
@@ -118,10 +118,10 @@ public class ParceriaBen {
 			 fornecido.setQuantidade(getQuantidadeFornecido());
 			 fornecido.setValor_Varejo(p.getValor_Varejo());
 			 
-			 p = (Produto) new ProdutoControler().buscaProduto(p.getId());
+			 p = (Produto) new ProdutoControler().buscarClassePorId("ProdutoFornecido", p.getId());
 			 System.out.println(p.getQuantidade()+" < "+getQuantidadeFornecido());
 			 if(p.getQuantidade() > getQuantidadeFornecido()){
-			    comandoFornecido.inserir(fornecido);
+			    comandoFornecido.inserir(fornecido,"Fornecimento salvo com sucesso");
 			    new VendaControler().diminuirEstoque(p.getId(), getQuantidadeFornecido());
 			 }else
 				 Alerta.error("quantidade especificada é maior do que no estoque");
@@ -132,12 +132,12 @@ public class ParceriaBen {
 	  return "parceria.xhtml";
 	}
 	public String editarProdutoFornecido(){
-		p = (Produto) new ProdutoControler().buscaProdutoNome(fornecido.getNome());		
+		p = (Produto) new ProdutoControler().buscarClassePorNome("ProdutoFornecido", fornecido.getNome());		
 		
 		if(fornecido.getQuantidade() > quantidadeFornecidoEditado){
 			if(p.getQuantidade() >   fornecido.getQuantidade() - quantidadeFornecidoEditado){
 				new VendaControler().diminuirEstoque(p.getId(), fornecido.getQuantidade() - quantidadeFornecidoEditado);
-				comandoFornecido.alterar(fornecido);
+				comandoFornecido.alterar(fornecido,"Produto fornecido alterado");
 				buscaProdutoFornecido();
 			}else{
 			  Alerta.error("Quantidade é maior do que tem no estoque");
@@ -145,7 +145,7 @@ public class ParceriaBen {
 			}
 		}else{
 			new VendaControler().aumentaEstoque(p.getId(), quantidadeFornecidoEditado - fornecido.getQuantidade() );
-			comandoFornecido.alterar(fornecido);
+			comandoFornecido.alterar(fornecido,"Produto fornecido alterado");
 			buscaProdutoFornecido();
 		}
 			
@@ -161,7 +161,7 @@ public class ParceriaBen {
 	}
 	public String deletarProdutoFornecido()	{	  	
 		
-		comandoFornecido.deletar(fornecido);		
+		comandoFornecido.deletar(fornecido,"Fornecimento deletado");		
 		buscaProdutoFornecido();		
 			
 	  return "parcerias.xhtml";

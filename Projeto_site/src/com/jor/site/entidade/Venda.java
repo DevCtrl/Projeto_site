@@ -22,11 +22,11 @@ public class Venda {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id ;
 	
-	@ManyToOne	
+	@ManyToOne(cascade = CascadeType.REMOVE)	
 	@JoinColumn(name="id_produto")	
 	private Produto produto;
 	
-	@ManyToOne	
+	@ManyToOne(cascade = CascadeType.REMOVE)	
 	@JoinColumn(name="id_cliente") 
 	private Cliente cliente;
 	

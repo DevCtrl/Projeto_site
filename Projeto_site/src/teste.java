@@ -18,7 +18,7 @@ import com.jor.site.util.HibernateUtil;
 public class teste {
 	static List<Produto> p = new ArrayList<Produto>(); 
 	public static void main(String[] args) {  	
-		//login 550001632484
+		// 550001632484
 			
 		
 		

@@ -38,20 +38,20 @@ public class UsuarioBen {
 		
 		
 		if(usuario.getId() == 0){
-		 comando.inserir(usuario);
+		 comando.inserir(usuario,"Usuario "+usuario.getNome()+" salvo com sucesso");
 		}
 		else{
-		comando.alterar(usuario);
+		comando.alterar(usuario,"Usuario "+usuario.getNome()+" alterado com sucesso");
 		}
 		usuario = new Usuario();
-		lista  = comando.listarDados();
+		lista  = comando.listarDados("Usuario");
 		return "usuario.xhtml";
 		
 	}
 	public String deletar()
 	{
-		comando.deletar(usuario);		
-		lista = comando.listarDados();
+		comando.deletar(usuario,"Usuario "+usuario.getNome()+" deletado com sucesso");		
+		lista = comando.listarDados("Usuario");
 		usuario = new Usuario();
 		return "usuario.xhtml";
 	}
@@ -65,7 +65,7 @@ public class UsuarioBen {
 	}
 
 	public List getLista() {
-		return lista = comando.listarDados();
+		return lista = comando.listarDados("Usuario");
 	}
 
 	public void setLista(List lista) {

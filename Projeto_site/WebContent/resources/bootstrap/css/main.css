@@ -23,6 +23,13 @@ h6 {
   color:#4e4e4e;
 }
 
+.ui-datagrid{
+	border: none !important;
+	}  
+.ui-datagrid-content {
+	border: none !important;
+	}  
+    
 h1{
   font-size: 36px;
   color:#fff;

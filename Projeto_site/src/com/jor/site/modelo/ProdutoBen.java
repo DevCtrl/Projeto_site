@@ -28,7 +28,7 @@ public class ProdutoBen {
 	List lista = new ArrayList();
 	
 	public ProdutoBen(){
-		lista = comando.listarDados();
+		lista = comando.listarDados("Produto");
 		
 	}
 	public String criarImagem1() throws IOException{
@@ -59,7 +59,9 @@ public class ProdutoBen {
 		
 		if(produto.getId() == 0)
 		{
-			produtoselecionado = (Produto) comando.buscaProdutoNome(produto.getNome());			
+			produtoselecionado = (Produto) comando.buscarClassePorNome("Produto",produto.getNome());	
+			if(produtoselecionado == null)
+				produtoselecionado = new Produto();
 			if(produtoselecionado.getNome() == null && produtoselecionado.getCodigo() == 0){
 				produto.setQuantidade(quantidade);
 				criarImagem1();
@@ -67,8 +69,8 @@ public class ProdutoBen {
 					produto.setUrlImagem("/resources/bootstrap/imagens/servico/interrogacao.jpeg");
 				   System.out.println("if chamado");	
 				}
-				comando.inserir(produto);
-				lista = comando.listarDados();
+				comando.inserir(produto, "Produto "+produto.getNome()+" salvo com sucesso");
+				lista = comando.listarDados("Produto");
 				produto = new Produto();	
 				quantidade = 1;
 			}		
@@ -81,8 +83,8 @@ public class ProdutoBen {
 		{
 			produto.setQuantidade(quantidade + produto.getQuantidade());
 			criarImagem1();			
-			comando.alterar(produto);
-			lista = comando.listarDados();
+			comando.alterar(produto,"Dados alterado com sucesso");
+			lista = comando.listarDados("Produto");
 			produto = new Produto();	
 			quantidade = 1;
 		}		
@@ -91,14 +93,14 @@ public class ProdutoBen {
 	}
 	public String deletar()
 	{  		
-		comando.deletar(produto);		
-		lista = comando.listarDados();
+		comando.deletar(produto,"Produto "+produto.getNome()+" deletado com sucesso");		
+		lista = comando.listarDados("Produto");
 		produto = new Produto();
 		return "produto.xhtml";
 	}
 	public String buscaProduto()
 	{
-		lista = comando.buscaProdutos(produto.getNome());
+		lista = comando.buscarListaPorNome("Produto", produto.getNome());
 		produto = new Produto();
 		return "null";
 	}
