@@ -48,7 +48,7 @@ public class Email
                   /**Método para enviar a mensagem criada*/
                   Transport.send(message);
 
-                  Alerta.info("Dados enviado com sucesso");
+                 // Alerta.info("Dados enviado com sucesso");
 
              } catch (MessagingException e) {
                   throw new RuntimeException(e);

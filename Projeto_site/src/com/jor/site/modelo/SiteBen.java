@@ -202,38 +202,7 @@ public class SiteBen {
 	   	return null;
   } 
 
- public void enviar()  {
-	 String conteudo ="Nome :"+ nomeMenssage+"    Telefone :"+telefoneMenssage+"\n"+
-                      "Objetivo : "+objetivoMenssage+"\n"+conteudoMenssage;
-	// Alerta.info(conteudo);
-	
-	 //Email em =  new Email();
-	// em.enviarEmail("jorliano@hotmail.com",conteudo);
-	
-	
-
-  SimpleEmail email = new SimpleEmail();
-	email.setHostName("smtp.gmail.com");
-	email.setSmtpPort(465);
-	email.setAuthenticator(new DefaultAuthenticator("jorliano32@gmail.com", "leandrogmail"));
-	email.setSSLOnConnect(true);
-	try {
-		email.setFrom("jorliano32@gmail.com");
-		email.setSubject("TestMail");
-		email.setMsg("teste "+conteudo);
-		email.addTo("jorliano@hotmail.com");
-		email.send();
-	} catch (EmailException e) {
-		// TODO Auto-generated catch block
-		// Alerta.info("reeo ao enviar o email);
-		e.printStackTrace();
-	}
-
  
-  
-	 
-
- }
 //pesquisar tipo prosutos
  public  void pesquisar() {	
 		 paginaAtual = 0;

@@ -17,9 +17,10 @@ import com.jor.site.util.HibernateUtil;
 public class teste {
 	static List<Produto> p = new ArrayList<Produto>(); 
 	public static void main(String[] args) {  	
-		
+		//login 550001632484
 			
-	 	
+	 	Email em = new Email();
+	 	em.enviarEmail("jorliano@hotmail.com", "testando o email");
 	     
 		 /* SimpleEmail email = new SimpleEmail();
 			
@@ -38,20 +39,7 @@ public class teste {
 				e.printStackTrace();
 			}
   */
-		SimpleEmail email = new SimpleEmail();
-		 email.setHostName("smtp.gmail.com"); // o servidor SMTP para envio do e-mail
-		 email.setSmtpPort(465);
-		 try {
-			email.addTo("jorliano@hotmail", "John Doe");
-			 email.setFrom("jorliano32@gmail.com", "Me"); // remetente
-			 email.setSubject("Mensagem de Teste"); // assunto do e-mail
-			 email.setMsg("Teste de Email utilizando commons-email"); //conteudo do e-mail
-			 email.send(); //envia o e-mail
-			 
-		} catch (EmailException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} //destinatário
+		
 	
 	}	
 	
