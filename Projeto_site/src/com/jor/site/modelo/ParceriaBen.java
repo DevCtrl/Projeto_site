@@ -118,10 +118,9 @@ public class ParceriaBen {
 			 fornecido.setQuantidade(getQuantidadeFornecido());
 			 fornecido.setValor_Varejo(p.getValor_Varejo());
 			 
-			 p = (Produto) new ProdutoControler().buscarClassePorId("ProdutoFornecido", p.getId());
-			 if(p == null)
-				 p= new Produto();
 			 
+			 //p = (Produto) new ProdutoControler().buscarClassePorId("ProdutoFornecido", p.getId());
+			 			 
 			 if(p.getQuantidade() > getQuantidadeFornecido()){
 			    comandoFornecido.inserir(fornecido,"Fornecimento salvo com sucesso");
 			    new VendaControler().diminuirEstoque(p.getId(), getQuantidadeFornecido());

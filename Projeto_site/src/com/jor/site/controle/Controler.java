@@ -107,9 +107,7 @@ private Session session;
 	         
 	    	  Query q = session.createQuery("from "+tabela+" where id = :id" );
 	    	  q.setParameter("id", id);	 	    	     	            	         	    	  
-	    	  if(q.uniqueResult() == null)  	        	   	        	
-   	        	return new Object();   	             	          	  
-   	          else 	  
+	    	  
 	          return q.uniqueResult();
 	    } catch (Exception e) {
 	         System.out.println("erro ao pesquisar "+e.getMessage());
