@@ -60,7 +60,7 @@ public class ParceriaBen {
 	}
 	public void deletarParceria()
 	{
-		comandoParceria.deletar(Parceria,"Vendedor "+parceria.getNome()+" deletado com sucesso");		
+		comandoParceria.deletar(parceria,"Vendedor "+parceria.getNome()+" deletado com sucesso");		
 		listaParceria = comandoParceria.listarDados("Parceria");
 		
 	}
@@ -119,7 +119,9 @@ public class ParceriaBen {
 			 fornecido.setValor_Varejo(p.getValor_Varejo());
 			 
 			 p = (Produto) new ProdutoControler().buscarClassePorId("ProdutoFornecido", p.getId());
-			 System.out.println(p.getQuantidade()+" < "+getQuantidadeFornecido());
+			 if(p == null)
+				 p= new Produto();
+			 
 			 if(p.getQuantidade() > getQuantidadeFornecido()){
 			    comandoFornecido.inserir(fornecido,"Fornecimento salvo com sucesso");
 			    new VendaControler().diminuirEstoque(p.getId(), getQuantidadeFornecido());
@@ -133,7 +135,8 @@ public class ParceriaBen {
 	}
 	public String editarProdutoFornecido(){
 		p = (Produto) new ProdutoControler().buscarClassePorNome("ProdutoFornecido", fornecido.getNome());		
-		
+		if(p == null)
+			p = new Produto();
 		if(fornecido.getQuantidade() > quantidadeFornecidoEditado){
 			if(p.getQuantidade() >   fornecido.getQuantidade() - quantidadeFornecidoEditado){
 				new VendaControler().diminuirEstoque(p.getId(), fornecido.getQuantidade() - quantidadeFornecidoEditado);
