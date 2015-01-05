@@ -2,12 +2,12 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
                                          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
- <session-factory name="">
-  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-  <property name="hibernate.connection.password">root</property>
-  <property name="hibernate.connection.url">jdbc:mysql://&lt;hostname&gt;/&lt;database&gt;</property>
-  <property name="hibernate.connection.username">root</property>
-  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+ <session-factory name="hibernate">
+  <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
+  <property name="hibernate.connection.password">roote</property>
+  <property name="hibernate.connection.url">jdbc:mysql://&lt;hostname&gt;/&lt;Sistema&gt;</property>
+  <property name="hibernate.connection.username">roote</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
   <mapping class="Cliente"/>
  </session-factory>
 </hibernate-configuration>
