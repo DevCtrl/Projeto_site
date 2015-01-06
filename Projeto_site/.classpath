@@ -34,5 +34,9 @@
 	<classpathentry kind="lib" path="/home/jorliano/Downloads/apps programação/hibernate-search-4.5.2.Final/dist/hibernate-search-engine-4.5.2.Final.jar"/>
 	<classpathentry kind="lib" path="/home/jorliano/Downloads/apps programação/hibernate-search-4.5.2.Final/dist/hibernate-search-orm-4.5.2.Final.jar"/>
 	<classpathentry kind="con" path="org.eclipse.datatools.connectivity.jdt.DRIVERLIBRARY/MySQL JDBC Driver"/>
+	<classpathentry kind="lib" path="/home/jorliano/Downloads/apps programação/hibernate-search-4.5.2.Final/dist/lib/provided/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="/home/jorliano/Downloads/apps programação/hibernate-search-4.5.2.Final/dist/lib/provided/jms-1.1.jar"/>
+	<classpathentry kind="lib" path="/home/jorliano/Downloads/apps programação/hibernate-search-4.5.2.Final/dist/lib/provided/jsr250-api-1.0.jar"/>
+	<classpathentry kind="lib" path="/home/jorliano/Downloads/apps programação/hibernate-search-4.5.2.Final/dist/lib/provided/jta-1.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
