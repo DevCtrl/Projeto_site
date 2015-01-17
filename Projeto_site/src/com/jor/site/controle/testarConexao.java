@@ -10,13 +10,11 @@ public class testarConexao {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
         Cliente cli = new Cliente();
-        cli.setNome("leandro");
+        cli.setNome("leabd");
         cli.setCidade("caucaia");
 		
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		session.beginTransaction();
-		session.save(cli);
-		session.getTransaction().commit();
+		Control_cliente comando = new Control_cliente();
+		comando.inserir(cli);
 	}
 
 }

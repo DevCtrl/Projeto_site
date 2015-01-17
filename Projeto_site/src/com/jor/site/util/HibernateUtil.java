@@ -1,25 +1,28 @@
 package com.jor.site.util;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.Configuration;
+import org.hibernate.cfg.*;
+
+
 
 public class HibernateUtil {
-	private static final SessionFactory sessionFactory;
-	static {
+	private static final SessionFactory sessionFactory = buildSessionFactory();
+	
+
+	private static SessionFactory buildSessionFactory() {
 		try {
 			// Create the SessionFactory from standard (hibernate.cfg.xml)
 			// config file.
-			sessionFactory = new AnnotationConfiguration().configure()
-					.buildSessionFactory();
+			Configuration cfg = new Configuration();
+			cfg.configure("hibernate.cfg.xml");
 			System.out.println("conexão feita com sucesso");
-		} catch (Throwable ex) {
+			return cfg.buildSessionFactory();
+		} catch (Exception ex) {
 			// Log the exception.
-			System.err.println("Initial SessionFactory creation failed." + ex);
+			System.out.println("erro ao tentar criar a sessao " + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
 	}
-
 	public static SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
