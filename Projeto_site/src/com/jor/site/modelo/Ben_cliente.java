@@ -16,43 +16,44 @@ import com.jor.site.entidade.Cliente;
 @ViewScoped
 public class Ben_cliente {
    
-	Cliente NovoCli = new Cliente();	
+	Cliente cliente = new Cliente();	
 	Control_cliente comando = new Control_cliente();
 	List lista = new ArrayList();
 	
 	
 	
-	public void salvar(ActionEvent evt)
+	public void Incluir(ActionEvent evt)
 	{
-		
+		System.out.println("metodo chamado");
+		comando.inserir(cliente);
+		lista = comando.Listar_Dados();
 	}
-	public void editar(ActionEvent evt)
+	public void Editar(ActionEvent evt)
 	{
-		System.out.println("testando se mostar");
-		NovoCli.setNome("jorliano olivericdfsdfrsd");
-		NovoCli.setCidade("cidade");
+		System.out.println("testando se mostar");			
 		
-		comando.inserir(NovoCli);
 	}
 	public void Excluir(ActionEvent evt)
 	{
 		
 	}
 
-	public Cliente getNovoCli() {
-		return NovoCli;
+	public Cliente getcliente() {
+		return cliente;
 	}
 
-	public void setNovoCli(Cliente novoCli) {
-		NovoCli = novoCli;
+	public void setcliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public List getLista() {
-		return lista;
+		return lista = comando.Listar_Dados();
 	}
 
 	public void setLista(List lista) {
 		this.lista = lista;
 	}
+
+	
 	
 }

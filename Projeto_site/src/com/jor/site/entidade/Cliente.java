@@ -18,18 +18,22 @@ public class Cliente {
 	private long id;
 	@Column(name= "nome")
 	private String Nome;
+	
 	@Column(name= "cpf")
 	private String Cpf;
+	
 	@Column(name= "endereco")
 	private String Endereco;
+	
 	@Column(name= "cidade")
 	private String Cidade;
+	
 	@Column(name= "telefone")
 	private String Telefone;
+	
 	@Column(name= "email")
 	private String Email;
-	@Column(name= "renda")
-	private double Renda;
+	
 	@Column(name= "data_nas")
 	private Date Data_nas;
 	public long getId() {
@@ -74,12 +78,7 @@ public class Cliente {
 	public void setEmail(String email) {
 		Email = email;
 	}
-	public double getRenda() {
-		return Renda;
-	}
-	public void setRenda(double renda) {
-		Renda = renda;
-	}
+	
 	public Date getData_nas() {
 		return Data_nas;
 	}

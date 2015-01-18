@@ -19,17 +19,44 @@
 	 <link href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
      
 <body>
-    <h:form id="primeiro"> 
-     <h:commandLink value="teste aqui" actionListener="#{benCliente.editar}"/>
-    </h:form>
-      
-      <!-- <h:dataTable var="list" value="#{ben_cli.lista}"  rows="5" styleClass="table table-hover">
+  <ui:composition template="Layout_Sistema.xhtml">
+  <ui:define name="clienteBory">
+     <ui:insert name="incluirCliente">
+      <ui:insert name="incluirEditar">
+      <h:form id="formCli">
+        <h:dataTable var="list" value="#{benCliente.lista}"  rows="7" styleClass="table table-hover">
            <h:column >
-              <h:outputText value="#{list.cidade}"></h:outputText>
+              <f:facet name="header">Nome</f:facet>
+              #{list.nome}              
           </h:column>
            <h:column >
-              <h:outputText value="#{list.nome}"></h:outputText>
+              <f:facet name="header">Cidade</f:facet>
+              #{list.cidade}              
           </h:column>
-      </h:dataTable> -->
+          <h:column>
+              <f:facet name="header">Email</f:facet>
+              #{list.email}
+          </h:column>
+          <h:column>
+             <f:facet name="header">Telefone</f:facet>
+             #{list.telefone} 
+          </h:column>
+      </h:dataTable> 
+     <!-- final da tabela -->
+     
+       <h:commandButton id="bt_incluir" value="Incluir" styleClass="btn-lg btn-default ">
+         <i><a href="ConfigureCliente.xhtml"></a></i>       
+       </h:commandButton>          
+       <h:button value="teste" outcome="ConfigureCliente.xhtml"> </h:button> 
+       <h:commandButton id="bt_editar" value="Editar"    styleClass="btn-lg btn-info" disabled="true"/>
+       <h:commandButton id="bt_Deletar" value="Deletar" actionListener="#{benCliente.Excluir}"
+           styleClass="btn-lg btn-danger" />        
+     
+     
+     </h:form>
+      </ui:insert>
+     </ui:insert> 
+    </ui:define> 
+   </ui:composition>
 </body> 
 </html>

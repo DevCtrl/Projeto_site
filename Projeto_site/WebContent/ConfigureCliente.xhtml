@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+<body>
+	<ui:composition template="Cliente.xhtml">
+		<ui:define name="incluirCliente">
+			<form class="form-inline">
+			   Incluindo o cliente
+				<div class="form-group">
+					<input type="text" value="#{benCliente.cliente.nome}" 
+					class="form-control" id="nome" placeholder="Entre com nome"/>
+				</div>
+				<div class="form-group">
+					<input type="text" value="#{benCliente.cliente.endereco}" 
+					class="form-control" id="endereco" placeholder="Entre com endereço"/>
+				</div>
+				<div class="form-group">
+					<input type="text" value="#{benCliente.cliente.cidade}" 
+					class="form-control" id="cidade" placeholder="Entre com cidade"/>
+				</div>
+				<div class="form-group">
+					<input type="text" value="#{benCliente.cliente.email}" 
+					class="form-control" id="nome" placeholder="Entre email"/>
+				</div>			
+				
+				<h:commandButton id="bt_conf_slavar" value="Salvar" actionListener="#{benCliente.Incluir}" styleClass="btn-lg btn-default"/>
+				<h:commandButton id="bt_conf_slavar" value="Cancelar"  styleClass="btn-lg btn-default">
+			     
+				</h:commandButton>
+			</form>
+		</ui:define>
+		<ui:define name="EditarCliente">
+             	<form class="form-inline">
+				<div class="form-group">
+					<input type="text" value="#{benCliente.cliente.nome}" 
+					class="form-control" id="nome" placeholder="Entre com nome"/>
+				</div>
+				<div class="form-group">
+					<input type="text" value="#{benCliente.cliente.endereco}" 
+					class="form-control" id="endereco" placeholder="Entre com endereço"/>
+				</div>
+				<div class="form-group">
+					<input type="text" value="#{benCliente.cliente.cidade}" 
+					class="form-control" id="cidade" placeholder="Entre com cidade"/>
+				</div>
+				<div class="form-group">
+					<input type="text" value="#{benCliente.cliente.email}" 
+					class="form-control" id="nome" placeholder="Entre email"/>
+				</div>							
+				<h:commandButton id="bt_conf_slavar" value="Salvar" actionListener="benCliente.Incluir" styleClass="btn-lg btn-default"/>
+				<h:commandButton id="bt_conf_slavar" value="Cancelar"  styleClass="btn-lg btn-default">
+				     <i><a href="Cliente.xhtml"/></i>
+				</h:commandButton>
+			</form>
+		</ui:define>
+	</ui:composition>
+
+</body>
+</html>

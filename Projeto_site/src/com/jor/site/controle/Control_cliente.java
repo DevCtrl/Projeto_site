@@ -6,8 +6,13 @@ import java.util.List;
 
 
 
+
+
+import javax.faces.context.ExceptionHandler;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.omg.CORBA.ExceptionList;
 
 import com.jor.site.entidade.Cliente;
 import com.jor.site.util.HibernateUtil;
@@ -32,9 +37,11 @@ public class Control_cliente {
 		session = HibernateUtil.getSessionFactory().openSession();
 		try
 		{
+			
 			Criteria cri = session.createCriteria(Cliente.class);
 			return cri.list();
-		}finally
+		}
+		finally
 		{
 			session.close();
 		}
