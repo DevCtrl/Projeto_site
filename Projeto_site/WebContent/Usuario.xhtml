@@ -7,7 +7,7 @@
 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta charset="utf-8" />
-<title>produto</title>
+<title>usuario</title>
 <meta name="generator" content="Bootply" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -21,34 +21,34 @@
 <body>
   <ui:composition template="Layout_Sistema.xhtml">
   <ui:define name="corpo">    
-      <h:form id="formPro">
-        <h:dataTable var="list" value="#{benProduto.lista}"  rows="7" styleClass="table table-hover">
+      <h:form id="formUsu">
+        <h:dataTable var="list" value="#{benUsuario.lista}"  rows="7" styleClass="table table-hover">
            <h:column >
               <f:facet name="header">Id</f:facet>
               #{list.id}              
           </h:column>
            <h:column >
               <f:facet name="header">Nome</f:facet>
-             <h:commandLink value="#{list.nome}" ondblclick="Configureproduto.xhtml">                 
-                 <f:setPropertyActionListener target="#{list}" value="#{benProduto.produto}"></f:setPropertyActionListener>             
+             <h:commandLink value="#{list.nome}" ondblclick="Configureusuario.xhtml">                 
+                 <f:setPropertyActionListener target="#{list}" value="#{benUsuario.usuario}"></f:setPropertyActionListener>             
              </h:commandLink>                                    
           </h:column>
            <h:column >
-              <f:facet name="header">Descrição</f:facet>
-              #{list.descricao}              
+              <f:facet name="header">Login</f:facet>
+              #{list.login}              
           </h:column>
           <h:column>
-              <f:facet name="header">valor_Varejo</f:facet>
-              #{list.valor_Varejo}
+              <f:facet name="header">Senha</f:facet>
+              #{list.senha}
           </h:column>
           <h:column>
-             <f:facet name="header">Valor_Revenda</f:facet>
-             #{list.valor_Revenda} 
+             <f:facet name="header">Email</f:facet>
+             #{list.email} 
           </h:column>
           <h:column>
              <f:facet name="header">Ações</f:facet>
-             <h:commandLink value="ex" actionListener="#{benProduto.Excluir}" onclick="if(!confirm('Deja remover o produto #{list.nome} ?'))return false;">
-                <f:setPropertyActionListener value="#{list}" target="#{benProduto.produto}"/>
+             <h:commandLink value="ex" actionListener="#{benUsuario.Excluir}" onclick="if(!confirm('Deja remover o usuario #{list.nome} ?'))return false;">
+                <f:setPropertyActionListener value="#{list}" target="#{benUsuario.usuario}"/>
              </h:commandLink>             
              <h:commandLink value="Edit">
            
@@ -70,31 +70,31 @@
 		    <form jsf:id="form1" class="form-signin">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Cadastrar produto</h4>
+		        <h4 class="modal-title" id="myModalLabel">Cadastrar usuario</h4>
 		      </div>		     
 		      <div class="modal-body">				 			   
 					<div class="form-group">
-						<input type="text" jsf:value="#{benProduto.produto.nome}" 
+						<input type="text" jsf:value="#{benUsuario.usuario.nome}" 
 						class="form-control" jsf:id="nome" placeholder="Entre com nome"/>
 					</div>
 					<div class="form-group">
-						<input type="text" jsf:value="#{benProduto.produto.descricao}" 
-						class="form-control" jsf:id="endereco" placeholder="Entre com a descrição"/>
+						<input type="text" jsf:value="#{benUsuario.usuario.login}" 
+						class="form-control" jsf:id="endereco" placeholder="Entre com o login"/>
 					</div>
 					<div class="form-group">
-						<input type="text" jsf:value="#{benProduto.produto.valor_Varejo}" 
-						class="form-control" jsf:id="cidade" placeholder="Entre com valor de varejo"/>
+						<input type="text" jsf:value="#{benUsuario.usuario.senha}" 
+						class="form-control" jsf:id="cidade" placeholder="Entre com a senha"/>
 					</div>
 					<div class="form-group">
-						<input type="text" jsf:value="#{benProduto.produto.valor_Revenda}" 
-						class="form-control" jsf:id="email" placeholder="Entre com o valor de revenda"/>
+						<input type="text" jsf:value="#{benUsuario.usuario.email}" 
+						class="form-control" jsf:id="email" placeholder="Entre com o email"/>
 				    </div>
 				  	
 					 
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Feichar</button>
-		        <h:commandButton value="Salvar" actionListener="#{benProduto.Incluir}" styleClass="btn btn-primary"/>		               
+		        <h:commandButton value="Salvar" actionListener="#{benUsuario.Incluir}" styleClass="btn btn-primary"/>		               
 		      </div>
 		     </form> 
 		    </div>

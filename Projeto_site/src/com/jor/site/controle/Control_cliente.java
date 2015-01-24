@@ -31,7 +31,21 @@ public class Control_cliente {
 			session.close();
 		}
 	}
-	@SuppressWarnings("unchecked")
+	public void deletar(Cliente cliente)
+	{
+		session = HibernateUtil.getSessionFactory().openSession();
+		try{
+			session.beginTransaction();
+			session.delete(cliente);
+			session.getTransaction().commit();
+		}
+		finally
+		{
+			System.out.println("Cliente Deletado");
+			session.close();
+		}
+	}
+	
 	public List Listar_Dados()
 	{
 		session = HibernateUtil.getSessionFactory().openSession();
@@ -46,4 +60,5 @@ public class Control_cliente {
 			session.close();
 		}
 	}
+	
 }

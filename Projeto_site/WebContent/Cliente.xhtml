@@ -20,14 +20,19 @@
      
 <body>
   <ui:composition template="Layout_Sistema.xhtml">
-  <ui:define name="clienteBory">
-     <ui:insert name="incluirCliente">
-      <ui:insert name="incluirEditar">
+  <ui:define name="corpo">
+     <ui:insert name="FormCliente">
       <h:form id="formCli">
         <h:dataTable var="list" value="#{benCliente.lista}"  rows="7" styleClass="table table-hover">
            <h:column >
+              <f:facet name="header">Id</f:facet>
+              #{list.id}              
+          </h:column>
+           <h:column >
               <f:facet name="header">Nome</f:facet>
-              #{list.nome}              
+             <h:commandLink value="#{list.nome}" ondblclick="ConfigureCliente.xhtml">                 
+                 <f:setPropertyActionListener target="#{list}" value="#{benCliente.cliente}"></f:setPropertyActionListener>             
+             </h:commandLink>                                    
           </h:column>
            <h:column >
               <f:facet name="header">Cidade</f:facet>
@@ -41,20 +46,64 @@
              <f:facet name="header">Telefone</f:facet>
              #{list.telefone} 
           </h:column>
+          <h:column>
+             <f:facet name="header">Ações</f:facet>
+             <h:commandLink value="ex" actionListener="#{benCliente.Excluir}" onclick="if(!confirm('Deja remover o cliente #{list.nome} ?'))return false;">
+                <f:setPropertyActionListener value="#{list}" target="#{benCliente.cliente}"/>
+             </h:commandLink>             
+             <h:commandLink value="Edit">
+           
+            </h:commandLink>
+          </h:column>
       </h:dataTable> 
      <!-- final da tabela -->
      
-       <h:commandButton id="bt_incluir" value="Incluir" styleClass="btn-lg btn-default ">
-         <i><a href="ConfigureCliente.xhtml"></a></i>       
-       </h:commandButton>          
-       <h:button value="teste" outcome="ConfigureCliente.xhtml"> </h:button> 
-       <h:commandButton id="bt_editar" value="Editar"    styleClass="btn-lg btn-info" disabled="true"/>
-       <h:commandButton id="bt_Deletar" value="Deletar" actionListener="#{benCliente.Excluir}"
-           styleClass="btn-lg btn-danger" />        
-     
-     
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+		  Incluir
+	  </button>      
      </h:form>
-      </ui:insert>
+      
+	   
+	
+	   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		    <form jsf:id="form1" class="form-signin">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Cadastrar cliente</h4>
+		      </div>		     
+		      <div class="modal-body">				 			   
+					<div class="form-group">
+						<input type="text" jsf:value="#{benCliente.cliente.nome}" 
+						class="form-control" jsf:id="nome" placeholder="Entre com nome"/>
+					</div>
+					<div class="form-group">
+						<input type="text" jsf:value="#{benCliente.cliente.endereco}" 
+						class="form-control" jsf:id="endereco" placeholder="Entre com endereço"/>
+					</div>
+					<div class="form-group">
+						<input type="text" jsf:value="#{benCliente.cliente.cidade}" 
+						class="form-control" jsf:id="cidade" placeholder="Entre com cidade"/>
+					</div>
+					<div class="form-group">
+						<input type="text" jsf:value="#{benCliente.cliente.email}" 
+						class="form-control" jsf:id="email" placeholder="Entre email"/>
+				    </div>
+				  	
+					 
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Feichar</button>
+		        <h:commandButton value="Salvar" actionListener="#{benCliente.Incluir}" styleClass="btn btn-primary"/>		               
+		      </div>
+		     </form> 
+		    </div>
+		  </div>
+		</div>
+     
+      
+      
      </ui:insert> 
     </ui:define> 
    </ui:composition>
