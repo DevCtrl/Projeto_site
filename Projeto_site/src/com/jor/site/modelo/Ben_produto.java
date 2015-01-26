@@ -2,6 +2,8 @@ package com.jor.site.modelo;
 
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ComponentSystemEvent;
@@ -14,7 +16,7 @@ import com.jor.site.controle.Control_produto;
 import com.jor.site.entidade.Produto;
 
 @ManagedBean(name="benProduto")
-@ViewScoped
+@RequestScoped
 public class Ben_produto {
    
 	Produto produto = new Produto();
@@ -23,21 +25,24 @@ public class Ben_produto {
 	
 	
 	
-	public void Incluir(ActionEvent evt)
+	public String Incluir()
 	{
-		System.out.println("metodo chamado salvar");
-		comando.inserir(produto);
-		lista = comando.Listar_Dados();
-		produto = new Produto();
-	}
-	public void Editar()
+		return "ConfigureProduto.xhtml";
+	}	
+	public void Cadastrar(ActionEvent evt)
 	{
+		if(produto.getId()>0)
+		{
+			comando.inserir(produto);
+		}else
+		{
+			comando.alterar(produto);
+		}
 		lista = comando.Listar_Dados();
-		  
-		System.out.println("testando se mostar");			
+		produto = new Produto();		
 		
 	}
-	public void Excluir(ActionEvent evt)
+	public void Deletar(ActionEvent evt)
 	{
 		comando.deletar(produto);		
 		lista = comando.Listar_Dados();

@@ -2,6 +2,7 @@ package com.jor.site.modelo;
 
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ComponentSystemEvent;
@@ -14,7 +15,7 @@ import com.jor.site.controle.Control_usuario;
 import com.jor.site.entidade.Usuario;
 
 @ManagedBean(name="benUsuario")
-@ViewScoped
+@RequestScoped
 public class Ben_usuario {
    
 	Usuario usuario = new Usuario();
@@ -24,18 +25,13 @@ public class Ben_usuario {
 	
 	
 	
-	public void Incluir(ActionEvent evt)
+	public String Incluir()
 	{
-		System.out.println("metodo chamado salvar");
-		comando.inserir(usuario);
-		lista = comando.Listar_Dados();
-		usuario = new Usuario();
+		return "ConfigureUsuario.xhtml";
 	}
-	public void Editar()
+	public void Cadastrar(ActionEvent evt)
 	{
-		lista = comando.Listar_Dados();
-		  
-		System.out.println("testando se mostar");			
+		comando.inserir(usuario);			
 		
 	}
 	public void Excluir(ActionEvent evt)

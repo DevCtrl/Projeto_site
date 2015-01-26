@@ -2,6 +2,8 @@ package com.jor.site.modelo;
 
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ComponentSystemEvent;
@@ -14,11 +16,11 @@ import com.jor.site.controle.Control_cliente;
 import com.jor.site.entidade.Cliente;
 
 @ManagedBean(name="benCliente")
-@ViewScoped
+@RequestScoped
 public class Ben_cliente {
    
-	Cliente cliente = new Cliente();
-	Cliente clienteSelecionado = new Cliente();
+	private Cliente cliente = new Cliente();
+	Cliente clienteSelecionado;
 	Control_cliente comando = new Control_cliente();
 	List lista = new ArrayList();
 	
@@ -26,19 +28,25 @@ public class Ben_cliente {
 	
 	public void Incluir(ActionEvent evt)
 	{
-		System.out.println("metodo chamado salvar");
-		comando.inserir(cliente);
+		//System.out.println(cliente.getNome());
+		if(cliente.getId() > 0){
+			System.out.println("Cliente alterado");
+			comando.alterar(cliente);				
+		}
+		else{
+			System.out.println("metodo chamado salvar");
+			comando.inserir(cliente);	
+		}		
 		lista = comando.Listar_Dados();
 		cliente = new Cliente();
 	}
-	public void Editar()
-	{
-		lista = comando.Listar_Dados();
-		  
-		System.out.println("testando se mostar");			
-		
+	public String  Edita()	{		
+		return "ConfigureCliente.xhtml";				
 	}
-	public void Excluir(ActionEvent evt)
+	public String  Cadastro()	{		
+		return "ConfigureCliente.xhtml";					
+	}
+	public void Deletar(ActionEvent evt)
 	{
 		comando.deletar(cliente);		
 		lista = comando.Listar_Dados();
@@ -65,6 +73,12 @@ public class Ben_cliente {
 	}
 	public void setClienteSelecionado(Cliente clienteSelecionado) {
 		this.clienteSelecionado = clienteSelecionado;
+	}
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	

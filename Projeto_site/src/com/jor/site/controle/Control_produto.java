@@ -28,6 +28,18 @@ public class Control_produto {
 			session.close();
 		}
 	}
+	public void alterar(Produto produto) {
+		session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			session.beginTransaction();
+			session.saveOrUpdate(produto);
+			session.getTransaction().commit();
+		} finally {
+			System.out.println("Produto alterado com sucesso");
+			session.close();
+		}
+		
+	}
 	public void deletar(Produto produto)
 	{
 		session = HibernateUtil.getSessionFactory().openSession();
@@ -57,5 +69,6 @@ public class Control_produto {
 			session.close();
 		}
 	}
+	
 	
 }

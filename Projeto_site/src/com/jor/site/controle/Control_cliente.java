@@ -26,7 +26,8 @@ public class Control_cliente {
 			session.beginTransaction();
 			session.save(cliente);
 			session.getTransaction().commit();
-		} finally {
+		}
+		finally {
 			System.out.println("cliente cdastrado com sucesso");
 			session.close();
 		}
@@ -45,6 +46,20 @@ public class Control_cliente {
 			session.close();
 		}
 	}
+	public void alterar(Cliente cliente) {
+		session = HibernateUtil.getSessionFactory().openSession();
+		try
+		{
+			session.beginTransaction();
+			session.saveOrUpdate(cliente);
+			session.getTransaction();
+		}finally
+		{
+			System.out.println("cliente alterado com sucesso");
+			session.close();
+		}
+		
+	}
 	
 	public List Listar_Dados()
 	{
@@ -60,5 +75,6 @@ public class Control_cliente {
 			session.close();
 		}
 	}
+	
 	
 }

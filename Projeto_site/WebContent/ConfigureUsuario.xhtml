@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:jsf="http://xmlns.jcp.org/jsf">
+<h:head></h:head>
+<body>
+	<ui:composition template="Layout_Sistema.xhtml">		
+		<ui:define name="corpo">
+				
+				<h:form class="form-horizontal">
+				  <div class="form-group">
+				    <label for="nome" class="col-sm-1 control-label">Nome</label>
+				    <div class="col-sm-4">
+					     <input type="text" jsf:value="#{benUsuario.usuario.nome}" 
+						        class="form-control" jsf:id="nome" placeholder="Entre com nome"/>
+				    </div>	
+				    <label class="col-sm-2 control-label">Login</label>
+				    <div class="col-sm-4">
+				       <input type="text" jsf:value="#{benUsuario.usuario.login}" 
+					          class="form-control" jsf:id="login" placeholder="Entre com endereço"/>
+				    </div>			    				   				    
+				  </div>
+				  <div class="form-group">
+				    <label for="email" class="col-sm-1 control-label">Email</label>
+				    <div class="col-sm-4">
+					     <input type="text" jsf:value="#{benUsuario.usuario.email}" 
+					       class="form-control" jsf:id="email" placeholder="Entre com email"/>
+				    </div>	
+				    <label class="col-sm-2 control-label">senha</label>
+				    <div class="col-sm-4">
+				       <input type="text" jsf:value="#{benUsuario.usuario.senha}" 
+					       class="form-control" jsf:id="senha" placeholder="Entre senha"/>
+				    </div>			    				   				    
+				  </div>
+				  
+				
+				
+               				 				
+				<h:commandButton id="bt_conf_incluir" value="Salvar" actionListener="#{benUsuario.Cadastrar}"
+				    styleClass="btn-lg btn-default"  />
+				<h:commandButton id="bt_conf_editar" value="Deletar" actionListener="#{benUsuario.Deletar}" 
+				    styleClass="btn-lg btn-default" rendered="#{benUsuario.usuario.id != null}" immediate="true"/>
+				<h:button value="Cancelar" outcome="Usuario.xhtml" styleClass="btn-lg btn-danger"/>
+			     
+				
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</body>
+</html>
+

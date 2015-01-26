@@ -34,6 +34,8 @@ public class Cliente {
 	@Column(name= "email")
 	private String Email;
 	
+	private Double renda;
+	
 	@Column(name= "data_nas")
 	private Date Data_nas;
 	public long getId() {
@@ -84,6 +86,12 @@ public class Cliente {
 	}
 	public void setData_nas(Date data_nas) {
 		Data_nas = data_nas;
+	}
+	public Double getRenda() {
+		return renda;
+	}
+	public void setRenda(Double renda) {
+		this.renda = renda;
 	}
 	
 	

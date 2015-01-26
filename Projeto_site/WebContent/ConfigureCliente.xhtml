@@ -2,39 +2,65 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
-
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:jsf="http://xmlns.jcp.org/jsf">
 <h:head></h:head>
 <body>
-	<ui:composition template="Cliente.xhtml">		
-		<ui:define name="FormCliente">
+	<ui:composition template="Layout_Sistema.xhtml">		
+		<ui:define name="corpo">
 				
-             <form class="form-inline">			   
-				<div class="form-group">
-					<input type="text" value="#{benCliente.cliente.nome}" 
-					class="form-control" id="nome" placeholder="Entre com nome"/>
-				</div>
-				<div class="form-group">
-					<input type="text" value="#{benCliente.cliente.endereco}" 
-					class="form-control" id="endereco" placeholder="Entre com endereço"/>
-				</div>
-				<div class="form-group">
-					<input type="text" value="#{benCliente.cliente.cidade}" 
-					class="form-control" id="cidade" placeholder="Entre com cidade"/>
-				</div>
-				<div class="form-group">
-					<input type="text" value="#{benCliente.cliente.email}" 
-					class="form-control" id="nome" placeholder="Entre email"/>
-				</div>			
+				<h:form class="form-horizontal">
+				  <div class="form-group">
+				    <label for="nome" class="col-sm-1 control-label">Nome</label>
+				    <div class="col-sm-4">
+					     <input type="text" jsf:value="#{benCliente.cliente.nome}" 
+						        class="form-control" jsf:id="nome" placeholder="Entre com nome"/>
+				    </div>	
+				    <label class="col-sm-2 control-label">Endereço</label>
+				    <div class="col-sm-4">
+				       <input type="text" jsf:value="#{benCliente.cliente.endereco}" 
+					          class="form-control" jsf:id="endereco" placeholder="Entre com endereço"/>
+				    </div>			    				   				    
+				  </div>
+				  <div class="form-group">
+				    <label for="cidade" class="col-sm-1 control-label">Cidade</label>
+				    <div class="col-sm-4">
+					     <input type="text" jsf:value="#{benCliente.cliente.cidade}" 
+					       class="form-control" jsf:id="cidade" placeholder="Entre com cidade"/>
+				    </div>	
+				    <label class="col-sm-2 control-label">email</label>
+				    <div class="col-sm-4">
+				       <input type="text" jsf:value="#{benCliente.cliente.email}" 
+					       class="form-control" jsf:id="email" placeholder="Entre email"/>
+				    </div>			    				   				    
+				  </div>
+				  <!-- 
+				   <div class="form-group">
+				    <label for="telefone" class="col-sm-1 control-label">telefone</label>
+				    <div class="col-sm-4">
+					    <input type="text" jsf:value="#{benCliente.cliente.telefone}" 
+					       class="form-control" jsf:id="telefone" placeholder="Entre com telefone"/>
+				    </div>	
+				    <label class="col-sm-2 control-label">cpf</label>
+				    <div class="col-sm-4">
+				      <input type="text" jsf:value="#{benCliente.cliente.cpf}" 
+					       class="form-control" jsf:id="cpf" placeholder="Entre com cpf"/>
+				    </div>
+				    <h:inputText value="#{benCliente.cliente.nome}"></h:inputText>			    				   				    
+				  </div>
 				
-				<h:commandButton id="bt_conf_incluir" value="Incluir" actionListener="#{benCliente.Incluir}"
-				    styleClass="btn-lg btn-default"  immediate="true"/>
-				 <h:commandButton id="bt_conf_editar" value="Editar" actionListener="#{benCliente.Editar}"
+				 -->
+				
+				
+               				 				
+				<h:commandButton id="bt_conf_incluir" value="Salvar" actionListener="#{benCliente.Incluir}"
+				    styleClass="btn-lg btn-default"  />
+				<h:commandButton id="bt_conf_editar" value="Deletar" actionListener="#{benCliente.Deletar}" 
 				    styleClass="btn-lg btn-default" rendered="#{benCliente.cliente.id != null}" immediate="true"/>
 				<h:button value="Cancelar" outcome="Cliente.xhtml" styleClass="btn-lg btn-danger"/>
 			     
 				
-			</form>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 

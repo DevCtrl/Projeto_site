@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta charset="utf-8" />
+<title>produto</title>
+<meta name="generator" content="Bootply" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!--[if lt IE 9]>
+          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+     <link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+	 <link href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+     
+<body>
+  <ui:composition template="Layout_Sistema.xhtml">
+  <ui:define name="corpo">    
+      <h:form id="formPro">
+	       <div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading"><i class="icon-shopping-cart"/>Carrinho de Compras</div>
+			<div class="panel-body">				
+			</div>
+	
+			<!-- Table -->
+			
+           <h:dataTable var="list" value="#{benProduto.lista}"  styleClass="table table-hover">
+           <h:column >                        
+              #{list.nome}              
+           </h:column>
+           <h:column > 
+           <div class="pull-left">
+              #{list.descricao} 
+           </div>                                                                             
+           </h:column>
+            <h:column >
+             <div class="pull-right">
+               #{list.valor_Revenda}    
+             </div>                                    
+           </h:column>
+           </h:dataTable>
+		</div>
+		
+		
+		          <div class="form-group">
+					  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Adicionar ao carrinho</button>
+					  <button type="submit" class="btn btn-info" >Remover</button>
+					</div>
+					<div class="form-group">
+						<input type="text" jsf:value="#{benProduto.produto.descricao}" 
+						class="form-control" jsf:id="endereco" placeholder="pesquisa no carro"/>
+		                 
+					</div>	
+					<div class="form-group">
+						<button type="submit" class="btn btn-success pull-right" >Finalizar compra</button>
+					</div>
+									
+		         <!-- Modal -->   
+		            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					    <form jsf:id="form1" class="form-signin">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">Cadastrar produto</h4>
+					      </div>		     
+					      <div class="modal-body">	
+					           <h:dataTable var="list" value="#{benProduto.lista}"  rows="7" styleClass="table table-hover">
+						           <h:column >
+						              <f:facet name="header">Codigo</f:facet>
+						              #{list.id}              
+						          </h:column>
+						           <h:column >
+						              <f:facet name="header">Nome</f:facet>
+						             <h:commandLink value="#{list.nome}" ondblclick="Configureproduto.xhtml">                 
+						                 <f:setPropertyActionListener target="#{list}" value="#{benProduto.produto}"></f:setPropertyActionListener>             
+						             </h:commandLink>                                    
+						          </h:column>
+						           <h:column >
+						              <f:facet name="header">Descrição</f:facet>
+						              #{list.descricao}              
+						          </h:column>						         
+						          <h:column>
+						             <f:facet name="header">Valor</f:facet>
+						             #{list.valor_Revenda}					            		              						              					            
+						          </h:column>
+						          <h:column>
+						             <f:facet name="header">Ações</f:facet>
+						             <h:commandButton value="Adicionar" styleClass="btn btn-sucess">
+						                <f:setPropertyActionListener value="#{list}" target="#{benProduto.produto}"/>
+						             </h:commandButton>         						             						           						            
+						          </h:column>
+						      </h:dataTable> 
+						     <!-- final da tabela -->
+					      </div>
+					        <div class="modal-footer">
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Feichar</button>						        		               
+						    </div>
+					     </form>
+					    </div>
+					   </div>
+					  </div>   		
+		
+       </h:form>
+            </ui:define> 
+   </ui:composition>
+</body> 
+</html>
+
+
+
+
+
+	

@@ -21,7 +21,7 @@ public class Control_usuario {
 		session = HibernateUtil.getSessionFactory().openSession();
 		try {
 			session.beginTransaction();
-			session.save(usuario);
+			session.saveOrUpdate(usuario);
 			session.getTransaction().commit();
 		} finally {
 			System.out.println("Usuario cdastrado com sucesso");
