@@ -30,7 +30,7 @@
 	
 			<!-- Table -->
 			
-           <h:dataTable var="list" value="#{benProduto.lista}"  styleClass="table table-hover">
+           <h:dataTable var="list" value="#{ben.lisCarrinho}"  styleClass="table table-hover">
            <h:column >                        
               #{list.nome}              
            </h:column>
@@ -44,6 +44,12 @@
                #{list.valor_Revenda}    
              </div>                                    
            </h:column>
+           <h:column>
+             <h:outputText value="quatidade"/>               
+           </h:column>
+           <h:column>
+             <h:outputText value="total"/>               
+           </h:column>
            </h:dataTable>
 		</div>
 		
@@ -51,6 +57,7 @@
 		          <div class="form-group">
 					  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Adicionar ao carrinho</button>
 					  <button type="submit" class="btn btn-info" >Remover</button>
+					  <h:commandButton value="Addl" actionListener="#{ben.AddCarrinho}"></h:commandButton>
 					</div>
 					<div class="form-group">
 						<input type="text" jsf:value="#{benProduto.produto.descricao}" 
@@ -71,16 +78,14 @@
 					        <h4 class="modal-title" id="myModalLabel">Cadastrar produto</h4>
 					      </div>		     
 					      <div class="modal-body">	
-					           <h:dataTable var="list" value="#{benProduto.lista}"  rows="7" styleClass="table table-hover">
+					           <h:dataTable var="list" value="#{ben.lisPro}"  rows="7" styleClass="table table-hover">
 						           <h:column >
 						              <f:facet name="header">Codigo</f:facet>
 						              #{list.id}              
 						          </h:column>
 						           <h:column >
 						              <f:facet name="header">Nome</f:facet>
-						             <h:commandLink value="#{list.nome}" ondblclick="Configureproduto.xhtml">                 
-						                 <f:setPropertyActionListener target="#{list}" value="#{benProduto.produto}"></f:setPropertyActionListener>             
-						             </h:commandLink>                                    
+						              #{list.nome}"                                
 						          </h:column>
 						           <h:column >
 						              <f:facet name="header">Descrição</f:facet>
@@ -92,8 +97,8 @@
 						          </h:column>
 						          <h:column>
 						             <f:facet name="header">Ações</f:facet>
-						             <h:commandButton value="Adicionar" styleClass="btn btn-sucess">
-						                <f:setPropertyActionListener value="#{list}" target="#{benProduto.produto}"/>
+						             <h:commandButton value="Adicionar" actionListener="#{ben.AddCarrinho}" styleClass="btn btn-sucess">
+						                <f:setPropertyActionListener value="#{list}" target="#{ben.pd}"/>
 						             </h:commandButton>         						             						           						            
 						          </h:column>
 						      </h:dataTable> 
