@@ -20,6 +20,7 @@
      
 <body>
   <ui:composition template="Layout_Sistema.xhtml">
+  <ui:define name="Titulo">Usuario</ui:define>
   <ui:define name="corpo">    
       <h:form id="formUsu">
         <h:dataTable var="list" value="#{benUsuario.lista}"  rows="7" styleClass="table table-hover">

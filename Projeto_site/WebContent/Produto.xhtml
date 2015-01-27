@@ -20,6 +20,7 @@
      
 <body>
   <ui:composition template="Layout_Sistema.xhtml">
+  <ui:define name="Titulo">Produto</ui:define> 
   <ui:define name="corpo">    
       <h:form id="formPro">
         <h:dataTable var="list" value="#{benProduto.lista}"  rows="7" styleClass="table table-hover">

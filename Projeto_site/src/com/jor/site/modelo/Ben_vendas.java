@@ -49,12 +49,13 @@ public class Ben_vendas {
 	}
 	
 	
+	
 	public Produto getPd() {
 		return pd;
 	}
 	public void setPd(Produto pd) {
 		this.pd = pd;
-	}	
+	}
 	public List getLisPro() {
 		return lisPro = new Control_produto().Listar_Dados();
 	}
