@@ -47,6 +47,10 @@ public class Ben_vendas {
 		vd.setData(new Date());
 		comandoVd.inserir(vd);
 	}
+	public void BuscaProduto(ActionEvent evt)
+	{
+		lisPro = comando.BuscaProduto(pd.getNome());
+	}
 	
 	
 	

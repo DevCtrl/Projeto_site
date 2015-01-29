@@ -9,8 +9,12 @@ import java.util.List;
 
 
 
+
+
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
+
 import com.jor.site.entidade.Produto;
 import com.jor.site.util.HibernateUtil;
 
@@ -68,6 +72,18 @@ public class Control_produto {
 		{
 			session.close();
 		}
+	}
+	
+	public List BuscaProduto(String nome) {
+		try {
+	    	session = HibernateUtil.getSessionFactory().openSession();
+	    	session.beginTransaction();
+	        Query q = session.createQuery ("from Produto as p where p.nome like '"+nome+"%'");
+	        return q.list();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+		return null;
 	}
 	
 	

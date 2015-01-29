@@ -48,6 +48,10 @@ public class Ben_produto {
 		lista = comando.Listar_Dados();
 		produto = new Produto();
 	}
+	public void BuscaProduto()
+	{
+		lista = comando.BuscaProduto(produto.getNome());
+	}
 
 	
 
