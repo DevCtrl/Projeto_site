@@ -6,6 +6,8 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.AjaxBehaviorEvent;
+import javax.swing.plaf.basic.BasicSplitPaneUI.KeyboardUpLeftHandler;
 
 import java.util.Date;
 import java.util.List;
@@ -47,9 +49,14 @@ public class Ben_vendas {
 		vd.setData(new Date());
 		comandoVd.inserir(vd);
 	}
-	public void BuscaProduto(ActionEvent evt)
-	{
-		lisPro = comando.BuscaProduto(pd.getNome());
+	public void BuscaProduto(AjaxBehaviorEvent evt)
+	{  
+		System.out.println("teste busca");
+		
+	//	lisPro = comando.BuscaProduto(pd.getNome());
+		//for (int i = 0; i < lisPro.size(); i++) {
+			//System.out.println(lisPro.get(i));
+		//}
 	}
 	
 	

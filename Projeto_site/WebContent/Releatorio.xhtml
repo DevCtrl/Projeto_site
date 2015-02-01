@@ -22,8 +22,14 @@
   <ui:composition template="Layout_Sistema.xhtml">
     <ui:define name="Titulo">Relatorio</ui:define> 
     <ui:define name="corpo">    
-  
-  
+                    <h:form>  
+                      <input type="text" jsf:value="#{ben1.nome}" 
+						class="form-control" jsf:id="endereco" placeholder="pesquisa no carro">
+						 <f:ajax event="keyup"  render="lb"/>
+						</input>
+						<label jsf:id="lb">#{ben1.nome}</label>
+		                <h:inputText value="#{ben1.nome}"><f:ajax event="keyup"  render="lb"/></h:inputText>
+                    </h:form> 
    </ui:define>
   </ui:composition> 
 </body> 

@@ -61,14 +61,17 @@
 					  <h:commandButton value="Addl" actionListener="#{ben.AddCarrinho}"></h:commandButton>
 					</div>
 					<div class="form-group">
-						<input type="text" jsf:value="#{benProduto.produto.descricao}" 
-						class="form-control" jsf:id="endereco" placeholder="pesquisa no carro"/>
-		                 
+						<input type="text" jsf:value="#{ben.pd.descricao}" 
+						class="form-control" jsf:id="endereco" placeholder="pesquisa no carro">
+						 <f:ajax event="keyup"  render="lb"/>
+						</input>
+						<label jsf:id="lb">#{ben.pd.descricao}</label>
+		                 <h:inputText value="#{ben.pd.descricao}"><f:ajax event="keyup"  render="lb"/></h:inputText>
 					</div>	
 					<div class="form-group">
 						<button type="submit" class="btn btn-success pull-right" >Finalizar compra</button>
 					</div>
-									
+				</h:form>					
 		         <!-- Modal -->   
 		            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					  <div class="modal-dialog">
@@ -77,9 +80,10 @@
 					      <div class="modal-header">
 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					        <h4 class="modal-title" id="myModalLabel">Cadastrar produto</h4>
-					      </div>		     
+					      </div>
+					     </form>  		     
 					      <div class="modal-body">	
-					           <h:dataTable var="list" value="#{ben.lisPro}"  rows="7" styleClass="table table-hover">
+					           <h:dataTable id="tabelaP" var="list" value="#{ben.lisPro}"  rows="7" styleClass="table table-hover">
 						           <h:column >
 						              <f:facet name="header">Codigo</f:facet>
 						              #{list.id}              
@@ -106,20 +110,27 @@
 						     <!-- final da tabela -->
 					      </div>
 					        <div class="modal-footer">
+					        <h:form>
 					              <div class="input-group col-sm-6  pull-left">
-									<input type="text" class="form-control" jsf:value="#{ben.pd.nome}" placeholder="Pesquisar por nome" name="srch-term" id="srch-term"/>
+									<input jsf:id="id_busca" type="text" class="form-control"  jsf:value="#{ben.pd.nome}" placeholder="Pesquisar por nome" name="srch-term" id="srch-term">
+									      <f:ajax event="keyup" listener="#{ben.BuscaProduto}" render="@all"/>
+									</input>
+									<h:inputText > <f:ajax event="keyup" listener="#{ben.BuscaProduto}" render="@all"/></h:inputText>									
 									<div class="input-group-btn">
-										<button class="btn btn-default" jsf:actionListener="#{ben.BuscaProduto}" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+										   <h:commandLink styleClass="btn btn-default"><i class="glyphicon glyphicon-search"></i>
+										    							   
+										   </h:commandLink>										
 									</div>
-								 </div>
-						        <button type="button" class="btn btn-default" data-dismiss="modal">Feichar</button>						        		               
+								 </div>																 	
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Feichar</button>
+						    </h:form>    						        		               
 						    </div>
-					     </form>
+					    
 					    </div>
 					   </div>
 					  </div>   		
 		
-       </h:form>
+       
             </ui:define> 
    </ui:composition>
 </body> 
