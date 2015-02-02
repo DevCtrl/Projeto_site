@@ -3,7 +3,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:a4j="http://richfaces.org/a4j">
 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta charset="utf-8" />
@@ -26,7 +27,12 @@
 	       <div class="panel panel-default">
 			<!-- Default panel contents -->
 			<div class="panel-heading"><i class="icon-shopping-cart"/>Carrinho de Compras</div>
-			<div class="panel-body">				
+			<div class="panel-body">	
+			   <label>Cliente</label>			   
+			   <a  data-toggle="modal" data-target="#myModal">
+			     <i class="glyphicon glyphicon-flash"></i>
+			   </a> 
+			   <label>#{ben.cli.nome}</label>			
 			</div>
 	
 			<!-- Table -->
@@ -34,102 +40,60 @@
            <h:dataTable var="list" value="#{ben.lisCarrinho}"  styleClass="table table-hover">
            <h:column >                        
               #{list.nome}              
-           </h:column>
-           <h:column > 
-           <div class="pull-left">
-              #{list.descricao} 
-           </div>                                                                             
-           </h:column>
-            <h:column >
-             <div class="pull-right">
-               #{list.valor_Revenda}    
-             </div>                                    
+           </h:column>          
+            <h:column >            
+               #{list.valor_Revenda}                                                   
            </h:column>
            <h:column>
-             <h:outputText value="quatidade"/>               
+             <h:outputText value="#{ben.quantidade}"/>               
+           </h:column>
+             <h:column>
+             x              
            </h:column>
            <h:column>
-             <h:outputText value="total"/>               
+             <h:outputText value="#{list.comprado}"/>               
            </h:column>
            </h:dataTable>
 		</div>
 		
-		
-		          <div class="form-group">
-					  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Adicionar ao carrinho</button>
-					  <button type="submit" class="btn btn-info" >Remover</button>
-					  <h:commandButton value="Addl" actionListener="#{ben.AddCarrinho}"></h:commandButton>
-					</div>
-					<div class="form-group">
-						<input type="text" jsf:value="#{ben.pd.descricao}" 
-						class="form-control" jsf:id="endereco" placeholder="pesquisa no carro">
-						 <f:ajax event="keyup"  render="lb"/>
-						</input>
-						<label jsf:id="lb">#{ben.pd.descricao}</label>
-		                 <h:inputText value="#{ben.pd.descricao}"><f:ajax event="keyup"  render="lb"/></h:inputText>
-					</div>	
+		            <div class="form-group">
+					  <h:commandButton value="Adicionar ao carrinho" styleClass="btn btn-info" action="#{ben.buscapg}" ></h:commandButton>
+					  <button type="submit" class="btn btn-info" >Remover</button>	
+					  <label >Todal do Carrinho</label>
+					  <input class="pull-right" value="#{ben.total}" disabled="disabled"/>			  
+					</div>																 						
 					<div class="form-group">
 						<button type="submit" class="btn btn-success pull-right" >Finalizar compra</button>
 					</div>
-				</h:form>					
-		         <!-- Modal -->   
-		            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				</h:form>			
+		        	          
+				<!-- Modal -->
+				<h:form id="form2">
+				 <div class="modal fade" id="myModal">
 					  <div class="modal-dialog">
 					    <div class="modal-content">
-					    <form jsf:id="form1" class="form-signin">
 					      <div class="modal-header">
 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					        <h4 class="modal-title" id="myModalLabel">Cadastrar produto</h4>
+					        <h4 class="modal-title">Cliente</h4>
 					      </div>
-					     </form>  		     
-					      <div class="modal-body">	
-					           <h:dataTable id="tabelaP" var="list" value="#{ben.lisPro}"  rows="7" styleClass="table table-hover">
-						           <h:column >
-						              <f:facet name="header">Codigo</f:facet>
-						              #{list.id}              
-						          </h:column>
-						           <h:column >
-						              <f:facet name="header">Nome</f:facet>
-						              #{list.nome}"                                
-						          </h:column>
-						           <h:column >
-						              <f:facet name="header">Descrição</f:facet>
-						              #{list.descricao}              
-						          </h:column>						         
-						          <h:column>
-						             <f:facet name="header">Valor</f:facet>
-						             #{list.valor_Revenda}					            		              						              					            
-						          </h:column>
-						          <h:column>
-						             <f:facet name="header">Ações</f:facet>
-						             <h:commandButton value="Adicionar" actionListener="#{ben.AddCarrinho}" styleClass="btn btn-sucess">
-						                <f:setPropertyActionListener value="#{list}" target="#{ben.pd}"/>
-						             </h:commandButton> 						                     						             						           						            
-						          </h:column>
-						      </h:dataTable> 
-						     <!-- final da tabela -->
+					      <div class="modal-body">
+					        <label>Nome Cliente</label>					       
+					        <input type="text" jsf:id="inputs" jsf:value="#{ben.clientePesquisa}"></input>
+					         <h:inputText value="#{ben.clientePesquisa}"></h:inputText>
 					      </div>
-					        <div class="modal-footer">
-					        <h:form>
-					              <div class="input-group col-sm-6  pull-left">
-									<input jsf:id="id_busca" type="text" class="form-control"  jsf:value="#{ben.pd.nome}" placeholder="Pesquisar por nome" name="srch-term" id="srch-term">
-									      <f:ajax event="keyup" listener="#{ben.BuscaProduto}" render="@all"/>
-									</input>
-									<h:inputText > <f:ajax event="keyup" listener="#{ben.BuscaProduto}" render="@all"/></h:inputText>									
-									<div class="input-group-btn">
-										   <h:commandLink styleClass="btn btn-default"><i class="glyphicon glyphicon-search"></i>
-										    							   
-										   </h:commandLink>										
-									</div>
-								 </div>																 	
-						        <button type="button" class="btn btn-default" data-dismiss="modal">Feichar</button>
-						    </h:form>    						        		               
-						    </div>
-					    
-					    </div>
-					   </div>
-					  </div>   		
-		
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        <h:commandButton value="ok" action="#{ben.BuscaCliente}">
+					            <f:ajax render="@all" event="click"></f:ajax>
+					        </h:commandButton>
+					        <button type="button" class="btn btn-primary">Ok</button>
+					      </div>
+					    </div><!-- /.modal-content -->
+					  </div><!-- /.modal-dialog -->
+					</div><!-- /.modal -->	      
+					</h:form>      
+					     
+					      
        
             </ui:define> 
    </ui:composition>

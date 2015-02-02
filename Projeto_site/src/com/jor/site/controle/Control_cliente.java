@@ -2,15 +2,8 @@ package com.jor.site.controle;
 
 import java.util.List;
 
-
-
-
-
-
-
-import javax.faces.context.ExceptionHandler;
-
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.omg.CORBA.ExceptionList;
 
@@ -74,6 +67,19 @@ public class Control_cliente {
 		{
 			session.close();
 		}
+	}
+	public String BuscaCliente(String nome) {
+		try {
+	    	session = HibernateUtil.getSessionFactory().openSession();
+	    	session.beginTransaction();	    	
+	        Query q = session.createQuery ("from Cliente  where nome = '"+nome+"'");
+	        System.out.println(q);
+	        return (String) q.uniqueResult();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }		
+		
+		return null;
 	}
 	
 	

@@ -1,5 +1,7 @@
 package com.jor.site.entidade;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +24,12 @@ public class Produto {
 	private Double valor_Varejo;
 	@Column
 	private Double valor_Revenda;
+	@Column
+	private Integer quantidade;
+	@Column
+	private Double comprado;
+	@Column
+	private Date dataProduto;
 	public long getId() {
 		return id;
 	}
@@ -52,6 +60,26 @@ public class Produto {
 	public void setValor_Revenda(Double valor_Revenda) {
 		this.valor_Revenda = valor_Revenda;
 	}
+	
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
+	}
+	public Date getDataProduto() {
+		return dataProduto;
+	}
+	public void setDataProduto(Date dataProduto) {
+		this.dataProduto = dataProduto;
+	}
+	public Double getComprado() {
+		return comprado;
+	}
+	public void setComprado(double comprado) {
+		this.comprado = comprado;
+	}
+	
 	
 	
 	

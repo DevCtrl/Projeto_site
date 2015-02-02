@@ -1,36 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	xmlns:jsf="http://java.sun.com/jsf/composite/javax.faces">
+	
 
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<meta charset="utf-8" />
-<title>produto</title>
-<meta name="generator" content="Bootply" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<!--[if lt IE 9]>
-          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-     <link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-	 <link href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-     
+
 <body>
-  <ui:composition template="Layout_Sistema.xhtml">
-    <ui:define name="Titulo">Relatorio</ui:define> 
-    <ui:define name="corpo">    
-                    <h:form>  
-                      <input type="text" jsf:value="#{ben1.nome}" 
-						class="form-control" jsf:id="endereco" placeholder="pesquisa no carro">
-						 <f:ajax event="keyup"  render="lb"/>
-						</input>
-						<label jsf:id="lb">#{ben1.nome}</label>
-		                <h:inputText value="#{ben1.nome}"><f:ajax event="keyup"  render="lb"/></h:inputText>
-                    </h:form> 
-   </ui:define>
-  </ui:composition> 
-</body> 
+	<ui:composition template="Layout_Sistema.xhtml">
+		<ui:define name="Titulo">Relatorio</ui:define>
+		<ui:define name="corpo">
+			<h:form id="for">
+				
+
+				<h:inputText value="#{ben1.nome}" >
+					<f:ajax event="change" render="texto" listener="#{ben1.hand()}" execute="@all	"/>
+				</h:inputText>
+				<h:outputText id="texto" value=" A palavra é: #{ben1.nome}"/>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</body>
 </html>

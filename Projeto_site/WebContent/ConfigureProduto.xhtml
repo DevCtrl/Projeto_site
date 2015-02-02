@@ -24,15 +24,32 @@
 				    </div>			    				   				    
 				  </div>
 				  <div class="form-group">
-				    <label for="valor_Revenda" class="col-sm-1 control-label">ValorRevenda</label>
+				    <label for="valor_Revenda" class="col-sm-1 control-label">Valor Varejo</label>
 				    <div class="col-sm-4">
-					     <input type="text" jsf:value="#{benProduto.produto.valor_Revenda}" 
-					       class="form-control" jsf:id="valor_Revenda" placeholder="Entre com valor_Revenda"/>
+					     <input type="text" jsf:value="#{benProduto.produto.valor_Varejo}" 
+					       class="form-control" jsf:id="valor_Varejo" placeholder="Entre com valor_Varejo"/>
 				    </div>	
-				    <label class="col-sm-2 control-label">valor_Varejo</label>
+				    <label class="col-sm-2 control-label">valor Revenda</label>
 				    <div class="col-sm-4">
-				       <input type="text" jsf:value="#{benProduto.produto.valor_Varejo}" 
-					       class="form-control" jsf:id="valor_Varejo" placeholder="Entre valor_Varejo"/>
+				       <input type="text" jsf:value="#{benProduto.produto.valor_Revenda}" 
+					       class="form-control" jsf:id="valor_Revenda" placeholder="Entre valor_Revenda"/>
+				    </div>
+				    <label class="col-sm-2 control-label">Quantidade</label>
+				    <div class="col-sm-4">
+				       <input type="text" jsf:value="#{benProduto.produto.quantidade}" 
+					       class="form-control" jsf:id="quantidade" placeholder="Entre com a quantidade"/>
+				    </div>			    				    
+				    			    
+				    <div class="col-sm-4" rendered="if(#{benProduto.produto.id != 0 }">
+				       <label class="col-sm-2 control-label">Estoque</label>
+				       <input type="text" jsf:value="#{benProduto.produto.quantidade}" 
+					       class="form-control" jsf:id="estoque" />
+				    </div>
+				   
+				    <div class="col-sm-4"  rendered="if(#{benProduto.produto.id != 0 })">
+				       <label class="col-sm-2 control-label">Data</label>
+				       <input type="text" jsf:value="#{benProduto.produto.dataProduto}"
+					       class="form-control" jsf:id="data" />
 				    </div>			    				   				    
 				  </div>
 				  

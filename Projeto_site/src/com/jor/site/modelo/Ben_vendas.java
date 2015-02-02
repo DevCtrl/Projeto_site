@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 
+import com.jor.site.controle.Control_cliente;
 import com.jor.site.controle.Control_produto;
 import com.jor.site.controle.Control_venda;
 import com.jor.site.entidade.Cliente;
@@ -20,23 +21,38 @@ import com.jor.site.entidade.Produto;
 import com.jor.site.entidade.Venda;
 
 @ManagedBean(name="ben")
-@RequestScoped
+@SessionScoped
 public class Ben_vendas {
    
 	Produto pd = new Produto();
 	Cliente cli = new Cliente();
 	Venda vd = new Venda();
 	Control_produto comando = new Control_produto();
+	Control_cliente comandoCli = new Control_cliente();
 	Control_venda comandoVd = new Control_venda();
 	List lisPro = new ArrayList();
-	List lisCarrinho = new ArrayList();
-	private int quantidade = 1;
+	List<Produto> lisCarrinho = new ArrayList<Produto>();
+	private String ClientePesquisa;
+	private int quantidade = 2;
+	private double subtotal=0;
+	private double total=0;
 	
+	public Ben_vendas(){
+		lisPro = comando.Listar_Dados();
+	}
 		
-	public void AddCarrinho(ActionEvent evt)
+	public String Add()
 	{
-		System.out.println(pd.getNome());		
-	   	lisCarrinho.add(pd);
+		//if(!lisCarrinho.isEmpty())
+		//	System.out.println(lisCarrinho.get(0).getNome());
+		subtotal = quantidade * pd.getValor_Revenda();
+		pd.setComprado(subtotal);
+		pd.setQuantidade(quantidade);
+		lisCarrinho.add(pd);
+		
+		total = total + subtotal;
+		
+	   	return  "Vendas.xhtml";
 	}
 	public void Remover()
 	{
@@ -49,14 +65,26 @@ public class Ben_vendas {
 		vd.setData(new Date());
 		comandoVd.inserir(vd);
 	}
-	public void BuscaProduto(AjaxBehaviorEvent evt)
+	public String BuscaProduto()
 	{  
-		System.out.println("teste busca");
-		
-	//	lisPro = comando.BuscaProduto(pd.getNome());
-		//for (int i = 0; i < lisPro.size(); i++) {
-			//System.out.println(lisPro.get(i));
-		//}
+		System.out.println("teste busca "+pd.getNome());		
+		lisPro = comando.BuscaProduto(pd.getNome());		
+		return "null";
+	}
+	public String BuscaCliente()
+	{ 
+		System.out.println(ClientePesquisa);
+		if(comandoCli.BuscaCliente(ClientePesquisa) != null)	{
+			System.out.println(ClientePesquisa+"teste");
+			   cli.setNome(comandoCli.BuscaCliente(ClientePesquisa+" cliente"));
+		}
+			
+		else
+			cli.setNome(ClientePesquisa+" não e cliente");
+		return "null";
+	}
+	public String buscapg(){
+		return "ConfigureVenda.xhtml";
 	}
 	
 	
@@ -66,9 +94,9 @@ public class Ben_vendas {
 	}
 	public void setPd(Produto pd) {
 		this.pd = pd;
-	}
+	}	
 	public List getLisPro() {
-		return lisPro = new Control_produto().Listar_Dados();
+		return lisPro;
 	}
 	public void setLisPro(List lisPro) {
 		this.lisPro = lisPro;
@@ -96,6 +124,22 @@ public class Ben_vendas {
 	}
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
+	}
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
+	public String getClientePesquisa() {
+		return ClientePesquisa;
+	}
+
+	public void setClientePesquisa(String clientePesquisa) {
+		ClientePesquisa = clientePesquisa;
 	}
 	
 

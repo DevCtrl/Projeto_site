@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:a4j="http://richfaces.org/a4j">
+
+
+
+<body>
+	<ui:composition template="Layout_Sistema.xhtml">
+		<ui:define name="Titulo">Relatorio</ui:define>
+		<ui:define name="corpo">
+		<form jsf:id="form1">
+		    <h:dataTable id="tabelaP" var="list" value="#{ben.lisPro}"  rows="7" styleClass="table table-hover">
+				<h:column >
+				   <f:facet name="header">Codigo</f:facet>
+				    #{list.id}              
+				</h:column>
+				<h:column >
+				   <f:facet name="header">Nome</f:facet>
+				     #{list.nome}"                                
+				</h:column>
+				<h:column >
+				   <f:facet name="header">Descrição</f:facet>
+				   #{list.descricao}              
+				</h:column>						         
+			    <h:column>
+				    <f:facet name="header">Valor</f:facet>
+				    #{list.valor_Revenda}					            		              						              					            
+				</h:column>
+				<h:column>
+				     <f:facet name="header">Ações</f:facet>
+				     <h:commandButton value="Adicionar" action="#{ben.Add}" styleClass="btn btn-sucess">
+				        <f:setPropertyActionListener value="#{list}" target="#{ben.pd}"/>
+				      </h:commandButton> 						                     						             						           						            
+				 </h:column>
+		      </h:dataTable> 
+			  <!-- final da tabela -->
+			   <div class="input-group col-sm-6  pull-left">
+					<div class="input-append">
+						<input type="text" jsf:value="#{ben.pd.nome}" class="span2 search-query"/>
+						<button type="submit" class="btn" jsf:action="#{ben.BuscaProduto}">Busca
+						      <f:ajax event="click"  render="tabelaP"/>
+						</button>
+						<h:commandButton styleClass="btn" value="buscarpro" action="#{ben.BuscaProduto}">
+					          <f:ajax event="click"  render="@all"/>
+						</h:commandButton>
+					</div>																											
+				</div>																 	
+				<button type="button"   class="btn btn-default">Feichar</button>
+		
+		</form>		
+		
+		</ui:define>
+	</ui:composition>
+</body>
+</html>
