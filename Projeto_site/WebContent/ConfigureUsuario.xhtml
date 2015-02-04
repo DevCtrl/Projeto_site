@@ -24,18 +24,24 @@
 				    </div>			    				   				    
 				  </div>
 				  <div class="form-group">
-				    <label for="email" class="col-sm-1 control-label">Email</label>
+				    <label class="col-sm-1 control-label">senha</label>
 				    <div class="col-sm-4">
-					     <input type="text" jsf:value="#{benUsuario.usuario.email}" 
-					       class="form-control" jsf:id="email" placeholder="Entre com email"/>
-				    </div>	
-				    <label class="col-sm-2 control-label">senha</label>
-				    <div class="col-sm-4">
-				       <input type="text" jsf:value="#{benUsuario.usuario.senha}" 
+				       <input type="password" jsf:value="#{benUsuario.usuario.senha}" 
 					       class="form-control" jsf:id="senha" placeholder="Entre senha"/>
+				    </div>
+				    <label class="col-sm-2 control-label">repetir senha</label>
+				    <div class="col-sm-4">
+				       <input type="password" jsf:value="#{benUsuario.usuario.senha}" 
+					       class="form-control" jsf:id="repetirsenha" placeholder="Entre senha"/>
 				    </div>			    				   				    
 				  </div>
-				  
+				   <div class="form-group">
+				    <label for="email" class="col-sm-1 control-label">Email</label>
+				    <div class="col-sm-4">
+					     <input type="email" jsf:value="#{benUsuario.usuario.email}" 
+					       class="form-control" jsf:id="email" placeholder="Entre com email"/>
+				    </div>
+				  </div>
 				
 				
                				 				

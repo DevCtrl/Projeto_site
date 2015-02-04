@@ -54,8 +54,9 @@ public class Ben_vendas {
 		
 	   	return  "Vendas.xhtml";
 	}
-	public void Remover()
+	public void Remove()
 	{
+		total = total - pd.getComprado();
 		lisCarrinho.remove(pd);
 	}
 	public void FinalizarCompra()

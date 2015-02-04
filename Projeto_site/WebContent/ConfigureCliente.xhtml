@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
     xmlns:jsf="http://xmlns.jcp.org/jsf">
 <h:head></h:head>
 <body>
@@ -34,23 +34,26 @@
 				       <input type="text" jsf:value="#{benCliente.cliente.email}" 
 					       class="form-control" jsf:id="email" placeholder="Entre email"/>
 				    </div>			    				   				    
-				  </div>
-				  <!-- 
-				   <div class="form-group">
+				  </div>				  
+				  <div class="form-group">
 				    <label for="telefone" class="col-sm-1 control-label">telefone</label>
-				    <div class="col-sm-4">
+				    <div class="col-xs-3">
 					    <input type="text" jsf:value="#{benCliente.cliente.telefone}" 
 					       class="form-control" jsf:id="telefone" placeholder="Entre com telefone"/>
 				    </div>	
-				    <label class="col-sm-2 control-label">cpf</label>
-				    <div class="col-sm-4">
+				    <label class="col-sm-1 control-label">cpf</label>
+				    <div class="col-xs-3">
 				      <input type="text" jsf:value="#{benCliente.cliente.cpf}" 
 					       class="form-control" jsf:id="cpf" placeholder="Entre com cpf"/>
 				    </div>
-				    <h:inputText value="#{benCliente.cliente.nome}"></h:inputText>			    				   				    
+				    <label class="col-sm-1 control-label">cep</label>
+				    <div class="col-xs-3">
+				      <input type="text" jsf:value="#{benCliente.cliente.renda}" 
+					       class="form-control" jsf:id="cep" placeholder="Entre com cep"/>
+				    </div>				    			    				   				    
 				  </div>
 				
-				 -->
+				 
 				
 				
                				 				

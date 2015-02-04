@@ -5,14 +5,15 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:jsf="http://xmlns.jcp.org/jsf">
 <h:head></h:head>
+
 <body>
 	<ui:composition template="Layout_Sistema.xhtml">
 	    <ui:define name="Titulo">Produto <h6>Cadastro</h6></ui:define>		
 		<ui:define name="corpo">
 				
-				<h:form class="form-horizontal">
+			<h:form class="form-horizontal">
 				  <div class="form-group">
-				    <label for="nome" class="col-sm-1 control-label">Nome</label>
+				    <label  class="col-sm-1 control-label">Nome</label>
 				    <div class="col-sm-4">
 					     <input type="text" jsf:value="#{benProduto.produto.nome}" 
 						        class="form-control" jsf:id="nome" placeholder="Entre com nome"/>
@@ -24,43 +25,44 @@
 				    </div>			    				   				    
 				  </div>
 				  <div class="form-group">
-				    <label for="valor_Revenda" class="col-sm-1 control-label">Valor Varejo</label>
-				    <div class="col-sm-4">
+				    <label for="valor_Varejo" class="col-sm-2 control-label">Valor Varejo</label>
+				    <div class="col-sm-3">
 					     <input type="text" jsf:value="#{benProduto.produto.valor_Varejo}" 
 					       class="form-control" jsf:id="valor_Varejo" placeholder="Entre com valor_Varejo"/>
 				    </div>	
-				    <label class="col-sm-2 control-label">valor Revenda</label>
-				    <div class="col-sm-4">
+				    <label class="col-sm-3 control-label">Valor Revenda</label>
+				    <div class="col-sm-3">
 				       <input type="text" jsf:value="#{benProduto.produto.valor_Revenda}" 
 					       class="form-control" jsf:id="valor_Revenda" placeholder="Entre valor_Revenda"/>
-				    </div>
-				    <label class="col-sm-2 control-label">Quantidade</label>
-				    <div class="col-sm-4">
-				       <input type="text" jsf:value="#{benProduto.produto.quantidade}" 
-					       class="form-control" jsf:id="quantidade" placeholder="Entre com a quantidade"/>
-				    </div>			    				    
-				    			    
-				    <div class="col-sm-4" rendered="if(#{benProduto.produto.id != 0 }">
-				       <label class="col-sm-2 control-label">Estoque</label>
-				       <input type="text" jsf:value="#{benProduto.produto.quantidade}" 
-					       class="form-control" jsf:id="estoque" />
-				    </div>
-				   
-				    <div class="col-sm-4"  rendered="if(#{benProduto.produto.id != 0 })">
-				       <label class="col-sm-2 control-label">Data</label>
-				       <input type="text" jsf:value="#{benProduto.produto.dataProduto}"
-					       class="form-control" jsf:id="data" />
 				    </div>			    				   				    
+				  </div>				  
+				  <div class="form-group">
+				    <label  class="col-sm-2 control-label">dataProduto</label>
+				    <div class="col-xs-3">
+					    <input type="text" jsf:value="#{benProduto.produto.dataProduto}" 
+					       class="form-control" jsf:id="dataProduto" placeholder="Entre com dataProduto"/>
+				    </div>	
+				    <label class="col-sm-1 control-label">estoque</label>
+				    <div class="col-xs-2 ">
+				      <input type="text" jsf:value="#{benProduto.produto.quantidade}" 
+					       class="form-control" jsf:id="estoque" placeholder="Entre com estoque"/>
+				    </div>
+				    <label class="col-sm-1 control-label">quantidade</label>
+				    <div class="col-xs-2">
+				      <input type="text" jsf:value="#{benProduto.produto.quantidade}" 
+					       class="form-control" jsf:id="quantidade" placeholder="Entre com quantidade"/>
+				    </div>				    			    				   				    
 				  </div>
-				  
+				
+				 
 				
 				
                				 				
-				<h:commandButton id="bt_conf_incluir" value="Salvar" actionListener="#{benProduto.Cadastrar}"
+				<h:commandButton id="bt_conf_incluir" value="Salvar" actionListener="#{benProduto.Incluir}"
 				    styleClass="btn-lg btn-default"  />
 				<h:commandButton id="bt_conf_editar" value="Deletar" actionListener="#{benProduto.Deletar}" 
 				    styleClass="btn-lg btn-default" rendered="#{benProduto.produto.id != null}" immediate="true"/>
-				<h:button value="Cancelar" outcome="Produto.xhtml" styleClass="btn-lg btn-danger"/>
+				<h:button value="Cancelar" outcome="Cliente.xhtml" styleClass="btn-lg btn-danger"/>
 			     
 				
 			</h:form>
