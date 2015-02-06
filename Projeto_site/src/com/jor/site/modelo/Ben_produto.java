@@ -16,7 +16,7 @@ import com.jor.site.controle.Control_produto;
 import com.jor.site.entidade.Produto;
 
 @ManagedBean(name="benProduto")
-@RequestScoped
+@SessionScoped
 public class Ben_produto {
    
 	Produto produto = new Produto();
@@ -26,27 +26,36 @@ public class Ben_produto {
 	
 	
 	public String Incluir()
-	{
+	{   
+		produto = new Produto();				
 		return "ConfigureProduto.xhtml";
-	}	
-	public void Cadastrar(ActionEvent evt)
+	}
+	public String pgConfigure()	{   
+					
+		return "ConfigureProduto.xhtml";
+	}
+	public String Cadastrar()
 	{
-		if(produto.getId()>0)
-		{
+		System.out.println(produto.getNome());	
+		if(produto.getId() == 0)
+		{			
 			comando.inserir(produto);
+			
 		}else
 		{
 			comando.alterar(produto);
 		}
 		lista = comando.Listar_Dados();
-		produto = new Produto();		
+		produto = new Produto();	
+		return "Produto.xhtml";
 		
 	}
-	public void Deletar(ActionEvent evt)
-	{
+	public String Deletar()
+	{  		
 		comando.deletar(produto);		
 		lista = comando.Listar_Dados();
 		produto = new Produto();
+		return "Produto.xhtml";
 	}
 	public void BuscaProduto()
 	{

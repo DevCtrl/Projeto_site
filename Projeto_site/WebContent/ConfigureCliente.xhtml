@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:jsf="http://xmlns.jcp.org/jsf">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">   
 <h:head></h:head>
 <body>
 	<ui:composition template="Layout_Sistema.xhtml">
@@ -14,7 +14,7 @@
 				  <div class="form-group">
 				    <label for="nome" class="col-sm-1 control-label">Nome</label>
 				    <div class="col-sm-4">
-					     <input type="text" jsf:value="#{benCliente.cliente.nome}" 
+					     <input type="text" jsf:value="#{benCliente.cliente.nome}" required="true"
 						        class="form-control" jsf:id="nome" placeholder="Entre com nome"/>
 				    </div>	
 				    <label class="col-sm-2 control-label">Endereço</label>
@@ -43,7 +43,7 @@
 				    </div>	
 				    <label class="col-sm-1 control-label">cpf</label>
 				    <div class="col-xs-3">
-				      <input type="text" jsf:value="#{benCliente.cliente.cpf}" 
+				      <input type="text" jsf:value="#{benCliente.cliente.cpf}" required="true"
 					       class="form-control" jsf:id="cpf" placeholder="Entre com cpf"/>
 				    </div>
 				    <label class="col-sm-1 control-label">cep</label>
@@ -57,10 +57,10 @@
 				
 				
                				 				
-				<h:commandButton id="bt_conf_incluir" value="Salvar" actionListener="#{benCliente.Incluir}"
-				    styleClass="btn-lg btn-default"  />
-				<h:commandButton id="bt_conf_editar" value="Deletar" actionListener="#{benCliente.Deletar}" 
-				    styleClass="btn-lg btn-default" rendered="#{benCliente.cliente.id != null}" immediate="true"/>
+				<h:commandButton id="bt_conf_incluir" value="Salvar" action="#{benCliente.Incluir}"
+				    styleClass="btn-lg btn-default"  />				
+				<h:commandButton id="bt_conf_delite" value="Deletar" action="#{benCliente.Deletar}" 
+				    styleClass="btn-lg btn-default" rendered="#{benCliente.cliente.id != 0}" />
 				<h:button value="Cancelar" outcome="Cliente.xhtml" styleClass="btn-lg btn-danger"/>
 			     
 				

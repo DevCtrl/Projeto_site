@@ -5,8 +5,6 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.omg.CORBA.ExceptionList;
-
 import com.jor.site.entidade.Cliente;
 import com.jor.site.util.HibernateUtil;
 
@@ -20,6 +18,10 @@ public class Control_cliente {
 			session.save(cliente);
 			session.getTransaction().commit();
 		}
+		catch(ExceptionInInitializerError er)
+		{
+			System.out.println("Erro ao Incluir cliente "+er.getLocalizedMessage());
+		}
 		finally {
 			System.out.println("cliente cdastrado com sucesso");
 			session.close();
@@ -29,24 +31,34 @@ public class Control_cliente {
 	{
 		session = HibernateUtil.getSessionFactory().openSession();
 		try{
+			
 			session.beginTransaction();
 			session.delete(cliente);
 			session.getTransaction().commit();
 		}
+		catch(ExceptionInInitializerError er)
+		{
+			System.out.println("Erro ao Deletarcliente "+er.getLocalizedMessage());
+		}
 		finally
 		{
-			System.out.println("Cliente Deletado");
+			System.out.println("Cliente Deletado "+cliente.getNome());
 			session.close();
 		}
 	}
 	public void alterar(Cliente cliente) {
 		session = HibernateUtil.getSessionFactory().openSession();
 		try
+		{		
+			session.beginTransaction();			
+			session.update(cliente);			
+			session.getTransaction().commit();
+		}
+		catch(ExceptionInInitializerError er)
 		{
-			session.beginTransaction();
-			session.saveOrUpdate(cliente);
-			session.getTransaction();
-		}finally
+			System.out.println("Erro ao alterar cliente "+er.getLocalizedMessage());
+		}
+		finally
 		{
 			System.out.println("cliente alterado com sucesso");
 			session.close();

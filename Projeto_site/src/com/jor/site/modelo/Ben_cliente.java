@@ -16,7 +16,7 @@ import com.jor.site.controle.Control_cliente;
 import com.jor.site.entidade.Cliente;
 
 @ManagedBean(name="benCliente")
-@RequestScoped
+@SessionScoped
 public class Ben_cliente {
    
 	private Cliente cliente = new Cliente();
@@ -26,31 +26,33 @@ public class Ben_cliente {
 	
 	
 	
-	public void Incluir(ActionEvent evt)
+	public String  Incluir()
 	{
-		//System.out.println(cliente.getNome());
-		if(cliente.getId() > 0){
-			System.out.println("Cliente alterado");
-			comando.alterar(cliente);				
+		System.out.println("  teste te "+cliente.getId());
+		if(cliente.getId() == 0){			
+			comando.inserir(cliente);			
 		}
-		else{
-			System.out.println("metodo chamado salvar");
-			comando.inserir(cliente);	
+		else{			
+			comando.alterar(cliente);	
 		}		
 		lista = comando.Listar_Dados();
 		cliente = new Cliente();
+		return "Cliente.xhtml";
 	}
 	public String  Edita()	{		
 		return "ConfigureCliente.xhtml";				
 	}
-	public String  Cadastro()	{		
+	public String  Cadastro()	{
+		cliente = new Cliente();
 		return "ConfigureCliente.xhtml";					
 	}
-	public void Deletar(ActionEvent evt)
+	public String Deletar()
 	{
+		System.out.println(cliente.getNome());
 		comando.deletar(cliente);		
 		lista = comando.Listar_Dados();
 		cliente = new Cliente();
+		return "Cliente.xhtml";
 	}
 
 	public Cliente getcliente() {

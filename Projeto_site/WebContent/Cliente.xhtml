@@ -23,8 +23,9 @@
   <ui:define name="Titulo">Cliente</ui:define>
   <ui:define name="corpo">
      <ui:insert name="FormCliente">
-      <h:form id="formCli">
-        <h:dataTable var="list" value="#{benCliente.lista}"  rows="7" styleClass="table table-hover">
+      <h:form id="formCli">      
+        <h:dataTable var="list" value="#{benCliente.lista}"  rows="7" 
+            styleClass="table table-hover" paginato="true">
            <h:column >
               <f:facet name="header">Id</f:facet>
               #{list.id}              

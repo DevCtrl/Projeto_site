@@ -13,6 +13,9 @@ import java.util.List;
 
 
 
+
+
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -23,24 +26,35 @@ import com.jor.site.util.HibernateUtil;
 public class Control_produto {
 	private Session session;
 
-	public void inserir(Produto produto) {
+	public void inserir(Produto produto) {		
 		session = HibernateUtil.getSessionFactory().openSession();
-		try {
+	try {			
 			session.beginTransaction();
 			session.save(produto);
 			session.getTransaction().commit();
-		} finally {
+		}
+	catch(ExceptionInInitializerError er)
+	{
+		System.out.println("Erro ao Incluir Produto "+er.getLocalizedMessage());
+	}
+	finally {
 			System.out.println("Produto cdastrado com sucesso");
 			session.close();
 		}
 	}
-	public void alterar(Produto produto) {
+	public void alterar(Produto produto) {		
 		session = HibernateUtil.getSessionFactory().openSession();
 		try {
+			
 			session.beginTransaction();
-			session.saveOrUpdate(produto);
+			session.merge(produto);
 			session.getTransaction().commit();
-		} finally {
+		}
+		catch(ExceptionInInitializerError er)
+		{
+			System.out.println("Erro ao alterar produto "+er.getLocalizedMessage());
+		}
+		finally {
 			System.out.println("Produto alterado com sucesso");
 			session.close();
 		}
@@ -49,10 +63,14 @@ public class Control_produto {
 	public void deletar(Produto produto)
 	{
 		session = HibernateUtil.getSessionFactory().openSession();
-		try{
+		try{			
 			session.beginTransaction();
 			session.delete(produto);
 			session.getTransaction().commit();
+		}
+		catch(ExceptionInInitializerError er)
+		{
+			System.out.println("Erro ao deletar produto"+er.getLocalizedMessage());
 		}
 		finally
 		{

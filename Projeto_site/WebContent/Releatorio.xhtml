@@ -13,9 +13,9 @@
 				
 
 				<h:inputText value="#{ben1.nome}" >
-					<f:ajax event="change" render="texto" listener="#{ben1.hand()}" execute="@all	"/>
+					<f:ajax event="change"  render="texto" listener="#{ben1.hand()}" execute="@all	"/>
 				</h:inputText>
-				<h:outputText id="texto" value=" A palavra é: #{ben1.nome}"/>
+				<h:outputText id="texto" styleClass="form control" value=" A palavra é: #{ben1.nome}"/>
 			</h:form>
 		</ui:define>
 	</ui:composition>
