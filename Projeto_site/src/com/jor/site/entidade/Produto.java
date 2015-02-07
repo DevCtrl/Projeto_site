@@ -16,20 +16,20 @@ public class Produto {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	@Column 
-	private String nome;
-	@Column
-	private String descricao;
-	@Column
-	private Double valor_Varejo;
-	@Column
-	private Double valor_Revenda;
-	@Column
-	private Integer quantidade;
-	@Column
-	private Double comprado;
-	@Column
-	private Date dataProduto;
+	@Column (name="nome")
+	private String Nome;
+	@Column(name="descricao")
+	private String Descricao;
+	@Column(name="valor_Varejo")
+	private Double Valor_Varejo;
+	@Column(name="valor_Revenda")
+	private Double Valor_Revenda;
+	@Column(name="quantidade")
+	private Integer Quantidade;
+	@Column(name="comprado")
+	private Double Comprado;
+	@Column(name="dataProduto")
+	private Date DataProduto;
 	public long getId() {
 		return id;
 	}
@@ -37,48 +37,48 @@ public class Produto {
 		this.id = id;
 	}
 	public String getNome() {
-		return nome;
+		return Nome;
 	}
 	public void setNome(String nome) {
-		this.nome = nome;
+		Nome = nome;
 	}
 	public String getDescricao() {
-		return descricao;
+		return Descricao;
 	}
 	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+		Descricao = descricao;
 	}
 	public Double getValor_Varejo() {
-		return valor_Varejo;
+		return Valor_Varejo;
 	}
 	public void setValor_Varejo(Double valor_Varejo) {
-		this.valor_Varejo = valor_Varejo;
+		Valor_Varejo = valor_Varejo;
 	}
 	public Double getValor_Revenda() {
-		return valor_Revenda;
+		return Valor_Revenda;
 	}
 	public void setValor_Revenda(Double valor_Revenda) {
-		this.valor_Revenda = valor_Revenda;
+		Valor_Revenda = valor_Revenda;
 	}
-	
 	public Integer getQuantidade() {
-		return quantidade;
+		return Quantidade;
 	}
 	public void setQuantidade(Integer quantidade) {
-		this.quantidade = quantidade;
-	}
-	public Date getDataProduto() {
-		return dataProduto;
-	}
-	public void setDataProduto(Date dataProduto) {
-		this.dataProduto = dataProduto;
+		Quantidade = quantidade;
 	}
 	public Double getComprado() {
-		return comprado;
+		return Comprado;
 	}
-	public void setComprado(double comprado) {
-		this.comprado = comprado;
+	public void setComprado(Double comprado) {
+		Comprado = comprado;
 	}
+	public Date getDataProduto() {
+		return DataProduto;
+	}
+	public void setDataProduto(Date dataProduto) {
+		DataProduto = dataProduto;
+	}
+	
 	
 	
 	

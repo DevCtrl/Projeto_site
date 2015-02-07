@@ -47,7 +47,7 @@ public class Control_produto {
 		try {
 			
 			session.beginTransaction();
-			session.merge(produto);
+			session.update(produto);
 			session.getTransaction().commit();
 		}
 		catch(ExceptionInInitializerError er)

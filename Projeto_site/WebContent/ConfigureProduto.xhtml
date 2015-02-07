@@ -1,22 +1,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:jsf="http://xmlns.jcp.org/jsf">
-<h:head></h:head>
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">   
+
 
 <body>
 	<ui:composition template="Layout_Sistema.xhtml">
 	    <ui:define name="Titulo">Produto <h6>Cadastro</h6></ui:define>		
 		<ui:define name="corpo">
 				
-			<form jsf:id="form" class="form-horizontal">
+			<h:form  class="form-horizontal">
 				  <div class="form-group">
 				    <label  class="col-sm-1 control-label">Nome</label>
 				    <div class="col-sm-4">
 					    <input type="text" jsf:value="#{benProduto.produto.nome}" required="true"
-						        class="form-control" jsf:id="nome" placeholder="Entre com nome"/>
+						        class="form-control" jsf:id="nome" placeholder="Entre com nome"/>						        
 				    </div>	
 				    <label class="col-sm-2 control-label">Descrição</label>
 				    <div class="col-sm-4">
@@ -26,12 +26,14 @@
 				  </div>
 				  <div class="form-group">
 				    <label for="valor_Varejo" class="col-sm-2 control-label">Valor Varejo</label>
-				    <div class="col-sm-3">
+				    <div class="col-sm-2 input-group">
+				         <span class="input-group-addon">$</span>
 					     <input type="text" jsf:value="#{benProduto.produto.valor_Varejo}" required="true"
-					       class="form-control" jsf:id="valor_Varejo" placeholder="Entre com valor_Varejo"/>
+					       class="form-control" jsf:id="valor_Varejo" placeholder="Entre com valor_Varejo"/>					     
 				    </div>	
 				    <label class="col-sm-3 control-label">Valor Revenda</label>
-				    <div class="col-sm-3">
+				    <div class="col-sm-2 input-group">
+				         <span class="input-group-addon">$</span>
 				       <input type="text" jsf:value="#{benProduto.produto.valor_Revenda}" required="true"
 					       class="form-control" jsf:id="valor_Revenda" placeholder="Entre valor_Revenda"/>
 				    </div>			    				   				    
@@ -39,12 +41,12 @@
 				  <div class="form-group">
 				    <label  class="col-sm-2 control-label">dataProduto</label>
 				    <div class="col-xs-3">
-					    <input type="text" jsf:value="#{benProduto.produto.dataProduto}" 
+					    <input type="text" jsf:value="00/00/0000" 
 					       class="form-control" jsf:id="dataProduto" placeholder="Entre com dataProduto"/>
 				    </div>	
 				    <label class="col-sm-1 control-label">estoque</label>
 				    <div class="col-xs-2 ">
-				      <input type="text" jsf:value="#{benProduto.produto.quantidade}" 
+				      <input type="text" jsf:value="000" 
 					       class="form-control" jsf:id="estoque" placeholder="Entre com estoque"/>
 				    </div>
 				    <label class="col-sm-1 control-label">quantidade</label>
@@ -54,12 +56,10 @@
 				    </div>				    			    				   				    
 				  </div>
 				
-				 
 				
-			</form>	
-            <h:form>   				 				
-				<h:commandButton id="bt_conf_incluir" value="Salvar" action="#{benProduto.Cadastrar}"
-				    styleClass="btn-lg btn-default"  />
+						 				
+				<h:commandButton id="bt_conf_incluir" value="Salvar" action="#{benProduto.Cadastrar()}"
+				    styleClass="btn-lg btn-primary"  />				
 				<h:commandButton id="bt_conf_delete" value="Deletar" action="#{benProduto.Deletar}" 
 				    styleClass="btn-lg btn-default" rendered="#{benProduto.produto.id > 0}" immediate="true"/>
 				<h:button value="Cancelar" outcome="Produto.xhtml" styleClass="btn-lg btn-danger"/>

@@ -39,17 +39,16 @@
 		      </h:dataTable> 
 			  <!-- final da tabela -->
 			   <div class="input-group col-sm-6  pull-left">
-					<div class="input-append">
-						<input type="text" jsf:value="#{ben.pd.nome}" class="span2 search-query"/>
+					<div class="input-group">
+						<input type="text" jsf:value="#{ben.pd.nome}" class="form-control"/>
+						<span class="input-group-btn">
 						<button type="submit" class="btn" jsf:action="#{ben.BuscaProduto}">Busca
 						      <f:ajax event="click"  render="tabelaP"/>
 						</button>
-						<h:commandButton styleClass="btn" value="buscarpro" action="#{ben.BuscaProduto}">
-					          <f:ajax event="click"  render="@all"/>
-						</h:commandButton>
+						</span>						
 					</div>																											
 				</div>																 	
-				<button type="button"   class="btn btn-default">Feichar</button>
+				<button type="button"   class="pull-right btn btn-default">Feichar</button>
 		
 		</form>		
 		

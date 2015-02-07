@@ -28,6 +28,17 @@ public class Control_usuario {
 			session.close();
 		}
 	}
+	public void alterar(Usuario usuario) {
+		session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			session.beginTransaction();
+			session.update(usuario);
+			session.getTransaction().commit();
+		} finally {
+			System.out.println("Usuario alterado com sucesso");
+			session.close();
+		}
+	}
 	public void deletar(Usuario usuario)
 	{
 		session = HibernateUtil.getSessionFactory().openSession();
@@ -57,5 +68,6 @@ public class Control_usuario {
 			session.close();
 		}
 	}
+	
 	
 }

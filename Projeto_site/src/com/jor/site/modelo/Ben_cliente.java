@@ -1,17 +1,10 @@
 package com.jor.site.modelo;
 
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
-import javax.faces.event.ActionEvent;
-import javax.faces.event.ComponentSystemEvent;
-
-import java.io.Serializable;
-import java.util.List;
 import java.util.ArrayList;
-
+import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import com.jor.site.controle.Control_cliente;
 import com.jor.site.entidade.Cliente;
 

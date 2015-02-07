@@ -1,17 +1,10 @@
 package com.jor.site.modelo;
 
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
-import javax.faces.event.ActionEvent;
-import javax.faces.event.ComponentSystemEvent;
-
-import java.io.Serializable;
-import java.util.List;
 import java.util.ArrayList;
-
+import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import com.jor.site.controle.Control_produto;
 import com.jor.site.entidade.Produto;
 
@@ -30,13 +23,13 @@ public class Ben_produto {
 		produto = new Produto();				
 		return "ConfigureProduto.xhtml";
 	}
-	public String pgConfigure()	{   
+	public String ConfigurePg()	{   
 					
 		return "ConfigureProduto.xhtml";
 	}
 	public String Cadastrar()
 	{
-		System.out.println(produto.getNome());	
+		System.out.println("teste produto "+produto.getNome());	
 		if(produto.getId() == 0)
 		{			
 			comando.inserir(produto);
