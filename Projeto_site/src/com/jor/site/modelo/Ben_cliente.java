@@ -47,6 +47,10 @@ public class Ben_cliente {
 		cliente = new Cliente();
 		return "Cliente.xhtml";
 	}
+	public void buscaCli()
+	{
+		lista = comando.BuscaClientes(cliente.getNome());
+	}
 
 	public Cliente getcliente() {
 		return cliente;

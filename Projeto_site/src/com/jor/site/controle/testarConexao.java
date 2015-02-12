@@ -10,11 +10,12 @@ public class testarConexao {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
         Cliente cli = new Cliente();
-        cli.setNome("leabd");
-        cli.setCidade("caucaia");
+        
+        
 		
 		Control_cliente comando = new Control_cliente();
-		comando.inserir(cli);
+		cli = (Cliente) comando.BuscaCliente("novo");
+		System.out.println("Cliente encontrado "+ cli.getNome());
 	}
 
 }

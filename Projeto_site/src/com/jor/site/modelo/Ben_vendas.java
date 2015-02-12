@@ -19,6 +19,7 @@ import com.jor.site.controle.Control_venda;
 import com.jor.site.entidade.Cliente;
 import com.jor.site.entidade.Produto;
 import com.jor.site.entidade.Venda;
+import com.jor.site.util.Alertas;
 
 @ManagedBean(name="ben")
 @SessionScoped
@@ -26,6 +27,7 @@ public class Ben_vendas {
    
 	Produto pd = new Produto();
 	Cliente cli = new Cliente();
+	Cliente CliPesquisado = new Cliente();
 	Venda vd = new Venda();
 	Control_produto comando = new Control_produto();
 	Control_cliente comandoCli = new Control_cliente();
@@ -36,6 +38,14 @@ public class Ben_vendas {
 	private int quantidade = 2;
 	private double subtotal=0;
 	private double total=0;
+	
+	
+	public void teste(ActionEvent evt){
+		System.out.println("teste evento");
+		Alertas ms = new Alertas();
+		ms.comfirmar("message certo");
+	}
+	
 	
 	public Ben_vendas(){
 		lisPro = comando.Listar_Dados();
@@ -69,15 +79,15 @@ public class Ben_vendas {
 	public String BuscaProduto()
 	{  
 		System.out.println("teste busca "+pd.getNome());		
-		lisPro = comando.BuscaProduto(pd.getNome());		
+		lisPro = comando.BuscaProdutos(pd.getNome());		
 		return "null";
 	}
 	public String BuscaCliente()
 	{ 
-		System.out.println(ClientePesquisa);
-		if(comandoCli.BuscaCliente(ClientePesquisa) != null)	{
-			System.out.println(ClientePesquisa+"teste");
-			   cli.setNome(comandoCli.BuscaCliente(ClientePesquisa+" cliente"));
+		CliPesquisado = (Cliente) comandoCli.BuscaCliente(ClientePesquisa); 
+		if(CliPesquisado.getId() != 0)	{
+			System.out.println(ClientePesquisa+"  teste");
+			cli.setNome(CliPesquisado.getNome());  
 		}
 			
 		else

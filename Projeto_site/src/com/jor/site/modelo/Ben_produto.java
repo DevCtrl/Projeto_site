@@ -50,9 +50,10 @@ public class Ben_produto {
 		produto = new Produto();
 		return "Produto.xhtml";
 	}
-	public void BuscaProduto()
+	public void BuscaPro()
 	{
-		lista = comando.BuscaProduto(produto.getNome());
+		lista = comando.BuscaProdutos(produto.getNome());
+		produto = new Produto();
 	}
 
 	

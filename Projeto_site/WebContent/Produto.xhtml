@@ -23,7 +23,7 @@
   <ui:define name="Titulo">Produto</ui:define> 
   <ui:define name="corpo">    
       <h:form id="formPro">
-        <h:dataTable var="list" value="#{benProduto.lista}"  rows="7" styleClass="table table-hover">
+        <h:dataTable id="tabelaPro" var="list" value="#{benProduto.lista}"  rows="7" styleClass="table table-hover">
            <h:column >
               <f:facet name="header">Id</f:facet>
               #{list.id}              
@@ -49,9 +49,20 @@
           
       </h:dataTable> 
      <!-- final da tabela -->
-     
+    
+    <div> 
       <h:commandButton value="Incluir" action="#{benProduto.Incluir}"  styleClass="btn btn-primary btn-lg" />
-		   
+	   <div class="input-group col-sm-6  pull-right">
+				<div class="input-group">
+					<input type="text" jsf:value="#{benProduto.produto.nome}" class="form-control"/>
+					<span class="input-group-btn">
+					<button type="submit" class="btn btn-primary" jsf:action="#{benProduto.BuscaPro}">Busca
+						      <f:ajax event="click"  render="tabelaPro"/>
+			     	</button>
+				</span>						
+			</div>																											
+		</div>
+	</div>  	   
      </h:form>   	   		 
 		                
     </ui:define> 

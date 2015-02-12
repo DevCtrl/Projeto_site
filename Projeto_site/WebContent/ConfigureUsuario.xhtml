@@ -26,12 +26,12 @@
 				  <div class="form-group">
 				    <label class="col-sm-1 control-label">senha</label>
 				    <div class="col-sm-4">
-				       <input type="password" jsf:value="#{benUsuario.usuario.senha}" 
+				       <input type="text" jsf:value="#{benUsuario.usuario.senha}" 
 					       class="form-control" jsf:id="senha" placeholder="Entre senha"/>
 				    </div>
 				    <label class="col-sm-2 control-label">repetir senha</label>
 				    <div class="col-sm-4">
-				       <input type="password" jsf:value="#{benUsuario.usuario.senha}" 
+				       <input type="text" jsf:value="#{benUsuario.usuario.senha}" 
 					       class="form-control" jsf:id="repetirsenha" placeholder="Entre senha"/>
 				    </div>			    				   				    
 				  </div>
@@ -45,7 +45,7 @@
 				
 				
                				 				
-				<h:commandButton id="bt_conf_incluir" value="Salvar" actionListener="#{benUsuario.Cadastrar}"
+				<h:commandButton id="bt_conf_incluir" value="Salvar" action="#{benUsuario.Cadastrar}"
 				    styleClass="btn-lg btn-default"  />
 				<h:commandButton id="bt_conf_editar" value="Deletar" actionListener="#{benUsuario.Deletar}" 
 				    styleClass="btn-lg btn-default" rendered="#{benUsuario.usuario.id != null}" immediate="true"/>

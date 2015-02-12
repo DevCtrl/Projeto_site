@@ -3,6 +3,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -23,8 +24,9 @@
   <ui:define name="Titulo">Cliente</ui:define>
   <ui:define name="corpo">
      <ui:insert name="FormCliente">
+    
       <h:form id="formCli">      
-        <h:dataTable var="list" value="#{benCliente.lista}"  rows="7" 
+        <h:dataTable id="tabelaCli" var="list" value="#{benCliente.lista}"  rows="7" 
             styleClass="table table-hover" paginato="true">
            <h:column >
               <f:facet name="header">Id</f:facet>
@@ -54,7 +56,19 @@
           </h:column>
       </h:dataTable> 
      <!-- final da tabela -->            
-	  <h:commandButton action="#{benCliente.Cadastro}" value="Incluir" styleClass="btn btn-primary btn-lg"/>    
+	 <div >
+	   <h:commandButton action="#{benCliente.Cadastro}" value="Incluir" styleClass="btn btn-primary btn-lg"/> 
+	   <div class="input-group col-sm-6  pull-right">
+					<div class="input-group">
+						<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
+						<span class="input-group-btn">
+						<button type="submit" class="btn btn-primary" jsf:action="#{benCliente.BuscaCli}">Busca
+						      <f:ajax event="click"  render="tabelaCli"/>
+						</button>
+						</span>						
+					</div>																											
+		</div>
+	  </div>		    
      </h:form>
       
 	   

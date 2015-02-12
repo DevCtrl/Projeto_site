@@ -16,6 +16,7 @@ import java.util.List;
 
 
 
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -94,14 +95,27 @@ public class Control_produto {
 		}
 	}
 	
-	public List BuscaProduto(String nome) {
+	public List BuscaProdutos(String nome) {
 		try {
 	    	session = HibernateUtil.getSessionFactory().openSession();
 	    	session.beginTransaction();
-	        Query q = session.createQuery ("from Produto as p where p.nome like '"+nome+"%'");
+	        Query q = session.createQuery ("from Produto where nome like '"+nome+"%'");
 	        return q.list();
 	    } catch (Exception e) {
-	        e.printStackTrace();
+	         System.out.println("erro ao pesquisar p"+e.getMessage());
+	    }
+		return null;
+	}
+	public String BuscaProduto(String nome) {
+		try {
+	    	session = HibernateUtil.getSessionFactory().openSession();
+	    	session.beginTransaction();
+	        Query q = session.createQuery ("select nome from Produto where nome = '"+nome+"%'");
+	        q.setMaxResults(1);
+	        System.out.println("pesquisado "+q.uniqueResult());
+	        return (String) q.uniqueResult();
+	    } catch (Exception e) {
+	         System.out.println("erro ao pesquisar p"+e.getMessage());
 	    }
 		return null;
 	}

@@ -3,6 +3,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -22,8 +23,12 @@
   <ui:composition template="Layout_Sistema.xhtml">
     <ui:define name="Titulo">Ferramentas</ui:define> 
     <ui:define name="corpo">    
-  
-  
+   
+    <h:form>
+     
+     <h:commandButton value="msg" actionListener="#{ben.teste}"></h:commandButton>
+      <p:growl id="msg" autoUpdate="true" />
+    </h:form>
    </ui:define>
   </ui:composition> 
 </body> 

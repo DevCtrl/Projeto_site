@@ -35,7 +35,7 @@ public class Ben_usuario {
 	{
 		return "ConfigureUsuario.xhtml";
 	}
-	public void Cadastrar(ActionEvent evt)
+	public String Cadastrar()
 	{
 		System.out.println("usario "+usuario.getNome());
 		
@@ -46,6 +46,7 @@ public class Ben_usuario {
 		
 		usuario = new Usuario();
 		lista  = comando.Listar_Dados();
+		return "Usuario.xhtml";
 		
 	}
 	public void Deletar(ActionEvent evt)

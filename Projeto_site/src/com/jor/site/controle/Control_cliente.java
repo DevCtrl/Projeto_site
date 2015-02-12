@@ -5,12 +5,15 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+
 import com.jor.site.entidade.Cliente;
+import com.jor.site.util.Alertas;
 import com.jor.site.util.HibernateUtil;
 
 public class Control_cliente {
 	private Session session;
-
+	Alertas msg = new Alertas();
+	 Cliente c = new Cliente();	        
 	public void inserir(Cliente cliente) {
 		session = HibernateUtil.getSessionFactory().openSession();
 		try {
@@ -23,7 +26,7 @@ public class Control_cliente {
 			System.out.println("Erro ao Incluir cliente "+er.getLocalizedMessage());
 		}
 		finally {
-			System.out.println("cliente cdastrado com sucesso");
+			msg.comfirmar("Cliente "+cliente.getNome()+" Cadastrado com sucesso");
 			session.close();
 		}
 	}
@@ -37,12 +40,12 @@ public class Control_cliente {
 			session.getTransaction().commit();
 		}
 		catch(ExceptionInInitializerError er)
-		{
+		{			
 			System.out.println("Erro ao Deletarcliente "+er.getLocalizedMessage());
 		}
 		finally
 		{
-			System.out.println("Cliente Deletado "+cliente.getNome());
+			msg.comfirmar("Cliente "+cliente.getNome()+" deletado com sucesso");
 			session.close();
 		}
 	}
@@ -60,7 +63,7 @@ public class Control_cliente {
 		}
 		finally
 		{
-			System.out.println("cliente alterado com sucesso");
+			msg.comfirmar("Alterações no cliente "+cliente.getNome()+" feitas com sucesso");
 			session.close();
 		}
 		
@@ -80,18 +83,32 @@ public class Control_cliente {
 			session.close();
 		}
 	}
-	public String BuscaCliente(String nome) {
+	public List BuscaClientes(String nome) {
+		try {
+	    	session = HibernateUtil.getSessionFactory().openSession();
+	    	session.beginTransaction();
+	        Query q = session.createQuery ("from Cliente where nome = '"+nome+"%'");
+	        return q.list();
+	    } catch (Exception e) {
+	         System.out.println("erro ao pesquisar p"+e.getMessage());
+	    }
+		return null;
+	}		
+	
+	public Object BuscaCliente(String texto) {
 		try {
 	    	session = HibernateUtil.getSessionFactory().openSession();
 	    	session.beginTransaction();	    	
-	        Query q = session.createQuery ("from Cliente  where nome = '"+nome+"'");
-	        System.out.println(q);
-	        return (String) q.uniqueResult();
+	         
+	    	  Query q = session.createQuery("from Cliente where nome = :name" );
+	    	  q.setParameter("name", texto);    	 	    	  
+   	           	     	        	               
+	          return q.uniqueResult();
 	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }		
-		
+	         System.out.println("erro ao pesquisar "+e.getMessage());
+	    }
 		return null;
+		
 	}
 	
 	
