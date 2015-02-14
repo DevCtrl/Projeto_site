@@ -106,20 +106,6 @@ public class Control_produto {
 	    }
 		return null;
 	}
-	public String BuscaProduto(String nome) {
-		try {
-	    	session = HibernateUtil.getSessionFactory().openSession();
-	    	session.beginTransaction();
-	        Query q = session.createQuery ("select nome from Produto where nome = '"+nome+"%'");
-	        q.setMaxResults(1);
-	        System.out.println("pesquisado "+q.uniqueResult());
-	        return (String) q.uniqueResult();
-	    } catch (Exception e) {
-	         System.out.println("erro ao pesquisar p"+e.getMessage());
-	    }
-		return null;
-	}
-	
 	
 	
 }

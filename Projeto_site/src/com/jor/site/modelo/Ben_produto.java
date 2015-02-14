@@ -16,7 +16,9 @@ public class Ben_produto {
 	Control_produto comando = new Control_produto();
 	List lista = new ArrayList();
 	
-	
+	public Ben_produto(){
+		lista = comando.Listar_Dados();
+	}
 	
 	public String Incluir()
 	{   
@@ -50,10 +52,11 @@ public class Ben_produto {
 		produto = new Produto();
 		return "Produto.xhtml";
 	}
-	public void BuscaPro()
+	public String BuscaPro()
 	{
 		lista = comando.BuscaProdutos(produto.getNome());
 		produto = new Produto();
+		return "null";
 	}
 
 	
@@ -66,7 +69,7 @@ public class Ben_produto {
 	}
 
 	public List getLista() {
-		return lista = comando.Listar_Dados();
+		return lista ;
 	}
 
 	public void setLista(List lista) {

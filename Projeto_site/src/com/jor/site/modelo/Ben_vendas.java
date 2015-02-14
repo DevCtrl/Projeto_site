@@ -69,25 +69,38 @@ public class Ben_vendas {
 		total = total - pd.getComprado();
 		lisCarrinho.remove(pd);
 	}
-	public void FinalizarCompra()
+	public void FinalizarCompra(ActionEvent evt)
 	{
-		vd.setCliente(cli);
-		vd.setProduto(pd);
-		vd.setData(new Date());
-		comandoVd.inserir(vd);
+		
+		if(!lisCarrinho.isEmpty()){
+			for (Produto produto : lisCarrinho) {
+				if(cli.getId() == 0)
+				   cli.setId(255);
+				
+				vd.setCliente(cli);
+				vd.setProduto(pd);
+				vd.setData(new Date());
+				
+				comandoVd.inserir(vd);				
+			}					
+			lisCarrinho.clear();
+			cli = new Cliente();
+		}			
+		
 	}
 	public String BuscaProduto()
 	{  
 		System.out.println("teste busca "+pd.getNome());		
 		lisPro = comando.BuscaProdutos(pd.getNome());		
 		return "null";
-	}
+	}	
 	public String BuscaCliente()
 	{ 
 		CliPesquisado = (Cliente) comandoCli.BuscaCliente(ClientePesquisa); 
 		if(CliPesquisado.getId() != 0)	{
 			System.out.println(ClientePesquisa+"  teste");
-			cli.setNome(CliPesquisado.getNome());  
+			cli.setNome(CliPesquisado.getNome());
+			cli.setId(CliPesquisado.getId());
 		}
 			
 		else

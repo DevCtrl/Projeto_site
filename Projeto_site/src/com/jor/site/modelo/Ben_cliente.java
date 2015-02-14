@@ -17,6 +17,10 @@ public class Ben_cliente {
 	Control_cliente comando = new Control_cliente();
 	List lista = new ArrayList();
 	
+	public Ben_cliente()
+	{
+		lista =  comando.Listar_Dados();
+	}
 	
 	
 	public String  Incluir()
@@ -47,9 +51,11 @@ public class Ben_cliente {
 		cliente = new Cliente();
 		return "Cliente.xhtml";
 	}
-	public void buscaCli()
+	public String BuscaCli()
 	{
+		System.out.println(cliente.getNome());
 		lista = comando.BuscaClientes(cliente.getNome());
+		return "null";
 	}
 
 	public Cliente getcliente() {
@@ -61,7 +67,7 @@ public class Ben_cliente {
 	}
 
 	public List getLista() {
-		return lista = comando.Listar_Dados();
+		return lista ;
 	}
 
 	public void setLista(List lista) {

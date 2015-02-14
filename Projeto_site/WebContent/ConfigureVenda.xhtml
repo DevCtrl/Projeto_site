@@ -13,7 +13,7 @@
 		<ui:define name="Titulo">Relatorio</ui:define>
 		<ui:define name="corpo">
 		<form jsf:id="form1">
-		    <h:dataTable id="tabelaP" var="list" value="#{ben.lisPro}"  rows="7" styleClass="table table-hover">
+		    <h:dataTable id="tabela" var="list" value="#{ben.lisPro}"  rows="7" styleClass="table table-hover">
 				<h:column >
 				   <f:facet name="header">Codigo</f:facet>
 				    #{list.id}              
@@ -43,7 +43,7 @@
 						<input type="text" jsf:value="#{ben.pd.nome}" class="form-control"/>
 						<span class="input-group-btn">
 						<button type="submit" class="btn btn-primary" jsf:action="#{ben.BuscaProduto}">Busca
-						      <f:ajax event="click"  render="tabelaP"/>
+						      <f:ajax event="click"  render="tabela"/>
 						</button>
 						</span>						
 					</div>																											

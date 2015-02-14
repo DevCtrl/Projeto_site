@@ -12,8 +12,7 @@ import com.jor.site.util.HibernateUtil;
 
 public class Control_cliente {
 	private Session session;
-	Alertas msg = new Alertas();
-	 Cliente c = new Cliente();	        
+	Alertas msg = new Alertas();	
 	public void inserir(Cliente cliente) {
 		session = HibernateUtil.getSessionFactory().openSession();
 		try {
@@ -87,7 +86,7 @@ public class Control_cliente {
 		try {
 	    	session = HibernateUtil.getSessionFactory().openSession();
 	    	session.beginTransaction();
-	        Query q = session.createQuery ("from Cliente where nome = '"+nome+"%'");
+	        Query q = session.createQuery ("from Cliente where nome like '"+nome+"%'");
 	        return q.list();
 	    } catch (Exception e) {
 	         System.out.println("erro ao pesquisar p"+e.getMessage());
@@ -101,8 +100,10 @@ public class Control_cliente {
 	    	session.beginTransaction();	    	
 	         
 	    	  Query q = session.createQuery("from Cliente where nome = :name" );
-	    	  q.setParameter("name", texto);    	 	    	  
-   	           	     	        	               
+	    	  q.setParameter("name", texto);	 	    	     	            	         	    	  
+	    	  if(q.uniqueResult() == null)  	        	   	        	
+   	        	return new Cliente();   	             	          	  
+   	          else 	  
 	          return q.uniqueResult();
 	    } catch (Exception e) {
 	         System.out.println("erro ao pesquisar "+e.getMessage());
