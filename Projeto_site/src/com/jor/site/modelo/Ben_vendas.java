@@ -112,7 +112,11 @@ public class Ben_vendas {
 	public String buscapg(){
 		return "ConfigureVenda.xhtml";
 	}
-	
+	public String Cancelarcompra() {
+		lisCarrinho.clear();
+		total = 0;
+		return  "Venda.xhtml";
+	}
 	
 	
 	public Produto getPd() {

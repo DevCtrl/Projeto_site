@@ -39,12 +39,12 @@
 				  <div class="form-group">
 				    <label  class="col-sm-2 control-label">dataProduto</label>
 				    <div class="col-xs-3">
-					    <input type="date" jsf:value="00/00/0000" 
+					    <input type="date" jsf:value="#{benProduto.produto.dataProduto}" disabled="true"
 					       class="form-control" jsf:id="dataProduto" placeholder="Entre com dataProduto"/>
 				    </div>	
 				    <label class="col-sm-1 control-label">estoque</label>
 				    <div class="col-xs-2 ">
-				      <input type="text" jsf:value="000" 
+				      <input type="text" jsf:value="#{benProduto.produto.quantidade}" disabled="true"
 					       class="form-control" jsf:id="estoque" placeholder="Entre com estoque"/>
 				    </div>
 				    <label class="col-sm-1 control-label">quantidade</label>

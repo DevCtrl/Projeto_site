@@ -34,6 +34,9 @@ public class Cliente {
 	@Column(name= "email")
 	private String Email;
 	
+	@Column(name= "cep")
+	private String Cep;
+	
 	private Double renda;
 	
 	@Column(name= "data_nas")
@@ -92,6 +95,12 @@ public class Cliente {
 	}
 	public void setRenda(Double renda) {
 		this.renda = renda;
+	}
+	public String getCep() {
+		return Cep;
+	}
+	public void setCep(String cep) {
+		Cep = cep;
 	}
 	
 	

@@ -1,10 +1,14 @@
 package com.jor.site.modelo;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
 import com.jor.site.controle.Control_produto;
 import com.jor.site.entidade.Produto;
 
@@ -22,7 +26,10 @@ public class Ben_produto {
 	
 	public String Incluir()
 	{   
-		produto = new Produto();				
+		produto = new Produto();
+		produto.setQuantidade(0);
+		SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");       		
+		produto.setDataProduto(sdf.format(new Date()));
 		return "ConfigureProduto.xhtml";
 	}
 	public String ConfigurePg()	{   
@@ -31,7 +38,7 @@ public class Ben_produto {
 	}
 	public String Cadastrar()
 	{
-		System.out.println("teste produto "+produto.getNome());	
+		
 		if(produto.getId() == 0)
 		{			
 			comando.inserir(produto);

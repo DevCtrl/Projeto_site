@@ -29,7 +29,7 @@ public class Produto {
 	@Column(name="comprado")
 	private Double Comprado;
 	@Column(name="dataProduto")
-	private Date DataProduto;
+	private String DataProduto;
 	public long getId() {
 		return id;
 	}
@@ -72,11 +72,11 @@ public class Produto {
 	public void setComprado(Double comprado) {
 		Comprado = comprado;
 	}
-	public Date getDataProduto() {
+	public String getDataProduto() {
 		return DataProduto;
 	}
-	public void setDataProduto(Date dataProduto) {
-		DataProduto = dataProduto;
+	public void setDataProduto(String string) {
+		DataProduto = string;
 	}
 	
 	
