@@ -24,11 +24,11 @@
   <ui:define name="Titulo">Cliente</ui:define>
   <ui:define name="corpo">
      <ui:insert name="FormCliente">
-    
+     <div class="row-fluid">
       <h:form id="formCli">      
-       <h:panelGroup layout="block" style="height:300px;overflow-y:scroll"> 
-        <h:dataTable id="tabelaCli" var="list" value="#{benCliente.lista}"   
-            styleClass="table-responsive  table-hover" >
+     
+        <h:dataTable id="tabelaCli" var="list" value="#{benCliente.lista}" 
+            styleClass="table table-responsive  table-hover" >
            <h:column >
               <f:facet name="header">Id</f:facet>
               #{list.id}              
@@ -57,8 +57,7 @@
           </h:column>
       </h:dataTable> 
      <!-- final da tabela -->            
-	</h:panelGroup>
-	<!-- final panel group -->
+	
 	 <div >
 	   <h:commandButton action="#{benCliente.Cadastro}" value="Incluir" styleClass="btn btn-primary btn-lg"/> 
 	   <div class="input-group col-sm-6  pull-right">
@@ -75,7 +74,7 @@
 	   
 	
 	  
-      
+      </div>
      </ui:insert> 
     </ui:define> 
    </ui:composition>
