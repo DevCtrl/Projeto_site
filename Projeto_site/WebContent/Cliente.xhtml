@@ -24,10 +24,11 @@
   <ui:define name="Titulo">Cliente</ui:define>
   <ui:define name="corpo">
      <ui:insert name="FormCliente">
-    
+     <div class="row-fluid">
       <h:form id="formCli">      
-        <h:dataTable id="tabelaCli" var="list" value="#{benCliente.lista}"  rows="7" 
-            styleClass="table table-hover" paginato="true">
+     
+        <h:dataTable id="tabelaCli" var="list" value="#{benCliente.lista}" 
+            styleClass="table table-responsive  table-hover" >
            <h:column >
               <f:facet name="header">Id</f:facet>
               #{list.id}              
@@ -56,17 +57,16 @@
           </h:column>
       </h:dataTable> 
      <!-- final da tabela -->            
+	
 	 <div >
 	   <h:commandButton action="#{benCliente.Cadastro}" value="Incluir" styleClass="btn btn-primary btn-lg"/> 
 	   <div class="input-group col-sm-6  pull-right">
-					<div class="input-group">
-						<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
-						<span class="input-group-btn">
-						<button type="submit" class="btn btn-primary" jsf:action="#{benCliente.BuscaCli}">Busca
-						      <f:ajax event="click"  render="@all"/>
-						</button>
-						</span>						
-					</div>																											
+		  <div class="input-group">
+			<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
+				<span class="input-group-btn">
+				  <button type="submit" class="btn btn-primary" jsf:action="#{benCliente.BuscaCli}">Busca</button>      
+				</span>						
+		  </div>																											
 		</div>
 	  </div>		    
      </h:form>
@@ -74,7 +74,7 @@
 	   
 	
 	  
-      
+      </div>
      </ui:insert> 
     </ui:define> 
    </ui:composition>

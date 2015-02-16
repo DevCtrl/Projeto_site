@@ -37,6 +37,7 @@ public class Ben_cliente {
 		return "Cliente.xhtml";
 	}
 	public String  Edita()	{		
+		System.out.println("metodo chamdo link");
 		return "ConfigureCliente.xhtml";				
 	}
 	public String  Cadastro()	{

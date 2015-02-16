@@ -17,7 +17,7 @@
 				    <label for="nome" class="col-sm-1 control-label">Nome</label>
 				    <div class="col-sm-4">
 					     <input type="text" jsf:value="#{benCliente.cliente.nome}" required="true"
-						        class="form-control" jsf:id="nome" placeholder="Entre com nome"/>
+						        class="form-control" jsf:id="nome" placeholder="Entre com nome" autofocus="true"/>
 				    </div>	
 				    <label class="col-sm-2 control-label">Endereço</label>
 				    <div class="col-sm-4">
@@ -40,18 +40,18 @@
 				  <div class="form-group">
 				    <label for="telefone" class="col-sm-1 control-label">telefone</label>
 				    <div class="col-xs-3">
-					    <input type="text" jsf:value="#{benCliente.cliente.telefone}" 
+					    <input type="tel" jsf:value="#{benCliente.cliente.telefone}" 
 					       class="form-control" jsf:id="telefone" placeholder="Entre com telefone"/>
 				    </div>	
 				    <label class="col-sm-1 control-label">cpf</label>
 				    <div class="col-xs-3">
-				      <input type="text" jsf:value="#{benCliente.cliente.cpf}" required="true"
+				      <input type="text" jsf:value="#{benCliente.cliente.cpf}" required="true" 
 					       class="form-control" jsf:id="cpf" placeholder="Entre com cpf"/>
 				    </div>
 				    <label class="col-sm-1 control-label">cep</label>
 				    <div class="col-xs-3">
 				      <input type="text" jsf:value="#{benCliente.cliente.renda}" 
-					       class="form-control" jsf:id="cep" placeholder="Entre com cep"/>
+					       class="form-control" jsf:id="cep" placeholder="00000-000"/>
 				    </div>				    			    				   				    
 				  </div>
 				

@@ -12,12 +12,14 @@ public class Alertas {
 FacesContext context = FacesContext.getCurrentInstance();
 
 	public void comfirmar(String msg) {
-		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
+		
+		FacesContext.getCurrentInstance().addMessage
+		(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
 				"Confirmado", msg));
 	}
 
 	public void errograve(String msg) {
-		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
 				"Erro Grave ", msg));
 	}
 

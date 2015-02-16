@@ -40,11 +40,12 @@
           </h:column>
           <h:column>
               <f:facet name="header">valor_Varejo</f:facet>
-              #{list.valor_Varejo}
+              R$ #{list.valor_Varejo}
           </h:column>
           <h:column>
-             <f:facet name="header">Valor_Revenda</f:facet>
-             #{list.valor_Revenda} 
+             <f:facet name="header">Valor_Revenda</f:facet>            
+             R$ #{list.valor_Revenda}
+			             
           </h:column>
           
       </h:dataTable> 
@@ -56,9 +57,8 @@
 					<div class="input-group">
 						<input type="text" jsf:value="#{benProduto.produto.nome}" class="form-control"/>
 						<span class="input-group-btn">
-						<button type="submit" class="btn btn-primary" jsf:action="#{benProduto.BuscaPro}">Busca
-						      <f:ajax event="click"  render="tabela"/>
-						</button>
+							<button type="submit" class="btn btn-primary" jsf:action="#{benProduto.BuscaPro}">Busca
+					     	</button>
 						</span>						
 					</div>																											
 		</div>		

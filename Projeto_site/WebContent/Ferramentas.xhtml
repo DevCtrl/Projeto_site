@@ -19,16 +19,33 @@
      <link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
 	 <link href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
      
+    
 <body>
   <ui:composition template="Layout_Sistema.xhtml">
     <ui:define name="Titulo">Ferramentas</ui:define> 
     <ui:define name="corpo">    
+    <script type="text/javascript">
+            window.setTimeout(function() {
+                $(".alert-message").fadeTo(500, 0).slideUp(500, function(){
+                    $(this).remove(); 
+                });
+            }, 20);
+      </script>
    
-    <h:form>
-     
-     <h:commandButton value="msg" actionListener="#{ben.teste}"></h:commandButton>
-      <p:growl id="msg" autoUpdate="true" />
-    </h:form>
+   
+    <div class="container">
+                <h1>This is a test</h1>
+                <div id="alert_message" class="alert alert-info" style="width:200px" >
+                    <span class="close" data-dismiss="alert">&times;</span>
+                    <span><strong>Atention!</strong> Responsive Design with Twitter Bootstrap.</span>
+                </div>
+     </div>
+     <p:growl autoUpdate="true" showDetail="true"></p:growl>
+     <form jsf:id="f">
+       <input jsf:value="#{ben1.nome}" placerold="digite o nome" required="true"/>
+       <button jsf:actionListener="#{ben1.hand}">chama menssage</button>
+       <h:commandButton value="click" actionListener="#{ben1.hand}" ></h:commandButton>
+     </form>  
    </ui:define>
   </ui:composition> 
 </body> 

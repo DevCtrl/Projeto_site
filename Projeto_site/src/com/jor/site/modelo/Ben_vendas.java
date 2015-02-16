@@ -35,7 +35,7 @@ public class Ben_vendas {
 	List lisPro = new ArrayList();
 	List<Produto> lisCarrinho = new ArrayList<Produto>();
 	private String ClientePesquisa;
-	private int quantidade = 2;
+	private int quantidade = 1;
 	private double subtotal=0;
 	private double total=0;
 	
@@ -49,6 +49,7 @@ public class Ben_vendas {
 	
 	public Ben_vendas(){
 		lisPro = comando.Listar_Dados();
+		
 	}
 		
 	public String Add()
@@ -57,11 +58,12 @@ public class Ben_vendas {
 		//	System.out.println(lisCarrinho.get(0).getNome());
 		subtotal = quantidade * pd.getValor_Revenda();
 		pd.setComprado(subtotal);
-		pd.setQuantidade(quantidade);
+		pd.setQuantidade(quantidade);		
 		lisCarrinho.add(pd);
 		
 		total = total + subtotal;
 		
+		quantidade = 1;
 	   	return  "Vendas.xhtml";
 	}
 	public void Remove()
@@ -86,7 +88,7 @@ public class Ben_vendas {
 			lisCarrinho.clear();
 			cli = new Cliente();
 		}			
-		
+		total = 0;
 	}
 	public String BuscaProduto()
 	{  
