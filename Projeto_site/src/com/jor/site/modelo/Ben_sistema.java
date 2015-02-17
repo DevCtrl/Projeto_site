@@ -14,7 +14,7 @@ import com.jor.site.entidade.Produto;
 import com.jor.site.entidade.Usuario;
 
 
-@ManagedBean(name="ben_Sistema")
+@ManagedBean(name="benSistema")
 @ViewScoped
 public class Ben_sistema {
     
@@ -40,14 +40,15 @@ public class Ben_sistema {
 	
 	public String login()
 	{
+		System.out.println("metodo chamado \n"+usuario+"\n"+senha);
 		Usuario us = new Usuario();
 		us = (Usuario) new Control_usuario().BuscaUsuario(usuario);
 		
 		System.out.println("usuario = "+us.getNome()+"\n"
 				+ " senha = "+us.getSenha());
-		if(usuario == us.getNome())
+		if(usuario == us.getNome() && us.getNome() != null)
 		{
-			if(senha == us.getSenha())
+			if(senha == us.getSenha() && us.getSenha() != null)
 			{
 				System.out.println("cliente logado");
 				return "Layout_Sistema.xhtml";
