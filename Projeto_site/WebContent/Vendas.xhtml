@@ -9,12 +9,12 @@
      
 <body>
   <ui:composition template="Layout_Sistema.xhtml">
-   <ui:define name="Titulo">Venda</ui:define>
+   <ui:define name="Titulo"><i class="fa fa-angle-right"></i> venda </ui:define>
   <ui:define name="corpo">    
       <h:form id="formPro">
 	       <div class="panel panel-default">
 			<!-- Default panel contents -->
-			<div class="panel-heading"><i class="icon-shopping-cart"/>Carrinho de Compras</div>
+			<div class="panel-heading"><i class="fa fa-cart-plus fa-3x"/>  Carrinho de Compras</div>
 			<div class="panel-body">	
 			   <label>Cliente</label>			   
 			   <a  data-toggle="modal" data-target="#myModal">
@@ -26,7 +26,7 @@
 			<!-- Table -->
 		<h:panelGroup layout="block" style="height:240px;overflow-y:scroll"> 	
            <h:dataTable id="tb" var="list" value="#{ben.lisCarrinho}" 
-                 styleClass="table table-hover"  rows="7" emptyMessage="Seu carrinho esta vazio">  >
+                 styleClass="table table-hover"  rows="7"   >
            <h:column >                        
               #{list.nome}              
            </h:column>          

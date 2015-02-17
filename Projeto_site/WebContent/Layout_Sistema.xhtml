@@ -26,8 +26,8 @@
 	rel="stylesheet" type="text/css" />
 <link href="#{request.contextPath}/resources/bootstrap/css/stiloPainel.css"
 	rel="stylesheet" type="text/css"/>
-<link href="#{request.contextPath}/resources/bootstrap/fonts/font-awesome.min.css" 
-	rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+
 	
 <body   style="padding-top: 70px;">
 
@@ -48,7 +48,7 @@
 				
 				<ul class="nav navbar-nav   pull-right">					
 					<li class="dropdown">
-		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuario <b class="caret"></b></a>
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Usuario <b class="caret"></b></a>
 		              <ul class="dropdown-menu">
 		                <li><a href="#">Perfil</a></li>
 		                <li><a href="Site.xhtml">Sair</a></li>		                             
@@ -100,10 +100,10 @@
 			<div class="col-sm-9">
 
 				<!-- column 2 -->
-				<h3>
-					<ui:insert name="Titulo">Sistema</ui:insert>
-				</h3>
-
+				<h4>
+					<a href="Layout_Sistema.xhtml">sistema </a>  <ui:insert name="Titulo"/>
+				</h4>
+                <br/>
 
 				<div class="row">
 					<!-- center left-->
@@ -115,7 +115,7 @@
 				                        <div class="panel-heading">
 				                            <div class="row">
 				                                <div class="col-xs-3">
-				                                    <i class="glyphicon glyphicon-user"></i>
+				                                    <i class="fa fa-group fa-5x"></i>
 				                                </div>
 				                                <div class="col-xs-9 text-right">
 				                                    <div class="huge">#{ben_Sistema.quanteC}  </div>				                                    
@@ -181,7 +181,7 @@
 				                        <div class="panel-heading">
 				                            <div class="row">
 				                                <div class="col-xs-3">
-				                                    <i class="fa fa-support fa-5x"></i>
+				                                    <i class="fa fa-sitemap fa-5x"></i>
 				                                </div>
 				                                <div class="col-xs-9 text-right">
 				                                    <div class="huge">13</div>

@@ -20,7 +20,7 @@
      
 <body>
   <ui:composition template="Layout_Sistema.xhtml">
-  <ui:define name="Titulo">Produto</ui:define> 
+   <ui:define name="Titulo"><i class="fa fa-angle-right"></i> produto </ui:define> 
   <ui:define name="corpo">    
       <form jsf:id="formPro">
         <h:dataTable id="tabela" var="list" value="#{benProduto.lista}"  rows="7" styleClass="table table-hover">
