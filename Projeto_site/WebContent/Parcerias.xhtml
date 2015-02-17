@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta charset="utf-8" />
+<title>produto</title>
+<meta name="generator" content="Bootply" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!--[if lt IE 9]>
+          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+     <link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+	 <link href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+     
+    
+<body>
+  <ui:composition template="Layout_Sistema.xhtml">
+    <ui:define name="Titulo">Parcerias</ui:define> 
+    <ui:define name="corpo">    
+          <form jsf:id="form1">
+		   <div class="row form-group">
+		        <div class="col-xs-6">
+		          <input class="form-control" id="firstName"  placeholder="Digite a empresa" required="true" type="text"/>
+		        </div>		       
+		        <div class="col-xs-4">
+		          <input class="form-control" id="lastName" name="lastName" placeholder="Contato" required="true" type="text"/>
+		        </div>
+		    </div>
+		    <div class="row form-group">
+		          <div class="col-xs-4">
+		          <input class="form-control" name="email" placeholder="Email" required="" type="email"/>
+		          </div>
+		          <div class="col-xs-3">
+		          <input class="form-control" name="fone1" placeholder="Fone 1" required="" type="text"/>
+		          </div>
+		          <div class="col-xs-3">
+		          <input class="form-control" name="fone2" placeholder="Fone 2" required="" type="text"/>
+		          </div>
+		      </div>
+		      <div class="row form-group">
+		          <div class="col-xs-3">
+		          <input class="form-control" name="Telefone" placeholder="CNPJ/CPF" required="" type="text"/>
+		          </div>
+		          <div class="col-xs-7">
+		          <input class="form-control" placeholder="Website URL" required="" type="homepage"/>
+		          </div>
+		      </div>
+		      <div class="row form-group">
+		          <div class="col-xs-10 text-center">
+		              Tipo de Contrato
+		          </div>
+		      </div>
+		       <div class="row form-group">
+		          <div class="col-xs-2 ">
+		              <br/>
+		              <br/>		             
+		             <label class="form-label">Descrição</label>
+		          </div>
+		          <div class="col-xs-4 ">
+		              <textarea class="form-control" placeholder="digite as condiçoes do contrato" rows="3" cols="20"></textarea>
+		          </div>
+		          <div class="col-xs-4 ">
+		              <input class="form-control"  type="date"  placeholder="Data Inicial"/>
+		              <br/>
+		              <input class="form-control" type="date" placeholder="Data Final"/>
+		          </div>
+		      </div>
+		       <div class="row form-group">
+		          <div class="col-xs-10">
+		              <button class="btn btn-success">Aceitar</button>
+		              <button class="btn btn-success">Limpar dados</button>		          
+		              <button class="btn btn-primary pull-right" type="button">Buscar</button>		          
+		              <button class="btn btn-primary" jsf:rendered="false">Editar</button>
+		          </div>
+		      </div>   
+              
+          </form> 
+   </ui:define>
+  </ui:composition> 
+</body> 
+</html>
