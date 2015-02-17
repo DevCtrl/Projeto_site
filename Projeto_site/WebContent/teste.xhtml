@@ -17,77 +17,24 @@
 <link
 	href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css"
 	rel="stylesheet" type="text/css" />
+<link href="#{request.contextPath}/resources/bootstrap/css/icones.css"
+    rel="stylesheet" type="text/css"/>
+	
 </head>
 
-
-<table cellpadding="6">  
-  <thead>  
-    <tr>  
-      <th>Weekday</th>  
-      <th>Date</th>  
-      <th>Manager</th>  
-      <th>Qty</th>  
-    </tr>  
-  </thead>  
-  <tbody">  
-    <tr>  
-      <td>Mon</td>  
-      <td>09/11</td>  
-      <td>Kelsey</td>  
-      <td>639</td>  
-    </tr>  
-    <tr>  
-      <td>Tue</td>  
-      <td>09/12</td>  
-      <td>Lindsey</td>  
-      <td>596</td>  
-    </tr>  
-    <tr>  
-      <td>Wed</td>  
-      <td>09/13</td>  
-      <td>Randy</td>  
-      <td>1135</td>  
-    </tr>  
-    <tr>  
-      <td>Thu</td>  
-      <td>09/14</td>  
-      <td>Susan</td>  
-      <td>1002</td>  
-    </tr>  
-    <tr>  
-      <td>Fri</td>  
-      <td>09/15</td>  
-      <td>Randy</td>  
-      <td>908</td>  
-    </tr>  
-    <tr>  
-      <td>Sat</td>  
-      <td>09/16</td>  
-      <td>Lindsey</td>  
-      <td>371</td>  
-    </tr>  
-    <tr>  
-      <td>Sun</td>  
-      <td>09/17</td>  
-      <td>Susan</td>  
-      <td>272</td>  
-    </tr>  
-  </tbody>  
-  <tfoot>  
-    <tr>  
-      <th align="left" colspan="3">Total</th>  
-      <th>4923</th>  
-    </tr>  
-  </tfoot>  
-</table> 
- 
-
-
+<body>
+  <form > 
+   <i class="fa fa-angle-left"/>
+    <div class="col-md-3">
+	   <button id="bottom-right" class="btn btn-lg btn-block btn-info btn-gritter-position btn-gritter" data-toggle="tooltip" data-original-title="set all the notifications on the bottom right"><span class="title">Bottom Right</span></button>
+	</div>
+   </form>
 
 <script type='text/javascript'
 	src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-	<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/bootstrap.js">
-	</script>
-
+<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/gritter.js">
+</script>
+	
 </body>
 </html>

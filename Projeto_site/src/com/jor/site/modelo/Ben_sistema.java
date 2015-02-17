@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import com.jor.site.controle.Control_cliente;
 import com.jor.site.controle.Control_produto;
@@ -13,7 +13,7 @@ import com.jor.site.entidade.Produto;
 
 
 @ManagedBean(name="ben_Sistema")
-@SessionScoped
+@ViewScoped
 public class Ben_sistema {
   
 	private  int quanteP = 0;
