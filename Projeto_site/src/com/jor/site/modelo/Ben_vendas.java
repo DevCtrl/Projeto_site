@@ -1,17 +1,13 @@
 package com.jor.site.modelo;
 
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
-import javax.faces.event.ActionEvent;
-import javax.faces.event.AjaxBehaviorEvent;
-import javax.swing.plaf.basic.BasicSplitPaneUI.KeyboardUpLeftHandler;
-
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.ArrayList;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 
 import com.jor.site.controle.Control_cliente;
 import com.jor.site.controle.Control_produto;
