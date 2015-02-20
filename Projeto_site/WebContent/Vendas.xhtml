@@ -14,7 +14,7 @@
       <h:form id="formPro">
 	       <div class="panel panel-default">
 			<!-- Default panel contents -->
-			<div class="panel-heading"><i class="fa fa-cart-plus fa-3x"/>  Carrinho de Compras</div>
+			<div class="panel-heading"><i class="fa fa-cart-plus fa-2x"/>  Carrinho de Compras</div>
 			<div class="panel-body">	
 			   <label>Cliente</label>			   
 			   <a  data-toggle="modal" data-target="#myModal">
@@ -51,18 +51,16 @@
          </h:panelGroup>  
 		</div>
 		
-		<div class="form-group ">
+		<div class="row">
 		   <button type="submit" jsf:action="#{ben.buscapg}" class="btn btn-info" >Adicionar so carrinho</button>		  
-		  <div class="form-group  pull-right"> 
-		   <label  >Todal do Carrinho  </label>
-		   <input  value="#{ben.total}" disabled="disabled"/>
+		  <div class="well well-sm col-xs-3 pull-right text-center"> 		   
+		   <p><h4>Total  R$   #{ben.total}</h4></p>		   		   
 		  </div>		 		  
 		</div>														 										
-		<br/>
-		<br/>
+		<div class="row">
 		 <button type="submit" class="btn btn-success" jsf:actionListener="#{ben.FinalizarCompra}" >Finalizar compra</button>
 		 <button type="submit" class="btn btn-danger pull-right" jsf:action="#{ben.Cancelarcompra}" >Cancelar compra</button>	
-		
+		</div>
 		</h:form>			
 		        	          
 				<!-- Modal -->

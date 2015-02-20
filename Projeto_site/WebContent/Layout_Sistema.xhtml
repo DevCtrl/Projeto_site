@@ -15,6 +15,9 @@
 <!--[if lt IE 9]>
           <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+
+
+<head>
 <link
 	href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
@@ -28,6 +31,11 @@
 	rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
 
+<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/jquery.min.js"></script>
+ <!-- <script src="jquery.blockUI.js"></script> -->
+<script type="text/javascript" src="http://malsup.github.io/jquery.blockUI.js"></script>
+<script type="text/javascript" src="http://malsup.github.com/chili-1.7.pack.js"></script>
+</head>
 	
 <body   style="padding-top: 70px;">
 
@@ -81,7 +89,7 @@
 							class="glyphicon glyphicon-user"></i> Cliente</a></li>
 					<li><a href="Produto.xhtml"><i
 							class="glyphicon glyphicon-list-alt"></i> Produto</a></li>
-					<li><a href="Usuario.xhtml"><i
+					<li><a id="ln"  href="Usuario.xhtml" ><i
 							class="glyphicon glyphicon-comment"></i> Usuarios</a></li>
 					<li><a href="Vendas.xhtml"><i
 					        class="glyphicon glyphicon-shopping-cart"></i> Vendas</a></li>
@@ -212,8 +220,10 @@
    </div><!--/Conteiner  -->		
 
 
+
+
 <script type='text/javascript'
-	src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js">
+	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js">
 </script>
 <script type="text/javascript"
 	src="#{request.contextPath}/resources/bootstrap/js/bootstrap.min.js">

@@ -4,13 +4,14 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">   
-<h:head></h:head>
+<h:head>	
+</h:head>
 <body>
 	<ui:composition template="Layout_Sistema.xhtml">
 	    <ui:define name="Titulo"><a href="Usuario.xhtml"><i class="fa fa-angle-right"></i> usuario </a><i class="fa fa-angle-right"></i> cadastro </ui:define>	
-		<ui:define name="corpo">
-				
-				<h:form class="form-horizontal">
+		<ui:define name="corpo">				
+			
+				<form jsf:id="form1" jsf:prependId="false" class="form-horizontal">
 				  <div class="form-group">
 				    <label for="nome" class="col-sm-1 control-label">Nome</label>
 				    <div class="col-sm-4">
@@ -26,12 +27,12 @@
 				  <div class="form-group">
 				    <label class="col-sm-1 control-label">senha</label>
 				    <div class="col-sm-4">
-				       <input type="text" jsf:value="#{benUsuario.usuario.senha}" 
+				       <input type="password" jsf:value="#{benUsuario.usuario.senha}" required="true"
 					       class="form-control" jsf:id="senha" placeholder="Entre senha"/>
 				    </div>
 				    <label class="col-sm-2 control-label">repetir senha</label>
 				    <div class="col-sm-4">
-				       <input type="text" jsf:value="#{benUsuario.usuario.senha}" 
+				       <input type="password" jsf:value="#{benUsuario.usuario.senha}" required="true"
 					       class="form-control" jsf:id="repetirsenha" placeholder="Entre senha"/>
 				    </div>			    				   				    
 				  </div>
@@ -45,14 +46,53 @@
 				
 				
                				 				
-				<h:commandButton id="bt_conf_incluir" value="Salvar" action="#{benUsuario.Cadastrar}"
-				    styleClass="btn-lg btn-default"  />
-				<h:commandButton id="bt_conf_editar" value="Deletar" actionListener="#{benUsuario.Deletar}" 
-				    styleClass="btn-lg btn-default" rendered="#{benUsuario.usuario.id != null}" immediate="true"/>
-				<h:button value="Cancelar" outcome="Usuario.xhtml" styleClass="btn-lg btn-danger"/>
+				<button type="submit" jsf:id="bt_conf_incluir"  jsf:action="#{benUsuario.Cadastrar}"
+				    class="btn-lg btn-default" >Salvar</button>
+				<button jsf:id="bt_conf_editar" jsf:actionListener="#{benUsuario.Deletar}" 
+				    class="btn-lg btn-default" jsf:rendered="#{benUsuario.usuario.id != null}" >Editar</button>
+				<button type="button" jsf:id="demo" jsf:outcome="Usuario.xhtml" class="btn-lg btn-danger">Cancelar</button>
+				
 			     
 				
-			</h:form>
+				
+				
+			</form>
+			<script type="text/javascript">
+			$(document).ready(function() { 
+			    $('#demo').click(function() { 
+			        $.blockUI({ 
+				        message: "<h4>Cliente cadastrado com sucesso</h4>",
+			            centerY: 0, 
+			            css: { top: '10px', left: '', right: '10px' ,height: '50px',wighr:'100px',
+				                      backgroundColor: '#4E2F2F', color: '#fff'} 
+			        }); 
+			        setTimeout($.unblockUI, 2000); 
+			    }); 
+			});
+
+			$(document).ready(function()
+				{
+                   $("#repetirsenha").keyup(function()
+                    {
+                       
+	                   var s1 = $("#senha").val(); 		   
+	        		   if(s1 == $("#repetirsenha").val())
+	        			   {
+	        			     $(this).css({"border-color":""});
+	        			     $("#bt_conf_incluir").attr("disabled",false);
+	        			   }
+	        		   else
+		        		   {
+		        			  $(this).css({"border-color":"red"});
+		        			  $("#bt_conf_incluir").attr("disabled",true);
+	        			  }
+                   });		  
+                 });
+			</script>
+				
+				
+				
+			
 		</ui:define>
 	</ui:composition>
 

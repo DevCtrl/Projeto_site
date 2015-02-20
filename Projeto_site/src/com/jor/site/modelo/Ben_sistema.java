@@ -40,17 +40,16 @@ public class Ben_sistema {
 	
 	public String login()
 	{
-		System.out.println("metodo chamado \n"+usuario+"\n"+senha);
+		
 		Usuario us = new Usuario();
 		us = (Usuario) new Control_usuario().BuscaUsuario(usuario);
 		
-		System.out.println("usuario = "+us.getNome()+"\n"
-				+ " senha = "+us.getSenha());
-		if(usuario == us.getNome() && us.getNome() != null)
-		{
-			if(senha == us.getSenha() && us.getSenha() != null)
+	
+		if(usuario.equals(us.getLogin()) && us.getLogin()!= null)
+		{			
+			if(senha.equals(us.getSenha()) && us.getSenha() != null)
 			{
-				System.out.println("cliente logado");
+				
 				return "Layout_Sistema.xhtml";
 			}
 		}

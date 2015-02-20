@@ -22,6 +22,8 @@ public class Usuario {
 	private String login;
 	@Column
 	private String Senha;
+	@Column
+	private String prioridade;
 	public long getId() {
 		return id;
 	}
@@ -51,6 +53,12 @@ public class Usuario {
 	}
 	public void setSenha(String senha) {
 		Senha = senha;
+	}
+	public String getPrioridade() {
+		return prioridade;
+	}
+	public void setPrioridade(String prioridade) {
+		this.prioridade = prioridade;
 	}
 	
 	

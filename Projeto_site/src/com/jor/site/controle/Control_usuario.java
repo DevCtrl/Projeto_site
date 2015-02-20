@@ -62,8 +62,8 @@ public class Control_usuario {
 	    	session = HibernateUtil.getSessionFactory().openSession();
 	    	session.beginTransaction();	    	
 	         
-	    	  Query q = session.createQuery("from Usuario where nome = :name" );
-	    	  q.setParameter("name", texto);	 	    	     	            	         	    	  
+	    	  Query q = session.createQuery("from Usuario where login = :login" );
+	    	  q.setParameter("login", texto);	 	    	     	            	         	    	  
 	    	  if(q.uniqueResult() == null)  	        	   	        	
    	        	return new Usuario();   	             	          	  
    	          else 	  

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -20,21 +19,71 @@
 <link href="#{request.contextPath}/resources/bootstrap/css/icones.css"
     rel="stylesheet" type="text/css"/>
 	
+	<link href="#{request.contextPath}/resources/bootstrap/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
+	<!-- <script type="text/javascript">
+	     window.onload = tx;
+         function tx(){
+            
+         var ele = document.getElementById("ip");
+         var bt = document.getElementById("bt") 	          
+	     bt.disabled=true;
+         alert("testando a lerta #{ben.quantidade}");
+         }            
+	</script> -->
+ 
+   
+   <script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/jquery.min.js"></script>
+   <script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/gritter.js"></script>
+ 
+   <script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/jquery.gritter.js">
+   </script>
+ 
+   <!-- <script src="jquery.blockUI.js"></script> -->
+<script type="text/javascript" src="http://malsup.github.io/jquery.blockUI.js"></script>
+<script type="text/javascript" src="http://malsup.github.com/chili-1.7.pack.js"></script>
 </head>
 
 <body>
-  <form > 
-   <i class="fa fa-angle-left"/>
-    <div class="col-md-3">
-	   <button id="bottom-right" class="btn btn-lg btn-block btn-info btn-gritter-position btn-gritter" data-toggle="tooltip" data-original-title="set all the notifications on the bottom right"><span class="title">Bottom Right</span></button>
-	</div>
-   </form>
+ 
+				
+				
+					
+				<button type="button"  onclick="m()"   jsf:id="demo">demo alerta</button>
+				
+			  
+			
 
-<script type='text/javascript'
-	src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/gritter.js">
+<script type="text/javascript">
+			
+
+function m() {
+
+	$.gritter.add({
+		  // heading of the notification
+		  title: 'This is a sticky notice!',
+		  // the text inside the notification
+		  text: 'Your message here'
+		  sticky: true, 
+		});
+   }
+
+
+
+
+			
+			    function t() { 
+			        $.blockUI({ 
+				        message: "<h4>Cliente cadastrado com sucesso</h4>",
+			            centerY: 0, 
+			            css: { top: '10px', left: '', right: '10px' ,height: '50px',wighr:'100px',
+				                      backgroundColor: '#4E2F2F', color: '#fff'} 
+			        }); 
+			        setTimeout($.unblockUI, 2000); 
+			    }; 
+			
+			     
 </script>
 	
-</body>
+</body>   
+   
 </html>
