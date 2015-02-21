@@ -7,12 +7,13 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.jor.site.entidade.Cliente;
-import com.jor.site.util.Alertas;
+import com.jor.site.util.Alerta;
 import com.jor.site.util.HibernateUtil;
 
 public class Control_cliente {
 	private Session session;
-	Alertas msg = new Alertas();	
+	private String alerta ="Tela de Cadastro";
+	
 	public void inserir(Cliente cliente) {
 		session = HibernateUtil.getSessionFactory().openSession();
 		try {
@@ -23,11 +24,12 @@ public class Control_cliente {
 		catch(ExceptionInInitializerError er)
 		{
 			System.out.println("Erro ao Incluir cliente "+er.getLocalizedMessage());
+			Alerta.info("erro ao cadastra cliente");
 		}
-		finally {
-			msg.comfirmar("Cliente "+cliente.getNome()+" Cadastrado com sucesso");
+		finally {	
+			Alerta.info("Cliente "+cliente.getNome()+" salvo com sucesso");
 			session.close();
-		}
+		}		
 	}
 	public void deletar(Cliente cliente)
 	{
@@ -40,11 +42,11 @@ public class Control_cliente {
 		}
 		catch(ExceptionInInitializerError er)
 		{			
-			System.out.println("Erro ao Deletarcliente "+er.getLocalizedMessage());
+			System.out.println("Erro ao Deletar cliente "+er.getLocalizedMessage());
 		}
 		finally
 		{
-			msg.comfirmar("Cliente "+cliente.getNome()+" deletado com sucesso");
+			Alerta.info("Cliente "+cliente.getNome()+" deletado com sucesso");
 			session.close();
 		}
 	}
@@ -62,7 +64,7 @@ public class Control_cliente {
 		}
 		finally
 		{
-			msg.comfirmar("Alterações no cliente "+cliente.getNome()+" feitas com sucesso");
+			Alerta.info("Cliente "+cliente.getNome()+" alterado com sucesso");
 			session.close();
 		}
 		
@@ -111,6 +113,13 @@ public class Control_cliente {
 		return null;
 		
 	}
+	public String getAlerta() {
+		return alerta;
+	}
+	public void setAlerta(String alerta) {
+		this.alerta = alerta;
+	}
+	
 	
 	
 }

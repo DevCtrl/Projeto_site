@@ -29,11 +29,11 @@ public class Ben_usuario {
 	public String Incluir()
 	{
 		usuario = new Usuario();
-		return "ConfigureUsuario.xhtml";
+		return "configureusuario.xhtml";
 	}
 	public String PgConfigure()
 	{
-		return "ConfigureUsuario.xhtml";
+		return "configureusuario.xhtml";
 	}
 	public String Cadastrar()
 	{
@@ -46,14 +46,15 @@ public class Ben_usuario {
 		
 		usuario = new Usuario();
 		lista  = comando.Listar_Dados();
-		return "Usuario.xhtml";
+		return "usuario.xhtml";
 		
 	}
-	public void Deletar(ActionEvent evt)
+	public String Deletar()
 	{
 		comando.deletar(usuario);		
 		lista = comando.Listar_Dados();
 		usuario = new Usuario();
+		return "usuario.xhtml";
 	}
 
 	public Usuario getusuario() {

@@ -25,6 +25,7 @@
 .gritter-item-wrapper {
 	position:relative;
 	margin:0 0 10px 0;
+	background-color: black;
 	background:url('../imagens/ie-spacer.gif'); /* ie7/8 fix */ 
 }
 .gritter-top {
@@ -45,9 +46,9 @@
 .gritter-item {
 	display:block;
 	background:url(../imagens/gritter.png) no-repeat left -40px;
-	color:#eee;
+	color:#ffffff;
 	padding:2px 11px 8px 11px;
-	font-size: 11px;
+	font-size: 18px;
 	font-family:verdana;
 }
 .hover .gritter-item {
@@ -70,11 +71,12 @@
 	text-indent:-9999em;
 }
 .gritter-title {
-	font-size:14px;
+	font-size:18px;
 	font-weight:bold;
+	color:#ffffff;
 	padding:0 0 7px 0;
 	display:block;
-	text-shadow:1px 1px 0 #000; /* Not supported by IE :( */
+	text-shadow:1px 1px 0 #1a1a1a; /* Not supported by IE :( */
 }
 .gritter-image {
 	width:48px;

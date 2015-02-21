@@ -10,12 +10,14 @@ import java.util.List;
 
 
 
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.jor.site.entidade.Cliente;
 import com.jor.site.entidade.Usuario;
+import com.jor.site.util.Alerta;
 import com.jor.site.util.HibernateUtil;
 
 public class Control_usuario {
@@ -28,7 +30,7 @@ public class Control_usuario {
 			session.saveOrUpdate(usuario);
 			session.getTransaction().commit();
 		} finally {
-			System.out.println("Usuario cdastrado com sucesso");
+			Alerta.info("Usuario "+usuario.getNome()+" cdastrado com sucesso");
 			session.close();
 		}
 	}
@@ -39,7 +41,7 @@ public class Control_usuario {
 			session.update(usuario);
 			session.getTransaction().commit();
 		} finally {
-			System.out.println("Usuario alterado com sucesso");
+			Alerta.info("Usuario "+usuario.getNome()+" alterado com sucesso");
 			session.close();
 		}
 	}
@@ -53,7 +55,7 @@ public class Control_usuario {
 		}
 		finally
 		{
-			System.out.println("Usuario Deletado");
+			Alerta.info("Usuario Deletado");
 			session.close();
 		}
 	}

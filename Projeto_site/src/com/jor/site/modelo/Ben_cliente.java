@@ -3,10 +3,15 @@ package com.jor.site.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+
 import com.jor.site.controle.Control_cliente;
 import com.jor.site.entidade.Cliente;
+import com.jor.site.util.Alerta;
 
 @ManagedBean(name="benCliente")
 @SessionScoped
@@ -14,12 +19,12 @@ public class Ben_cliente {
    
 	private Cliente cliente = new Cliente();
 	Cliente clienteSelecionado;
-	Control_cliente comando = new Control_cliente();
+	private Control_cliente comando = new Control_cliente();	
 	List lista = new ArrayList();
-	
+		
 	public Ben_cliente()
 	{
-		lista =  comando.Listar_Dados();
+		lista =  comando.Listar_Dados();			
 	}
 	
 	
@@ -30,27 +35,30 @@ public class Ben_cliente {
 			comando.inserir(cliente);			
 		}
 		else{			
-			comando.alterar(cliente);	
+			comando.alterar(cliente);			
 		}		
 		lista = comando.Listar_Dados();
 		cliente = new Cliente();
-		return "Cliente.xhtml";
+		
+		
+		return "cliente.xhtml";
 	}
 	public String  Edita()	{		
-		System.out.println("metodo chamdo link");
-		return "ConfigureCliente.xhtml";				
+		System.out.println("metodo chamdo link");		
+		return "configurecliente.xhtml";				
 	}
 	public String  Cadastro()	{
 		cliente = new Cliente();
-		return "ConfigureCliente.xhtml";					
+		return "configurecliente.xhtml";					
 	}
 	public String Deletar()
 	{
 		System.out.println(cliente.getNome());
-		comando.deletar(cliente);		
+		comando.deletar(cliente);			
 		lista = comando.Listar_Dados();
 		cliente = new Cliente();
-		return "Cliente.xhtml";
+		
+		return "cliente.xhtml";
 	}
 	public String BuscaCli()
 	{
@@ -87,6 +95,17 @@ public class Ben_cliente {
 		this.cliente = cliente;
 	}
 
+
+	public Control_cliente getComando() {
+		return comando;
+	}
+
+
+	public void setComando(Control_cliente comando) {
+		this.comando = comando;
+	}
+
 	
-	
+
+		
 }

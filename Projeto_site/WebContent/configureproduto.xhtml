@@ -7,8 +7,8 @@
 
 
 <body>
-	<ui:composition template="Layout_Sistema.xhtml">
-	     <ui:define name="Titulo"><a href="Produto.xhtml"><i class="fa fa-angle-right"></i> produto </a><i class="fa fa-angle-right"></i> cadastro </ui:define>	
+	<ui:composition template="sistema.xhtml">
+	     <ui:define name="Titulo"><a href="produto.xhtml"><i class="fa fa-angle-right"></i> produto </a><i class="fa fa-angle-right"></i> cadastro </ui:define>	
 		<ui:define name="corpo">
 				
 			<h:form  class="form-horizontal">
@@ -60,7 +60,7 @@
 				    styleClass="btn-lg btn-primary"  />				
 				<h:commandButton id="bt_conf_delete" value="Deletar" action="#{benProduto.Deletar}" 
 				    styleClass="btn-lg btn-default" rendered="#{benProduto.produto.id > 0}" immediate="true"/>
-				<h:button value="Cancelar" outcome="Produto.xhtml" styleClass="btn-lg btn-danger"/>
+				<h:button value="Cancelar" outcome="produto.xhtml" styleClass="btn-lg btn-danger"/>
 			 </h:form>    
 				
 			

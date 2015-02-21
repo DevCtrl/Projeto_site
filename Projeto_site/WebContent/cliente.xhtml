@@ -20,7 +20,7 @@
 	 <link href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
      
 <body>
-  <ui:composition template="Layout_Sistema.xhtml">
+  <ui:composition template="sistema.xhtmll">
   <ui:define name="Titulo"><i class="fa fa-angle-right"></i> cliente</ui:define>
   <ui:define name="corpo">
      <ui:insert name="FormCliente">
@@ -56,7 +56,7 @@
           </h:column>
       </h:dataTable> 
      <!-- final da tabela -->            
-	
+	 
 	 <div >
 	   <h:commandButton action="#{benCliente.Cadastro}" value="Incluir" styleClass="btn btn-primary "/> 
 	   <div class="input-group col-sm-5  pull-right">
@@ -68,7 +68,7 @@
 		  </div>																											
 		</div>
 	  </div>		    
-     </h:form>
+	     </h:form>
       
 	   
 	

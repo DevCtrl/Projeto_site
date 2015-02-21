@@ -9,7 +9,7 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.view.ViewScoped;
 
-import com.jor.site.util.Alertas;
+import com.jor.site.util.Alerta;
 
 @ManagedBean (name="ben1")
 @SessionScoped
@@ -26,11 +26,6 @@ public class Ben_relatorio {
 	}
 	
 	
-	public void saveMessage(ActionEvent evt) {
-        FacesContext context = FacesContext.getCurrentInstance();
-         
-        context.addMessage(null, new FacesMessage("Successful",  "Your message: eu sou o cara " ) );
-        context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
-    }
+	
 	
 }

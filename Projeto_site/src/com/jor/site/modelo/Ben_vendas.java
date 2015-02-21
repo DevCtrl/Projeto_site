@@ -15,7 +15,7 @@ import com.jor.site.controle.Control_venda;
 import com.jor.site.entidade.Cliente;
 import com.jor.site.entidade.Produto;
 import com.jor.site.entidade.Venda;
-import com.jor.site.util.Alertas;
+import com.jor.site.util.Alerta;
 
 @ManagedBean(name="ben")
 @SessionScoped
@@ -36,11 +36,7 @@ public class Ben_vendas {
 	private double total=0;
 	
 	
-	public void teste(ActionEvent evt){
-		System.out.println("teste evento");
-		Alertas ms = new Alertas();
-		ms.comfirmar("message certo");
-	}
+	
 	
 	
 	public Ben_vendas(){

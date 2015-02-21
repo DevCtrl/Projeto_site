@@ -12,6 +12,7 @@ import com.jor.site.controle.Control_usuario;
 import com.jor.site.entidade.Cliente;
 import com.jor.site.entidade.Produto;
 import com.jor.site.entidade.Usuario;
+import com.jor.site.util.Alerta;
 
 
 @ManagedBean(name="benSistema")
@@ -19,12 +20,13 @@ import com.jor.site.entidade.Usuario;
 public class Ben_sistema {
     
 	private String usuario;
-	private String senha;
+	private String senha;	
 	private  int quanteP = 0;
 	private  int quanteC = 0;
 	
 	List<Cliente> listc = new ArrayList<Cliente>();
 	List<Produto> listp = new ArrayList<Produto>();
+	
 	
 	
 	public Ben_sistema()
@@ -34,9 +36,9 @@ public class Ben_sistema {
 		for (Cliente cliente : listc) 
 			quanteC ++;
 		for (Produto produto : listp) 
-			quanteP ++;
-				
-	}			
+			quanteP ++;				
+		
+	}				
 	
 	public String login()
 	{
@@ -50,7 +52,7 @@ public class Ben_sistema {
 			if(senha.equals(us.getSenha()) && us.getSenha() != null)
 			{
 				
-				return "Layout_Sistema.xhtml";
+				return "sistema.xhtml";
 			}
 		}
 		return null;
@@ -78,9 +80,7 @@ public class Ben_sistema {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-    
-	
+	}  	
 	
 	
 	

@@ -7,8 +7,8 @@
 <h:head>	
 </h:head>
 <body>
-	<ui:composition template="Layout_Sistema.xhtml">
-	    <ui:define name="Titulo"><a href="Usuario.xhtml"><i class="fa fa-angle-right"></i> usuario </a><i class="fa fa-angle-right"></i> cadastro </ui:define>	
+	<ui:composition template="sistema.xhtml">
+	    <ui:define name="Titulo"><a href="usuario.xhtml"><i class="fa fa-angle-right"></i> usuario </a><i class="fa fa-angle-right"></i> cadastro </ui:define>	
 		<ui:define name="corpo">				
 			
 				<form jsf:id="form1" jsf:prependId="false" class="form-horizontal">
@@ -46,11 +46,11 @@
 				
 				
                				 				
-				<button type="submit" jsf:id="bt_conf_incluir"  jsf:action="#{benUsuario.Cadastrar}"
+				<button jsf:id="bt_incluir"  jsf:action="#{benUsuario.Cadastrar}"
 				    class="btn-lg btn-default" >Salvar</button>
-				<button jsf:id="bt_conf_editar" jsf:actionListener="#{benUsuario.Deletar}" 
-				    class="btn-lg btn-default" jsf:rendered="#{benUsuario.usuario.id != null}" >Editar</button>
-				<button type="button" jsf:id="demo" jsf:outcome="Usuario.xhtml" class="btn-lg btn-danger">Cancelar</button>
+				<button jsf:id="bt_editar"  jsf:action="#{benUsuario.Deletar}" 
+				    class="btn-lg btn-default" jsf:rendered="#{benUsuario.usuario.id != null}" >Deletar</button>
+				<button type="button" jsf:id="demo" jsf:outcome="usuario.xhtml" class="btn-lg btn-danger">Cancelar</button>
 				
 			     
 				
@@ -58,20 +58,8 @@
 				
 			</form>
 			<script type="text/javascript">
-			$(document).ready(function() { 
-			    $('#demo').click(function() { 
-			        $.blockUI({ 
-				        message: "<h4>Cliente cadastrado com sucesso</h4>",
-			            centerY: 0, 
-			            css: { top: '10px', left: '', right: '10px' ,height: '50px',wighr:'100px',
-				                      backgroundColor: '#4E2F2F', color: '#fff'} 
-			        }); 
-			        setTimeout($.unblockUI, 2000); 
-			    }); 
-			});
-
-			$(document).ready(function()
-				{
+			$(document).ready(function() {	    			
+		
                    $("#repetirsenha").keyup(function()
                     {
                        
@@ -84,7 +72,7 @@
 	        		   else
 		        		   {
 		        			  $(this).css({"border-color":"red"});
-		        			  $("#bt_conf_incluir").attr("disabled",true);
+		        			  $("#bt_incluir").attr("disabled",true);
 	        			  }
                    });		  
                  });

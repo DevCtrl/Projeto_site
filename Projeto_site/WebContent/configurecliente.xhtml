@@ -7,7 +7,7 @@
 	xmlns:jsf="http://xmlns.jcp.org/jsf">   
 <h:head></h:head>
 <body>
-	<ui:composition template="Layout_Sistema.xhtml">
+	<ui:composition template="sistema.xhtml">
 	    <ui:define name="Titulo"><a href="Cliente.xhtml"><i class="fa fa-angle-right"></i> cliente </a><i class="fa fa-angle-right"></i> cadastro </ui:define>		
 		<ui:define name="corpo">			
 			<h:form class="form-horizontal">						 
@@ -62,7 +62,7 @@
 				</h:commandButton>			
 				<h:commandButton id="bt_conf_delite" value="Deletar" action="#{benCliente.Deletar}" 
 				    styleClass="btn-lg btn-default" rendered="#{benCliente.cliente.id != 0}" />
-				<h:button value="Cancelar" outcome="Cliente.xhtml" styleClass="btn-lg btn-danger"/>
+				<h:button value="Cancelar" outcome="cliente.xhtml" styleClass="btn-lg btn-danger"/>
 			     
 				
 			</h:form>

@@ -17,11 +17,13 @@ import java.util.List;
 
 
 
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.jor.site.entidade.Produto;
+import com.jor.site.util.Alerta;
 import com.jor.site.util.HibernateUtil;
 
 public class Control_produto {
@@ -39,7 +41,7 @@ public class Control_produto {
 		System.out.println("Erro ao Incluir Produto "+er.getLocalizedMessage());
 	}
 	finally {
-			System.out.println("Produto cdastrado com sucesso");
+		Alerta.info("Produto "+produto.getNome()+" cadastrado com sucesso");
 			session.close();
 		}
 	}
@@ -56,7 +58,7 @@ public class Control_produto {
 			System.out.println("Erro ao alterar produto "+er.getLocalizedMessage());
 		}
 		finally {
-			System.out.println("Produto alterado com sucesso");
+			Alerta.info("Produto "+produto.getNome()+" alterado com sucesso");
 			session.close();
 		}
 		
@@ -75,7 +77,7 @@ public class Control_produto {
 		}
 		finally
 		{
-			System.out.println("Produto Deletado");
+			Alerta.info("Produto Deletado");
 			session.close();
 		}
 	}

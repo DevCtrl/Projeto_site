@@ -30,11 +30,11 @@ public class Ben_produto {
 		produto.setQuantidade(0);
 		SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");       		
 		produto.setDataProduto(sdf.format(new Date()));
-		return "ConfigureProduto.xhtml";
+		return "configureproduto.xhtml";
 	}
 	public String ConfigurePg()	{   
 					
-		return "ConfigureProduto.xhtml";
+		return "configureproduto.xhtml";
 	}
 	public String Cadastrar()
 	{
@@ -57,7 +57,7 @@ public class Ben_produto {
 		comando.deletar(produto);		
 		lista = comando.Listar_Dados();
 		produto = new Produto();
-		return "Produto.xhtml";
+		return "produto.xhtml";
 	}
 	public String BuscaPro()
 	{
