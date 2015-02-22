@@ -11,7 +11,7 @@
 	     <ui:define name="Titulo"><a href="produto.xhtml"><i class="fa fa-angle-right"></i> produto </a><i class="fa fa-angle-right"></i> cadastro </ui:define>	
 		<ui:define name="corpo">
 				
-			<h:form  class="form-horizontal">
+			<form  jsf:id="from1" class="form-horizontal">
 				  <div class="form-group">
 				    <label  class="col-sm-1 control-label">Nome</label>
 				    <div class="col-sm-4">
@@ -21,7 +21,7 @@
 				    <label class="col-sm-2 control-label">Descrição</label>
 				    <div class="col-sm-4">
 				       <input type="text" jsf:value="#{benProduto.produto.descricao}" 
-					          class="form-control" jsf:id="descricao" placeholder="Entre com endereço"/>
+					          class="form-control" jsf:id="descricao" placeholder="Entre a descrição"/>
 				    </div>			    				   				    
 				  </div>
 				  <div class="form-group">
@@ -56,12 +56,11 @@
 				
 				
 						 				
-				<h:commandButton id="bt_conf_incluir" value="Salvar" action="#{benProduto.Cadastrar()}"
-				    styleClass="btn-lg btn-primary"  />				
-				<h:commandButton id="bt_conf_delete" value="Deletar" action="#{benProduto.Deletar}" 
-				    styleClass="btn-lg btn-default" rendered="#{benProduto.produto.id > 0}" immediate="true"/>
-				<h:button value="Cancelar" outcome="produto.xhtml" styleClass="btn-lg btn-danger"/>
-			 </h:form>    
+				<button jsf:id="bt_conf_incluir" jsf:action="#{benProduto.cadastrar}" class="btn-lg btn-primary">Salvar</button>				
+				<button jsf:id="bt_conf_delete"  jsf:action="#{benProduto.deletar}" class="btn-lg btn-default" 
+				        jsf:rendered="#{benProduto.produto.id > 0}" >Deletar</button>
+				<button jsf:outcome="produto.xhtml" class="btn-lg btn-danger">Cancelar</button>
+			 </form>    
 				
 			
 		</ui:define>

@@ -20,7 +20,7 @@ import com.jor.site.entidade.Usuario;
 import com.jor.site.util.Alerta;
 import com.jor.site.util.HibernateUtil;
 
-public class Control_usuario {
+public class UsuarioControler {
 	private Session session;
 
 	public void inserir(Usuario usuario) {
@@ -59,7 +59,7 @@ public class Control_usuario {
 			session.close();
 		}
 	}
-	public Object BuscaUsuario(String texto) {
+	public Object buscaUsuario(String texto) {
 		try {
 	    	session = HibernateUtil.getSessionFactory().openSession();
 	    	session.beginTransaction();	    	
@@ -76,7 +76,7 @@ public class Control_usuario {
 		return null;
 		
 	}
-	public List Listar_Dados()
+	public List listarDados()
 	{
 		session = HibernateUtil.getSessionFactory().openSession();
 		try

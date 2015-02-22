@@ -8,7 +8,7 @@
    
      
 <body>
-  <ui:composition template="Layout_Sistema.xhtml">
+  <ui:composition template="sistema.xhtml">
    <ui:define name="Titulo"><i class="fa fa-angle-right"></i> venda </ui:define>
   <ui:define name="corpo">    
       <h:form id="formPro">
@@ -43,7 +43,7 @@
              <h:outputText value="#{list.comprado}"/>               
            </h:column>
            <h:column>
-             <h:commandLink value="remove" actionListener="#{ben.Remove}">               
+             <h:commandLink value="remove" actionListener="#{ben.remove}">               
                <f:setPropertyActionListener target="#{ben.pd}" value="#{list}"/>               
              </h:commandLink>               
            </h:column>
@@ -52,14 +52,14 @@
 		</div>
 		
 		<div class="row">
-		   <button type="submit" jsf:action="#{ben.buscapg}" class="btn btn-info" >Adicionar so carrinho</button>		  
+		  <button type="submit" jsf:action="#{ben.buscapg}" class="btn btn-info" >Adicionar so carrinho</button>		  
 		  <div class="well well-sm col-xs-3 pull-right text-center"> 		   
 		   <p><h4>Total  R$   #{ben.total}</h4></p>		   		   
 		  </div>		 		  
 		</div>														 										
 		<div class="row">
-		 <button type="submit" class="btn btn-success" jsf:actionListener="#{ben.FinalizarCompra}" >Finalizar compra</button>
-		 <button type="submit" class="btn btn-danger pull-right" jsf:action="#{ben.Cancelarcompra}" >Cancelar compra</button>	
+		 <button type="submit" class="btn btn-success" jsf:actionListener="#{ben.finalizarCompra}" >Finalizar compra</button>
+		 <button type="submit" class="btn btn-danger pull-right" jsf:action="#{ben.cancelarCompra}" >Cancelar compra</button>	
 		</div>
 		</h:form>			
 		        	          
@@ -78,7 +78,7 @@
 					      </div>
 					      <div class="modal-footer">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>					       
-					        <button type="submit" jsf:action="#{ben.BuscaCliente}" class="btn btn-primary">Ok</button>
+					        <button type="submit" jsf:action="#{ben.buscaCliente}" class="btn btn-primary">Ok</button>
 					      </div>
 					    </div><!-- /.modal-content -->
 					  </div><!-- /.modal-dialog -->

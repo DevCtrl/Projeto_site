@@ -6,21 +6,9 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<meta charset="utf-8" />
-<title>Cliente</title>
-<meta name="generator" content="Bootply" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<!--[if lt IE 9]>
-          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-     <link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-	 <link href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-     
 <body>
-  <ui:composition template="sistema.xhtmll">
+  <ui:composition template="sistema.xhtml">
   <ui:define name="Titulo"><i class="fa fa-angle-right"></i> cliente</ui:define>
   <ui:define name="corpo">
      <ui:insert name="FormCliente">
@@ -34,7 +22,7 @@
           </h:column>
            <h:column >
               <f:facet name="header">Nome</f:facet>
-              <h:commandLink action="#{benCliente.Edita}" value="#{list.nome}">
+              <h:commandLink action="#{benCliente.edita}" value="#{list.nome}">
                  <f:setPropertyActionListener target="#{benCliente.cliente}" value="#{list}"></f:setPropertyActionListener>
               </h:commandLink>                                                                          
           </h:column>
@@ -57,22 +45,18 @@
       </h:dataTable> 
      <!-- final da tabela -->            
 	 
-	 <div >
-	   <h:commandButton action="#{benCliente.Cadastro}" value="Incluir" styleClass="btn btn-primary "/> 
-	   <div class="input-group col-sm-5  pull-right">
-		  <div class="input-group">
-			<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
-				<span class="input-group-btn">
-				  <button type="submit" class="btn btn-primary" jsf:action="#{benCliente.BuscaCli}">Busca</button>      
-				</span>						
-		  </div>																											
-		</div>
-	  </div>		    
-	     </h:form>
-      
-	   
-	
-	  
+		 <div >
+		   <h:commandButton action="#{benCliente.cadastro}" value="Incluir" styleClass="btn btn-primary "/> 
+		   <div class="input-group col-sm-5  pull-right">
+			  <div class="input-group">
+				<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
+					<span class="input-group-btn">
+					  <button type="submit" class="btn btn-primary" jsf:action="#{benCliente.buscaCliente}">Busca</button>      
+					</span>						
+			  </div>																											
+			</div>
+		  </div>		    
+        </h:form>   	   		  
       </div>
      </ui:insert> 
     </ui:define> 

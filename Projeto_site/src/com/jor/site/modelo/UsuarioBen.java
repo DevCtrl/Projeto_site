@@ -12,30 +12,30 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
 
-import com.jor.site.controle.Control_usuario;
+import com.jor.site.controle.UsuarioControler;
 import com.jor.site.entidade.Usuario;
 
 @ManagedBean(name="benUsuario")
 @SessionScoped
-public class Ben_usuario {
+public class UsuarioBen {
    
 	Usuario usuario = new Usuario();
 	Usuario usuarioSelecionado = new Usuario();
-	Control_usuario comando = new Control_usuario();
+	UsuarioControler comando = new UsuarioControler();
 	List lista = new ArrayList();
 	
 	
 	
-	public String Incluir()
+	public String incluir()
 	{
 		usuario = new Usuario();
 		return "configureusuario.xhtml";
 	}
-	public String PgConfigure()
+	public String pgConfigure()
 	{
 		return "configureusuario.xhtml";
 	}
-	public String Cadastrar()
+	public String cadastrar()
 	{
 		System.out.println("usario "+usuario.getNome());
 		
@@ -45,14 +45,14 @@ public class Ben_usuario {
 		comando.alterar(usuario);
 		
 		usuario = new Usuario();
-		lista  = comando.Listar_Dados();
+		lista  = comando.listarDados();
 		return "usuario.xhtml";
 		
 	}
-	public String Deletar()
+	public String deletar()
 	{
 		comando.deletar(usuario);		
-		lista = comando.Listar_Dados();
+		lista = comando.listarDados();
 		usuario = new Usuario();
 		return "usuario.xhtml";
 	}
@@ -66,7 +66,7 @@ public class Ben_usuario {
 	}
 
 	public List getLista() {
-		return lista = comando.Listar_Dados();
+		return lista = comando.listarDados();
 	}
 
 	public void setLista(List lista) {

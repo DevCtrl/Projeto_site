@@ -8,9 +8,9 @@
 <h:head></h:head>
 <body>
 	<ui:composition template="sistema.xhtml">
-	    <ui:define name="Titulo"><a href="Cliente.xhtml"><i class="fa fa-angle-right"></i> cliente </a><i class="fa fa-angle-right"></i> cadastro </ui:define>		
+	    <ui:define name="Titulo"><a href="cliente.xhtml"><i class="fa fa-angle-right"></i> cliente </a><i class="fa fa-angle-right"></i> cadastro </ui:define>		
 		<ui:define name="corpo">			
-			<h:form class="form-horizontal">						 
+			<form jsf:id="from1" class="form-horizontal">						 
 				  <div class="form-group">
 				    <label for="nome" class="col-sm-1 control-label">Nome</label>
 				    <div class="col-sm-4">
@@ -31,7 +31,7 @@
 				    </div>	
 				    <label class="col-sm-2 control-label">email</label>
 				    <div class="col-sm-4">
-				       <input type="text" jsf:value="#{benCliente.cliente.email}" 
+				       <input type="text" jsf:value="#{benCliente.cliente.email}" required="true"
 					       class="form-control" jsf:id="email" placeholder="Entre email"/>
 				    </div>			    				   				    
 				  </div>				  
@@ -39,12 +39,12 @@
 				    <label for="telefone" class="col-sm-1 control-label">telefone</label>
 				    <div class="col-xs-3">
 					    <input type="tel" jsf:value="#{benCliente.cliente.telefone}" 
-					       class="form-control" jsf:id="telefone" placeholder="Entre com telefone"/>
+					       class="form-control" jsf:id="telefone" placeholder="(00) 0000-0000"/>
 				    </div>	
 				    <label class="col-sm-1 control-label">cpf</label>
 				    <div class="col-xs-3">
 				      <input type="text" jsf:value="#{benCliente.cliente.cpf}" required="true" 
-					       class="form-control" jsf:id="cpf" placeholder="Entre com cpf"/>
+					       class="form-control" jsf:id="cpf" placeholder="00.000.000-00"/>
 				    </div>
 				    <label class="col-sm-1 control-label">cep</label>
 				    <div class="col-xs-3">
@@ -57,15 +57,13 @@
 				
 				
                				 				
-				<h:commandButton id="bt_conf_incluir" value="Salvar" action="#{benCliente.Incluir}"
-				    styleClass="btn-lg btn-default" >				     
-				</h:commandButton>			
-				<h:commandButton id="bt_conf_delite" value="Deletar" action="#{benCliente.Deletar}" 
-				    styleClass="btn-lg btn-default" rendered="#{benCliente.cliente.id != 0}" />
-				<h:button value="Cancelar" outcome="cliente.xhtml" styleClass="btn-lg btn-danger"/>
+				<button jsf:id="bt_conf_incluir"  jsf:action="#{benCliente.incluir}" class="btn-lg btn-default" >Salvar</button>		     						
+				<button jsf:id="bt_conf_delite"   jsf:action="#{benCliente.deletar}" class="btn-lg btn-default" 
+				        jsf:rendered="#{benCliente.cliente.id != 0}" >Deletar</button>
+				<button jsf:outcome="cliente.xhtml" class="btn-lg btn-danger">Cancelar</button>
 			     
 				
-			</h:form>
+			</form>
 		</ui:define>
 	</ui:composition>
 

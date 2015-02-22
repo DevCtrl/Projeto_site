@@ -9,9 +9,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
 
-import com.jor.site.controle.Control_cliente;
-import com.jor.site.controle.Control_produto;
-import com.jor.site.controle.Control_venda;
+import com.jor.site.controle.ClienteControler;
+import com.jor.site.controle.ProdutoControler;
+import com.jor.site.controle.VendaControler;
 import com.jor.site.entidade.Cliente;
 import com.jor.site.entidade.Produto;
 import com.jor.site.entidade.Venda;
@@ -19,15 +19,15 @@ import com.jor.site.util.Alerta;
 
 @ManagedBean(name="ben")
 @SessionScoped
-public class Ben_vendas {
+public class VendaBen {
    
 	Produto pd = new Produto();
 	Cliente cli = new Cliente();
 	Cliente CliPesquisado = new Cliente();
 	Venda vd = new Venda();
-	Control_produto comando = new Control_produto();
-	Control_cliente comandoCli = new Control_cliente();
-	Control_venda comandoVd = new Control_venda();
+	ProdutoControler comando = new ProdutoControler();
+	ClienteControler comandoCli = new ClienteControler();
+	VendaControler comandoVd = new VendaControler();
 	List lisPro = new ArrayList();
 	List<Produto> lisCarrinho = new ArrayList<Produto>();
 	private String ClientePesquisa;
@@ -39,12 +39,12 @@ public class Ben_vendas {
 	
 	
 	
-	public Ben_vendas(){
-		lisPro = comando.Listar_Dados();
+	public VendaBen(){
+		lisPro = comando.listarDados();
 		
 	}
 		
-	public String Add()
+	public String add()
 	{
 		//if(!lisCarrinho.isEmpty())
 		//	System.out.println(lisCarrinho.get(0).getNome());
@@ -56,14 +56,14 @@ public class Ben_vendas {
 		total = total + subtotal;
 		
 		quantidade = 1;
-	   	return  "Vendas.xhtml";
+	   	return  "vendas.xhtml";
 	}
-	public void Remove()
+	public void remove()
 	{
 		total = total - pd.getComprado();
 		lisCarrinho.remove(pd);
 	}
-	public void FinalizarCompra(ActionEvent evt)
+	public void finalizarCompra(ActionEvent evt)
 	{
 		
 		if(!lisCarrinho.isEmpty()){
@@ -82,29 +82,25 @@ public class Ben_vendas {
 		}			
 		total = 0;
 	}
-	public String BuscaProduto()
-	{  
-		System.out.println("teste busca "+pd.getNome());		
-		lisPro = comando.BuscaProdutos(pd.getNome());		
+	public String buscaProduto()
+	{  			
+		lisPro = comando.buscaProdutos(pd.getNome());		
 		return "null";
 	}	
-	public String BuscaCliente()
+	public String buscaCliente()
 	{ 
-		CliPesquisado = (Cliente) comandoCli.BuscaCliente(ClientePesquisa); 
-		if(CliPesquisado.getId() != 0)	{
-			System.out.println(ClientePesquisa+"  teste");
-			cli.setNome(CliPesquisado.getNome());
-			cli.setId(CliPesquisado.getId());
-		}
-			
+		CliPesquisado = (Cliente) comandoCli.buscaCliente(ClientePesquisa); 
+		if(CliPesquisado.getId() != 0)	{			
+			cli.setNome(CliPesquisado.getNome());		
+		}			
 		else
 			cli.setNome(ClientePesquisa+" não e cliente");
 		return "null";
 	}
 	public String buscapg(){
-		return "ConfigureVenda.xhtml";
+		return "configurevenda.xhtml";
 	}
-	public String Cancelarcompra() {
+	public String cancelarCompra() {
 		lisCarrinho.clear();
 		total = 0;
 		return  "Venda.xhtml";

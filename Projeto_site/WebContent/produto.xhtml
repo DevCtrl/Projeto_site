@@ -5,19 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<meta charset="utf-8" />
-<title>produto</title>
-<meta name="generator" content="Bootply" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<!--[if lt IE 9]>
-          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-     <link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-	 <link href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-     
 <body>
   <ui:composition template="sistema.xhtml">
    <ui:define name="Titulo"><i class="fa fa-angle-right"></i> produto </ui:define> 
@@ -30,7 +18,7 @@
           </h:column>
            <h:column >
               <f:facet name="header">Nome</f:facet>
-             <h:commandLink value="#{list.nome}" action="#{benProduto.ConfigurePg}">                 
+             <h:commandLink value="#{list.nome}" action="#{benProduto.configurePg}">                 
                  <f:setPropertyActionListener value="#{list}" target="#{benProduto.produto}"></f:setPropertyActionListener>             
              </h:commandLink>                                    
           </h:column>
@@ -52,15 +40,15 @@
      <!-- final da tabela -->
     
     <div> 
-      <h:commandButton value="Incluir" action="#{benProduto.Incluir}"  styleClass="btn btn-primary " />
+      <h:commandButton value="Incluir" action="#{benProduto.incluir}"  styleClass="btn btn-primary " />
 	    <div class="input-group col-sm-5  pull-right">
-					<div class="input-group">
-						<input type="text" jsf:value="#{benProduto.produto.nome}" class="form-control"/>
-						<span class="input-group-btn">
-							<button type="submit" class="btn btn-primary" jsf:action="#{benProduto.BuscaPro}">Buscar
+				<div class="input-group">
+					<input type="text" jsf:value="#{benProduto.produto.nome}" class="form-control"/>
+					<span class="input-group-btn">
+							<button type="submit" class="btn btn-primary" jsf:action="#{benProduto.buscaProduto}">Buscar
 					     	</button>
-						</span>						
-					</div>																											
+					</span>						
+        		</div>																											
 		</div>		
 	</div>  	   
   </form>   	   		 

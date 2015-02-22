@@ -10,9 +10,8 @@ import com.jor.site.entidade.Cliente;
 import com.jor.site.util.Alerta;
 import com.jor.site.util.HibernateUtil;
 
-public class Control_cliente {
-	private Session session;
-	private String alerta ="Tela de Cadastro";
+public class ClienteControler {
+	private Session session;	
 	
 	public void inserir(Cliente cliente) {
 		session = HibernateUtil.getSessionFactory().openSession();
@@ -70,7 +69,7 @@ public class Control_cliente {
 		
 	}
 	
-	public List Listar_Dados()
+	public List listarDados()
 	{
 		session = HibernateUtil.getSessionFactory().openSession();
 		try
@@ -84,7 +83,7 @@ public class Control_cliente {
 			session.close();
 		}
 	}
-	public List BuscaClientes(String nome) {
+	public List buscaClientes(String nome) {
 		try {
 	    	session = HibernateUtil.getSessionFactory().openSession();
 	    	session.beginTransaction();
@@ -96,7 +95,7 @@ public class Control_cliente {
 		return null;
 	}		
 	
-	public Object BuscaCliente(String texto) {
+	public Object buscaCliente(String texto) {
 		try {
 	    	session = HibernateUtil.getSessionFactory().openSession();
 	    	session.beginTransaction();	    	
@@ -113,12 +112,7 @@ public class Control_cliente {
 		return null;
 		
 	}
-	public String getAlerta() {
-		return alerta;
-	}
-	public void setAlerta(String alerta) {
-		this.alerta = alerta;
-	}
+	
 	
 	
 	

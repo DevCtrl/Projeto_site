@@ -9,26 +9,26 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import com.jor.site.controle.Control_cliente;
+import com.jor.site.controle.ClienteControler;
 import com.jor.site.entidade.Cliente;
 import com.jor.site.util.Alerta;
 
 @ManagedBean(name="benCliente")
 @SessionScoped
-public class Ben_cliente {
+public class ClienteBen {
    
 	private Cliente cliente = new Cliente();
 	Cliente clienteSelecionado;
-	private Control_cliente comando = new Control_cliente();	
+	ClienteControler comando = new ClienteControler();	
 	List lista = new ArrayList();
 		
-	public Ben_cliente()
+	public ClienteBen()
 	{
-		lista =  comando.Listar_Dados();			
+		lista =  comando.listarDados();			
 	}
 	
 	
-	public String  Incluir()
+	public String  incluir()
 	{
 		System.out.println("  teste te "+cliente.getId());
 		if(cliente.getId() == 0){			
@@ -37,33 +37,32 @@ public class Ben_cliente {
 		else{			
 			comando.alterar(cliente);			
 		}		
-		lista = comando.Listar_Dados();
+		lista = comando.listarDados();
 		cliente = new Cliente();
 		
 		
 		return "cliente.xhtml";
 	}
-	public String  Edita()	{		
-		System.out.println("metodo chamdo link");		
+	
+	public String  edita()	{						
 		return "configurecliente.xhtml";				
 	}
-	public String  Cadastro()	{
+	
+	public String  cadastro()	{
 		cliente = new Cliente();
 		return "configurecliente.xhtml";					
 	}
-	public String Deletar()
-	{
-		System.out.println(cliente.getNome());
+	public String deletar()
+	{		
 		comando.deletar(cliente);			
-		lista = comando.Listar_Dados();
+		lista = comando.listarDados();
 		cliente = new Cliente();
 		
 		return "cliente.xhtml";
 	}
-	public String BuscaCli()
-	{
-		System.out.println(cliente.getNome());
-		lista = comando.BuscaClientes(cliente.getNome());
+	public String buscaCliente()
+	{		
+		lista = comando.buscaClientes(cliente.getNome());
 		return "null";
 	}
 
@@ -95,15 +94,6 @@ public class Ben_cliente {
 		this.cliente = cliente;
 	}
 
-
-	public Control_cliente getComando() {
-		return comando;
-	}
-
-
-	public void setComando(Control_cliente comando) {
-		this.comando = comando;
-	}
 
 	
 

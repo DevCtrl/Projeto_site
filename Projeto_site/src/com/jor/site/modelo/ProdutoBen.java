@@ -9,22 +9,22 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import com.jor.site.controle.Control_produto;
+import com.jor.site.controle.ProdutoControler;
 import com.jor.site.entidade.Produto;
 
 @ManagedBean(name="benProduto")
 @SessionScoped
-public class Ben_produto {
+public class ProdutoBen {
    
 	Produto produto = new Produto();
-	Control_produto comando = new Control_produto();
+	ProdutoControler comando = new ProdutoControler();
 	List lista = new ArrayList();
 	
-	public Ben_produto(){
-		lista = comando.Listar_Dados();
+	public ProdutoBen(){
+		lista = comando.listarDados();
 	}
 	
-	public String Incluir()
+	public String incluir()
 	{   
 		produto = new Produto();
 		produto.setQuantidade(0);
@@ -32,11 +32,11 @@ public class Ben_produto {
 		produto.setDataProduto(sdf.format(new Date()));
 		return "configureproduto.xhtml";
 	}
-	public String ConfigurePg()	{   
+	public String configurePg()	{   
 					
 		return "configureproduto.xhtml";
 	}
-	public String Cadastrar()
+	public String cadastrar()
 	{
 		
 		if(produto.getId() == 0)
@@ -47,21 +47,21 @@ public class Ben_produto {
 		{
 			comando.alterar(produto);
 		}
-		lista = comando.Listar_Dados();
+		lista = comando.listarDados();
 		produto = new Produto();	
-		return "Produto.xhtml";
+		return "produto.xhtml";
 		
 	}
-	public String Deletar()
+	public String deletar()
 	{  		
 		comando.deletar(produto);		
-		lista = comando.Listar_Dados();
+		lista = comando.listarDados();
 		produto = new Produto();
 		return "produto.xhtml";
 	}
-	public String BuscaPro()
+	public String buscaProduto()
 	{
-		lista = comando.BuscaProdutos(produto.getNome());
+		lista = comando.buscaProdutos(produto.getNome());
 		produto = new Produto();
 		return "null";
 	}

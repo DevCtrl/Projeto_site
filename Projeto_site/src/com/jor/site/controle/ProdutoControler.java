@@ -26,7 +26,7 @@ import com.jor.site.entidade.Produto;
 import com.jor.site.util.Alerta;
 import com.jor.site.util.HibernateUtil;
 
-public class Control_produto {
+public class ProdutoControler {
 	private Session session;
 
 	public void inserir(Produto produto) {		
@@ -82,7 +82,7 @@ public class Control_produto {
 		}
 	}
 	
-	public List Listar_Dados()
+	public List listarDados()
 	{
 		session = HibernateUtil.getSessionFactory().openSession();
 		try
@@ -97,7 +97,7 @@ public class Control_produto {
 		}
 	}
 	
-	public List BuscaProdutos(String nome) {
+	public List buscaProdutos(String nome) {
 		try {
 	    	session = HibernateUtil.getSessionFactory().openSession();
 	    	session.beginTransaction();

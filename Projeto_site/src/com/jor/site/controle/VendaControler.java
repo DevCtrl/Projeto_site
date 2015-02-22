@@ -4,9 +4,10 @@ import org.hibernate.Session;
 
 import com.jor.site.entidade.Cliente;
 import com.jor.site.entidade.Venda;
+import com.jor.site.util.Alerta;
 import com.jor.site.util.HibernateUtil;
 
-public class Control_venda {
+public class VendaControler {
 
 	public void inserir(Venda venda) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -16,7 +17,7 @@ public class Control_venda {
 			session.getTransaction().commit();
 		}
 		finally {
-			System.out.println("venda cdastrado com sucesso");
+			Alerta.info("venda foi  finalizada com sucesso");
 			session.close();
 		}
 	}

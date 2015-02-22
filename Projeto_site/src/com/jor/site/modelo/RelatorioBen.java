@@ -11,19 +11,13 @@ import javax.faces.view.ViewScoped;
 
 import com.jor.site.util.Alerta;
 
-@ManagedBean (name="ben1")
+@ManagedBean (name="benRelatorio")
 @SessionScoped
-public class Ben_relatorio {
+public class RelatorioBen {
 
-	 private String nome ;
+	
 
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+	
 	
 	
 	

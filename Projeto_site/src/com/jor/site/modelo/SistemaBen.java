@@ -6,9 +6,9 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import com.jor.site.controle.Control_cliente;
-import com.jor.site.controle.Control_produto;
-import com.jor.site.controle.Control_usuario;
+import com.jor.site.controle.ClienteControler;
+import com.jor.site.controle.ProdutoControler;
+import com.jor.site.controle.UsuarioControler;
 import com.jor.site.entidade.Cliente;
 import com.jor.site.entidade.Produto;
 import com.jor.site.entidade.Usuario;
@@ -17,7 +17,7 @@ import com.jor.site.util.Alerta;
 
 @ManagedBean(name="benSistema")
 @ViewScoped
-public class Ben_sistema {
+public class SistemaBen {
     
 	private String usuario;
 	private String senha;	
@@ -29,10 +29,10 @@ public class Ben_sistema {
 	
 	
 	
-	public Ben_sistema()
+	public SistemaBen()
 	{
-		listc = new Control_cliente().Listar_Dados();
-		listp = new Control_produto().Listar_Dados();
+		listc = new ClienteControler().listarDados();
+		listp = new ProdutoControler().listarDados();
 		for (Cliente cliente : listc) 
 			quanteC ++;
 		for (Produto produto : listp) 
@@ -44,7 +44,7 @@ public class Ben_sistema {
 	{
 		
 		Usuario us = new Usuario();
-		us = (Usuario) new Control_usuario().BuscaUsuario(usuario);
+		us = (Usuario) new UsuarioControler().buscaUsuario(usuario);
 		
 	
 		if(usuario.equals(us.getLogin()) && us.getLogin()!= null)
@@ -54,7 +54,9 @@ public class Ben_sistema {
 				
 				return "sistema.xhtml";
 			}
+			Alerta.error("Senha incorreto");
 		}
+		Alerta.warn("Login incorreto");
 		return null;
 	}
 	

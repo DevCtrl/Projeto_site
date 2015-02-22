@@ -4,8 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">   
-<h:head>	
-</h:head>
+
 <body>
 	<ui:composition template="sistema.xhtml">
 	    <ui:define name="Titulo"><a href="usuario.xhtml"><i class="fa fa-angle-right"></i> usuario </a><i class="fa fa-angle-right"></i> cadastro </ui:define>	
@@ -46,17 +45,14 @@
 				
 				
                				 				
-				<button jsf:id="bt_incluir"  jsf:action="#{benUsuario.Cadastrar}"
-				    class="btn-lg btn-default" >Salvar</button>
-				<button jsf:id="bt_editar"  jsf:action="#{benUsuario.Deletar}" 
-				    class="btn-lg btn-default" jsf:rendered="#{benUsuario.usuario.id != null}" >Deletar</button>
+				<button jsf:id="bt_incluir" jsf:action="#{benUsuario.cadastrar}" class="btn-lg btn-default" >Salvar</button>
+				<button jsf:id="bt_editar"  jsf:action="#{benUsuario.deletar}"   class="btn-lg btn-default" 
+				        jsf:rendered="#{benUsuario.usuario.id != null}" >Deletar</button>
 				<button type="button" jsf:id="demo" jsf:outcome="usuario.xhtml" class="btn-lg btn-danger">Cancelar</button>
-				
-			     
-				
-				
+							     
 				
 			</form>
+			
 			<script type="text/javascript">
 			$(document).ready(function() {	    			
 		
@@ -67,7 +63,7 @@
 	        		   if(s1 == $("#repetirsenha").val())
 	        			   {
 	        			     $(this).css({"border-color":""});
-	        			     $("#bt_conf_incluir").attr("disabled",false);
+	        			     $("#bt_incluir").attr("disabled",false);
 	        			   }
 	        		   else
 		        		   {
