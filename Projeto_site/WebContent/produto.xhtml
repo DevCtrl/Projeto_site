@@ -10,7 +10,7 @@
   <ui:composition template="sistema.xhtml">
    <ui:define name="Titulo"><i class="fa fa-angle-right"></i> produto </ui:define> 
   <ui:define name="corpo">    
-      <form jsf:id="formPro">
+      <form jsf:id="formPro" jsf:prependId="false">
         <h:dataTable id="tabela" var="list" value="#{benProduto.lista}"  rows="7" styleClass="table table-hover">
            <h:column >
               <f:facet name="header">Id</f:facet>
@@ -40,7 +40,7 @@
      <!-- final da tabela -->
     
     <div> 
-      <h:commandButton value="Incluir" action="#{benProduto.incluir}"  styleClass="btn btn-primary " />
+      <h:commandButton id="incluir" value="Incluir" action="#{benProduto.incluir}"  styleClass="btn btn-primary " />
 	    <div class="input-group col-sm-5  pull-right">
 				<div class="input-group">
 					<input type="text" jsf:value="#{benProduto.produto.nome}" class="form-control"/>

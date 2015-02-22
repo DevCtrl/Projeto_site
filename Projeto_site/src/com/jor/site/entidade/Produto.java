@@ -24,8 +24,10 @@ public class Produto {
 	private Double Valor_Varejo;
 	@Column(name="valor_Revenda")
 	private Double Valor_Revenda;
-	@Column(name="quantidade")
+	@Column(name="quantidade")	
 	private Integer Quantidade;
+	@Column(name="tipo")
+	private String Tipo;
 	@Column(name="comprado")
 	private Double Comprado;
 	@Column(name="dataProduto")
@@ -77,6 +79,12 @@ public class Produto {
 	}
 	public void setDataProduto(String string) {
 		DataProduto = string;
+	}
+	public String getTipo() {
+		return Tipo;
+	}
+	public void setTipo(String tipo) {
+		Tipo = tipo;
 	}
 	
 	

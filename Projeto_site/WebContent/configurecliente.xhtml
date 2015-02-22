@@ -11,56 +11,56 @@
 	    <ui:define name="Titulo"><a href="cliente.xhtml"><i class="fa fa-angle-right"></i> cliente </a><i class="fa fa-angle-right"></i> cadastro </ui:define>		
 		<ui:define name="corpo">			
 			<form jsf:id="from1" class="form-horizontal">						 
-				  <div class="form-group">
-				    <label for="nome" class="col-sm-1 control-label">Nome</label>
-				    <div class="col-sm-4">
+				  <div class="row-fluid">
+				    <div class="col-xs-6">
+				         <label for="nome" class=" control-label">Nome</label>				    
 					     <input type="text" jsf:value="#{benCliente.cliente.nome}" required="true"
 						        class="form-control" jsf:id="nome" placeholder="Entre com nome" autofocus="true"/>
 				    </div>	
-				    <label class="col-sm-2 control-label">Endereço</label>
-				    <div class="col-sm-4">
+				    <div class="col-xs-6">
+				        <label class="control-label">Endereço</label>				    
 				       <input type="text" jsf:value="#{benCliente.cliente.endereco}" 
 					          class="form-control" jsf:id="endereco" placeholder="Entre com endereço"/>
 				    </div>			    				   				    
 				  </div>
-				  <div class="form-group">
-				    <label for="cidade" class="col-sm-1 control-label">Cidade</label>
-				    <div class="col-sm-4">
-					     <input type="text" jsf:value="#{benCliente.cliente.cidade}" 
-					       class="form-control" jsf:id="cidade" placeholder="Entre com cidade"/>
-				    </div>	
-				    <label class="col-sm-2 control-label">email</label>
-				    <div class="col-sm-4">
+				  <div class="row-fluid">
+				    <div class="col-xs-6">
+				          <label for="cidade" class=" control-label">Cidade</label>
+				          <input type="text" jsf:value="#{benCliente.cliente.cidade}" 
+					            class="form-control" jsf:id="cidade" placeholder="Entre com cidade"/>
+				    </div>
+				    <div class="col-xs-6">	
+				    <label class=" control-label">email</label>				    
 				       <input type="text" jsf:value="#{benCliente.cliente.email}" required="true"
 					       class="form-control" jsf:id="email" placeholder="Entre email"/>
 				    </div>			    				   				    
 				  </div>				  
-				  <div class="form-group">
-				    <label for="telefone" class="col-sm-1 control-label">telefone</label>
-				    <div class="col-xs-3">
+				  <div class="row-fluid">
+				    <div class="col-xs-4">
+				        <label for="telefone" class=" control-label">telefone</label>				    
 					    <input type="tel" jsf:value="#{benCliente.cliente.telefone}" 
 					       class="form-control" jsf:id="telefone" placeholder="(00) 0000-0000"/>
 				    </div>	
-				    <label class="col-sm-1 control-label">cpf</label>
-				    <div class="col-xs-3">
+				    <div class="col-xs-4">
+				       <label class=" control-label">cpf</label>				    
 				      <input type="text" jsf:value="#{benCliente.cliente.cpf}" required="true" 
 					       class="form-control" jsf:id="cpf" placeholder="00.000.000-00"/>
 				    </div>
-				    <label class="col-sm-1 control-label">cep</label>
-				    <div class="col-xs-3">
+				    
+				    <div class="col-xs-4">
+				      <label class=" control-label">cep</label>
 				      <input type="text" jsf:value="#{benCliente.cliente.cep}" maxlength="8"
 					       class="form-control" jsf:id="cep" placeholder="00000000"/>
 				    </div>				    			    				   				    
 				  </div>
-				
-				 
-				
-				
-               				 				
-				<button jsf:id="bt_conf_incluir"  jsf:action="#{benCliente.incluir}" class="btn-lg btn-default" >Salvar</button>		     						
-				<button jsf:id="bt_conf_delite"   jsf:action="#{benCliente.deletar}" class="btn-lg btn-default" 
-				        jsf:rendered="#{benCliente.cliente.id != 0}" >Deletar</button>
-				<button jsf:outcome="cliente.xhtml" class="btn-lg btn-danger">Cancelar</button>
+				  
+				 <div class="row-fluid col-xs-12" >				      
+				      <button jsf:id="bt_conf_incluir"  jsf:action="#{benCliente.incluir}" class="btn btn-default"  style="margin-top: 20px">Salvar</button>		     						
+				      <button jsf:id="bt_conf_delite"   jsf:action="#{benCliente.deletar}" class="btn btn-default"  style="margin-top: 20px"
+				          jsf:rendered="#{benCliente.cliente.id != 0}" >Deletar</button>
+				       <button jsf:outcome="cliente.xhtml" class="btn btn-danger" style="margin-top: 20px">Cancelar</button>
+				    
+				 </div>							               				 								
 			     
 				
 			</form>

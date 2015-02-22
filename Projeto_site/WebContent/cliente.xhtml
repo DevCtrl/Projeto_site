@@ -13,7 +13,7 @@
   <ui:define name="corpo">
      <ui:insert name="FormCliente">
      <div class="row-fluid">
-      <h:form id="formCli">         	       
+      <h:form id="formCli" prependId="false">         	       
         <h:dataTable id="tabelaCli" var="list" value="#{benCliente.lista}" 
             styleClass="table table-responsive  table-hover" >
            <h:column >
@@ -46,7 +46,7 @@
      <!-- final da tabela -->            
 	 
 		 <div >
-		   <h:commandButton action="#{benCliente.cadastro}" value="Incluir" styleClass="btn btn-primary "/> 
+		   <h:commandButton id="incluir" action="#{benCliente.cadastro}" value="Incluir" styleClass="btn btn-primary "/> 
 		   <div class="input-group col-sm-5  pull-right">
 			  <div class="input-group">
 				<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>

@@ -1,6 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta charset="utf-8" />
+<title>Bootply.com - Bootstrap Navbar with Search</title>
+<meta name="generator" content="Bootply" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
 
+<!--[if lt IE 9]>
+          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 
 
 <head>
@@ -19,234 +32,73 @@
 </head>
 
 
-<body class="dashboard">
-	<!-- WRAPPER -->
-	<div class="wrapper">
-
-		<!-- TOP BAR -->
-		<div class="top-bar">
-			<div class="container">
-				<div class="row">
-					<!-- logo -->
-					<div class="col-md-2 logo">
-						<a href="index.html">
-							<img src="assets/img/kingadmin-logo-white.png" alt="KingAdmin - Admin Dashboard" />
-						</a>
-						<h1 class="sr-only">KingAdmin Admin Dashboard</h1>
-					</div>
-					<!-- end logo -->
-					<div class="col-md-10">
-						<div class="row">
-							
-							<div class="col-md-9">
-								<div class="top-bar-right">
-									<!-- responsive menu bar icon -->
-									<a href="#" class="hidden-md hidden-lg main-nav-toggle"><i class="fa fa-bars"></i></a>
-									<!-- end responsive menu bar icon -->
-									<button type="button" id="start-tour" class="btn btn-link"><i class="fa fa-refresh"></i> Start Tour</button>
-									<button type="button" id="global-volume" class="btn btn-link btn-global-volume"><i class="fa"></i></button>
-									
-
-									<!-- logged user and the menu -->
-									<div class="logged-user">
-										<div class="btn-group">
-											<a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-												<img src="assets/img/user-avatar.png" alt="User Avatar" />
-												<span class="name">Stacy Rose</span>
-												<span class="caret"></span>
-											</a>
-											<ul class="dropdown-menu" role="menu">
-												<li>
-													<a href="#">
-														<i class="fa fa-user"></i>
-														<span class="text">Profile</span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<i class="fa fa-cog"></i>
-														<span class="text">Settings</span>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<i class="fa fa-power-off"></i>
-														<span class="text">Logout</span>
-													</a>
-												</li>
-											</ul>
-										</div>
-									</div>
-									<!-- end logged user and the menu -->
-								</div>
-								<!-- /top-bar-right -->
-							</div>
-						</div>
-						<!-- /row -->
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /top -->
-
-		<!-- BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
-		<div class="bottom">
-			<div class="container">
-				<div class="row">
-					<!-- left sidebar -->
-					<div class="col-md-2 left-sidebar">
-
-						<!-- main-nav -->
-						<nav class="main-nav">
-
-							<ul class="main-menu">
-								<li class="active">
-									<a href="index.html"><i class="fa fa-dashboard fa-fw"></i>
-										<span class="text">Dashboard</span>
-									</a>
-								</li>
-								<li>
-									<a href="#" class="js-sub-menu-toggle"><i class="fa fa-clipboard fa-fw"></i>
-										<span class="text">Pages</span>
-										<i class="toggle-icon fa fa-angle-left"></i>
-									</a>
-									<ul class="sub-menu ">
-										<li>
-											<a href="page-profile.html">
-												<span class="text">Profile</span>
-											</a>
-										</li>										
-									</ul>
-								</li>
-								
-								<li>
-									<a href="#" class="js-sub-menu-toggle"><i class="fa fa-list-alt fw"></i>
-										<span class="text">UI Elements</span>
-										<i class="toggle-icon fa fa-angle-left"></i>
-									</a>
-									<ul class="sub-menu ">
-										<li>
-											<a href="ui-elements-general.html">
-												<span class="text">General Elements</span>
-											</a>
-										</li>										
-									</ul>
-								</li>
-								<li>
-									<a href="widgets.html"><i class="fa fa-puzzle-piece fa-fw"></i>
-										<span class="text">Widgets</span>
-									</a>
-								</li>
-								<li>
-									<a href="#" class="js-sub-menu-toggle"><i class="fa fa-gears fw"></i>
-										<span class="text">Components</span>
-										<i class="toggle-icon fa fa-angle-left"></i>
-									</a>
-									<ul class="sub-menu ">
-										<li>
-											<a href="components-wizard.html">
-												<span class="text">Wizard (with validation)</span>
-											</a>
-										</li>										
-									</ul>
-								</li>
-								<li>
-									<a href="#" class="js-sub-menu-toggle"><i class="fa fa-table fw"></i>
-										<span class="text">Tables</span>
-										<i class="toggle-icon fa fa-angle-left"></i>
-									</a>
-									<ul class="sub-menu ">
-										<li>
-											<a href="tables-static-table.html">
-												<span class="text">Static Table
-													<span class="badge element-bg-color-blue">Updated</span>
-												</span>
-											</a>
-										</li>										
-									</ul>
-								</li>
-								<li>
-									<a href="typography.html"><i class="fa fa-font fa-fw"></i>
-										<span class="text">Typography</span>
-									</a>
-								</li>
-							</ul>
-						</nav>
-						<!-- /main-nav -->
-
-						<div class="sidebar-minified js-toggle-minified">
-							<i class="fa fa-angle-left"></i>
-						</div>
-
-						
-					</div>
-					<!-- end left sidebar -->
-
+<body >
+	                 
+	                 
+	                
 					
 					
-					<!-- content-wrapper -->
-					<div class="col-md-10 content-wrapper">
-						<div class="row">
-							<div class="col-md-4 ">
-								<ul class="breadcrumb">
-									<li><i class="fa fa-home"></i>
-										<a href="#">Home</a>
-									</li>
-									<li class="active">Dashboard</li>
-								</ul>
-							</div>
-							<div class="col-md-8 ">
-								<div class="top-content">
-									<ul class="list-inline mini-stat">
-										<li>
-											<h5>LIKES
-												<span class="stat-value stat-color-orange"><i class="fa fa-plus-circle"></i> 81,450</span>
-											</h5>
-											<span id="mini-bar-chart1" class="mini-bar-chart"></span>
-										</li>
-										<li>
-											<h5>SUBSCRIBERS
-												<span class="stat-value stat-color-blue"><i class="fa fa-plus-circle"></i> 150,743</span>
-											</h5>
-											<span id="mini-bar-chart2" class="mini-bar-chart"></span>
-										</li>
-										<li>
-											<h5>CUSTOMERS
-												<span class="stat-value stat-color-seagreen"><i class="fa fa-plus-circle"></i> 43,748</span>
-											</h5>
-											<span id="mini-bar-chart3" class="mini-bar-chart"></span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-						<!-- main -->
-						<div class="content">
-							<div class="main-header">
-								<h2>DASHBOARD</h2>
-								<em>the first priority information</em>
-							</div>
-
-							 digite seu texto aqui
-						</div>
-						<!-- /main -->
-					</div>
-					<!-- /content-wrapper -->
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- END BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
-		<div class="push-sticky-footer"></div>
-	</div>
-	<!-- /wr-->
-
- 
-
+	           <form  jsf:id="from1" class="form-horizontal">
+				  <div class="row-fluid col-xs-12">
+				     <div class="col-xs-5">
+				       <label  class="control-label">Nome</label>				       
+				       <input type="text" jsf:value="#{benProduto.produto.nome}" required="true"
+						        class="form-control" jsf:id="nome" placeholder="Entre com nome"/>						        
+				     </div>
+				     <div class="col-xs-5">
+				       <label class="control-label">Descrição</label>
+				       <input type="text" jsf:value="#{benProduto.produto.descricao}" 
+					          class="form-control" jsf:id="descricao" placeholder="Entre a descrição"/>
+				     </div>
+				  </div>
+				  <div class="row-fluid col-xs-12">
+				     <div class="col-xs-3">
+				        <label for="valor_Varejo" class=" control-label">Valor Varejo</label>
+				          <input type="text" jsf:value="#{benProduto.produto.valor_Varejo}" required="true"
+					       class="form-control" jsf:id="valor_Varejo" placeholder="Entre com valor_Varejo"/>					  
+				     </div>
+				     <div class="col-xs-3">
+				         <label class=" control-label">Valor Revenda</label>
+				         <input type="text" jsf:value="#{benProduto.produto.valor_Revenda}" required="true"
+					       class="form-control" jsf:id="valor_Revenda" placeholder="Entre valor_Revenda"/>
+				     </div>
+				     <div class="col-xs-4">
+				          <label  class="control-label">Data cadastro</label>
+				          <input type="date" jsf:value="#{benProduto.produto.dataProduto}" disabled="true"
+					       class="form-control" jsf:id="dataProduto" placeholder="Entre com dataProduto"/>
+				     </div>
+				   </div> 
+				   <div class="row-fluid col-xs-12">
+				     <div class="col-xs-3">
+				          <label class="control-label">estoque</label>				   
+				          <input type="text" jsf:value="#{benProduto.produto.quantidade}" disabled="true"
+					            class="form-control" jsf:id="estoque" placeholder="Entre com estoque"/>
+				     </div>
+				     <div class="col-xs-3">
+				          <label class=" control-label">quantidade</label>				    
+				          <input type="number" jsf:value="#{benProduto.produto.quantidade}" min="0" max="999" required="true"
+					           class="form-control" jsf:id="quantidade" placeholder="quantidade"/>
+				     </div>
+				     <div class="col-xs-4">
+				            <label class=" control-label">tipo</label>				       
+							<h:selectOneMenu value="#{benProduto.produto.tipo}" styleClass="form-control">  
+							    <f:selectItem itemValue="unidade" itemLabel="Unidade"/>  
+							    <f:selectItem itemValue="pesoGm" itemLabel="Peso Grama"/>
+							    <f:selectItem itemValue="pesoKg" itemLabel="Peso Kilo"/>	
+							    <f:selectItem itemValue="cixa" itemLabel="Caixa"/>							            
+						     </h:selectOneMenu> 	
+				     </div>				     
+				   <div class="row-fluid col-xs-12" style="padding: 20px">				      
+				          <button jsf:id="bt_conf_incluir" jsf:action="#{benProduto.cadastrar}" class="btn btn-primary ">Salvar</button>				      
+				          <button jsf:id="bt_conf_delete"  jsf:action="#{benProduto.deletar}" class="btn btn-default "
+				          					        jsf:rendered="#{benProduto.produto.id > 0}" >Deletar</button>				      
+				          <button jsf:outcome="produto.xhtml" class="btn btn-danger ">Cancelar</button>			      
+						 					   
+				   </div>
+				 </div>  			  				  				          			
+				
+			 </form>    
+				
 
 </body>
 </html>

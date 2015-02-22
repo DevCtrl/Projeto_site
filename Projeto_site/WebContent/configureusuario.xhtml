@@ -35,14 +35,20 @@
 					       class="form-control" jsf:id="repetirsenha" placeholder="Entre senha"/>
 				    </div>			    				   				    
 				  </div>
-				   <div class="form-group">
+				  <div class="form-group">
 				    <label for="email" class="col-sm-1 control-label">Email</label>
 				    <div class="col-sm-4">
 					     <input type="email" jsf:value="#{benUsuario.usuario.email}" 
 					       class="form-control" jsf:id="email" placeholder="Entre com email"/>
 				    </div>
+				    <label class="col-sm-2 control-label">Prioridade</label>
+				    <div class="col-sm-4  ">	      
+						<h:selectOneMenu value="#{benUsuario.usuario.prioridade}" styleClass="form-control">  
+						    <f:selectItem itemValue="normal" itemLabel="Normal"/>  
+						    <f:selectItem itemValue="master" itemLabel="Avançado"/>						    						            
+					     </h:selectOneMenu> 			      
+				    </div>
 				  </div>
-				
 				
                				 				
 				<button jsf:id="bt_incluir" jsf:action="#{benUsuario.cadastrar}" class="btn-lg btn-default" >Salvar</button>
@@ -53,7 +59,7 @@
 				
 			</form>
 			
-			<script type="text/javascript">
+		<script type="text/javascript">
 			$(document).ready(function() {	    			
 		
                    $("#repetirsenha").keyup(function()

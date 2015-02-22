@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 import com.jor.site.controle.ClienteControler;
@@ -16,17 +18,18 @@ import com.jor.site.util.Alerta;
 
 
 @ManagedBean(name="benSistema")
-@ViewScoped
+@SessionScoped
 public class SistemaBen {
     
 	private String usuario;
 	private String senha;	
 	private  int quanteP = 0;
 	private  int quanteC = 0;
+	private String nivel ;
 	
 	List<Cliente> listc = new ArrayList<Cliente>();
 	List<Produto> listp = new ArrayList<Produto>();
-	
+	Usuario us = new Usuario();
 	
 	
 	public SistemaBen()
@@ -38,12 +41,19 @@ public class SistemaBen {
 		for (Produto produto : listp) 
 			quanteP ++;				
 		
-	}				
+	}
+	
+	public String testando(){
+		System.out.println("teste chama : "+teste);
+		
+		return null;
+	}
+	
 	
 	public String login()
 	{
 		
-		Usuario us = new Usuario();
+		
 		us = (Usuario) new UsuarioControler().buscaUsuario(usuario);
 		
 	
@@ -51,7 +61,7 @@ public class SistemaBen {
 		{			
 			if(senha.equals(us.getSenha()) && us.getSenha() != null)
 			{
-				
+				System.out.println(us.getPrioridade());				
 				return "sistema.xhtml";
 			}
 			Alerta.error("Senha incorreto");
@@ -82,7 +92,14 @@ public class SistemaBen {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}  	
+	}
+
+	public String getNivel() {
+		return nivel = us.getPrioridade();
+	}
+
+	
+		
 	
 	
 	

@@ -11,57 +11,67 @@
 	     <ui:define name="Titulo"><a href="produto.xhtml"><i class="fa fa-angle-right"></i> produto </a><i class="fa fa-angle-right"></i> cadastro </ui:define>	
 		<ui:define name="corpo">
 				
-			<form  jsf:id="from1" class="form-horizontal">
-				  <div class="form-group">
-				    <label  class="col-sm-1 control-label">Nome</label>
-				    <div class="col-sm-4">
-					    <input type="text" jsf:value="#{benProduto.produto.nome}" required="true"
+					
+	           <form  jsf:id="from1" class="form-horizontal">
+				  <div class="row-fluid ">
+				     <div class="col-xs-6">
+				       <label  class="control-label">Nome</label>				       
+				       <input type="text" jsf:value="#{benProduto.produto.nome}" required="true"
 						        class="form-control" jsf:id="nome" placeholder="Entre com nome"/>						        
-				    </div>	
-				    <label class="col-sm-2 control-label">Descrição</label>
-				    <div class="col-sm-4">
+				     </div>
+				     <div class="col-xs-6">
+				       <label class="control-label">Descrição</label>
 				       <input type="text" jsf:value="#{benProduto.produto.descricao}" 
 					          class="form-control" jsf:id="descricao" placeholder="Entre a descrição"/>
-				    </div>			    				   				    
+				     </div>
 				  </div>
-				  <div class="form-group">
-				    <label for="valor_Varejo" class="col-sm-2 control-label">Valor Varejo</label>
-				    <div class="col-sm-3">				        
-					     <input type="text" jsf:value="#{benProduto.produto.valor_Varejo}" required="true"
-					       class="form-control" jsf:id="valor_Varejo" placeholder="Entre com valor_Varejo"/>					     
-				    </div>	
-				    <label class="col-sm-3 control-label">Valor Revenda</label>
-				    <div class="col-sm-3">				     
-				       <input type="text" jsf:value="#{benProduto.produto.valor_Revenda}" required="true"
+				  <div class="row-fluid" >
+				     <div class="col-xs-4">
+				        <label for="valor_Varejo" class=" control-label">Valor Varejo</label>
+				          <input type="text" jsf:value="#{benProduto.produto.valor_Varejo}" required="true"
+					       class="form-control" jsf:id="valor_Varejo" placeholder="Entre com valor_Varejo"/>					  
+				     </div>
+				     <div class="col-xs-4">
+				         <label class=" control-label">Valor Revenda</label>
+				         <input type="text" jsf:value="#{benProduto.produto.valor_Revenda}" required="true"
 					       class="form-control" jsf:id="valor_Revenda" placeholder="Entre valor_Revenda"/>
-				    </div>			    				   				    
-				  </div>				  
-				  <div class="form-group">
-				    <label  class="col-sm-2 control-label">dataProduto</label>
-				    <div class="col-xs-3">
-					    <input type="date" jsf:value="#{benProduto.produto.dataProduto}" disabled="true"
+				     </div>
+				     <div class="col-xs-4">
+				          <label  class="control-label">Data cadastro</label>
+				          <input type="date" jsf:value="#{benProduto.produto.dataProduto}" disabled="true"
 					       class="form-control" jsf:id="dataProduto" placeholder="Entre com dataProduto"/>
-				    </div>	
-				    <label class="col-sm-1 control-label">estoque</label>
-				    <div class="col-xs-2 ">
-				      <input type="text" jsf:value="#{benProduto.produto.quantidade}" disabled="true"
-					       class="form-control" jsf:id="estoque" placeholder="Entre com estoque"/>
-				    </div>
-				    <label class="col-sm-1 control-label">quantidade</label>
-				    <div class="col-xs-2">
-				      <input type="number" jsf:value="#{benProduto.produto.quantidade}" min="0" max="999" required="true"
-					       class="form-control" jsf:id="quantidade" placeholder="quantidade"/>
-				    </div>				    			    				   				    
-				  </div>
+				     </div>
+				   </div> 
+				   <div class="row-fluid ">
+				     <div class="col-xs-4">
+				          <label class="control-label">estoque</label>				   
+				          <input type="text" jsf:value="#{benProduto.produto.quantidade}" disabled="true"
+					            class="form-control" jsf:id="estoque" placeholder="Entre com estoque"/>
+				     </div>
+				     <div class="col-xs-4">
+				          <label class=" control-label">quantidade</label>				    
+				          <input type="number" jsf:value="#{benProduto.produto.quantidade}" min="0" max="999" required="true"
+					           class="form-control" jsf:id="quantidade" placeholder="quantidade"/>
+				     </div>
+				     <div class="col-xs-4">
+				            <label class=" control-label">tipo</label>				       
+							<h:selectOneMenu value="#{benProduto.produto.tipo}" styleClass="form-control">  
+							    <f:selectItem itemValue="unidade" itemLabel="Unidade"/>  
+							    <f:selectItem itemValue="pesoGm" itemLabel="Peso Grama"/>
+							    <f:selectItem itemValue="pesoKg" itemLabel="Peso Kilo"/>	
+							    <f:selectItem itemValue="cixa" itemLabel="Caixa"/>							            
+						     </h:selectOneMenu> 	
+				     </div>				     
+				   <div class="row-fluid col-xs-12 ">				      
+				          <button jsf:id="bt_conf_incluir" jsf:action="#{benProduto.cadastrar}" class="btn btn-primary " style="margin-top: 20px;">Salvar</button>				      
+				          <button jsf:id="bt_conf_delete"  jsf:action="#{benProduto.deletar}" class="btn btn-default "   style="margin-top: 20px;"
+				          					        jsf:rendered="#{benProduto.produto.id > 0}" >Deletar</button>				      
+				          <button jsf:outcome="produto.xhtml" class="btn btn-danger " style="margin-top: 20px;" >Cancelar</button>			      
+						 					   
+				   </div>
+				 </div>  			  				  				          			
 				
-				
-						 				
-				<button jsf:id="bt_conf_incluir" jsf:action="#{benProduto.cadastrar}" class="btn-lg btn-primary">Salvar</button>				
-				<button jsf:id="bt_conf_delete"  jsf:action="#{benProduto.deletar}" class="btn-lg btn-default" 
-				        jsf:rendered="#{benProduto.produto.id > 0}" >Deletar</button>
-				<button jsf:outcome="produto.xhtml" class="btn-lg btn-danger">Cancelar</button>
-			 </form>    
-				
+			 </form>  
 			
 		</ui:define>
 	</ui:composition>
