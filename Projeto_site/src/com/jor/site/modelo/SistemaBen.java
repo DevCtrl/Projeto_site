@@ -25,7 +25,6 @@ public class SistemaBen {
 	private String senha;	
 	private  int quanteP = 0;
 	private  int quanteC = 0;
-	private String nivel ;
 	
 	List<Cliente> listc = new ArrayList<Cliente>();
 	List<Produto> listp = new ArrayList<Produto>();
@@ -41,15 +40,7 @@ public class SistemaBen {
 		for (Produto produto : listp) 
 			quanteP ++;				
 		
-	}
-	
-	public String testando(){
-		System.out.println("teste chama : "+teste);
-		
-		return null;
-	}
-	
-	
+	}			
 	public String login()
 	{
 		
@@ -93,11 +84,15 @@ public class SistemaBen {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
-	public String getNivel() {
-		return nivel = us.getPrioridade();
+	public Usuario getUs() {
+		return us;
 	}
-
+	public void setUs(Usuario us) {
+		this.us = us;
+	}
+    
+	
+    
 	
 		
 	

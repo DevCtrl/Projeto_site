@@ -11,8 +11,7 @@
   <ui:composition template="sistema.xhtml">
   <ui:define name="Titulo"><i class="fa fa-angle-right"></i> cliente</ui:define>
   <ui:define name="corpo">
-     <ui:insert name="FormCliente">
-     <div class="row-fluid">
+     <ui:insert name="FormCliente">     
       <h:form id="formCli" prependId="false">         	       
         <h:dataTable id="tabelaCli" var="list" value="#{benCliente.lista}" 
             styleClass="table table-responsive  table-hover" >
@@ -45,19 +44,20 @@
       </h:dataTable> 
      <!-- final da tabela -->            
 	 
-		 <div >
-		   <h:commandButton id="incluir" action="#{benCliente.cadastro}" value="Incluir" styleClass="btn btn-primary "/> 
-		   <div class="input-group col-sm-5  pull-right">
-			  <div class="input-group">
-				<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
+		 
+		  <div class="row">	    
+	           <div class="col-xs-3">         
+	            <h:commandButton id="incluir" value="Incluir" action="#{benCliente.cadastro}"  styleClass="btn btn-primary " />
+	           </div>
+				<div class="input-group col-sm-4 col-sm-offset-8   ">
+					<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
 					<span class="input-group-btn">
-					  <button type="submit" class="btn btn-primary" jsf:action="#{benCliente.buscaCliente}">Busca</button>      
+							<button type="submit" class="btn btn-primary" jsf:action="#{benCliente.buscaCliente}"><i class="fa fa-search"></i>
+					     	</button>
 					</span>						
-			  </div>																											
-			</div>
-		  </div>		    
-        </h:form>   	   		  
-      </div>
+        		</div>        	 																											
+		</div>				    
+        </h:form>    		        
      </ui:insert> 
     </ui:define> 
    </ui:composition>

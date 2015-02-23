@@ -11,7 +11,7 @@
    <ui:define name="Titulo"><i class="fa fa-angle-right"></i> produto </ui:define> 
   <ui:define name="corpo">    
       <form jsf:id="formPro" jsf:prependId="false">
-        <h:dataTable id="tabela" var="list" value="#{benProduto.lista}"  rows="7" styleClass="table table-hover">
+        <h:dataTable id="tabela" var="list" value="#{benProduto.lista}"  rows="7" styleClass="table table-responcive table-hover">
            <h:column >
               <f:facet name="header">Id</f:facet>
               #{list.id}              
@@ -39,18 +39,21 @@
       </h:dataTable> 
      <!-- final da tabela -->
     
-    <div> 
-      <h:commandButton id="incluir" value="Incluir" action="#{benProduto.incluir}"  styleClass="btn btn-primary " />
-	    <div class="input-group col-sm-5  pull-right">
-				<div class="input-group">
+   
+                 
+	    <div class="row">	    
+	           <div class="col-xs-3">         
+	            <h:commandButton id="incluir" value="Incluir" action="#{benProduto.incluir}"  styleClass="btn btn-primary " />
+	           </div>
+				<div class="input-group col-sm-4 col-sm-offset-8   ">
 					<input type="text" jsf:value="#{benProduto.produto.nome}" class="form-control"/>
 					<span class="input-group-btn">
-							<button type="submit" class="btn btn-primary" jsf:action="#{benProduto.buscaProduto}">Buscar
+							<button type="submit" class="btn btn-primary" jsf:action="#{benProduto.buscaProduto}"><i class="fa fa-search"></i>
 					     	</button>
 					</span>						
-        		</div>																											
+        		</div>        	 																											
 		</div>		
-	</div>  	   
+ 	 
   </form>   	   		 
 		                
     </ui:define> 

@@ -11,8 +11,9 @@
   <ui:composition template="sistema.xhtml">
    <ui:define name="Titulo"><i class="fa fa-angle-right"></i> venda </ui:define>
   <ui:define name="corpo">    
-      <h:form id="formPro">
-	       <div class="panel panel-default">
+      <form jsf:id="formPro">
+	     <div class="row-fluid"> 
+	     <div class="panel panel-default">
 			<!-- Default panel contents -->
 			<div class="panel-heading"><i class="fa fa-cart-plus fa-2x"/>  Carrinho de Compras</div>
 			<div class="panel-body">	
@@ -50,7 +51,7 @@
            </h:dataTable>
          </h:panelGroup>  
 		</div>
-		
+		</div>
 		<div class="row">
 		  <button type="submit" jsf:action="#{ben.buscapg}" class="btn btn-info" >Adicionar so carrinho</button>		  
 		  <div class="well well-sm col-xs-3 pull-right text-center"> 		   
@@ -61,10 +62,10 @@
 		 <button type="submit" class="btn btn-success" jsf:actionListener="#{ben.finalizarCompra}" >Finalizar compra</button>
 		 <button type="submit" class="btn btn-danger pull-right" jsf:action="#{ben.cancelarCompra}" >Cancelar compra</button>	
 		</div>
-		</h:form>			
+					
 		        	          
 				<!-- Modal -->
-				<form jsf:id="form2">
+				
 				 <div class="modal fade" id="myModal">
 					  <div class="modal-dialog">
 					    <div class="modal-content">
@@ -83,9 +84,9 @@
 					    </div><!-- /.modal-content -->
 					  </div><!-- /.modal-dialog -->
 					</div><!-- /.modal -->	      
-				</form>      
+			     
 					     
-					      
+			</form>		      
        
             </ui:define> 
    </ui:composition>

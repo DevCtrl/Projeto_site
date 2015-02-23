@@ -59,28 +59,7 @@
 				
 			</form>
 			
-		<script type="text/javascript">
-			$(document).ready(function() {	    			
-		
-                   $("#repetirsenha").keyup(function()
-                    {
-                       
-	                   var s1 = $("#senha").val(); 		   
-	        		   if(s1 == $("#repetirsenha").val())
-	        			   {
-	        			     $(this).css({"border-color":""});
-	        			     $("#bt_incluir").attr("disabled",false);
-	        			   }
-	        		   else
-		        		   {
-		        			  $(this).css({"border-color":"red"});
-		        			  $("#bt_incluir").attr("disabled",true);
-	        			  }
-                   });		  
-                 });
-			</script>
-				
-				
+						
 				
 			
 		</ui:define>
