@@ -11,8 +11,9 @@
    <ui:define name="Titulo"><i class="fa fa-angle-right"></i> usuario </ui:define>
   <ui:define name="corpo">    
       <h:form id="formUsu">
-      <h:panelGroup layout="block" style="height:300px;overflow-y:scroll"> 
-        <h:dataTable var="list" value="#{benUsuario.lista}"  rows="7" styleClass="table table-hover">
+    
+      
+        <h:dataTable var="list" value="#{benUsuario.lista}"  rows="7" styleClass="table table-hover table-responsive">
            <h:column >
               <f:facet name="header">Id</f:facet>
               #{list.id}              
@@ -41,11 +42,11 @@
           </h:column>          
       </h:dataTable> 
      <!-- final da tabela -->
-     </h:panelGroup>
+   
       <h:commandButton value="Incluir" action="#{benUsuario.incluir}"  styleClass="btn btn-primary btn-lg"/>
 		        
      </h:form>   	   
-	                   
+	           
    </ui:define> 
   </ui:composition>
 </body> 

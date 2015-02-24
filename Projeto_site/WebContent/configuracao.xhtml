@@ -10,8 +10,33 @@
   <ui:composition template="sistema.xhtml">
     <ui:define name="Titulo"><i class="fa fa-angle-right"></i> configuração</ui:define> 
     <ui:define name="corpo">    
-  
-  
+      
+      <div role="tabpanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+  <div role="tabpanel" class="tab-pane fade in active" id="home">
+    <textarea rows="15" cols="8" class="form-control" ></textarea>
+    
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="profile">
+    <h:inputTextarea value="#{benSite.section1}" rows="15" styleClass="form-control"></h:inputTextarea>
+    <button jsf:actionListener="#{benSite.edite}">Editar</button>    
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="messages">teste executado13</div>
+  <div role="tabpanel" class="tab-pane fade" id="settings">teste executado4</div>
+</div>
+
+</div>
+ 
    </ui:define>
   </ui:composition> 
 </body> 
