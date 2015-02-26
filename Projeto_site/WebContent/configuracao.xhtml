@@ -1,43 +1,100 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
-     
+
 <body>
-  <ui:composition template="sistema.xhtml">
-    <ui:define name="Titulo"><i class="fa fa-angle-right"></i> configuração</ui:define> 
-    <ui:define name="corpo">    
-      
-      <div role="tabpanel">
+	<ui:composition template="sistema.xhtml">
+		<ui:define name="Titulo">
+			<i class="fa fa-angle-right"></i> configuração</ui:define>
+		<ui:define name="corpo">
 
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-  </ul>
+			<h:form>
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-  <div role="tabpanel" class="tab-pane fade in active" id="home">
-    <textarea rows="15" cols="8" class="form-control" ></textarea>
-    
-  </div>
-  <div role="tabpanel" class="tab-pane fade" id="profile">
-    <h:inputTextarea value="#{benSite.section1}" rows="15" styleClass="form-control"></h:inputTextarea>
-    <button jsf:actionListener="#{benSite.edite}">Editar</button>    
-  </div>
-  <div role="tabpanel" class="tab-pane fade" id="messages">teste executado13</div>
-  <div role="tabpanel" class="tab-pane fade" id="settings">teste executado4</div>
-</div>
+				<ul class="nav nav-tabs" role="tablist" id="myTab">
+					<li role="presentation" class="active"><a href="#home"
+						aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+					<li role="presentation"><a href="#profile"
+						aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+					<li role="presentation"><a href="#messages"
+						aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+					<li role="presentation"><a href="#settings"
+						aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+				</ul>
 
-</div>
- 
-   </ui:define>
-  </ui:composition> 
-</body> 
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="home">
+						<label class="form-label">Titulo</label> <input type="text"
+							class="form-control" jsf:value="#{benSite.titulo1}" /> <label
+							class="form-label">Conteudo da Pagina</label>
+						<h:inputTextarea value="#{benSite.section1}" rows="10"
+							styleClass="form-control"></h:inputTextarea>
+						<label class="form-label">Titulo Segunda Imagem</label> <input
+							type="text" class="form-control"
+							jsf:value="#{benSite.tituloImagem1}" /> <br />
+						<h:commandButton class="btn btn-success" value="nudar"
+							actionListener="#{siteBen.edite}"></h:commandButton>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="profile">
+						<label class="form-label">Titulo</label> <input type="text"
+							class="form-control" jsf:value="#{benSite.titulo2}" /> <label
+							class="form-label">Conteudo da Pagina</label>
+						<h:inputTextarea value="#{benSite.section2}" rows="10"
+							styleClass="form-control"></h:inputTextarea>
+						<label class="form-label">Titulo Segunda Imagem</label> <input
+							type="text" class="form-control"
+							jsf:value="#{benSite.tituloImagem2}" /> <br />
+						<h:commandButton class="btn btn-success" value="nudar"
+							actionListener="#{benSite.edite}"></h:commandButton>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="messages">
+						<div class="row-fluid">
+							<!-- 4:3 aspect ratio -->
+							<div class="col-xs-4">
+								<br /> <input type="text" class="form-control"
+									jsf:value="#{benSite.video1}"
+									placeholder="Digite a url do video" /> <br />
+								<div class="embed-responsive embed-responsive-4by3">
+									<iframe class="embed-responsive-item" src="#{benSite.video1}"></iframe>
+								</div>
+								<br />
+								<h:commandButton class="btn btn-success" value="nudar"
+									actionListener="#{benSite.editeVideo1}"></h:commandButton>
+							</div>
+							<div class="col-xs-4">
+								<br /> <input type="text" class="form-control"
+									jsf:value="#{benSite.video2}"
+									placeholder="Digite a url do video" /> <br />
+								<div class="embed-responsive embed-responsive-4by3">
+									<iframe class="embed-responsive-item" src="#{benSite.video2}"></iframe>
+								</div>
+								<br />
+								<h:commandButton class="btn btn-success" value="nudar"
+									actionListener="#{benSite.editeVideo2}"></h:commandButton>
+							</div>
+							<div class="col-xs-4">
+								<br /> <input type="text" class="form-control"
+									jsf:value="#{benSite.video3}"
+									placeholder="Digite a url do video" /> <br />
+								<div class="embed-responsive embed-responsive-4by3">
+									<iframe class="embed-responsive-item" src="#{benSite.video3}"></iframe>
+								</div>
+								<br />
+								<h:commandButton class="btn btn-success" value="nudar"
+									actionListener="#{benSite.editeVideo3}"></h:commandButton>
+							</div>
+						</div>
+
+
+					</div>
+					<div role="tabpanel" class="tab-pane" id="settings">.zxczxczz..</div>
+				</div>
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</body>
 </html>

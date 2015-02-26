@@ -5,248 +5,136 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	<meta charset="utf-8" />
-	<title>site</title>
-	<meta name="generator" content="Bootply" />
-	<meta name="viewport"
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta charset="utf-8" />
+<title>site</title>
+<meta name="generator" content="Bootply" />
+<meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-      <!--[if lt IE 9]>
+<!--[if lt IE 9]>
           <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
 
 <head>
 <!-- Bootstrap -->
-<link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css"	rel="stylesheet" type="text/css" />
-<link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.css"	rel="stylesheet" type="text/css" />
-<link href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css"	rel="stylesheet" type="text/css" />
+<link
+	href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="#{request.contextPath}/resources/bootstrap/css/bootstrap.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css"
+	rel="stylesheet" type="text/css" />
 <!--stilo painel  -->
-<link href="#{request.contextPath}/resources/bootstrap/css/stiloPainel.css"	rel="stylesheet" type="text/css"/>
+<link
+	href="#{request.contextPath}/resources/bootstrap/css/stiloPainel.css"
+	rel="stylesheet" type="text/css" />
 <!--fonte de icones externa -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 <!-- Sidbar -->
-<link href="#{request.contextPath}/resources/bootstrap/css/estilo.sidbars.css" rel="stylesheet" type="text/css"/>
-<link href="#{request.contextPath}/resources/bootstrap/css/slidebars.css" rel="stylesheet" type="text/css"/>
+<link
+	href="#{request.contextPath}/resources/bootstrap/css/estilo.sidbars.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="#{request.contextPath}/resources/bootstrap/css/slidebars.css"
+	rel="stylesheet" type="text/css" />
 
 </head>
 
 
-<body>	
-		
+<body>
+
 	<!-- Header -->
-       <div class="navbar navbar-inverse navbar-fixed-top sb-slide"  role="navigation">
-	
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand sb-toggle-left" rel="home" href="#"><i class="fa fa-navicon"></i></a>
-				<a class="navbar-brand " rel="home" href="#">Marca #{benSistema.us.nome}</a>
-			</div>
-			
-			<div class="collapse navbar-collapse">
-				
-				<ul class="nav navbar-nav   pull-right">					
-					<li class="dropdown">
-		              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> #{benSistema.us.nome}<b class="caret"></b></a>
-		              <ul class="dropdown-menu">
-		                <li><a href="#"><i class="fa fa-user"></i> Perfil</a></li>
-		                <li><a href="index.xhtml"><i class="fa fa-power-off"></i> Sair</a></li>		                             
-		              </ul>
-		            </li>
-				</ul>			
-				
-				
-			</div>
-		</div>
-		
-	
-	<!-- /Header -->	
-	<!-- Conteiner -->
-	    <div id="sb-site">
-	      <h4>
-			<a href="sistema.xhtml">sistema </a>  <ui:insert name="Titulo"/>
-		  </h4>
-          <br/>
+  <h:form>
 
-			<div class="row">					
-				<div class="col-md-12">
-					<h:messages id="msgs" showDetail="false" errorClass="alert alert-danger" warnClass="alert alert-warning" fatalClass="alert alert-danger" infoClass="alert alert-info" />
-					<!-- Inserindo o conteudo das paginas -->	
-					<ui:insert name="corpo">
-                                <div class="col-lg-3 col-md-6">
-				                    <div class="panel panel-primary">
-				                        <div class="panel-heading">
-				                            <div class="row">
-				                                <div class="col-xs-3">
-				                                    <i class="fa fa-group fa-5x"></i>
-				                                </div>
-				                                <div class="col-xs-9 text-right">
-				                                    <div class="huge">#{benSistema.quanteC}  </div>				                                    
-				                                    <div>Clientes </div>
-				                                </div>
-				                            </div>
-				                        </div>
-				                        <a href="cliente.xhtml">
-				                            <div class="panel-footer">
-				                                <span class="pull-left">Veja Detalhes</span>
-				                                <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-				                                <div class="clearfix"></div>
-				                            </div>
-				                        </a>
-				                    </div>
-				                </div>
-				                <div class="col-lg-3 col-md-6">
-				                    <div class="panel panel-green">
-				                        <div class="panel-heading">
-				                            <div class="row">
-				                                <div class="col-xs-3">
-				                                    <i class="fa fa-tasks fa-5x"></i>
-				                                </div>
-				                                <div class="col-xs-9 text-right">
-				                                    <div class="huge">#{benSistema.quanteP}</div>				                                    
-				                                    <div>Produtos</div>
-				                                </div>
-				                            </div>
-				                        </div>
-				                        <a href="produto.xhtml">
-				                            <div class="panel-footer">
-				                                <span class="pull-left">Veja Detalhes</span>
-				                                <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-				                                <div class="clearfix"></div>
-				                            </div>
-				                        </a>
-				                    </div>
-				                </div>
-				                <div class="col-lg-3 col-md-6">
-				                    <div class="panel panel-yellow">
-				                        <div class="panel-heading">
-				                            <div class="row">
-				                                <div class="col-xs-3">
-				                                    <i class="fa fa-shopping-cart fa-5x"></i>
-				                                </div>
-				                                <div class="col-xs-9 text-right">
-				                                    <div class="huge">124</div>
-				                                    <div>Vendas</div>
-				                                </div>
-				                            </div>
-				                        </div>
-				                        <a href="vendas.xhtml">
-				                            <div class="panel-footer">
-				                                <span class="pull-left">Veja Detalhes</span>
-				                                <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-				                                <div class="clearfix"></div>
-				                            </div>
-				                        </a>
-				                    </div>
-				                </div>
-				                <div class="col-lg-3 col-md-6">
-				                    <div class="panel panel-red">
-				                        <div class="panel-heading">
-				                            <div class="row">
-				                                <div class="col-xs-3">
-				                                    <i class="fa fa-sitemap fa-5x"></i>
-				                                </div>
-				                                <div class="col-xs-9 text-right">
-				                                    <div class="huge">13</div>
-				                                    <div>Parcerias</div>
-				                                </div>
-				                            </div>
-				                        </div>
-				                        <a href="releatorio.xhtml">
-				                            <div class="panel-footer">
-				                                <span class="pull-left">Veja Detalhes</span>
-				                                <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-				                                <div class="clearfix"></div>
-				                            </div>
-				                        </a>
-				                    </div>
-				                </div>		 <!-- /.row -->                          							
-							
-						</ui:insert>
-						<!-- /painel -->
+	<ul class="nav nav-tabs" role="tablist" id="myTab">
+		<li role="presentation" class="active"><a href="#home"
+			aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+		<li role="presentation"><a href="#profile"
+			aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+		<li role="presentation"><a href="#messages"
+			aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+		<li role="presentation"><a href="#settings"
+			aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+	</ul>
+
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="home">
+			<label class="form-label">Titulo</label> <input type="text"
+				class="form-control" jsf:value="#{benSite.titulo1}" /> <label
+				class="form-label">Conteudo da Pagina</label>
+			<h:inputTextarea value="#{benSite.section1}" rows="12"
+				styleClass="form-control"></h:inputTextarea>
+			<label class="form-label">Titulo Segunda Imagem</label> <input
+				type="text" class="form-control"
+				jsf:value="#{benSite.tituloImagem1}" /> <br />
+			<h:commandButton class="btn btn-success"  value="nudar" actionListener="#{siteBen.edite}"></h:commandButton>
+		</div>
+		<div role="tabpanel" class="tab-pane" id="profile">
+			<label class="form-label">Titulo</label> <input type="text"
+				class="form-control" jsf:value="#{benSite.titulo2}" /> <label
+				class="form-label">Conteudo da Pagina</label>
+			<h:inputTextarea value="#{benSite.section2}" rows="12"
+				styleClass="form-control"></h:inputTextarea>
+			<label class="form-label">Titulo Segunda Imagem</label> <input
+				type="text" class="form-control"
+				jsf:value="#{benSite.tituloImagem2}" /> <br />
+			<h:commandButton class="btn btn-success" value="nudar" actionListener="#{benSite.edite}"></h:commandButton>
+		</div>
+		<div role="tabpanel" class="tab-pane" id="messages">
+			<div class="row-fluid">
+				<!-- 4:3 aspect ratio -->
+				<div class="col-xs-4">
+					<br /> <input type="text" class="form-control" jsf:value="#{benSite.video1}"
+						placeholder="Digite a url do video" /> <br />
+					<div class="embed-responsive embed-responsive-4by3">
+						<iframe class="embed-responsive-item"
+							src="#{benSite.video1}"></iframe>
 					</div>
-					<!--/row-->
-	              </div>
-	     </div>
-		
-	<!-- /Conteiner -->			
-	<!-- List Sidebar -->	
-		<div class="sb-slidebar sb-left sb-width-custom" data-sb-width="200px"  >
-			 
-				<h3>
-					<span style="color: white;"> Sistema</span>					
-				</h3>				    
+					<br />
+					<h:commandButton class="btn btn-success" value="nudar" actionListener="#{benSite.editeVideo1}"></h:commandButton>
+				</div>
+				<div class="col-xs-4">
+					<br /> <input type="text" class="form-control" jsf:value="#{benSite.video2}"
+						placeholder="Digite a url do video" /> <br />
+					<div class="embed-responsive embed-responsive-4by3">
+						<iframe class="embed-responsive-item"
+							src="#{benSite.video2}"></iframe>
+					</div>
+					<br />
+					<h:commandButton class="btn btn-success" value="nudar" actionListener="#{benSite.editeVideo2}"></h:commandButton>
+				</div>
+				<div class="col-xs-4">
+					<br /> <input type="text" class="form-control" jsf:value="#{benSite.video3}"
+						placeholder="Digite a url do video" /> <br />
+					<div class="embed-responsive embed-responsive-4by3">
+						<iframe class="embed-responsive-item"
+							src="#{benSite.video3}"></iframe>
+					</div>
+					<br />
+					<h:commandButton class="btn btn-success" value="nudar" actionListener="#{benSite.editeVideo3}"></h:commandButton>
+				</div>
+			</div>
 
-				<ul class="nav nav-stacked">
-				    <li><a href="sistema.xhtml"><i
-							class="glyphicon glyphicon-home"></i> Inicio</a></li>
-					<li><a href="cliente.xhtml"><i
-							class="glyphicon glyphicon-user"></i> Cliente</a></li>
-					<li><a href="produto.xhtml"><i
-							class="glyphicon glyphicon-list-alt"></i> Produto</a></li>
-					<li><a id="user"  href="usuario.xhtml" ><i
-							class="glyphicon glyphicon-comment"></i> Usuarios</a></li>
-					<li><a href="vendas.xhtml"><i
-					        class="glyphicon glyphicon-shopping-cart"></i> Vendas</a></li>
-					<li><a href="releatorio.xhtml"><i
-							class="glyphicon glyphicon-folder-open"></i> Relatorio</a></li>
-					<li><a href="parcerias.xhtml"><i
-							class="glyphicon glyphicon-briefcase"></i> Parcerias</a></li>
-					<li><a id="config" href="configuracao.xhtml"><i
-							class="glyphicon glyphicon-cog"></i> configuração</a></li>
-				</ul>			 
+
 		</div>
-	  <!-- /List Sidebar -->			
-		<!-- jQuery -->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<!-- Bootstrap -->
-		<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
-		<!-- Slidebars -->
-		<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/slidebars.js">
+		<div role="tabpanel" class="tab-pane" id="settings">.zxczxczz..</div>
+	</div>
+</h:form>
+	<!-- /List Sidebar -->
+	<!-- jQuery -->
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+	<!-- Slidebars -->
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/bootstrap/js/slidebars.js">
 		</script>
-		<script>
-		  //funcão para os sidbars
-			(function($) {
-				$(document).ready(function() {
-					$.slidebars();
-				});
-			}) (jQuery);
-          //funcçao prioridade do usuario
-			$(document).ready(function() {   				
-				 var tx = "#{benSistema.us.prioridade}";	  
-				  if(tx == "normal")		   			    
-					   $("#incluir").attr("disabled",true);		   	  
-			  });
-		  //funcçao prioridade do usuario
-			$('#user').click(function(e) {
-
-			  var tx = "#{benSistema.us.prioridade}";
-			  
-				  if(tx == "normal"){
-					  alert("Você não tem acesso a essa opção");
-			        e.preventDefault();
-			    } else{
-					  return null;	  }
-			    
-			});
-			//funcçao prioridade do usuario
-			$('#config').click(function(e) {
-
-				  var tx = "#{benSistema.us.prioridade}";
-				  
-					  if(tx == "normal"){
-						  alert("Você não tem acesso a essa opção");
-				        e.preventDefault();
-				    } else{
-						  return null;	  }
-				    
-				});
-		</script>
-	</body>
+</body>
 </html>
