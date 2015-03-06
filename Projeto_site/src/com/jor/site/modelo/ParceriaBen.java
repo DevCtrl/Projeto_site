@@ -17,7 +17,7 @@ import com.jor.site.util.Alerta;
 public class ParceriaBen {
   
 	List listaParceria =  new ArrayList();
-	List listaContratos =  new ArrayList();
+	List listaContrato =  new ArrayList();
 	Parceria parceria = new Parceria();
 	Contrato contrato = new Contrato();
 	ParceriaControler comandoParceria = new ParceriaControler();
@@ -29,35 +29,43 @@ public class ParceriaBen {
 	}
 	public void inserirParceria()
 	{
-		if(parceria.getId() == 0)		
+		if(parceria.getId() == 0){		
 		   comandoParceria.inserir(parceria);
+		   parceria = new Parceria();
+		} 
 		else
-		   comandoParceria.alterar(parceria);
+		   comandoParceria.alterar(parceria);				
 		
-		
-		parceria = new Parceria();
 		listaParceria = comandoParceria.listarDados();
 	}
-	public String deletarParceria()
+	public void deletarParceria()
 	{
-		comandoParceria.deletar(parceria);
-		parceria = new Parceria();
+		comandoParceria.deletar(parceria);		
 		listaParceria = comandoParceria.listarDados();
-		return "parceria.xhtml";
+		
 	}
-	public void buscaParceria(){
+	public void buscaParceria(){		
 	    listaParceria = comandoParceria.buscaParcerias(parceria.getNome());
 	}
 	public String pagina(){
 		return "parcerias.xhtml";
+	}
+	public void limparCampos(){
+		parceria = new Parceria();
+		contrato = new Contrato();
+		listaContrato.clear();
 	}
 	//Contrato
 	
 	public void inserirContrato()
 	{
 	  if(parceria.getId() != 0){
-		if(contrato.getId() == 0)		
-		   comandoContrato.inserir(contrato);
+		if(contrato.getId() == 0){
+			System.out.println(parceria.getId());
+			 contrato.setParceria(parceria);
+			 comandoContrato.inserir(contrato);
+		}
+		  
 		else
 		   comandoContrato.alterar(contrato);		
 		contrato = new Contrato();
@@ -76,4 +84,35 @@ public class ParceriaBen {
 	public void buscaContratoId(){
 	    contrato = (Contrato) comandoContrato.buscaContrato(contrato.getId());
 	}
+	
+	
+	public List getListaParceria() {
+		return listaParceria;
+	}
+	public void setListaParceria(List listaParceria) {
+		this.listaParceria = listaParceria;
+	}
+	public List getlistaContrato() {
+		if(parceria.getId() != 0)
+			listaContrato = comandoContrato.buscaContratos(parceria.getId());
+		else
+			listaContrato.clear();
+		return listaContrato;
+	}
+	public void setlistaContrato(List listaContrato) {
+		this.listaContrato = listaContrato;
+	}
+	public Parceria getParceria() {
+		return parceria;
+	}
+	public void setParceria(Parceria parceria) {
+		this.parceria = parceria;
+	}
+	public Contrato getContrato() {
+		return contrato;
+	}
+	public void setContrato(Contrato contrato) {
+		this.contrato = contrato;
+	}
+	
 }

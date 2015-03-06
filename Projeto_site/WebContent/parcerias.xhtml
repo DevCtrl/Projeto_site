@@ -44,14 +44,15 @@
 		                <f:selectItem itemLabel="Selecione o contrato"></f:selectItem>
 		                <f:selectItems value="#{benParceria.listaContrato}"  var="list" 
 		                                  itemValue="#{list.id}"  itemLabel="#{list.nome}"/>
-		                <f:ajax event="change" render=":form2"></f:ajax>
+		                <f:ajax event="change" listener="#{benParceria.buscaContratoId}" render=":form2"></f:ajax>
 		              </h:selectOneMenu>
 		          </div>
 		      </div>
 		       <div class="row form-group">
 		          <div class="col-xs-12">
-		            <h:commandButton styleClass="btn btn-primary" value="Salvar" actionListener="#{benParceria.incluirParceria}"/>		             	                     
-		            <h:button stylclass="btn btn-primary" type="button" value="Buscar" outcome="configureparceria.xhml"/>	         		             
+		            <h:commandButton styleClass="btn btn-primary" value="Salvar" actionListener="#{benParceria.inserirParceria}"/>		             	                     
+		            <h:button styleClass="btn btn-primary" type="button" value="Buscar" outcome="configureparceria.xhml"/>	
+		            <h:commandButton styleClass="btn btn-primary pull-right" value="Limpar campos" actionListener="#{benParceria.limparCampos}"/>		             	         		             
 		          </div>
 		      </div>
 		         
@@ -79,8 +80,8 @@
 		      </div>
 		       <div class="row form-group"> 
 		          <div class="col-xs-12">
-		              <button class="btn btn-success" jsf:ActionListerner="#{benParceria.incluirContrato}">Aceitar</button>	
-		              <button class="btn btn-success pull-right" jsf:ActionListerner="#{benParceria.deletarContrato}" jsf:rendered="#{benParceria.contrato.id != 0}">Deletar</button>	              
+		              <h:commandButton styleClass="btn btn-primary" value="Aceitar" actionListener="#{benParceria.inserirContrato}"/>             	   		          		              
+		              <button class="btn btn-success pull-right" jsf:actionListener="#{benParceria.deletarContrato}" jsf:rendered="#{benParceria.contrato.id != 0}">Deletar</button>	              
 		          </div>
 		      </div>   
               

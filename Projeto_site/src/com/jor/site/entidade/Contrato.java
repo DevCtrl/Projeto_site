@@ -28,9 +28,9 @@ public class Contrato {
 	@Column(name="descricao")
 	private String Descricao;
 	@Column(name="datainicial")
-	private Date DataInicial;
+	private String DataInicial;
 	@Column(name="datafinal")
-	private Date DataFinal;
+	private String DataFinal;
 	public int getId() {
 		return id;
 	}
@@ -55,18 +55,19 @@ public class Contrato {
 	public void setDescricao(String descricao) {
 		Descricao = descricao;
 	}
-	public Date getDataInicial() {
+	public String getDataInicial() {
 		return DataInicial;
 	}
-	public void setDataInicial(Date dataInicial) {
+	public void setDataInicial(String dataInicial) {
 		DataInicial = dataInicial;
 	}
-	public Date getDataFinal() {
+	public String getDataFinal() {
 		return DataFinal;
 	}
-	public void setDataFinal(Date dataFinal) {
+	public void setDataFinal(String dataFinal) {
 		DataFinal = dataFinal;
 	}
+	
 
 	
 }
