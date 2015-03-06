@@ -15,45 +15,49 @@
           <form jsf:id="form1">
 		   <div class="row form-group">
 		        <div class="col-xs-6">
-		          <input class="form-control" id="firstName"  placeholder="Digite a empresa" required="true" type="text"/>
+		          <input class="form-control" jsf:value="#{benParceria.parceria.nome}"  placeholder="Digite a empresa" required="true" type="text"/>
 		        </div>		       
 		        <div class="col-xs-6">
-		          <input class="form-control" id="lastName" name="lastName" placeholder="Contato" required="true" type="text"/>
+		          <input class="form-control" jsf:value="#{benParceria.parceria.contato}" placeholder="Contato" required="true" type="text"/>
 		        </div>
 		    </div>
 		    <div class="row form-group">
 		          <div class="col-xs-4">
-		          <input class="form-control" name="email" placeholder="Email" required="" type="email"/>
+		          <input class="form-control" jsf:value="#{benParceria.parceria.email}" placeholder="Email" required="true" type="email"/>
 		          </div>
 		          <div class="col-xs-4">
-		          <input class="form-control" name="fone1" placeholder="Fone 1" required="" type="text"/>
+		          <input class="form-control" jsf:value="#{benParceria.parceria.fone1}" placeholder="Fone 1" required="true" type="text"/>
 		          </div>
 		          <div class="col-xs-4">
-		          <input class="form-control" name="fone2" placeholder="Fone 2" required="" type="text"/>
+		          <input class="form-control" jsf:value="#{benParceria.parceria.fone2}" placeholder="Fone 2"  type="text"/>
 		          </div>
 		      </div>
 		      <div class="row form-group">
 		          <div class="col-xs-4">
-		          <input class="form-control" name="Telefone" placeholder="CNPJ/CPF" required="" type="text"/>
+		          <input class="form-control" jsf:value="#{benParceria.parceria.cnpj}" placeholder="CNPJ/CPF" required="true" type="text"/>
 		          </div>
 		          <div class="col-xs-5">
-		          <input class="form-control" placeholder="Website URL" required="" type="homepage"/>
+		          <input class="form-control" jsf:value="#{benParceria.parceria.url}" placeholder="Website URL"  type="homepage"/>
 		          </div>
 		          <div class="col-xs-3">
-		              <h:selectOneMenu value="cadastro" styleClass="form-control">
-		                <f:selectItem itemDisabled="true" itemLabel="Quantidade "></f:selectItem>
-		                <f:selectItem itemLabel="Acordo N° 1"></f:selectItem>
-		                <f:selectItem itemLabel="Acordo N° 2"></f:selectItem>
-		                <f:selectItem itemLabel="Novo Acordo"></f:selectItem>
+		              <h:selectOneMenu value="#{benParceria.contrato.id}" styleClass="form-control">
+		                <f:selectItem itemLabel="Selecione o contrato"></f:selectItem>
+		                <f:selectItems value="#{benParceria.listaContrato}"  var="list" 
+		                                  itemValue="#{list.id}"  itemLabel="#{list.nome}"/>
+		                <f:ajax event="change" render=":form2"></f:ajax>
 		              </h:selectOneMenu>
 		          </div>
 		      </div>
 		       <div class="row form-group">
 		          <div class="col-xs-12">
-		              <button class="btn btn-primary">Salvar</button>		                     
-		              <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal" >Buscar</button>	         		             
+		            <h:commandButton styleClass="btn btn-primary" value="Salvar" actionListener="#{benParceria.incluirParceria}"/>		             	                     
+		            <h:button stylclass="btn btn-primary" type="button" value="Buscar" outcome="configureparceria.xhml"/>	         		             
 		          </div>
-		      </div>   
+		      </div>
+		         
+		   </form>
+		   <form jsf:id="form2"> 
+		     
 		      <div class="row form-group">
 		          <div class="col-xs-12 text-center">
 		              Tipo de Contrato
@@ -62,66 +66,28 @@
 		       <div class="row form-group">
 		          <div class="col-xs-3 ">
 		              <br/>
-		              <br/>		             
-		             <label class="form-label">Descrição</label>
+		              <input class="form-control" jsf:value="#{benParceria.contrato.nome}" type="text"  placeholder="nome contrato"/>
 		          </div>
 		          <div class="col-xs-5 ">
-		              <textarea class="form-control" placeholder="digite as condiçoes do contrato" rows="3" cols="20"></textarea>
+		              <textarea class="form-control" jsf:value="#{benParceria.contrato.descricao}" placeholder="digite as condiçoes do contrato" rows="3" cols="20"></textarea>
 		          </div>
 		          <div class="col-xs-4 ">
-		              <input class="form-control"  type="date"  placeholder="Data Inicial"/>
+		              <input class="form-control" jsf:value="#{benParceria.contrato.dataInicial}" type="date"  placeholder="Data Inicial"/>
 		              <br/>
-		              <input class="form-control" type="date" placeholder="Data Final"/>
+		              <input class="form-control" jsf:value="#{benParceria.contrato.dataFinal}" type="date" placeholder="Data Final"/>
 		          </div>
 		      </div>
-		       <div class="row form-group">
+		       <div class="row form-group"> 
 		          <div class="col-xs-12">
-		              <button class="btn btn-success">Aceitar</button>		              
+		              <button class="btn btn-success" jsf:ActionListerner="#{benParceria.incluirContrato}">Aceitar</button>	
+		              <button class="btn btn-success pull-right" jsf:ActionListerner="#{benParceria.deletarContrato}" jsf:rendered="#{benParceria.contrato.id != 0}">Deletar</button>	              
 		          </div>
 		      </div>   
               
               
               
                  	          
-				<!-- Modal -->
 				
-				 <div class="modal fade" id="myModal" style="margin-top: 40px;">
-					  <div class="modal-dialog">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					        <h4 class="modal-title">Pesquisa Parceiros</h4>
-					      </div>
-					      <div class="modal-body">
-					        <h:dataTable id="tabelaCli" var="list" value="#{benCliente.lista}" 
-						            styleClass="table table-responsive  table-hover" >
-						           <h:column >						             
-						              #{list.id}              
-						          </h:column>
-						           <h:column >						             
-						              <h:commandLink action="#{benCliente.edita}" value="#{list.nome}">
-						                 <f:setPropertyActionListener target="#{benCliente.cliente}" value="#{list}"></f:setPropertyActionListener>
-						              </h:commandLink>                                                                          
-						          </h:column>
-						           <h:column >						              
-						              #{list.cidade}              
-						          </h:column>
-						        </h:dataTable>					      
-					       		       
-					        
-					      </div>
-					      <div class="modal-footer ">
-					          <div class="input-group  ">
-								<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
-								<span class="input-group-btn">
-										<button type="submit" class="btn btn-primary" jsf:action="#{benCliente.buscaCliente}"><i class="fa fa-search"></i>
-								     	</button>
-								</span>						
-			        		</div>		
-					      </div>
-					    </div><!-- /.modal-content -->
-					  </div><!-- /.modal-dialog -->
-					</div><!-- /.modal -->	   
           </form> 
    </ui:define>
   </ui:composition> 

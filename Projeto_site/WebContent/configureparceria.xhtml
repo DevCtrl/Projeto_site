@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+
+<body>
+  <ui:composition template="sistema.xhtml">
+  <ui:define name="Titulo"><i class="fa fa-angle-right"></i> configureparceria</ui:define>
+  <ui:define name="corpo">
+     <ui:insert name="FormCliente">     
+      <h:form id="formCli" prependId="false">         	       
+        <h:dataTable id="tabelaCli" var="list" value="#{benParceria.listaParceria}" 
+            styleClass="table table-responsive  table-hover" >           
+           <h:column >             
+              <h:commandLink action="#{benParceria.pagina}" value="#{list.nome}">
+                 <f:setPropertyActionListener target="#{benParceria.parceria}" value="#{list}"></f:setPropertyActionListener>
+              </h:commandLink>                                                                          
+          </h:column>
+           <h:column >              
+              #{list.contato}              
+          </h:column>
+          <h:column>
+              <f:facet name="header">Email</f:facet>
+              #{list.email}
+          </h:column>
+          <h:column>
+             <f:facet name="header">Telefone</f:facet>
+             #{list.fone1} 
+          </h:column>          
+      </h:dataTable> 
+     <!-- final da tabela -->            
+	 
+		 
+		  <div class="row">	    	           
+				<div class="input-group col-sm-4 col-sm-offset-8   ">
+					<input type="text" jsf:value="#{benParceria.parceria.nome}" class="form-control"/>
+					<span class="input-group-btn">
+							<button type="submit" class="btn btn-primary" jsf:action="#{benParceria.buscaParceria}"><i class="fa fa-search"></i>
+					     	</button>
+					</span>						
+        		</div>        	 																											
+		</div>				    
+        </h:form>    		        
+     </ui:insert> 
+    </ui:define> 
+   </ui:composition>
+</body> 
+</html>
