@@ -15,15 +15,15 @@
           <form jsf:id="form1">
 		   <div class="row form-group">
 		        <div class="col-xs-6">
-		          <input class="form-control" jsf:value="#{benParceria.parceria.nome}"  placeholder="Digite a empresa" required="true" type="text"/>
+		          <input class="form-control" jsf:value="#{benParceria.parceria.nome}"  placeholder="Digite a empresa" required="true" type="text" maxlength="50"/>
 		        </div>		       
 		        <div class="col-xs-6">
-		          <input class="form-control" jsf:value="#{benParceria.parceria.contato}" placeholder="Contato" required="true" type="text"/>
+		          <input class="form-control" jsf:value="#{benParceria.parceria.contato}" placeholder="Contato" required="true" type="text" maxlength="50" />
 		        </div>
 		    </div>
 		    <div class="row form-group">
 		          <div class="col-xs-4">
-		          <input class="form-control" jsf:value="#{benParceria.parceria.email}" placeholder="Email" required="true" type="email"/>
+		          <input class="form-control" jsf:value="#{benParceria.parceria.email}" placeholder="Email" required="true" type="email" maxlength="50" />
 		          </div>
 		          <div class="col-xs-4">
 		          <input class="form-control" jsf:id="telefone" jsf:value="#{benParceria.parceria.fone1}" placeholder="Fone 1" required="true" type="text"/>
@@ -37,7 +37,7 @@
 		          <input class="form-control" jsf:id="cnpj" jsf:value="#{benParceria.parceria.cnpj}" placeholder="CNPJ/CPF" required="true" type="text"/>
 		          </div>
 		          <div class="col-xs-5">
-		          <input class="form-control" jsf:value="#{benParceria.parceria.url}" placeholder="Website URL"  type="homepage"/>
+		          <input class="form-control" jsf:value="#{benParceria.parceria.url}" placeholder="Website URL"  type="homepage" maxlength="100"/>
 		          </div>
 		          <div class="col-xs-3">
 		              <h:selectOneMenu value="#{benParceria.contrato.id}" styleClass="form-control">
@@ -67,15 +67,15 @@
 		       <div class="row form-group">
 		          <div class="col-xs-3 ">
 		              <br/>
-		              <input class="form-control" jsf:value="#{benParceria.contrato.nome}" type="text"  placeholder="nome contrato"/>
+		              <input class="form-control" jsf:value="#{benParceria.contrato.nome}" type="text"  placeholder="nome contrato" required="true" maxlength="50"/>
 		          </div>
 		          <div class="col-xs-5 ">
-		              <textarea class="form-control" jsf:value="#{benParceria.contrato.descricao}" placeholder="digite as condiçoes do contrato" rows="3" cols="20"></textarea>
+		              <textarea class="form-control" jsf:value="#{benParceria.contrato.descricao}" placeholder="digite as condiçoes do contrato"  rows="3" cols="20" required="true"></textarea>
 		          </div>
 		          <div class="col-xs-4 ">
-		              <input class="form-control" jsf:id="data" jsf:value="#{benParceria.contrato.dataInicial}" type="date"  placeholder="Data Inicial"/>
+		              <input class="form-control" jsf:id="data" jsf:value="#{benParceria.contrato.dataInicial}" type="date" required="true" placeholder="Data Inicial"/>
 		              <br/>
-		              <input class="form-control" jsf:id="data2" jsf:value="#{benParceria.contrato.dataFinal}" type="date" placeholder="Data Final"/>
+		              <input class="form-control" jsf:id="data2" jsf:value="#{benParceria.contrato.dataFinal}" type="date" required="true" placeholder="Data Final"/>
 		          </div>
 		      </div>
 		       <div class="row form-group"> 

@@ -16,33 +16,33 @@
 				  <div class="row-fluid ">
 				     <div class="col-xs-6">
 				       <label  class="control-label">Nome</label>				       
-				       <input type="text" jsf:value="#{benProduto.produto.nome}" required="true"
+				       <input type="text" jsf:value="#{benProduto.produto.nome}" required="true" maxlength="50"
 						        class="form-control" jsf:id="nome" placeholder="Entre com nome"/>						        
 				     </div>
 				     <div class="col-xs-6">
 				       <label class="control-label">Descrição</label>
-				       <input type="text" jsf:value="#{benProduto.produto.descricao}" 
+				       <input type="text" jsf:value="#{benProduto.produto.descricao}" maxlength="50" 
 					          class="form-control" jsf:id="descricao" placeholder="Entre a descrição"/>
 				     </div>
 				  </div>
 				  <div class="row-fluid" >
 				     <div class="col-xs-4">
 				        <label for="valor_Varejo" class=" control-label">Valor Varejo</label>
-				          <input type="text" jsf:value="#{benProduto.produto.valor_Varejo}" required="true"
+				          <input type="text" jsf:value="#{benProduto.produto.valor_Varejo}" required="true" maxlength="18"
 					       class="form-control" jsf:id="valor_Varejo" placeholder="Entre com valor_Varejo">
 					          <f:convertNumber minFractionDigits="2" />
 					       </input>					  
 				     </div>
 				     <div class="col-xs-4">
 				         <label class=" control-label">Valor Revenda</label>
-				         <input type="text" jsf:value="#{benProduto.produto.valor_Revenda}" required="true"
+				         <input type="text" jsf:value="#{benProduto.produto.valor_Revenda}" required="true" maxlength="18"
 					       class="form-control" jsf:id="valor_Revenda" placeholder="Entre valor_Revenda">
 					       <f:convertNumber minFractionDigits="2" />
 					     </input>  
 				     </div>
 				     <div class="col-xs-4">
 				          <label  class="control-label">Data cadastro</label>
-				          <input type="date" jsf:value="#{benProduto.produto.dataProduto}" disabled="true"
+				          <input type="date" jsf:value="#{benProduto.produto.dataCadastro}" disabled="true"
 					       class="form-control" jsf:id="data" placeholder="Entre com dataProduto"/>
 				     </div>
 				   </div> 

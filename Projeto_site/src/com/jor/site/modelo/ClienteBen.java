@@ -1,7 +1,9 @@
 package com.jor.site.modelo;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -48,8 +50,10 @@ public class ClienteBen {
 		return "configurecliente.xhtml";				
 	}
 	
-	public String  cadastro()	{
+	public String  cadastro(){
 		cliente = new Cliente();
+		SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");       		
+		cliente.setDataCadastro(sdf.format(new Date()));
 		return "configurecliente.xhtml";					
 	}
 	public String deletar()

@@ -39,8 +39,12 @@ public class Cliente {
 	
 	private Double renda;
 	
-	@Column(name= "data_nas")
-	private Date Data_nas;
+	@Column(name= "dataNacimento")
+	private String DataNacimento;
+	
+	@Column(name= "dataCadastro")
+	private String DataCadastro;
+	
 	public long getId() {
 		return id;
 	}
@@ -82,13 +86,18 @@ public class Cliente {
 	}
 	public void setEmail(String email) {
 		Email = email;
+	}	
+	public String getDataNacimento() {
+		return DataNacimento;
 	}
-	
-	public Date getData_nas() {
-		return Data_nas;
+	public void setDataNacimento(String dataNacimento) {
+		DataNacimento = dataNacimento;
 	}
-	public void setData_nas(Date data_nas) {
-		Data_nas = data_nas;
+	public String getDataCadastro() {
+		return DataCadastro;
+	}
+	public void setDataCadastro(String string) {
+		DataCadastro = string;
 	}
 	public Double getRenda() {
 		return renda;

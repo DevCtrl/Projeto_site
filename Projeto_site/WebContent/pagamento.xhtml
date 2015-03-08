@@ -80,9 +80,8 @@
 									</div>
 									<div class="col-xs-12">
 										<h3><label >Dinheiro</label>
-										 <input type="text" class=" pull-right col-xs-3 " jsf:value="#{ben.dinheiro}" style="text-align: right;">
-										     <f:convertNumber minFractionDigits="2"/>
-											 <f:ajax event="keyup" render="troco " ></f:ajax>											 
+										 <input type="number" step="0.05" class=" pull-right col-xs-3 " jsf:value="#{ben.dinheiro}" style="text-align: right;">										    
+											 <f:ajax event="change" render="troco " ></f:ajax>											 
 									    </input>									   									   
 										</h3> 									    
 									</div>

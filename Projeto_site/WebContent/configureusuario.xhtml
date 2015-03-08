@@ -14,31 +14,31 @@
 				  <div class="form-group">
 				    <label for="nome" class="col-sm-1 control-label">Nome</label>
 				    <div class="col-sm-4">
-					     <input type="text" jsf:value="#{benUsuario.usuario.nome}" 
+					     <input type="text" jsf:value="#{benUsuario.usuario.nome}" required="true" maxlength="50"
 						        class="form-control" jsf:id="nome" placeholder="Entre com nome"/>
 				    </div>	
 				    <label class="col-sm-2 control-label">Login</label>
 				    <div class="col-sm-4">
-				       <input type="text" jsf:value="#{benUsuario.usuario.login}" 
+				       <input type="text" jsf:value="#{benUsuario.usuario.login}" required="true" maxlength="50" 
 					          class="form-control" jsf:id="login" placeholder="Entre com endereço"/>
 				    </div>			    				   				    
 				  </div>
 				  <div class="form-group">
 				    <label class="col-sm-1 control-label">senha</label>
 				    <div class="col-sm-4">
-				       <input type="password" jsf:value="#{benUsuario.usuario.senha}" required="true"
+				       <input type="password" jsf:value="#{benUsuario.usuario.senha}" required="true" maxlength="25"
 					       class="form-control" jsf:id="senha" placeholder="Entre senha"/>
 				    </div>
 				    <label class="col-sm-2 control-label">repetir senha</label>
 				    <div class="col-sm-4">
-				       <input type="password" jsf:value="#{benUsuario.usuario.senha}" required="true"
+				       <input type="password" jsf:value="#{benUsuario.usuario.senha}" required="true" maxlength="25"
 					       class="form-control" jsf:id="repetirsenha" placeholder="Entre senha"/>
 				    </div>			    				   				    
 				  </div>
 				  <div class="form-group">
 				    <label for="email" class="col-sm-1 control-label">Email</label>
 				    <div class="col-sm-4">
-					     <input type="email" jsf:value="#{benUsuario.usuario.email}" 
+					     <input type="email" jsf:value="#{benUsuario.usuario.email}" maxlength="50"
 					       class="form-control" jsf:id="email" placeholder="Entre com email"/>
 				    </div>
 				    <label class="col-sm-2 control-label">Prioridade</label>
@@ -51,10 +51,10 @@
 				  </div>
 				
                				 				
-				<button jsf:id="bt_incluir" jsf:action="#{benUsuario.cadastrar}" class="btn-lg btn-default" >Salvar</button>
-				<button jsf:id="bt_editar"  jsf:action="#{benUsuario.deletar}"   class="btn-lg btn-default" 
-				        jsf:rendered="#{benUsuario.usuario.id != null}" >Deletar</button>
-				<button type="button" jsf:id="demo" jsf:outcome="usuario.xhtml" class="btn-lg btn-danger">Cancelar</button>
+				<button jsf:id="bt_incluir" jsf:action="#{benUsuario.cadastrar}" class="btn btn-primary" >Salvar</button>
+				<button jsf:id="bt_editar"  jsf:action="#{benUsuario.deletar}"   class="btn btn-default" 
+				        jsf:rendered="#{benUsuario.usuario.id != 0}" >Deletar</button>
+				<button type="button" jsf:id="demo" jsf:outcome="usuario.xhtml" class="btn btn-danger">Cancelar</button>
 							     
 				
 			</form>

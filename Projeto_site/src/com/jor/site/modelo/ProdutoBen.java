@@ -29,7 +29,7 @@ public class ProdutoBen {
 		produto = new Produto();
 		produto.setQuantidade(0);
 		SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");       		
-		produto.setDataProduto(sdf.format(new Date()));
+		produto.setDataCadastro(sdf.format(new Date()));
 		return "configureproduto.xhtml";
 	}
 	public String configurePg()	{   

@@ -9,12 +9,40 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.view.ViewScoped;
 
+import com.jor.site.controle.RelatioControler;
 import com.jor.site.util.Alerta;
 
 @ManagedBean (name="benRelatorio")
-@SessionScoped
+@RequestScoped
 public class RelatorioBen {
+   RelatioControler comando = new RelatioControler();
+   private String grafico = "graficoCliente";
+  public RelatorioBen(){
+	  comando.relatorioCliente();
+  }
+   
+   public void carregaGrafico( )
+   {
+	   if(grafico == "graficoCliente")
+	    comando.relatorioCliente();
+	   if(grafico == "graficoProduto")
+		comando.relatorioProduto();
+   }
+   
+public RelatioControler getComando() {
+	return comando;
+}
+public void setComando(RelatioControler comando) {
+	this.comando = comando;
+}
 
+public String getGrafico() {
+	return grafico;
+}
+
+public void setGrafico(String grafico) {
+	this.grafico = grafico;
+}
 	
 
 	

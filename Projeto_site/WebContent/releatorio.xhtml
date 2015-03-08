@@ -18,28 +18,48 @@
     <ui:composition template="sistema.xhtml">
 		<ui:define name="Titulo"><i class="fa fa-angle-right"></i> relatorio </ui:define>
 		<ui:define name="corpo">
-    <script type="text/javascript">
-        var randomnb = function(){ return Math.round(Math.random()*100)};
-    </script>  
+        <form jsf:id="form1">
+        <div class="row-fluid"> 
+        
+		   <div style="padding: 10px;">
+		     <button type="button" Class="btn btn-primary" onclick="grafico()" jsf:rendered="#{benRelatorio.grafico == 'graficoCliente'}" >Clientes</button>
+		     <button type="button" Class="btn btn-primary" onclick="graficoP()" jsf:rendered="#{benRelatorio.grafico == 'graficoProduto'}" >Produtos</button>
+		     <h:selectOneMenu value="#{benRelatorio.grafico}">
+		          <f:selectItem itemValue="graficoCliente" itemLabel="Grafico Cliente"></f:selectItem>
+		          <f:selectItem itemValue="graficoProduto" itemLabel="Grafico produto"></f:selectItem>
+		          <f:ajax event="change" listener="#{benRelatorio.carregaGrafico}" render=":form1"></f:ajax>
+		     </h:selectOneMenu>
+		     
+		    
+		   </div>
+		
+        
+        
+        
+	     <div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading"><i class="fa fa-chart fa-2x"/> Clientes cadastrados</div>
+			<div class="panel-body">	
+			   	<canvas id="GraficoBarra"  style=" width:100%; "></canvas>
+			</div>
+         </div>
+        </div>
+       </form>
+   
+   
+     
     
     
-  <form>
-   <div style="padding: 10px;">
-     <button type="button" Class="btn btn-primary" onclick="grafico()" >Clientes</button>
-     <button type="button" Class="btn btn-primary" onclick="graficoP()">Produtos</button>
-      <button type="button" Class="btn btn-primary" onclick="grafico()" >Vendas</button>
-     <button Class="btn btn-success pull-right" >Gerar relatorio</button>
-   </div>
-  </form> 
-    <div class="box">        
-        <small>Dados gerados com função javascript para números randômicos até 300.</small>
+  
+    
 
-        <div class="box-chart">
-
-            <canvas id="GraficoBarra" style="width:100%; "></canvas>
             
-
-            <script type="text/javascript">                                        
+            
+   <script type="text/javascript">
+        var randomnb = function(){ return Math.round(Math.random()*100)};
+        
+    </script> 
+   <script type="text/javascript">                                        
 
                 var options = {
                     responsive:true
@@ -54,7 +74,7 @@
                             strokeColor: "rgba(140,23,23,5.8)",
                             highlightFill: "rgba(220,220,220,0.75)",
                             highlightStroke: "rgba(220,220,220,1)",
-                            data: [randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb()]
+                            data: ["#{benRelatorio.comando.janeiro}", "#{benRelatorio.comando.fevereiro}", "#{benRelatorio.comando.marco}", "#{benRelatorio.comando.abril}", randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb()]
                         }
                     ]
                 };                
@@ -67,12 +87,12 @@
             
             <script type="text/javascript" >                                        
 
-                var options = {
+                var options1 = {
                     responsive:true                    
                 };
 
                 var data1 = {
-                	    labels: ["January", "February", "March", "April", "May", "June", "July"],
+                		labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
                 	    datasets: [
                 	        {
                 	            label: "My First dataset",
@@ -82,20 +102,20 @@
                 	            pointStrokeColor: "#fff",
                 	            pointHighlightFill: "#fff",
                 	            pointHighlightStroke: "rgba(220,220,220,1)",
-                	            data: [65, 59, 30, 81, 56, 55, 40]
+                	            data: ["#{benSistema.quanteP}", 59, 30, 81, 56, 55, 40,30,35,45,75,78]
                 	        }                        
                          ]
                 };                
 
                 function graficoP(){
                     var ct = document.getElementById("GraficoBarra").getContext("2d");
-                    var LineChart = new Chart(ct).Line(data1, options);
+                    var LineChart = new Chart(ct).Line(data1, options1);
                 }           
             </script>
           
-        </div>
+        
     
-    </div>
+    
     <script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/Chart.min.js">
 	</script>
     </ui:define>

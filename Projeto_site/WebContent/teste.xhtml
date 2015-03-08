@@ -21,24 +21,15 @@
 
 
 
-<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	
-<script type="text/javascript" src="#{request.contextPath}/resources/jquery.maskedinput.js" ></script>
 
-<script type="text/javascript">
-$(function(){
-		    $("#data").mask("99/99/9999");
-		    $("#telefone").mask("(99) 9999-9999");
-		    $("#cpf").mask("999.999.999-99");
-		    $("input").mask("99999-999");
-	});
-</script>	
 	
 </head>
 
 
 <body>
 
-	
+	  <h:form prependId="false"></h:form>
+		<form jsf:id="form1"  >
 		
 			<label for="campoData">Data:</label>
 			<input type="date" jsf:id="data" ></input>
@@ -49,8 +40,25 @@ $(function(){
 			<label for="campoSenha">Senha alfanumérica:</label>
 			<input type="texto" id="campoSenha"/>		
 			
-		
+		</form>
 
+   
+	
+  <script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	
+
+<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/jquery.maskedinput.js">
+</script>
+<script type="text/javascript">
+$(function(){
+	    $("#form1\\:data").mask("(99) 9999-9999");
+		    $("#telefone").mask("(99) 9999-9999");
+		    $("#cpf").mask("999.999.999-99");
+		    $("#cep").mask("99999-999");
+	});
+</script>	      
+
+	
+    
 		
 </body>
 </html>
