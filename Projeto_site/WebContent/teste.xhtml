@@ -48,76 +48,22 @@
 
 <body>
 
-	<!-- Header -->
-  <h:form prependId="false">
-   <div class="col-xs-10">
-   <div class="panel panel-primary ">
-		<!-- panel contents -->
-	<div class="panel-heading"><i class="fa fa-cart-plus fa-2x"/>  Pagamento</div>
-	<div class="panel-body ">  					
-		<ul class="nav nav-pills" role="tablist" id="myTab">
-			<li role="presentation" ><a href="#pagamento"
-				aria-controls="home" role="tab" data-toggle="tab">Pagamento</a></li>
-			<li role="presentation"><a href="#formaPagamento" 
-				aria-controls="profile" role="tab" data-toggle="tab">Forma de Pagamneto</a></li>
-			<li role="presentation"><a href="#finalPagamento"
-				aria-controls="messages" role="tab" data-toggle="tab">Finalizar Pagamento</a></li>
-			
-		</ul>
-	
-		<div class="tab-content">
-			<div role="tabpanel" class="tab-pane active" id="pagamento">
-				<div class="col-xs-12">
-				   <label><h3>Valor Total do Carrinho</h3></label>
-				   <label class="pull-right"><h3>R$ #{ben.total}</h3></label>
-				</div>
-				<div class="col-xs-12">
-				   <label><h3>Desconto</h3></label>
-				   <input type="number" jsf:value="#{ben.desconto}">
-				      <f:ajax event="change" render="@all"></f:ajax>
-				   </input>
-				   <label class="pull-right"><h3> #{ben.desconto} %</h3></label>
-				</div>
-				<div class="col-xs-12">
-				   <label><h3>Valor Total a Pagar</h3></label>
-				   <label class="pull-right"><h3>R$ #{ben.subtotal}</h3></label>
-				</div>
-			</div>
-			<div role="tabpanel" class="tab-pane" id="formaPagamento">
-				<div class="col-xs-12">
-				   <label><h3>Dinheiro <input type="checkbox"/> </h3></label>			   
-				</div>
-				<div class="col-xs-12">
-				  <label><h3>Cartão <input type="checkbox"/> </h3></label>			  
-				</div>
-			</div>
-			<div role="tabpanel" class="tab-pane" id="finalPagamento">
-			  <div class="col-xs-12">
-				   <label><h3>Valor a Pagar</h3></label>
-				   <label class="pull-right"><h3>R$ #{ben.subtotal}</h3></label>
-				</div>
-				<div class="col-xs-12">
-				   <label><h3>Dinheiro</h3></label>
-				   <input type="number" jsf:value="#{ben.dinheiro}">
-				     <f:ajax event="change" render="@all"></f:ajax>
-				   </input>
-				   <label class="pull-right"><h3>R$ #{ben.dinheiro}</h3></label>
-				</div>
-				<div class="col-xs-12">
-				   <label><h3>Troco</h3></label>
-				   <label class="pull-right"><h3>R$ #{ben.troco}</h3></label>
-				</div>
-			</div>
-			<div class="row" style="padding: 10px;">
-			   <button type="button" jsf:id="anterior"  >Anterioro</button>
-			   <button type="button" jsf:id="proximo">Proximo</button>
-			   <button rendered="#{ben.dinheiro > 1}">Finalizar compra</button>
-			</div>
-		</div>	
-	  </div>
-	</div><!-- /painel -->  
-  </div>		
-</h:form>
+	<h1><a href="http://vinteum.com/jquery-mask-mascaras-para-campos-html-utilizando-jquery/">Vinteum Desenvolvimento</a></h1>
+		<p>Máscaras para campos HTML utilizando jQuery </p>
+		<em>tiago@vinteum.com</em>
+		<form action="http://vinteum.com/jquery-mask-mascaras-para-campos-html-utilizando-jquery/">
+			<label for="campoData">Data:</label>
+			<input type="texto" id="campoData"/>
+
+			<label for="campoTelefone">Telefone:</label>
+			<input type="texto" id="campoTelefone"/>
+
+			<label for="campoSenha">Senha alfanumérica:</label>
+			<input type="texto" id="campoSenha"/>		
+
+			<label>&nbsp;</label>
+			<input type="submit" value="enviar"/>
+		</form>
 
    
 	<!-- /List Sidebar -->
@@ -131,29 +77,30 @@
 	<script type="text/javascript"
 		src="#{request.contextPath}/resources/bootstrap/js/slidebars.js">
 		</script>
+	<script  src="#{request.contextPath}/resources/jquery.maskedinput.js" type="text/javascript"></script>
+	
 	<script type="text/javascript">
-	   $('#proximo').click(function(){
-           
+		jQuery(function($){
+		       $("#campoData").mask("99/99/9999");
+		       $("#campoTelefone").mask("(999) 999-9999");
+		       $("#campoSenha").mask("***-****");
+		});
+	</script>
+	<script type="text/javascript">
+    $(document).ready(function(){
+          
+    	$(function(){
+ 	       $("#campoData").mask("99/99/9999");
+ 	       $("#campoTelefone").mask("(999) 999-9999");
+ 	       $("#campoSenha").mask("***-****");
+ 	});
 
-           if(("#ben.total").val == 0){
-        	   $('#myTab a[href="#formaPagamento"]').tab('show')	    	  
- 		   	   $('#myTab a[href="#pagamento"]').css({"background-color":"orange","color":"white"});
- 		   	   
-           }
-           if(cont == 1){
-        	   $('#myTab a[href="#finalPagamento"]').tab('show')	    	  
- 		   	   $('#myTab a[href="#formaPagamento"]').css({"background-color":"orange","color":"white"});
-           }
-		  cont =1; 	  
-	   });
-	   
-	   $('#anterior').click(function(){			  
-	        $('#myTab a:last').tab('show')
-	   }) ; 
-       
+        });
+	
+ </script>
         
 
-	</script>	
+	
     
 		
 </body>

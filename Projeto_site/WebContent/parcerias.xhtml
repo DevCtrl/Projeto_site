@@ -26,15 +26,15 @@
 		          <input class="form-control" jsf:value="#{benParceria.parceria.email}" placeholder="Email" required="true" type="email"/>
 		          </div>
 		          <div class="col-xs-4">
-		          <input class="form-control" jsf:value="#{benParceria.parceria.fone1}" placeholder="Fone 1" required="true" type="text"/>
+		          <input class="form-control" jsf:id="telefone" jsf:value="#{benParceria.parceria.fone1}" placeholder="Fone 1" required="true" type="text"/>
 		          </div>
 		          <div class="col-xs-4">
-		          <input class="form-control" jsf:value="#{benParceria.parceria.fone2}" placeholder="Fone 2"  type="text"/>
+		          <input class="form-control" jsf:id="telefone2" jsf:value="#{benParceria.parceria.fone2}" placeholder="Fone 2"  type="text"/>
 		          </div>
 		      </div>
 		      <div class="row form-group">
 		          <div class="col-xs-4">
-		          <input class="form-control" jsf:value="#{benParceria.parceria.cnpj}" placeholder="CNPJ/CPF" required="true" type="text"/>
+		          <input class="form-control" jsf:id="cnpj" jsf:value="#{benParceria.parceria.cnpj}" placeholder="CNPJ/CPF" required="true" type="text"/>
 		          </div>
 		          <div class="col-xs-5">
 		          <input class="form-control" jsf:value="#{benParceria.parceria.url}" placeholder="Website URL"  type="homepage"/>
@@ -73,9 +73,9 @@
 		              <textarea class="form-control" jsf:value="#{benParceria.contrato.descricao}" placeholder="digite as condiçoes do contrato" rows="3" cols="20"></textarea>
 		          </div>
 		          <div class="col-xs-4 ">
-		              <input class="form-control" jsf:value="#{benParceria.contrato.dataInicial}" type="date"  placeholder="Data Inicial"/>
+		              <input class="form-control" jsf:id="data" jsf:value="#{benParceria.contrato.dataInicial}" type="date"  placeholder="Data Inicial"/>
 		              <br/>
-		              <input class="form-control" jsf:value="#{benParceria.contrato.dataFinal}" type="date" placeholder="Data Final"/>
+		              <input class="form-control" jsf:id="data2" jsf:value="#{benParceria.contrato.dataFinal}" type="date" placeholder="Data Final"/>
 		          </div>
 		      </div>
 		       <div class="row form-group"> 

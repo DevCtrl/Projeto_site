@@ -68,7 +68,7 @@
 		  </div>		 		  
 		</div>														 										
 		<div class="row">
-		 <button  class="btn btn-success" jsf:outcome="pagamento.xhtml">Finalizar compra</button>
+		 <button  class="btn btn-success" jsf:outcome="pagamento.xhtml" jsf:rendered="#{not empty  ben.lisCarrinho}">Finalizar compra</button>
 		 <button type="submit" class="btn btn-danger pull-right" jsf:action="#{ben.cancelarCompra}" >Cancelar compra</button>	
 		</div>
 					

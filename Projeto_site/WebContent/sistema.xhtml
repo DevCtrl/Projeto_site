@@ -207,6 +207,7 @@
 	  <!-- /List Sidebar -->			
 		<!-- jQuery -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/jquery.maskedinput.js">	</script>
 		<!-- Bootstrap -->
 		<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 		<!-- Slidebars -->
@@ -221,6 +222,20 @@
 			}) (jQuery);
           //funcçao prioridade do usuario
 			$(document).ready(function() {  
+              //mascaras
+                  $(function(){  
+				        
+				        $("#form1\\:telefone").mask("(99) 9999-9999");
+				        $("#form1\\:telefone2").mask("(99) 9999-9999");				          
+				        $("#form1\\:cep").mask("99999-999");  
+				        $("#form1\\:data").mask("99/99/9999");
+				        $("#form2\\:data").mask("99/99/9999");
+				        $("#form2\\:data2").mask("99/99/9999");  
+				        $("#form1\\:cpf").mask("999.999.999-99");  
+				        $("#form1\\:cnpj").mask("99.999.999/9999-99");  
+				    });
+
+			 //bt disable	
 				$("#btFinalizaCompra").attr("disabled",true);  				
 				 var tx = "#{benSistema.us.prioridade}";	  
 				  if(tx == "normal")		   			    

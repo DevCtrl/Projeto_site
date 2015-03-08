@@ -48,17 +48,23 @@ public class VendaBen {
 		
 	public String add()
 	{
-		//if(!lisCarrinho.isEmpty())
-		//	System.out.println(lisCarrinho.get(0).getNome());
-		subtotal = quantidade * pd.getValor_Revenda();
-		pd.setComprado(subtotal);
-		pd.setQuantidade(quantidade);		
-		lisCarrinho.add(pd);
-		
-		total = total + subtotal;
-		
-		quantidade = 1;
-	   	return  "vendas.xhtml";
+	 Produto pesquisaEstque = new Produto();
+	 pesquisaEstque = (Produto) comando.buscaProduto(pd.getId());
+	 
+	    if(pesquisaEstque.getQuantidade() >= getQuantidade()){
+			subtotal = quantidade * pd.getValor_Revenda();
+			pd.setComprado(subtotal);
+			pd.setQuantidade(quantidade);		
+			lisCarrinho.add(pd);
+			
+			total = total + subtotal;
+			
+			quantidade = 1;
+		   	return  "vendas.xhtml";
+	    }else{
+			  Alerta.error("Quantidade especificada é maior que  a quantidade em estoque");
+			  return null;
+		} 	
 	}
 	public void remove()
 	{
@@ -70,14 +76,16 @@ public class VendaBen {
 	  if(getSubtotal() <= getDinheiro()){	  	  
 			if(!lisCarrinho.isEmpty()){
 				for (Produto produto : lisCarrinho) {
-					if(cli.getId() == 0)
+					if(cli.getId() == 0 )
 					   cli.setId(255);
 					
 					vd.setCliente(cli);
 					vd.setProduto(pd);
 					vd.setData(new Date());
 					
-					comandoVd.inserir(vd);				
+					comandoVd.inserir(vd);
+					//diminuir do estoque
+					comandoVd.diminuirEstoque(pd.getId(), pd.getQuantidade());
 				}	
 				Alerta.info("venda foi  finalizada com sucesso");
 				lisCarrinho.clear();
