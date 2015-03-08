@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+
+
+<body>
+	<ui:composition template="sistema.xhtml">
+		<ui:define name="Titulo"><a href="vendas.xhtml"><i class="fa fa-angle-right"></i> venda </a>	<i class="fa fa-angle-right"></i> pagamento </ui:define>
+		<ui:define name="corpo">
+            
+			<form jsf:id="form1" jsf:prependId="false">
+
+				<div class="row-fluid">
+					<div class="panel panel-primary ">
+						<!-- panel contents -->
+						<div class="panel-heading">
+							<h4><strong>Pagamento <a href="vendas.xhtml" class="pull-right" style="color: black;"><i class="fa fa-power-off"></i></a></strong></h4> 
+						</div>
+						<div class="panel-body ">
+							<ul class="nav nav-pills" role="tablist" id="myTab">
+								<li role="presentation" class="active " ><a href="#pagamento"
+									aria-controls="aba1" role="tab" >Pagamento</a></li>
+								<li role="presentation"><a href="#formaPagamento"
+									aria-controls="aba2" role="tab">Forma de Pagamneto</a></li>
+								<li role="presentation"><a href="#pagamentoDinheiro"
+									aria-controls="aba3" role="tab" >Pagamento Dinheiro</a></li>
+							   <li role="presentation"><a href="#pagamentoCartao"
+									aria-controls="aba4" role="tab" >Pagamento Cartão</a></li>		
+
+							</ul>
+
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane active" id="pagamento">
+									<div class="col-xs-12">
+										<h3><label >Valor Carrinho</label> 
+										  <h:outputText value="#{ben.total}" styleClass="pull-right">
+													<f:convertNumber currencyCode="BRL" type="currency"/>
+										  </h:outputText>  									   
+										</h3>
+									</div>
+									<div class="col-xs-12">
+									 <h3><label >Desconto  </label>
+									    <input class="pull-right" type="number"  jsf:value="#{ben.desconto}" min="0" max="100" step="5"> 
+											 <f:ajax event="change"	render="pagar valorPagar valorCartao"></f:ajax> 
+									   </input>									   								   
+									  </h3>
+									</div>
+									<div class="col-xs-12">
+										<h3><label >Valor Total</label> 
+										<h:outputText value="#{ben.subtotal}" id="pagar" styleClass="pull-right">
+											<f:convertNumber currencyCode="BRL" type="currency"/>
+										</h:outputText>  									   
+										</h3>										
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="formaPagamento">
+									<div class="col-xs-12">
+										<h3><label>	Dinheiro </label> 
+										<h:selectBooleanCheckbox id="boxDinheiro" value="#{ben.tipoPagamento}" />					 																			
+									    </h3>
+									</div>
+									<div class="col-xs-12">
+										<h3><label>Cartão </label>
+										<h:selectBooleanCheckbox id="boxCartao" value="#{ben.tipoPagamento}" />					 													
+									    </h3>
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="pagamentoDinheiro">								
+									<div class="col-xs-12">
+										<h3><label >Valor a Pagar</label> 
+										 <h:outputText id="valorPagar" value="#{ben.subtotal}" styleClass="pull-right">
+													<f:convertNumber currencyCode="BRL" type="currency"/>
+										 </h:outputText>  									   
+										</h3>
+									</div>
+									<div class="col-xs-12">
+										<h3><label >Dinheiro</label>
+										 <input type="text" class=" pull-right col-xs-3 " jsf:value="#{ben.dinheiro}" style="text-align: right;">
+										     <f:convertNumber minFractionDigits="2"/>
+											 <f:ajax event="keyup" render="troco " ></f:ajax>											 
+									    </input>									   									   
+										</h3> 									    
+									</div>
+									<div class="col-xs-12">
+										<h3><label  >Troco</label> 
+										 <h:outputText id="troco" value="#{ben.troco}" styleClass="pull-right">
+													<f:convertNumber currencyCode="BRL" type="currency"/>
+											    </h:outputText>  									   
+										</h3> 										
+									</div>
+								 
+								</div>
+								<div role="tabpanel" class="tab-pane" id="pagamentoCartao">								
+								  <div class="col-xs-12">
+										<h3><label >Valor a Pagar</label> 
+										 <h:outputText id="valorCartao" value="#{ben.subtotal}" styleClass="pull-right">
+													<f:convertNumber currencyCode="BRL" type="currency"/>
+										 </h:outputText>  									   
+										</h3>	
+								  </div>									
+								  <div class="form-group">
+								   <h3> <label class="col-sm-2 control-label">Cartao</label>
+								    <div class="col-sm-4">
+								      <h:selectOneMenu styleClass="form-control">
+														         <f:selectItem itemLabel="Selecione o cartão"></f:selectItem>
+														         <f:selectItem itemLabel="MasterCard"></f:selectItem>
+														         <f:selectItem itemLabel="Visa"></f:selectItem>
+														         <f:selectItem itemLabel="Cielo"></f:selectItem>
+								     </h:selectOneMenu> 
+								    </div>
+								    <label class="col-sm-2 control-label">Numero </label>
+								    <div class="col-sm-4">
+								       <input type="text"  class="form-control" jsf:id="repetirsenha" placeholder="Entre numero"/>
+								    </div>	
+								    </h3>		    				   				    
+								  </div>
+								  <div class="form-group">
+								  <h3>
+								    <label for="nome" class="col-sm-2 control-label">Valor</label>
+								    <div class="col-sm-4">
+									     <input type="text" class="form-control"  placeholder="valor"/>
+								    </div>	
+								    <label class="col-sm-2 control-label">Segurança</label>
+								    <div class="col-sm-4">
+								       <input type="text" class="form-control"  placeholder="Entre com cod segurança"/>
+								    </div>
+								  </h3>  			    				   				    
+								  </div>																																							    
+								</div>
+								<div class="row" style="padding: 25px;">
+									<button type="button" jsf:id="anterior" class="btn btn-default"  ><i class="fa fa-arrow-left"></i> Anterior</button>
+									<button type="button" jsf:id="proximo" class="btn btn-default" >Proximo <i class="fa fa-arrow-right"></i></button>
+									<button jsf:id="btFinalizaCompra" class="btn btn-success pull-right" jsf:action="#{ben.finalizarCompra}">Finalizar </button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /painel -->
+				</div>
+
+
+			</form>
+
+
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

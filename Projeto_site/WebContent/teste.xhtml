@@ -18,90 +18,39 @@
 
 
 <head>
-<!-- Bootstrap -->
-<link
-	href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="#{request.contextPath}/resources/bootstrap/css/bootstrap.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css"
-	rel="stylesheet" type="text/css" />
-<!--stilo painel  -->
-<link
-	href="#{request.contextPath}/resources/bootstrap/css/stiloPainel.css"
-	rel="stylesheet" type="text/css" />
-<!--fonte de icones externa -->
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-<!-- Sidbar -->
-<link
-	href="#{request.contextPath}/resources/bootstrap/css/estilo.sidbars.css"
-	rel="stylesheet" type="text/css" />
-<link
-	href="#{request.contextPath}/resources/bootstrap/css/slidebars.css"
-	rel="stylesheet" type="text/css" />
 
+
+
+<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	
+<script type="text/javascript" src="#{request.contextPath}/resources/jquery.maskedinput.js" ></script>
+
+<script type="text/javascript">
+$(function(){
+		    $("#data").mask("99/99/9999");
+		    $("#telefone").mask("(99) 9999-9999");
+		    $("#cpf").mask("999.999.999-99");
+		    $("input").mask("99999-999");
+	});
+</script>	
+	
 </head>
 
 
 <body>
 
-	<h1><a href="http://vinteum.com/jquery-mask-mascaras-para-campos-html-utilizando-jquery/">Vinteum Desenvolvimento</a></h1>
-		<p>Máscaras para campos HTML utilizando jQuery </p>
-		<em>tiago@vinteum.com</em>
-		<form action="http://vinteum.com/jquery-mask-mascaras-para-campos-html-utilizando-jquery/">
+	
+		
 			<label for="campoData">Data:</label>
-			<input type="texto" id="campoData"/>
+			<input type="date" jsf:id="data" ></input>
 
 			<label for="campoTelefone">Telefone:</label>
-			<input type="texto" id="campoTelefone"/>
+			<input type="texto" id="telefone"/>
 
 			<label for="campoSenha">Senha alfanumérica:</label>
 			<input type="texto" id="campoSenha"/>		
+			
+		
 
-			<label>&nbsp;</label>
-			<input type="submit" value="enviar"/>
-		</form>
-
-   
-	<!-- /List Sidebar -->
-	<!-- jQuery -->
-	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<!-- Bootstrap -->
-	<script type="text/javascript"
-		src="#{request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
-	<!-- Slidebars -->
-	<script type="text/javascript"
-		src="#{request.contextPath}/resources/bootstrap/js/slidebars.js">
-		</script>
-	<script  src="#{request.contextPath}/resources/jquery.maskedinput.js" type="text/javascript"></script>
-	
-	<script type="text/javascript">
-		jQuery(function($){
-		       $("#campoData").mask("99/99/9999");
-		       $("#campoTelefone").mask("(999) 999-9999");
-		       $("#campoSenha").mask("***-****");
-		});
-	</script>
-	<script type="text/javascript">
-    $(document).ready(function(){
-          
-    	$(function(){
- 	       $("#campoData").mask("99/99/9999");
- 	       $("#campoTelefone").mask("(999) 999-9999");
- 	       $("#campoSenha").mask("***-****");
- 	});
-
-        });
-	
- </script>
-        
-
-	
-    
 		
 </body>
 </html>
