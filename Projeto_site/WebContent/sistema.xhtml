@@ -220,7 +220,8 @@
 				});
 			}) (jQuery);
           //funcçao prioridade do usuario
-			$(document).ready(function() {   				
+			$(document).ready(function() {  
+				$("#btFinalizaCompra").attr("disabled",true);  				
 				 var tx = "#{benSistema.us.prioridade}";	  
 				  if(tx == "normal")		   			    
 					   $("#incluir").attr("disabled",true);
@@ -265,6 +266,44 @@
 						  return null;	  }
 				    
 				});
+			//funcão pagamento
+			  //butão proximo
+			 $('#proximo').click(function(){           
+               var tx = $("#boxDinheiro").is(":checked"); 	
+               var tx2 = $("#boxCartao").is(":checked"); 
+                             
+                   
+	           if("#{ben.total}" > 1){
+		        	   $('#myTab a[href="#formaPagamento"]').tab('show')	    	  
+		 		   	   $('#myTab a[href="#pagamento"]').css({"background-color":"#238E23","color":"white"});
+		        	  
+		           }
+	           if(tx == true){
+	        	   $('#myTab a[href="#pagamentoDinheiro"]').tab('show')	    	  
+	 		   	   $('#myTab a[href="#formaPagamento"]').css({"background-color":"#238E23","color":"white"});
+	        	   $("#btFinalizaCompra").attr("disabled",false); 
+		       }
+	           if(tx2 == true){
+	        	   $('#myTab a[href="#pagamentoCartao"]').tab('show')	    	  
+	 		   	   $('#myTab a[href="#formaPagamento"]').css({"background-color":"#238E23","color":"white"});
+	        	   $("#btFinalizaCompra").attr("disabled",false); 
+		       }
+	          
+	           
+			   });
+			   
+			   $('#anterior').click(function(){					  
+				   if("#{ben.total}" > 2){
+					   $('#myTab a:first').tab('show')
+					   $('#myTab a[href="#pagamento"]').css({"background-color":"","color":""});   
+					   $('#myTab a[href="#formaPagamento"]').css({"background-color":"","color":""});					   
+					   $("#boxDinheiro").attr("checked",false);
+					   $("#boxCartao").attr("checked",false);
+					   $("#btFinalizaCompra").attr("disabled",true); 
+				   }		  
+			       
+			   }) ; 
+	       
 		</script>
 	</body>
 </html>

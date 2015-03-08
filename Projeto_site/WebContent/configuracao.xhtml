@@ -16,81 +16,97 @@
 
 				<ul class="nav nav-tabs" role="tablist" id="myTab">
 					<li role="presentation" class="active"><a href="#home"
-						aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+						aria-controls="home" role="tab" data-toggle="tab">Seção1</a></li>
 					<li role="presentation"><a href="#profile"
-						aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+						aria-controls="profile" role="tab" data-toggle="tab">Seção2</a></li>
 					<li role="presentation"><a href="#messages"
-						aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+						aria-controls="messages" role="tab" data-toggle="tab">Seção3</a></li>
 					<li role="presentation"><a href="#settings"
-						aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+						aria-controls="settings" role="tab" data-toggle="tab">Seção4</a></li>
 				</ul>
 
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane active" id="home">
 						<label class="form-label">Titulo</label> <input type="text"
-							class="form-control" jsf:value="#{benSite.titulo1}" /> <label
+							class="form-control" jsf:value="#{benSite.site.titulo1}" /> <label
 							class="form-label">Conteudo da Pagina</label>
-						<h:inputTextarea value="#{benSite.section1}" rows="10"
+						<h:inputTextarea value="#{benSite.site.conteudo1}" rows="10"
 							styleClass="form-control"></h:inputTextarea>
-						<label class="form-label">Titulo Segunda Imagem</label> <input
+						<label class="form-label">Titulo Primeira Imagem</label> <input
 							type="text" class="form-control"
-							jsf:value="#{benSite.tituloImagem1}" /> <br />
-						<h:commandButton class="btn btn-success" value="nudar"
-							actionListener="#{siteBen.edite}"></h:commandButton>
+							jsf:value="#{benSite.site.tituloImagem1}" /> <br />
+						<h:commandButton class="btn btn-success" value="mudar"
+							actionListener="#{benSite.salvar}"></h:commandButton>
 					</div>
 					<div role="tabpanel" class="tab-pane" id="profile">
 						<label class="form-label">Titulo</label> <input type="text"
-							class="form-control" jsf:value="#{benSite.titulo2}" /> <label
+							class="form-control" jsf:value="#{benSite.site.titulo2}" /> <label
 							class="form-label">Conteudo da Pagina</label>
-						<h:inputTextarea value="#{benSite.section2}" rows="10"
+						<h:inputTextarea value="#{benSite.site.conteudo2}" rows="10"
 							styleClass="form-control"></h:inputTextarea>
 						<label class="form-label">Titulo Segunda Imagem</label> <input
 							type="text" class="form-control"
-							jsf:value="#{benSite.tituloImagem2}" /> <br />
-						<h:commandButton class="btn btn-success" value="nudar"
-							actionListener="#{benSite.edite}"></h:commandButton>
+							jsf:value="#{benSite.site.tituloImagem2}" /> <br />
+						<h:commandButton class="btn btn-success" value="mudar"
+							actionListener="#{benSite.salvar}"></h:commandButton>
 					</div>
-					<div role="tabpanel" class="tab-pane" id="messages">
-						<div class="row-fluid">
-							<!-- 4:3 aspect ratio -->
-							<div class="col-xs-4">
-								<br /> <input type="text" class="form-control"
-									jsf:value="#{benSite.video1}"
-									placeholder="Digite a url do video" /> <br />
+					<div role="tabpanel" class="tab-pane" id="messages">						
+						<div class="row">
+						  <div class="col-xs-6">
+						         <br/>						       
 								<div class="embed-responsive embed-responsive-4by3">
-									<iframe class="embed-responsive-item" src="#{benSite.video1}"></iframe>
+									<iframe class="embed-responsive-item" src="#{benSite.site.video1}"></iframe>
 								</div>
+						  </div>
+						  <div class="col-xs-6">
+						        <br/>	
+						        <input type="text" class="form-control"
+									jsf:value="#{benSite.site.video1}"
+									placeholder="Digite a url do video" />
 								<br />
-								<h:commandButton class="btn btn-success" value="nudar"
-									actionListener="#{benSite.editeVideo1}"></h:commandButton>
-							</div>
-							<div class="col-xs-4">
-								<br /> <input type="text" class="form-control"
-									jsf:value="#{benSite.video2}"
-									placeholder="Digite a url do video" /> <br />
-								<div class="embed-responsive embed-responsive-4by3">
-									<iframe class="embed-responsive-item" src="#{benSite.video2}"></iframe>
-								</div>
-								<br />
-								<h:commandButton class="btn btn-success" value="nudar"
-									actionListener="#{benSite.editeVideo2}"></h:commandButton>
-							</div>
-							<div class="col-xs-4">
-								<br /> <input type="text" class="form-control"
-									jsf:value="#{benSite.video3}"
-									placeholder="Digite a url do video" /> <br />
-								<div class="embed-responsive embed-responsive-4by3">
-									<iframe class="embed-responsive-item" src="#{benSite.video3}"></iframe>
-								</div>
-								<br />
-								<h:commandButton class="btn btn-success" value="nudar"
-									actionListener="#{benSite.editeVideo3}"></h:commandButton>
-							</div>
+								<h:commandButton class="btn btn-success" value="mudar"
+							      actionListener="#{benSite.salvar}"></h:commandButton>
+						  </div>
 						</div>
-
-
+						<div class="row">
+						  <div class="col-xs-6">
+						         <br/>							      
+								<div class="embed-responsive embed-responsive-4by3">
+									<iframe class="embed-responsive-item" src="#{benSite.site.video2}"></iframe>
+								</div>
+						  </div>
+						  <div class="col-xs-6">
+						        <br/>	
+						       <input type="text" class="form-control"
+									jsf:value="#{benSite.site.video2}"
+									placeholder="Digite a url do video" /> 
+								<br />
+								<h:commandButton class="btn btn-success" value="mudar"
+								actionListener="#{benSite.salvar}"></h:commandButton>
+						  </div>
+						</div>
+						<div class="row">
+						  <div class="col-xs-6">
+						     <br/>	
+						     <div class="embed-responsive embed-responsive-4by3">
+									<iframe class="embed-responsive-item" src="#{benSite.site.video3}"></iframe>
+							</div>
+						  </div>
+						  <div class="col-xs-6">
+						     <br/>	
+						     <input type="text" class="form-control"
+									jsf:value="#{benSite.site.video3}"
+									placeholder="Digite a url do video" /> <br />
+								
+								<br />
+								<h:commandButton class="btn btn-success" value="mudar"
+									actionListener="#{benSite.salvar}"></h:commandButton>
+						  </div>
+						</div>															
 					</div>
-					<div role="tabpanel" class="tab-pane" id="settings">.zxczxczz..</div>
+					<div role="tabpanel" class="tab-pane" id="settings">
+					  .zxczxczz..
+					</div>
 				</div>
 			</h:form>
 

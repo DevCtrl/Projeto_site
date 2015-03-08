@@ -27,12 +27,16 @@
               #{list.descricao}              
           </h:column>
           <h:column>
-              <f:facet name="header">valor_Varejo</f:facet>
-              R$ #{list.valor_Varejo}
+             <f:facet name="header">valor_Varejo</f:facet>
+            <h:outputText value="#{list.valor_Varejo}" >
+					<f:convertNumber currencyCode="BRL" type="currency"/>
+			</h:outputText>               
           </h:column>
           <h:column>
              <f:facet name="header">Valor_Revenda</f:facet>            
-             R$ #{list.valor_Revenda}
+            <h:outputText value="#{list.valor_Revenda}" >
+					<f:convertNumber currencyCode="BRL" type="currency"/>
+			</h:outputText>  
 			             
           </h:column>
           

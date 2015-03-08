@@ -23,7 +23,7 @@ public class VendaBen {
    
 	Produto pd = new Produto();
 	Cliente cli = new Cliente();
-	Cliente CliPesquisado = new Cliente();
+	Cliente cliPesquisado = new Cliente();
 	Venda vd = new Venda();
 	ProdutoControler comando = new ProdutoControler();
 	ClienteControler comandoCli = new ClienteControler();
@@ -32,11 +32,13 @@ public class VendaBen {
 	List<Produto> lisCarrinho = new ArrayList<Produto>();
 	private String ClientePesquisa;
 	private int quantidade = 1;
+	
 	private double subtotal=0;
 	private double total=0;
-	
-	
-	
+	private int desconto = 0;
+	private double troco = 0;
+	private double dinheiro = 0;
+	private boolean tipoPagamento ;
 	
 	
 	public VendaBen(){
@@ -63,35 +65,47 @@ public class VendaBen {
 		total = total - pd.getComprado();
 		lisCarrinho.remove(pd);
 	}
-	public void finalizarCompra(ActionEvent evt)
+	public String finalizarCompra()
 	{
-		
-		if(!lisCarrinho.isEmpty()){
-			for (Produto produto : lisCarrinho) {
-				if(cli.getId() == 0)
-				   cli.setId(255);
-				
-				vd.setCliente(cli);
-				vd.setProduto(pd);
-				vd.setData(new Date());
-				
-				comandoVd.inserir(vd);				
-			}					
-			lisCarrinho.clear();
-			cli = new Cliente();
-		}			
-		total = 0;
+	  if(getSubtotal() <= getDinheiro()){	  	  
+			if(!lisCarrinho.isEmpty()){
+				for (Produto produto : lisCarrinho) {
+					if(cli.getId() == 0)
+					   cli.setId(255);
+					
+					vd.setCliente(cli);
+					vd.setProduto(pd);
+					vd.setData(new Date());
+					
+					comandoVd.inserir(vd);				
+				}	
+				Alerta.info("venda foi  finalizada com sucesso");
+				lisCarrinho.clear();
+				cli = new Cliente();
+			}			
+			total = 0;
+			desconto = 0;
+			subtotal = 0;
+			troco = 0;	
+			dinheiro = 0;
+		return "vendas.xhtml";
+	  }
+	  else{
+		  Alerta.error("Valor em dinheiro é menor que o valor a ser pago");
+		  return null;
+	  }
 	}
-	public String buscaProduto()
+	public void buscaProduto()
 	{  			
 		lisPro = comando.buscaProdutos(pd.getNome());		
-		return "null";
+		
 	}	
 	public String buscaCliente()
 	{ 
-		CliPesquisado = (Cliente) comandoCli.buscaCliente(ClientePesquisa); 
-		if(CliPesquisado.getId() != 0)	{			
-			cli.setNome(CliPesquisado.getNome());		
+		cliPesquisado = (Cliente) comandoCli.buscaCliente(ClientePesquisa); 
+		if(cliPesquisado.getId() != 0)	{			
+			cli.setNome(cliPesquisado.getNome());
+			cli = cliPesquisado;
 		}			
 		else
 			cli.setNome(ClientePesquisa+" não e cliente");
@@ -158,6 +172,43 @@ public class VendaBen {
 
 	public void setClientePesquisa(String clientePesquisa) {
 		ClientePesquisa = clientePesquisa;
+	}
+
+	public int getDesconto() {
+		return desconto;
+	}
+
+	public void setDesconto(int desconto) {
+		this.desconto = desconto;
+	}
+
+	public double getSubtotal() {	
+			
+		return subtotal = total - (total*desconto)/100;
+	}
+
+	public double getTroco() {
+		if(dinheiro >= subtotal)
+			troco = dinheiro - subtotal;
+		else
+		   troco = 0;	
+		return troco;
+	}
+
+	public double getDinheiro() {
+		return dinheiro;
+	}
+
+	public void setDinheiro(double dinheiro) {
+		this.dinheiro = dinheiro;
+	}
+
+	public boolean isTipoPagamento() {
+		return tipoPagamento;
+	}
+
+	public void setTipoPagamento(boolean tipoPagamento) {
+		this.tipoPagamento = tipoPagamento;
 	}
 	
 

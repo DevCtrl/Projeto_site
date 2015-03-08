@@ -49,82 +49,77 @@
 <body>
 
 	<!-- Header -->
-  <h:form>
-
-	<ul class="nav nav-tabs" role="tablist" id="myTab">
-		<li role="presentation" class="active"><a href="#home"
-			aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-		<li role="presentation"><a href="#profile"
-			aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-		<li role="presentation"><a href="#messages"
-			aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-		<li role="presentation"><a href="#settings"
-			aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-	</ul>
-
-	<div class="tab-content">
-		<div role="tabpanel" class="tab-pane active" id="home">
-			<label class="form-label">Titulo</label> <input type="text"
-				class="form-control" jsf:value="#{benSite.titulo1}" /> <label
-				class="form-label">Conteudo da Pagina</label>
-			<h:inputTextarea value="#{benSite.section1}" rows="12"
-				styleClass="form-control"></h:inputTextarea>
-			<label class="form-label">Titulo Segunda Imagem</label> <input
-				type="text" class="form-control"
-				jsf:value="#{benSite.tituloImagem1}" /> <br />
-			<h:commandButton class="btn btn-success"  value="nudar" actionListener="#{siteBen.edite}"></h:commandButton>
-		</div>
-		<div role="tabpanel" class="tab-pane" id="profile">
-			<label class="form-label">Titulo</label> <input type="text"
-				class="form-control" jsf:value="#{benSite.titulo2}" /> <label
-				class="form-label">Conteudo da Pagina</label>
-			<h:inputTextarea value="#{benSite.section2}" rows="12"
-				styleClass="form-control"></h:inputTextarea>
-			<label class="form-label">Titulo Segunda Imagem</label> <input
-				type="text" class="form-control"
-				jsf:value="#{benSite.tituloImagem2}" /> <br />
-			<h:commandButton class="btn btn-success" value="nudar" actionListener="#{benSite.edite}"></h:commandButton>
-		</div>
-		<div role="tabpanel" class="tab-pane" id="messages">
-			<div class="row-fluid">
-				<!-- 4:3 aspect ratio -->
-				<div class="col-xs-4">
-					<br /> <input type="text" class="form-control" jsf:value="#{benSite.video1}"
-						placeholder="Digite a url do video" /> <br />
-					<div class="embed-responsive embed-responsive-4by3">
-						<iframe class="embed-responsive-item"
-							src="#{benSite.video1}"></iframe>
-					</div>
-					<br />
-					<h:commandButton class="btn btn-success" value="nudar" actionListener="#{benSite.editeVideo1}"></h:commandButton>
+  <h:form prependId="false">
+   <div class="col-xs-10">
+   <div class="panel panel-primary ">
+		<!-- panel contents -->
+	<div class="panel-heading"><i class="fa fa-cart-plus fa-2x"/>  Pagamento</div>
+	<div class="panel-body ">  					
+		<ul class="nav nav-pills" role="tablist" id="myTab">
+			<li role="presentation" ><a href="#pagamento"
+				aria-controls="home" role="tab" data-toggle="tab">Pagamento</a></li>
+			<li role="presentation"><a href="#formaPagamento" 
+				aria-controls="profile" role="tab" data-toggle="tab">Forma de Pagamneto</a></li>
+			<li role="presentation"><a href="#finalPagamento"
+				aria-controls="messages" role="tab" data-toggle="tab">Finalizar Pagamento</a></li>
+			
+		</ul>
+	
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="pagamento">
+				<div class="col-xs-12">
+				   <label><h3>Valor Total do Carrinho</h3></label>
+				   <label class="pull-right"><h3>R$ #{ben.total}</h3></label>
 				</div>
-				<div class="col-xs-4">
-					<br /> <input type="text" class="form-control" jsf:value="#{benSite.video2}"
-						placeholder="Digite a url do video" /> <br />
-					<div class="embed-responsive embed-responsive-4by3">
-						<iframe class="embed-responsive-item"
-							src="#{benSite.video2}"></iframe>
-					</div>
-					<br />
-					<h:commandButton class="btn btn-success" value="nudar" actionListener="#{benSite.editeVideo2}"></h:commandButton>
+				<div class="col-xs-12">
+				   <label><h3>Desconto</h3></label>
+				   <input type="number" jsf:value="#{ben.desconto}">
+				      <f:ajax event="change" render="@all"></f:ajax>
+				   </input>
+				   <label class="pull-right"><h3> #{ben.desconto} %</h3></label>
 				</div>
-				<div class="col-xs-4">
-					<br /> <input type="text" class="form-control" jsf:value="#{benSite.video3}"
-						placeholder="Digite a url do video" /> <br />
-					<div class="embed-responsive embed-responsive-4by3">
-						<iframe class="embed-responsive-item"
-							src="#{benSite.video3}"></iframe>
-					</div>
-					<br />
-					<h:commandButton class="btn btn-success" value="nudar" actionListener="#{benSite.editeVideo3}"></h:commandButton>
+				<div class="col-xs-12">
+				   <label><h3>Valor Total a Pagar</h3></label>
+				   <label class="pull-right"><h3>R$ #{ben.subtotal}</h3></label>
 				</div>
 			</div>
-
-
-		</div>
-		<div role="tabpanel" class="tab-pane" id="settings">.zxczxczz..</div>
-	</div>
+			<div role="tabpanel" class="tab-pane" id="formaPagamento">
+				<div class="col-xs-12">
+				   <label><h3>Dinheiro <input type="checkbox"/> </h3></label>			   
+				</div>
+				<div class="col-xs-12">
+				  <label><h3>Cartão <input type="checkbox"/> </h3></label>			  
+				</div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="finalPagamento">
+			  <div class="col-xs-12">
+				   <label><h3>Valor a Pagar</h3></label>
+				   <label class="pull-right"><h3>R$ #{ben.subtotal}</h3></label>
+				</div>
+				<div class="col-xs-12">
+				   <label><h3>Dinheiro</h3></label>
+				   <input type="number" jsf:value="#{ben.dinheiro}">
+				     <f:ajax event="change" render="@all"></f:ajax>
+				   </input>
+				   <label class="pull-right"><h3>R$ #{ben.dinheiro}</h3></label>
+				</div>
+				<div class="col-xs-12">
+				   <label><h3>Troco</h3></label>
+				   <label class="pull-right"><h3>R$ #{ben.troco}</h3></label>
+				</div>
+			</div>
+			<div class="row" style="padding: 10px;">
+			   <button type="button" jsf:id="anterior"  >Anterioro</button>
+			   <button type="button" jsf:id="proximo">Proximo</button>
+			   <button rendered="#{ben.dinheiro > 1}">Finalizar compra</button>
+			</div>
+		</div>	
+	  </div>
+	</div><!-- /painel -->  
+  </div>		
 </h:form>
+
+   
 	<!-- /List Sidebar -->
 	<!-- jQuery -->
 	<script
@@ -136,5 +131,30 @@
 	<script type="text/javascript"
 		src="#{request.contextPath}/resources/bootstrap/js/slidebars.js">
 		</script>
+	<script type="text/javascript">
+	   $('#proximo').click(function(){
+           
+
+           if(("#ben.total").val == 0){
+        	   $('#myTab a[href="#formaPagamento"]').tab('show')	    	  
+ 		   	   $('#myTab a[href="#pagamento"]').css({"background-color":"orange","color":"white"});
+ 		   	   
+           }
+           if(cont == 1){
+        	   $('#myTab a[href="#finalPagamento"]').tab('show')	    	  
+ 		   	   $('#myTab a[href="#formaPagamento"]').css({"background-color":"orange","color":"white"});
+           }
+		  cont =1; 	  
+	   });
+	   
+	   $('#anterior').click(function(){			  
+	        $('#myTab a:last').tab('show')
+	   }) ; 
+       
+        
+
+	</script>	
+    
+		
 </body>
 </html>

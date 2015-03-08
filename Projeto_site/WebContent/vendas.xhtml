@@ -32,7 +32,9 @@
               #{list.nome}              
            </h:column>          
             <h:column >            
-               #{list.valor_Revenda}                                                   
+              <h:outputText value="#{list.valor_Revenda}" >
+					    <f:convertNumber currencyCode="BRL" type="currency"/>
+			  </h:outputText>                                                  
            </h:column>
            <h:column>
              <h:outputText value="#{list.quantidade}"/>               
@@ -40,8 +42,10 @@
              <h:column>
              x              
            </h:column>
-           <h:column>
-             <h:outputText value="#{list.comprado}"/>               
+           <h:column>            
+              <h:outputText value="#{list.comprado}" >
+					   <f:convertNumber currencyCode="BRL" type="currency"/>
+			  </h:outputText>               
            </h:column>
            <h:column>
              <h:commandLink value="remove" actionListener="#{ben.remove}">               
@@ -55,35 +59,40 @@
 		<div class="row">
 		  <button type="submit" jsf:action="#{ben.buscapg}" class="btn btn-info" >Adicionar so carrinho</button>		  
 		  <div class="well well-sm col-xs-3 pull-right text-center"> 		   
-		   <p><h4>Total  R$   #{ben.total}</h4></p>		   		   
+		   <p><h4>Total  
+		          <h:outputText value="#{ben.total}" >
+					    <f:convertNumber currencyCode="BRL" type="currency"/>
+			      </h:outputText>
+			   </h4>
+		   </p>		   		   
 		  </div>		 		  
 		</div>														 										
 		<div class="row">
-		 <button type="submit" class="btn btn-success" jsf:actionListener="#{ben.finalizarCompra}" >Finalizar compra</button>
+		 <button  class="btn btn-success" jsf:outcome="pagamento.xhtml">Finalizar compra</button>
 		 <button type="submit" class="btn btn-danger pull-right" jsf:action="#{ben.cancelarCompra}" >Cancelar compra</button>	
 		</div>
 					
 		        	          
-				<!-- Modal -->
+		<!-- Modal -->
 				
-				 <div class="modal fade" id="myModal">
-					  <div class="modal-dialog">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					        <h4 class="modal-title">Cliente</h4>
-					      </div>
-					      <div class="modal-body">
-					        <label>Nome Cliente</label>					       
-					        <input jsf:id="ip" type="text" class="form-control" jsf:value="#{ben.clientePesquisa}" placeholder="digite o cliente"/>
-					      </div>
-					      <div class="modal-footer">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>					       
-					        <button type="submit" jsf:action="#{ben.buscaCliente}" class="btn btn-primary">Ok</button>
-					      </div>
-					    </div><!-- /.modal-content -->
-					  </div><!-- /.modal-dialog -->
-					</div><!-- /.modal -->	      
+		<div class="modal fade" id="myModal">
+			 <div class="modal-dialog">
+			  <div class="modal-content">
+			   <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					    <h4 class="modal-title">Cliente</h4>
+			   </div>
+			    <div class="modal-body">
+					 <label>Nome Cliente</label>					       
+					 <input jsf:id="ip" type="text" class="form-control" jsf:value="#{ben.clientePesquisa}" placeholder="digite o cliente"/>
+				</div>
+			   <div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>					       
+					<button type="submit" jsf:action="#{ben.buscaCliente}" class="btn btn-primary">Ok</button>
+			    </div>
+			  </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->	      
 			     
 					     
 			</form>		      

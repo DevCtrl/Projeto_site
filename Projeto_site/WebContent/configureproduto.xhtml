@@ -29,12 +29,16 @@
 				     <div class="col-xs-4">
 				        <label for="valor_Varejo" class=" control-label">Valor Varejo</label>
 				          <input type="text" jsf:value="#{benProduto.produto.valor_Varejo}" required="true"
-					       class="form-control" jsf:id="valor_Varejo" placeholder="Entre com valor_Varejo"/>					  
+					       class="form-control" jsf:id="valor_Varejo" placeholder="Entre com valor_Varejo">
+					          <f:convertNumber minFractionDigits="2" />
+					       </input>					  
 				     </div>
 				     <div class="col-xs-4">
 				         <label class=" control-label">Valor Revenda</label>
 				         <input type="text" jsf:value="#{benProduto.produto.valor_Revenda}" required="true"
-					       class="form-control" jsf:id="valor_Revenda" placeholder="Entre valor_Revenda"/>
+					       class="form-control" jsf:id="valor_Revenda" placeholder="Entre valor_Revenda">
+					       <f:convertNumber minFractionDigits="2" />
+					     </input>  
 				     </div>
 				     <div class="col-xs-4">
 				          <label  class="control-label">Data cadastro</label>

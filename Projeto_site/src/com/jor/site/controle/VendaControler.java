@@ -16,8 +16,7 @@ public class VendaControler {
 			session.save(venda);
 			session.getTransaction().commit();
 		}
-		finally {
-			Alerta.info("venda foi  finalizada com sucesso");
+		finally {			
 			session.close();
 		}
 	}
