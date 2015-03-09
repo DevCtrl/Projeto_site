@@ -9,7 +9,7 @@
 
 <body>
   <ui:composition template="sistema.xhtml">
-  <ui:define name="Titulo"><i class="fa fa-angle-right"></i> configureparceria</ui:define>
+  <ui:define name="Titulo"><i class="fa fa-angle-right"></i><a href="parcerias.xhtml"> parceria </a><i class="fa fa-angle-right"></i> configureparceria</ui:define>
   <ui:define name="corpo">
      <ui:insert name="FormCliente">     
       <h:form id="formCli" prependId="false">         	       
@@ -23,13 +23,14 @@
            <h:column >              
               #{list.contato}              
           </h:column>
-          <h:column>
-              <f:facet name="header">Email</f:facet>
+          <h:column>              
               #{list.email}
           </h:column>
-          <h:column>
-             <f:facet name="header">Telefone</f:facet>
+          <h:column>             
              #{list.fone1} 
+          </h:column> 
+          <h:column>             
+             <h:commandButton value="Excluir" styleClass="btn btn-danger"></h:commandButton> 
           </h:column>          
       </h:dataTable> 
      <!-- final da tabela -->            

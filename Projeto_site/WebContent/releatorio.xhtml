@@ -19,31 +19,33 @@
 		<ui:define name="Titulo"><i class="fa fa-angle-right"></i> relatorio </ui:define>
 		<ui:define name="corpo">
         <form jsf:id="form1">
-        <div class="row-fluid"> 
+       
         
-		   <div style="padding: 10px;">
-		     <button type="button" Class="btn btn-primary" onclick="grafico()" jsf:rendered="#{benRelatorio.grafico == 'graficoCliente'}" >Clientes</button>
-		     <button type="button" Class="btn btn-primary" onclick="graficoP()" jsf:rendered="#{benRelatorio.grafico == 'graficoProduto'}" >Produtos</button>
-		     <h:selectOneMenu value="#{benRelatorio.grafico}">
-		          <f:selectItem itemValue="graficoCliente" itemLabel="Grafico Cliente"></f:selectItem>
-		          <f:selectItem itemValue="graficoProduto" itemLabel="Grafico produto"></f:selectItem>
-		          <f:ajax event="change" listener="#{benRelatorio.carregaGrafico}" render=":form1"></f:ajax>
-		     </h:selectOneMenu>
-		     
-		    
-		   </div>
-		
-        
-        
-        
-	     <div class="panel panel-default">
-			<!-- Default panel contents -->
-			<div class="panel-heading"><i class="fa fa-chart fa-2x"/> Clientes cadastrados</div>
-			<div class="panel-body">	
-			   	<canvas id="GraficoBarra"  style=" width:100%; "></canvas>
-			</div>
-         </div>
-        </div>
+		   
+		       
+		     	<button type="button" Class="btn btn-primary"  onclick="grafico()" jsf:rendered="#{benRelatorio.grafico == 'graficoCli'}" >Clientes</button>
+		     	<button type="button" Class="btn btn-primary"  onclick="graficoP()" jsf:rendered="#{benRelatorio.grafico == 'graficoProduto'}" >Produtos</button>
+		        <button type="button" Class="btn btn-primary"  onclick="graficoV()" jsf:rendered="#{benRelatorio.grafico == 'graficoVenda'}" >Vendas</button>
+		       <div class="col-xs-3">
+			     <h:selectOneMenu value="#{benRelatorio.grafico}" styleClass="form-control">
+			          <f:selectItem itemLabel="Selecione o grafico"></f:selectItem>
+			          <f:selectItem itemValue="graficoCli" itemLabel="Grafico Cliente"></f:selectItem>
+			          <f:selectItem itemValue="graficoProduto" itemLabel="Grafico produto"></f:selectItem>
+			          <f:selectItem itemValue="graficoVenda" itemLabel="Grafico venda"></f:selectItem>
+			          <f:ajax event="change"  render=":form1"></f:ajax>
+			     </h:selectOneMenu>
+		       </div>
+		       <button class="btn btn-success pull-right">Gerar relatorio</button>
+		     <div class="col-xs-12" style="margin-top: 18px;">
+              <div class="panel panel-default " >
+				<!-- Default panel contents -->
+				<div class="panel-heading"><i class="fa fa-chart fa-2x"/> Clientes cadastrados</div>
+				<div class="panel-body" style="margin-right: 10px;">	
+				   	<canvas id="GraficoBarra"  ></canvas>
+				</div>
+	          </div>
+	        </div>                                                      
+	     
        </form>
    
    
@@ -74,7 +76,10 @@
                             strokeColor: "rgba(140,23,23,5.8)",
                             highlightFill: "rgba(220,220,220,0.75)",
                             highlightStroke: "rgba(220,220,220,1)",
-                            data: ["#{benRelatorio.comando.janeiro}", "#{benRelatorio.comando.fevereiro}", "#{benRelatorio.comando.marco}", "#{benRelatorio.comando.abril}", randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb(), randomnb()]
+                            data: ["#{benRelatorio.comando.janeiro2}", "#{benRelatorio.comando.fevereiro2}", "#{benRelatorio.comando.marco2}", "#{benRelatorio.comando.abril2}",
+                                   "#{benRelatorio.comando.maio2}", "#{benRelatorio.comando.junho2}", "#{benRelatorio.comando.julho2}", "#{benRelatorio.comando.agosto2}", "#{benRelatorio.comando.setembro2}",
+                                   "#{benRelatorio.comando.outubro2}", "#{benRelatorio.comando.novembro2}", "#{benRelatorio.comando.dezembro2}"]
+                           
                         }
                     ]
                 };                
@@ -102,7 +107,9 @@
                 	            pointStrokeColor: "#fff",
                 	            pointHighlightFill: "#fff",
                 	            pointHighlightStroke: "rgba(220,220,220,1)",
-                	            data: ["#{benSistema.quanteP}", 59, 30, 81, 56, 55, 40,30,35,45,75,78]
+                	            data: ["#{benRelatorio.comando.janeiro}", "#{benRelatorio.comando.fevereiro}", "#{benRelatorio.comando.marco}", "#{benRelatorio.comando.abril}",
+                                       "#{benRelatorio.comando.maio}", "#{benRelatorio.comando.junho}", "#{benRelatorio.comando.julho}", "#{benRelatorio.comando.agosto}", "#{benRelatorio.comando.setembro}",
+                                       "#{benRelatorio.comando.outubro}", "#{benRelatorio.comando.novembro}", "#{benRelatorio.comando.dezembro}"]
                 	        }                        
                          ]
                 };                
@@ -112,7 +119,40 @@
                     var LineChart = new Chart(ct).Line(data1, options1);
                 }           
             </script>
-          
+           
+            <script type="text/javascript">
+
+	           var options3 = {
+	                    responsive:true                    
+	           };
+	           
+               var data3 = [
+                        {
+                            value: 300,
+                            color:"#F7464A",
+                            highlight: "#FF5A5E",
+                            label: "Red"
+                        },
+                        {
+                            value: 50,
+                            color: "#46BFBD",
+                            highlight: "#5AD3D1",
+                            label: "Green"
+                        },
+                        {
+                            value: 100,
+                            color: "#FDB45C",
+                            highlight: "#FFC870",
+                            label: "Yellow"
+                        }
+                    ]
+
+                  function graficoV(){
+                      var c = document.getElementById("GraficoBarra").getContext("2d");
+                      var DoughnutChart = new Chart(c).Doughnut(data3,options3);
+                  }                   
+                     
+            </script>
         
     
     
