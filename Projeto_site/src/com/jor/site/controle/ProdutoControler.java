@@ -124,6 +124,22 @@ public class ProdutoControler {
 	    }
 		return null;
 	}
+	public Object buscaProdutoNome(String nome) {
+		try {
+	    	session = HibernateUtil.getSessionFactory().openSession();
+	    	session.beginTransaction();
+	        Query q = session.createQuery ("from Produto where nome =:nome");
+	        q.setParameter("nome", nome);
+	        if(q.uniqueResult() == null){
+	        	Produto pd = new Produto();
+	        	return pd;
+	        }
+	        return q.uniqueResult();
+	    } catch (Exception e) {
+	         System.out.println("erro ao pesquisar p"+e.getMessage());
+	    }
+		return null;
+	}
 	
 	
 }

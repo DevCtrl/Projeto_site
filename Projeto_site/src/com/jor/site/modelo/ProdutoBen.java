@@ -11,12 +11,14 @@ import javax.faces.bean.SessionScoped;
 
 import com.jor.site.controle.ProdutoControler;
 import com.jor.site.entidade.Produto;
+import com.jor.site.util.Alerta;
 
 @ManagedBean(name="benProduto")
 @SessionScoped
 public class ProdutoBen {
    
 	Produto produto = new Produto();
+	Produto produtoselecionado = new Produto();
 	ProdutoControler comando = new ProdutoControler();
 	List lista = new ArrayList();
 	
@@ -40,15 +42,25 @@ public class ProdutoBen {
 	{
 		
 		if(produto.getId() == 0)
-		{			
-			comando.inserir(produto);
+		{
+			produtoselecionado = (Produto) comando.buscaProdutoNome(produto.getNome());
+			if(produtoselecionado.getNome() == null){
+				comando.inserir(produto);
+				lista = comando.listarDados();
+				produto = new Produto();	
+			}		
+			else{
+				Alerta.error("produto já existe");
+				return null;
+			}				
 			
 		}else
 		{
 			comando.alterar(produto);
+			lista = comando.listarDados();
+			produto = new Produto();	
 		}
-		lista = comando.listarDados();
-		produto = new Produto();	
+		
 		return "produto.xhtml";
 		
 	}

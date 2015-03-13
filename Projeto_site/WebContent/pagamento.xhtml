@@ -24,13 +24,13 @@
 						<div class="panel-body ">
 							<ul class="nav nav-pills" role="tablist" id="myTab">
 								<li role="presentation" class="active " ><a href="#pagamento"
-									aria-controls="aba1" role="tab" >Pagamento</a></li>
+									aria-controls="aba1" role="tab" ><span class="badge">1</span> Pagamento</a></li>
 								<li role="presentation"><a href="#formaPagamento"
-									aria-controls="aba2" role="tab">Forma de Pagamneto</a></li>
+									aria-controls="aba2" role="tab"><span class="badge">2</span> Forma de Pagamneto</a></li>
 								<li role="presentation"><a href="#pagamentoDinheiro"
-									aria-controls="aba3" role="tab" >Pagamento Dinheiro</a></li>
+									aria-controls="aba3" role="tab" ><span class="badge">3</span> Pagamento Dinheiro</a></li>
 							   <li role="presentation"><a href="#pagamentoCartao"
-									aria-controls="aba4" role="tab" >Pagamento Cartão</a></li>		
+									aria-controls="aba4" role="tab" ><span class="badge">3</span> Pagamento Cartão</a></li>		
 
 							</ul>
 
@@ -44,10 +44,13 @@
 										</h3>
 									</div>
 									<div class="col-xs-12">
-									 <h3><label >Desconto  </label>
-									    <input class="pull-right" type="number"  jsf:value="#{ben.desconto}" min="0" max="100" step="5"> 
-											 <f:ajax event="change"	render="pagar valorPagar valorCartao"></f:ajax> 
-									   </input>									   								   
+									 <h3><label >Desconto  </label>									    		
+									      <span class="pull-right" style="color: blue" id="basic-add">%</span>
+										  <input class="pull-right" type="number"  jsf:value="#{ben.desconto}" min="0" max="100" step="5" aria-describedby="basic-add">
+										     <f:ajax event="change"	render="pagar valorPagar valorCartao"></f:ajax> 
+										  </input>
+										  										   
+															   								   
 									  </h3>
 									</div>
 									<div class="col-xs-12">
@@ -144,7 +147,7 @@
 
 
 			</form>
-
+               
 
 		</ui:define>
 	</ui:composition>

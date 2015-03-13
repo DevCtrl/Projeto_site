@@ -37,6 +37,7 @@
 							jsf:value="#{benSite.site.tituloImagem1}" /> <br />
 						<h:commandButton class="btn btn-success" value="mudar"
 							actionListener="#{benSite.salvar}"></h:commandButton>
+					    <a href="#" class="pull-right" data-toggle="modal" data-target=".bs-example-modal-lg">Preview Site</a>
 					</div>
 					<div role="tabpanel" class="tab-pane" id="profile">
 						<label class="form-label">Titulo</label> <input type="text"
@@ -49,6 +50,7 @@
 							jsf:value="#{benSite.site.tituloImagem2}" /> <br />
 						<h:commandButton class="btn btn-success" value="mudar"
 							actionListener="#{benSite.salvar}"></h:commandButton>
+						<a href="#" class="pull-right" data-toggle="modal" data-target=".bs-example-modal-lg">Preview Site</a>	
 					</div>
 					<div role="tabpanel" class="tab-pane" id="messages">						
 						<div class="row">
@@ -102,14 +104,69 @@
 								<h:commandButton class="btn btn-success" value="mudar"
 									actionListener="#{benSite.salvar}"></h:commandButton>
 						  </div>
+						  <a href="#" class="pull-right" data-toggle="modal" data-target=".bs-example-modal-lg">Preview Site</a>
 						</div>															
 					</div>
 					<div role="tabpanel" class="tab-pane" id="settings">
-					  .zxczxczz..
+					  <div class="row">
+						  <div class="col-xs-6">
+						         <br/>						       
+								<img src="#{request.contextPath}/resources/bootstrap/imagens/teste4.jpg" class="img-responsive"/>
+						  </div>
+						  <div class="col-xs-6">
+						        <br/>	
+						        <input type="text" class="form-control"
+									jsf:value="#{benSite.site.video1}"
+									placeholder="Digite a url do video" />
+								<br />
+								<h:commandButton class="btn btn-success" value="mudar"
+							      actionListener="#{benSite.salvar}"></h:commandButton>
+						  </div>
+						</div>
+						<div class="row">
+						  <div class="col-xs-6">
+						         <br/>							      
+								<img src="#{request.contextPath}/resources/bootstrap/imagens/teste3.jpg" class="img-responsive"/>
+						  </div>
+						  <div class="col-xs-6">
+						        <br/>	
+						       <input type="text" class="form-control"
+									jsf:value="#{benSite.site.video2}"
+									placeholder="Digite a url do video" /> 
+								<br />
+								<h:commandButton class="btn btn-success" value="mudar"
+								actionListener="#{benSite.salvar}"></h:commandButton>
+						  </div>
+						</div>
+						<div class="row">
+						  <div class="col-xs-6">
+						     <br/>	
+						     <img src="#{request.contextPath}/resources/bootstrap/imagens/texte2.jpg" class="img-responsive"/>
+						  </div>
+						  <div class="col-xs-6">
+						     <br/>	
+						     <input type="text" class="form-control"
+									jsf:value="#{benSite.site.video3}"
+									placeholder="Digite a url do video" /> <br />
+								
+								<br />
+								<h:commandButton class="btn btn-success" value="mudar"
+									actionListener="#{benSite.salvar}"></h:commandButton>
+						  </div>
+						  <a href="#" class="pull-right" data-toggle="modal" data-target=".bs-example-modal-lg">Preview Site</a>
+						</div>							
 					</div>
 				</div>
-			</h:form>
-
+			</h:form>			
+             
+               <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true" style="margin-top: 25px;">
+				  <div class="modal-dialog modal-lg">
+				    <div class="modal-content">
+				      <ui:include src="preview.xhtml"></ui:include>
+				    </div>
+				  </div>
+				</div>
+             
 		</ui:define>
 	</ui:composition>
 </body>

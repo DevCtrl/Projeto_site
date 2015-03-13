@@ -32,15 +32,28 @@ public class ClienteBen {
 	
 	public String  incluir()
 	{
-		System.out.println("  teste te "+cliente.getId());
-		if(cliente.getId() == 0){			
-			comando.inserir(cliente);			
+		
+		if(cliente.getId() == 0){	
+			clienteSelecionado = (Cliente) comando.buscaCliente(cliente.getNome());
+			if(clienteSelecionado.getNome() == null){
+				
+				comando.inserir(cliente);
+				lista = comando.listarDados();
+				cliente = new Cliente();
+			}
+						
+			else{
+				Alerta.error("Cliente já existe");	
+				return null;
+			}
+			
 		}
 		else{			
-			comando.alterar(cliente);			
+			comando.alterar(cliente);	
+			lista = comando.listarDados();
+			cliente = new Cliente();
 		}		
-		lista = comando.listarDados();
-		cliente = new Cliente();
+		
 		
 		
 		return "cliente.xhtml";
