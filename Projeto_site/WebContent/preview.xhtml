@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+   
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+        <meta charset="utf-8"/>
+        <title>site jor</title>
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        
+        <!--[if lt IE 9]>
+          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        
+        <!-- Bootstrap Css -->
+			<link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+			<link href="#{request.contextPath}/resources/bootstrap/css/StiloSite.css" rel="stylesheet" type="text/css"/>
+			<link href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+<h:head>
+
+</h:head> 
+<body> 
+ <!-- Wrap all page content here -->
+<div id="wrap">  
+  
+
+  
+<!-- Begin page content -->
+<div class="divider" id="section1"></div>
+  
+<div class="container">
+  <div class="col-sm-10 col-sm-offset-1">
+    <div class="page-header text-center">
+      <h1>#{benSite.site.titulo1}</h1>
+    </div>
+    
+    <p class="lead text-center">
+      hahha
+    </p>
+    <p class="text-center">
+      #{benSite.site.conteudo1}
+    </p>
+  </div>
+</div>
+    
+<div class="divider" id="section2"></div>
+ 
+<section class="bg-1"  >
+  <div class="col-sm-6 col-sm-offset-3 text-center"><h2 style="padding:20px;background-color:rgba(5,5,5,.3)">#{benSite.site.tituloImagem1}</h2></div>
+</section>
+  
+<div class="divider"></div>
+   
+<div class="container" id="section3">
+  	<div class="col-sm-8 col-sm-offset-2 text-center">
+      <h1>#{benSite.site.titulo2}</h1>
+      
+      <p>
+        #{benSite.site.conteudo2}
+      </p>
+      
+      <hr>
+            
+	  <img src="#{request.contextPath}/resources/bootstrap/imagens/teste4.jpg" class="img-responsive" style="padding: 25px;"/>
+	 
+      </hr>
+  	</div><!--/col-->
+</div><!--/container-->
+
+
+  
+<section class="bg-2" id="section4">
+  <div class="col-sm-6 col-sm-offset-3 text-center"><h2 style="padding:20px;background-color:rgba(5,5,5,.3)">#{benSite.site.tituloImagem2}</h2></div>
+</section>
+  
+
+
+
+
+  
+</div><!--/wrap-->
+
+<div id="footer">
+  <div class="container">
+    <p class="text-muted">Preview do site</p>
+  </div>
+</div>
+
+
+
+</body> 
+  <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+  <!-- jsf para criar graficos -->
+  <script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/Chart.min.js"></script>
+</html>

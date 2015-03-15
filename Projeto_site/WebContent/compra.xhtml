@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+
+<body>
+	<ui:composition template="sistema.xhtml">
+		<ui:define name="Titulo">
+			<i class="fa fa-angle-right"></i> Venda</ui:define>			
+		<ui:define name="corpo">		 
+			<form jsf:id="form1">
+				<div class="panel-group" id="accordion" role="tablist"
+					aria-multiselectable="true">
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="headingOne">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion"
+									href="#collapseOne" aria-expanded="true"
+									aria-controls="collapseOne"> Pesquisar Venda </a>
+							</h4>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse in"
+							role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+							      <div class="col-xs-4">
+										<div class="input-group">
+											<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
+											<span class="input-group-btn">
+														<button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i>
+												     	</button>
+												</span>						
+							        	</div> 
+							        	<br/>
+							        	 <input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>														
+							        	<br/>
+							        	 <button class="btn btn-primary">Pesquisa venda</button>
+										
+									</div>
+									<div class="panel panel-default col-xs-8">
+										<div class="panel-heading">
+											<h3 class="panel-title">Venda Pesquisada</h3>
+										</div>
+										<div class="panel-body">
+							
+											<h:dataTable id="tabelaCli" var="list" value="#{benCliente.lista}"
+												styleClass="table table-responsive  table-hover">
+							
+												<h:column>									              
+											              #{list.nome}            									                                                                                   
+											    </h:column>
+												<h:column>									             
+											              #{list.cidade}              
+											          </h:column>
+												<h:column>									              
+											              #{list.email}
+											          </h:column>
+												<h:column>									             
+											             #{list.telefone} 
+											          </h:column>
+											</h:dataTable>
+											<!-- final da tabela -->
+										</div>
+										<div class="panel-footer">Panel footer</div>
+									</div>
+		
+							      
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-info">
+						<div class="panel-heading" role="tab" id="headingTwo">
+							<h4 class="panel-title">
+								<a class="collapsed" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseTwo"
+									aria-expanded="false" aria-controls="collapseTwo">
+									Trocar Produto </a>
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingTwo">
+							<div class="panel-body">
+							      <div class="row">
+							        <div class="col-xs-5">
+							           <label>Produto a trocar</label>
+							          <div class="input-group">
+											<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
+											<span class="input-group-btn">
+														<button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i>
+												     	</button>
+												</span>						
+							        	</div> 	
+							        </div>
+							        <div class="col-xs-3">
+							           <label>Quantidade</label>
+							           <input type="number" class="form-control"/>
+							        </div>
+							        <div class="col-xs-4">
+							           <br/>					           
+							           <label class="well pull-right">Valor  00,00</label>
+							        </div>
+							       </div>
+							       <div class="row"> 
+									 <div class="col-xs-5">
+							           <label>Produto requisitado</label>
+							           <div class="input-group">
+											<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
+											<span class="input-group-btn">
+														<button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i>
+												     	</button>
+												</span>						
+							        	</div> 	
+							         </div>
+							         <div class="col-xs-3">
+							           <label>Quantidade</label>
+							           <input type="number" class="form-control"/>
+							         </div>
+									 <div class="col-xs-4">
+									    <br/>
+							           
+							           <label class="well pull-right">Valor   00,00</label>
+							        </div>
+							        <br/>	
+									<button class="btn btn-primary">Trocar</button>
+									
+								  </div>
+							</div>
+						</div>
+					</div>			
+				</div>
+		 </form>
+		
+				<div id="footer">
+				  <div class="containerc well">
+				    <h4>Carrinho de Compras <a href="vendas.xhtml" class="pull-right"><i class="fa fa-cart-plus fa-2x"></i></a></h4>
+				  </div>
+				</div> 
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

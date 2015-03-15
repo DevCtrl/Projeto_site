@@ -17,48 +17,190 @@
         <![endif]-->
 
 
-<head>
+<h:head>
+	<!-- Bootstrap -->
+	<link
+		href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/resources/bootstrap/css/bootstrap.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css"
+		rel="stylesheet" type="text/css" />
+	<!--stilo painel  -->
+	<link
+		href="#{request.contextPath}/resources/bootstrap/css/stiloPainel.css"
+		rel="stylesheet" type="text/css" />
+	<!--fonte de icones externa -->
+	<link rel="stylesheet"
+		href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+	<!-- Sidbar -->
+	<link
+		href="#{request.contextPath}/resources/bootstrap/css/estilo.sidbars.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/resources/bootstrap/css/slidebars.css"
+		rel="stylesheet" type="text/css" />
 
-
-
-
-	
-</head>
+</h:head>
 
 
 <body>
+	<form jsf:id="form1">
+		<div class="panel-group" id="accordion" role="tablist"
+			aria-multiselectable="true">
+			<div class="panel panel-primary">
+				<div class="panel-heading" role="tab" id="headingOne">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+							href="#collapseOne" aria-expanded="true"
+							aria-controls="collapseOne"> Pesquisar Venda </a>
+					</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse in"
+					role="tabpanel" aria-labelledby="headingOne">
+					<div class="panel-body">
+					      <div class="col-xs-4">
+								<div class="input-group">
+									<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
+									<span class="input-group-btn">
+												<button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i>
+										     	</button>
+										</span>						
+					        	</div> 
+					        	<br/>
+					        	 <input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>														
+					        	<br/>
+					        	 <button class="btn btn-primary">Pesquisa venda</button>
+								
+							</div>
+							<div class="panel panel-default col-xs-8">
+								<div class="panel-heading">
+									<h3 class="panel-title">Venda Pesquisada</h3>
+								</div>
+								<div class="panel-body">
+					
+									<h:dataTable id="tabelaCli" var="list" value="#{benCliente.lista}"
+										styleClass="table table-responsive  table-hover">
+					
+										<h:column>									              
+									              #{list.nome}            									                                                                                   
+									    </h:column>
+										<h:column>									             
+									              #{list.cidade}              
+									          </h:column>
+										<h:column>									              
+									              #{list.email}
+									          </h:column>
+										<h:column>									             
+									             #{list.telefone} 
+									          </h:column>
+									</h:dataTable>
+									<!-- final da tabela -->
+								</div>
+								<div class="panel-footer">Panel footer</div>
+							</div>
 
-	  <h:form prependId="false"></h:form>
-		<form jsf:id="form1"  >
+					      
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-info">
+				<div class="panel-heading" role="tab" id="headingTwo">
+					<h4 class="panel-title">
+						<a class="collapsed" data-toggle="collapse"
+							data-parent="#accordion" href="#collapseTwo"
+							aria-expanded="false" aria-controls="collapseTwo">
+							Trocar Produto </a>
+					</h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse"
+					role="tabpanel" aria-labelledby="headingTwo">
+					<div class="panel-body">
+					      <div class="row">
+					        <div class="col-xs-5">
+					           <label>Produto a trocar</label>
+					          <div class="input-group">
+									<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
+									<span class="input-group-btn">
+												<button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i>
+										     	</button>
+										</span>						
+					        	</div> 	
+					        </div>
+					        <div class="col-xs-3">
+					           <label>Quantidade</label>
+					           <input type="number" class="form-control"/>
+					        </div>
+					        <div class="col-xs-4">
+					           <br/>					           
+					           <label class="well pull-right">Valor  00,00</label>
+					        </div>
+					       </div>
+					       <div class="row"> 
+							 <div class="col-xs-5">
+					           <label>Produto requisitado</label>
+					           <div class="input-group">
+									<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
+									<span class="input-group-btn">
+												<button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i>
+										     	</button>
+										</span>						
+					        	</div> 	
+					         </div>
+					         <div class="col-xs-3">
+					           <label>Quantidade</label>
+					           <input type="number" class="form-control"/>
+					         </div>
+							 <div class="col-xs-4">
+							    <br/>
+					           
+					           <label class="well pull-right">Valor   00,00</label>
+					        </div>
+					        <br/>	
+							<button class="btn btn-primary">Trocar</button>
+							
+						  </div>
+					</div>
+				</div>
+			</div>			
+		</div>
+ </form>
+
+		<div id="footer">
+		  <div class="containerc well">
+		    <h4>Carrinho de Compras <a href="vendas.xhtml" class="pull-right"><i class="fa fa-cart-plus fa-2x"></i></a></h4>
+		  </div>
+		</div>
+
+
+
 		
-			<label for="campoData">Data:</label>
-			<input type="date" jsf:id="data" ></input>
 
-			<label for="campoTelefone">Telefone:</label>
-			<input type="texto" id="telefone"/>
 
-			<label for="campoSenha">Senha alfanumérica:</label>
-			<input type="texto" id="campoSenha"/>		
-			
-		</form>
 
-   
-	
-  <script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	
 
-<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/jquery.maskedinput.js">
-</script>
-<script type="text/javascript">
-$(function(){
-	    $("#form1\\:data").mask("(99) 9999-9999");
-		    $("#telefone").mask("(99) 9999-9999");
-		    $("#cpf").mask("999.999.999-99");
-		    $("#cep").mask("99999-999");
-	});
-</script>	      
 
-	
-    
-		
+
+
+
+		<!-- jQuery -->
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript"
+			src="#{request.contextPath}/resources/bootstrap/js/jquery.maskedinput.js">
+		</script>
+		<!-- Bootstrap -->
+		<script type="text/javascript"
+			src="#{request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+		<!-- Slidebars -->
+		<script type="text/javascript"
+			src="#{request.contextPath}/resources/bootstrap/js/slidebars.js">
+		</script>
+		<script type="text/javascript">
+     $(".alert").fadeOut(8000);    	       
+      // window.setTimeout(function() { $(".alert").alert('close'); }, 10000); 
+     </script>
 </body>
 </html>
