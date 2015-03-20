@@ -26,7 +26,7 @@ public class Venda {
 	private Cliente cliente;
 	
 	@Column
-	private Date data;
+	private String data;
 
 	public long getId() {
 		return id;
@@ -52,11 +52,11 @@ public class Venda {
 		this.cliente = cliente;
 	}
 
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 	

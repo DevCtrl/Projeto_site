@@ -3,8 +3,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:jsf="http://xmlns.jcp.org/jsf"
-    xmlns:a4j="http://richfaces.org/a4j">
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
 <head></head>
 
@@ -16,10 +15,7 @@
 		<form jsf:id="form1">
 		 
 		    <h:dataTable id="tabela" var="list" value="#{ben.lisPro}"  rows="7" styleClass="table table-hover">
-				<h:column >
-				   <f:facet name="header">Codigo</f:facet>
-				    #{list.id}              
-				</h:column>
+				
 				<h:column >
 				   <f:facet name="header">Nome</f:facet>
 				     #{list.nome}                                
@@ -66,9 +62,7 @@
 			        </div> 
 			       				  
 					    
-			  </div>			  			  
-			 			  
-			 		   																 	
+			  </div>  			  			 			  			 		   																 	
 				<button type="button"  jsf:outcome="vendas.xhtml" class=" btn btn-danger ">Feichar</button>
 		     
 				 

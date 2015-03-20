@@ -1,6 +1,8 @@
 package com.jor.site.modelo;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,6 +32,7 @@ public class VendaBen {
 	VendaControler comandoVd = new VendaControler();
 	List lisPro = new ArrayList();
 	List<Produto> lisCarrinho = new ArrayList<Produto>();
+	List<Produto> lisVendido = new ArrayList<Produto>();
 	private String ClientePesquisa;
 	private int quantidade = 1;
 	
@@ -39,7 +42,7 @@ public class VendaBen {
 	private double troco = 0;
 	private double dinheiro = 0;
 	private boolean tipoPagamento ;
-	
+	private String data;
 	
 	public VendaBen(){
 		lisPro = comando.listarDados();
@@ -80,8 +83,8 @@ public class VendaBen {
 					   cli.setId(255);
 					
 					vd.setCliente(cli);
-					vd.setProduto(pd);
-					vd.setData(new Date());
+					vd.setProduto(pd);								
+					vd.setData(new SimpleDateFormat("dd/MM/yyyy").format(new Date()) );
 					
 					comandoVd.inserir(vd);
 					//diminuir do estoque
@@ -102,6 +105,12 @@ public class VendaBen {
 		  Alerta.error("Valor em dinheiro é menor que o valor a ser pago");
 		  return null;
 	  }
+	}
+	public void buscaVenda(){
+		//lisVendido = comando.buscaVenda(cli.getId(),data);
+	}
+	public void troca(){
+		
 	}
 	public void buscaProduto()
 	{  			
@@ -217,6 +226,22 @@ public class VendaBen {
 
 	public void setTipoPagamento(boolean tipoPagamento) {
 		this.tipoPagamento = tipoPagamento;
+	}
+
+	public List<Produto> getLisVendido() {
+		return lisVendido;
+	}
+
+	public void setLisVendido(List<Produto> lisVendido) {
+		this.lisVendido = lisVendido;
+	}
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
 	}
 	
 
