@@ -1,15 +1,23 @@
 package com.jor.site.modelo;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.AjaxBehaviorEvent;
+
+import org.eclipse.persistence.jpa.jpql.parser.IsExpressionFactory;
 
 import com.jor.site.controle.ContratoControler;
 import com.jor.site.controle.ParceriaControler;
+import com.jor.site.controle.ProdutoFornecidoControler;
 import com.jor.site.entidade.Contrato;
 import com.jor.site.entidade.Parceria;
+import com.jor.site.entidade.Produto;
+import com.jor.site.entidade.ProdutoFornecido;
 import com.jor.site.util.Alerta;
 
 @ManagedBean(name="benParceria")
@@ -18,10 +26,17 @@ public class ParceriaBen {
   
 	List listaParceria =  new ArrayList();
 	List listaContrato =  new ArrayList();
+	List listaProdutoFronecido =  new ArrayList();
 	Parceria parceria = new Parceria();
 	Contrato contrato = new Contrato();
+	Produto p = new Produto();
+	ProdutoFornecido fornecido = new ProdutoFornecido();
 	ParceriaControler comandoParceria = new ParceriaControler();
 	ContratoControler comandoContrato = new ContratoControler();
+	ProdutoFornecidoControler comandoFornecido = new ProdutoFornecidoControler();
+	
+	private String dataContaFornecido;
+	private int quantidadeFornecido;
 	
 	public ParceriaBen() {
 		
@@ -53,6 +68,7 @@ public class ParceriaBen {
 	public void limparCampos(){
 		parceria = new Parceria();
 		contrato = new Contrato();
+		listaProdutoFronecido = new ArrayList();
 		listaContrato.clear();
 	}
 	//Contrato
@@ -84,7 +100,39 @@ public class ParceriaBen {
 	public void buscaContratoId(){
 	    contrato = (Contrato) comandoContrato.buscaContrato(contrato.getId());
 	}
-	
+	//Fornecimento de Produtos
+	public String inserirProdutoFornecido()
+	{
+	  if(parceria.getId() != 0){		
+		    SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");  
+		    
+			 fornecido.setDataCadastro(sdf.format(new Date())); 		  
+			 fornecido.setParceria(parceria);			
+			 fornecido.setDataContas(getDataContaFornecido());
+			 fornecido.setNome(p.getNome());
+			 fornecido.setQuantidade(getQuantidadeFornecido());
+			 fornecido.setValor_Varejo(p.getValor_Varejo());
+			 comandoFornecido.inserir(fornecido);
+		}			 
+	  else{
+		  Alerta.error("Selecione um vendedor");
+	  }
+	  return "parceria.xhtml";
+	}
+	public void deletarProdutoFornecido()
+	{
+		comandoFornecido.deletar(fornecido);
+		fornecido = new ProdutoFornecido();
+		listaProdutoFronecido = new ArrayList();
+		
+	}
+	public void buscaProdutoFornecido(){		
+	    listaProdutoFronecido = comandoFornecido.buscaProdutoFornecidos(fornecido.getDataCadastro(),parceria.getId());	
+	    if(fornecido.getId() == 0)	        	
+        	Alerta.warn("Selecione um vendedor para pesquisar");
+        if(listaProdutoFronecido == null)
+        	Alerta.warn("Nada foi encontrado nessa data");
+	}
 	
 	public List getListaParceria() {
 		return listaParceria;
@@ -113,6 +161,36 @@ public class ParceriaBen {
 	}
 	public void setContrato(Contrato contrato) {
 		this.contrato = contrato;
+	}
+	public List getListaProdutoFronecido() {
+		return listaProdutoFronecido;
+	}
+	public void setListaProdutoFronecido(List listaProdutoFronecido) {
+		this.listaProdutoFronecido = listaProdutoFronecido;
+	}
+	public Produto getP() {
+		return p;
+	}
+	public void setP(Produto p) {
+		this.p = p;
+	}
+	public ProdutoFornecido getFornecido() {
+		return fornecido;
+	}
+	public void setFornecido(ProdutoFornecido fornecido) {
+		this.fornecido = fornecido;
+	}	
+	public int getQuantidadeFornecido() {
+		return quantidadeFornecido;
+	}
+	public void setQuantidadeFornecido(int quantidadeFornecido) {
+		this.quantidadeFornecido = quantidadeFornecido;
+	}
+	public String getDataContaFornecido() {
+		return dataContaFornecido;
+	}
+	public void setDataContaFornecido(String dataContaFornecido) {
+		this.dataContaFornecido = dataContaFornecido;
 	}
 	
 }

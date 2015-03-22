@@ -18,19 +18,17 @@ public class Parceria {
 	@Column(name= "nome")
 	private String Nome;
 	@Column(name= "endereco")
-	private String Endereco;
-	@Column(name= "contato")
-	private String Contato;
-	@Column(name= "cnpj")
-	private String Cnpj;
-	@Column(name= "fone1")
-	private String Fone1;
-	@Column(name= "fone2")
-	private String Fone2;
+	private String Endereco;	
+	@Column(name= "cpf")
+	private String Cpf;
+	@Column(name= "fone")
+	private String Fone;
+	@Column(name= "dataNascimento")
+	private String DataNascimento;
 	@Column(name= "email")
 	private String Email;
-	@Column(name= "url")
-	private String Url;
+	@Column(name= "rg")
+	private String Rg;
 	public int getId() {
 		return id;
 	}
@@ -48,42 +46,36 @@ public class Parceria {
 	}
 	public void setEndereco(String endereco) {
 		Endereco = endereco;
-	}
-	public String getContato() {
-		return Contato;
-	}
-	public void setContato(String contato) {
-		Contato = contato;
-	}
-	public String getCnpj() {
-		return Cnpj;
-	}
-	public void setCnpj(String cnpj) {
-		Cnpj = cnpj;
-	}
-	public String getFone1() {
-		return Fone1;
-	}
-	public void setFone1(String fone1) {
-		Fone1 = fone1;
-	}
-	public String getFone2() {
-		return Fone2;
-	}
-	public void setFone2(String fone2) {
-		Fone2 = fone2;
-	}
+	}	
 	public String getEmail() {
 		return Email;
 	}
 	public void setEmail(String email) {
 		Email = email;
 	}
-	public String getUrl() {
-		return Url;
+	public String getCpf() {
+		return Cpf;
 	}
-	public void setUrl(String url) {
-		Url = url;
+	public void setCpf(String cpf) {
+		Cpf = cpf;
+	}
+	public String getFone() {
+		return Fone;
+	}
+	public void setFone(String fone) {
+		Fone = fone;
+	}
+	public String getDataNascimento() {
+		return DataNascimento;
+	}
+	public void setDataNascimento(String dataNascimento) {
+		DataNascimento = dataNascimento;
+	}
+	public String getRg() {
+		return Rg;
+	}
+	public void setRg(String rg) {
+		Rg = rg;
 	}
 	
 	

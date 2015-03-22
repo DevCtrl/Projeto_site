@@ -16,5 +16,7 @@
   <mapping class="com.jor.site.entidade.Parceria"/>
   <mapping class="com.jor.site.entidade.Contrato"/>
   <mapping class="com.jor.site.entidade.Site"/>
+  <mapping class="com.jor.site.entidade.Empreendedor"/>
+  <mapping class="com.jor.site.entidade.ProdutoFornecido"/>
  </session-factory>
 </hibernate-configuration>

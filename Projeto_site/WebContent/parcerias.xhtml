@@ -15,10 +15,10 @@
           <form jsf:id="form1">
 		   <div class="row form-group">
 		        <div class="col-xs-6">
-		          <input class="form-control" jsf:value="#{benParceria.parceria.nome}"  placeholder="Digite a empresa" required="true" type="text" maxlength="50"/>
+		          <input class="form-control" jsf:value="#{benParceria.parceria.nome}"  placeholder="Digite o nome" required="true" type="text" maxlength="50"/>
 		        </div>		       
 		        <div class="col-xs-6">
-		          <input class="form-control" jsf:value="#{benParceria.parceria.contato}" placeholder="Contato" required="true" type="text" maxlength="50" />
+		          <input class="form-control" jsf:value="#{benParceria.parceria.endereco}" placeholder="Endereço" required="true" type="text" maxlength="50" />
 		        </div>
 		    </div>
 		    <div class="row form-group">
@@ -26,20 +26,20 @@
 		          <input class="form-control" jsf:value="#{benParceria.parceria.email}" placeholder="Email" required="true" type="email" maxlength="50" />
 		          </div>
 		          <div class="col-xs-4">
-		          <input class="form-control" jsf:id="telefone" jsf:value="#{benParceria.parceria.fone1}" placeholder="Fone 1" required="true" type="text"/>
+		          <input class="form-control" jsf:id="telefone" jsf:value="#{benParceria.parceria.fone}" placeholder="Fone" required="true" type="text"/>
 		          </div>
 		          <div class="col-xs-4">
-		          <input class="form-control" jsf:id="telefone2" jsf:value="#{benParceria.parceria.fone2}" placeholder="Fone 2"  type="text"/>
+		          <input class="form-control" jsf:id="data" jsf:value="#{benParceria.parceria.dataNascimento}" placeholder="Data de nascimento"  type="date"/>
 		          </div>
 		      </div>
 		      <div class="row form-group">
 		          <div class="col-xs-4">
-		          <input class="form-control" jsf:id="cnpj" jsf:value="#{benParceria.parceria.cnpj}" placeholder="CNPJ/CPF" required="true" type="text"/>
+		          <input class="form-control" jsf:id="cpf" jsf:value="#{benParceria.parceria.cpf}" placeholder="CPF" required="true" type="text"/>
 		          </div>
-		          <div class="col-xs-5">
-		          <input class="form-control" jsf:value="#{benParceria.parceria.url}" placeholder="Website URL"  type="homepage" maxlength="100"/>
+		          <div class="col-xs-4">
+		          <input class="form-control" jsf:value="#{benParceria.parceria.rg}" placeholder="RG"  type="text" />
 		          </div>
-		          <div class="col-xs-3">
+		          <div class="col-xs-4">
 		              <h:selectOneMenu value="#{benParceria.contrato.id}" styleClass="form-control">
 		                <f:selectItem itemLabel="Selecione o contrato"></f:selectItem>
 		                <f:selectItems value="#{benParceria.listaContrato}"  var="list" 
@@ -57,39 +57,179 @@
 		      </div>
 		         
 		   </form>
-		   <form jsf:id="form2"> 
-		     
-		      <div class="row form-group">
-		          <div class="col-xs-12 text-center">
-		              Tipo de Contrato
-		          </div>
-		      </div>
-		       <div class="row form-group">
-		          <div class="col-xs-3 ">
-		              <br/>
-		              <input class="form-control" jsf:value="#{benParceria.contrato.nome}" type="text"  placeholder="nome contrato" required="true" maxlength="50"/>
-		          </div>
-		          <div class="col-xs-5 ">
-		              <textarea class="form-control" jsf:value="#{benParceria.contrato.descricao}" placeholder="digite as condiçoes do contrato"  rows="3" cols="20" required="true"></textarea>
-		          </div>
-		          <div class="col-xs-4 ">
-		              <input class="form-control" jsf:id="data" jsf:value="#{benParceria.contrato.dataInicial}" type="date" required="true" placeholder="Data Inicial"/>
-		              <br/>
-		              <input class="form-control" jsf:id="data2" jsf:value="#{benParceria.contrato.dataFinal}" type="date" required="true" placeholder="Data Final"/>
-		          </div>
-		      </div>
-		       <div class="row form-group"> 
-		          <div class="col-xs-12">
-		              <h:commandButton styleClass="btn btn-primary" value="Aceitar" actionListener="#{benParceria.inserirContrato}"/>             	   		          		              
-		              <button class="btn btn-success pull-right" jsf:actionListener="#{benParceria.deletarContrato}" jsf:rendered="#{benParceria.contrato.id != 0}">Deletar</button>	              
-		          </div>
-		      </div>   
-              
-              
-              
-                 	          
+		   
+		         <div class="panel-group" id="accordion" role="tablist" 
+					aria-multiselectable="true">
+					<div class="panel panel-primary">
+						<div class="panel-heading" role="tab" id="headingOne">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion"	href="#collapseOne" 
+									aria-controls="collapseOne"> Contratos </a>
+							</h4>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+							  <form jsf:id="form2"> 
+						         <div class="row form-group">
+							          <div class="col-xs-12 text-center">
+							              Tipo de Contrato
+							          </div>
+							      </div>
+							       <div class="row form-group">
+							          <div class="col-xs-3 ">
+							              <br/>
+							              <input class="form-control" jsf:value="#{benParceria.contrato.nome}" type="text"  placeholder="nome contrato" required="true" maxlength="50"/>
+							          </div>
+							          <div class="col-xs-5 ">
+							              <textarea class="form-control" jsf:value="#{benParceria.contrato.descricao}" placeholder="digite as condiçoes do contrato"  rows="3" cols="20" required="true"></textarea>
+							          </div>
+							          <div class="col-xs-4 ">
+							              <input class="form-control" jsf:id="data" jsf:value="#{benParceria.contrato.dataInicial}" type="date" required="true" placeholder="Data Inicial"/>
+							              <br/>
+							              <input class="form-control" jsf:id="data2" jsf:value="#{benParceria.contrato.dataFinal}" type="date" required="true" placeholder="Data Final"/>
+							          </div>
+							      </div>
+							       <div class="row form-group"> 
+							          <div class="col-xs-12">
+							              <h:commandButton styleClass="btn btn-primary" value="Aceitar" actionListener="#{benParceria.inserirContrato}"/>             	   		          		              
+							              <button class="btn btn-success pull-right" jsf:actionListener="#{benParceria.deletarContrato}" jsf:rendered="#{benParceria.contrato.id != 0}">Deletar</button>	              
+							          </div>
+							      </div> 	
+							   </form>   					   
+						    </div>	     
+					   </div>
+					  <div class="panel panel-info">
+						<div class="panel-heading" role="tab" id="headingTwo">
+							<h4 class="panel-title">
+								<a class="collapsed" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseTwo" aria-controls="collapseTwo">
+									Produtos Fornecidos </a>
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingTwo">
+							<div class="panel-body">
+							  <form jsf:id="form3"> 
+							       <div class=" col-xs-12">
+									  <div class="col-xs-3">
+									      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Adiconar</button>
+									  </div>
+									  <div class="col-xs-9">
+										<div class="input-group">
+											<input type="date" jsf:id="data" jsf:value="#{benParceria.fornecido.dataCadastro}" class="form-control">
+											  
+											</input>
+											<span class="input-group-btn">
+													<button type="button" class="btn btn-primary" ><i class="fa fa-search"></i>
+													   <f:ajax event="click" listener="#{benParceria.buscaProdutoFornecido}" render="tabelaFornecimento"/>
+													</button>
+											</span>						
+							        	</div> 
+							          </div>								        	
+										
+									</div>
+									<br/>
+									<div class=" col-xs-12">									
+							              <h:panelGroup layout="block" style="height:220px;overflow-y:scroll"> 
+											<h:dataTable id="tabelaFornecimento" var="list" value="#{benParceria.listaProdutoFronecido}" 
+												styleClass="table table-responsive  table-hover">							                    								             
+											          <f:facet name="header" ><span style="text-align: center"><h4>Produtos Fornecido</h4></span></f:facet>  
+											    
+												<h:column>	
+												      <f:facet name="header">Produto</f:facet>  								              
+											              #{list.nome}            									                                                                                   
+											    </h:column>
+											    <h:column>
+											         <f:facet name="header">Quantidade</f:facet>
+											          #{list.quantidade}
+											    </h:column>
+												<h:column>
+												    <f:facet name="header">Valor</f:facet>  									             
+											        <h:outputText value="#{list.valor_Varejo}" >
+																<f:convertNumber currencyCode="BRL" type="currency"/>
+													</h:outputText>            
+											    </h:column>												
+												<h:column>									             
+											          <f:facet name="header">Data fornecido</f:facet>    
+											          #{list.dataCadastro}
+											    </h:column>
+											    <h:column>									             
+											          <f:facet name="header">Prestar contas</f:facet>    
+											          #{list.dataContas}
+											    </h:column>
+											     <h:column>									             
+											          <f:facet name="header">Deletar</f:facet>    
+											          <h:commandLink actionListener="#{benParceria.deletarProdutoFornecido}"><i class="fa fa-close fa-2x"></i>
+											            <f:setPropertyActionListener target="#{benParceria.fornecido}" value="#{list}"></f:setPropertyActionListener>
+											          </h:commandLink>
+											    </h:column>
+											</h:dataTable>
+											<!-- final da tabela -->									
+										</h:panelGroup>
+									</div>
+								  </form> 
+							</div>
+						</div>
+					</div>			
+				</div>
+		     </div>	    
 				
-          </form> 
+          
+         <form jsf:id="formModal">
+          <div class="modal fade" id="myModal" style="margin-top: 30px;">
+			 <div class="modal-dialog">
+			  <div class="modal-content">
+			   <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					    <h4 class="modal-title">Selecionar Produto</h4>
+			   </div>
+			    <div class="modal-body">
+			         <h:dataTable  var="list" value="#{benProduto.lista}" rows="5"
+												styleClass="table table-responsive  table-hover">
+						<h:column>	
+						  <f:facet name="header">Produto</f:facet>								              
+							         #{list.nome}            									                                                                                   
+						</h:column>
+						<h:column>	
+						  <f:facet name="header">Valor</f:facet>										             
+								     #{list.valor_Varejo}              
+						</h:column>												
+						<h:column>	
+						  <f:facet name="header">Estoque</f:facet>										             
+									 #{list.quantidade} 
+					    </h:column>
+					    <h:column>	
+						  <f:facet name="header">Ação</f:facet>										             
+						  <h:commandButton value="adicionar" styleClass="btn btn-success" action="#{benParceria.inserirProdutoFornecido}">
+						     <f:setPropertyActionListener target="#{benParceria.p}" value="#{list}"/>
+						  </h:commandButton>			
+					    </h:column>
+					</h:dataTable>
+					<!-- final da tabela -->					 			       
+					<div class="col-xs-4">
+					    <input type="number" class="form-control" jsf:value="#{benParceria.quantidadeFornecido}" placeholder="Quantidade"/>
+					</div>
+					<div class="col-xs-4 pull-right">
+					    <input type="date" class="form-control" jsf:value="#{benParceria.dataContaFornecido}" placeholder="Data presta contas"/>
+					</div>
+				</div>
+				<br />
+			   <div class="modal-footer">
+					<div class="input-group">
+					  <input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
+					  <span class="input-group-btn">
+							<button type="button" class="btn btn-primary"  ><i class="fa fa-search"></i>
+						   	</button>
+		              </span>						
+	             	</div> 
+			    </div>
+			  </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->	
+		<!-- Modal -->
+       </form>   
+          
    </ui:define>
   </ui:composition> 
 </body> 

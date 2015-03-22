@@ -129,7 +129,13 @@ public class VendaBen {
 		return "null";
 	}
 	public String buscapg(){
+		if(cliPesquisado.getId() != 0)
 		return "configurevenda.xhtml";
+		else{
+			Alerta.error("Selecione um cliente para venda");
+			return null;
+		}			
+		
 	}
 	public String cancelarCompra() {
 		lisCarrinho.clear();
