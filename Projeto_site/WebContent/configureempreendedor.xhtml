@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"	
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">   
+<h:head></h:head>
+<body>
+	<ui:composition template="sistema.xhtml">
+	    <ui:define name="Titulo"><a href="empreendedor.xhtml"><i class="fa fa-angle-right"></i> empreendedor </a><i class="fa fa-angle-right"></i> cadastro </ui:define>		
+		<ui:define name="corpo">
+		
+			<form jsf:id="from3" jsf:prependId="false" class="form-horizontal" >						 
+				  <div class="row-fluid">
+				    <div class="col-xs-6">
+				         <label for="nome" class=" control-label">Nome</label>				    
+					     <input type="text" jsf:value="#{benEmpreendedor.empreendedor.nome}" required="true" maxlength="50"
+						        class="form-control" jsf:id="nome" placeholder="Entre com nome" autofocus="true"/>
+				    </div>	
+				    <div class="col-xs-6">
+				        <label class="control-label">Endereço</label>				    
+				       <input type="text" jsf:value="#{benEmpreendedor.empreendedor.endereco}" maxlength="50"
+					          class="form-control" jsf:id="endereco" placeholder="Entre com endereço"/>
+				    </div>			    				   				    
+				  </div>
+				  <div class="row-fluid">
+				    <div class="col-xs-6">
+				          <label for="cidade" class=" control-label">Cidade</label>
+				          <input type="text" jsf:value="#{benEmpreendedor.empreendedor.cidade}" maxlength="50"
+					            class="form-control" jsf:id="cidade" placeholder="Entre com cidade"/>
+				    </div>
+				    <div class="col-xs-6">	
+				    <label class=" control-label">email</label>				    
+				       <input type="text" jsf:value="#{benEmpreendedor.empreendedor.email}" required="true" maxlength="50"
+					       class="form-control" jsf:id="email" placeholder="Entre email"/>
+				    </div>			    				   				    
+				  </div>
+				  <div class="row-fluid">
+				    <div class="col-xs-6">
+				          <label for="cidade" class=" control-label">Data Nascimento</label>
+				          <input type="date" jsf:value="#{benEmpreendedor.empreendedor.dataNacimento}" 
+					            class="form-control" jsf:id="data" />
+				    </div>
+				    <div class="col-xs-6">	
+				    <label class=" control-label">Data Cadastro</label>				    
+				       <input type="date" jsf:value="#{benEmpreendedor.empreendedor.dataCadastro}" disabled="true"  class="form-control" />
+				    </div>			    				   				    
+				  </div>				  
+				  <div class="row-fluid">
+				    <div class="col-xs-4">
+				        <label for="telefone" class=" control-label">telefone</label>				    
+					    <input type="tel" jsf:value="#{benEmpreendedor.empreendedor.telefone}" 
+					       class="form-control" jsf:id="telefone" placeholder="Digite o fone"/>
+				    </div>	
+				    <div class="col-xs-4">
+				       <label class=" control-label">cpf</label>				    
+				      <input type="text" jsf:value="#{benEmpreendedor.empreendedor.cpf}" required="true" 
+					       class="form-control" jsf:id="cpf" placeholder="digite cpf"/>
+				    </div>
+				    
+				    <div class="col-xs-4">
+				      <label class=" control-label">cep</label>
+				      <input type="text" jsf:value="#{benEmpreendedor.empreendedor.cep}" maxlength="8"
+					       class="form-control" jsf:id="cep" placeholder="digite o cep"/>
+				    </div>				    			    				   				    
+				  </div>			  			    		    				   				    
+				  			  
+				  <div class="row-fluid">
+				    <div class="col-xs-4">
+				        <label  class=" control-label">FLP</label>				    
+					    <input type="text" jsf:value="#{benEmpreendedor.empreendedor.telefone}" 
+					       class="form-control" jsf:id="flp" placeholder="Digite o fone"/>
+				    </div>	
+				    <div class="col-xs-4">
+				       <label class=" control-label">Senha FLP</label>				    
+				      <input type="text" jsf:value="#{benEmpreendedor.empreendedor.cpf}" required="true" 
+					       class="form-control" jsf:id="senhaflp" placeholder="digite cpf"/>
+				    </div>
+				    
+				    <div class="col-xs-4">
+				      <label class=" control-label">Senha email</label>
+				      <input type="text" jsf:value="#{benEmpreendedor.empreendedor.cep}" maxlength="8"
+					       class="form-control" jsf:id="senhaemail" placeholder="digite o cep"/>
+				    </div>				    			    				   				    
+				  </div>
+				  
+				 <div class="row-fluid col-xs-12" >				      
+				      <button jsf:id="bt_conf_incluir"  jsf:action="#{benEmpreendedor.incluir}" class="btn btn-default"  style="margin-top: 20px">Salvar</button>		     						
+				      <button jsf:id="bt_conf_delite"   jsf:action="#{benEmpreendedor.deletar}" class="btn btn-default"  style="margin-top: 20px"
+				          jsf:rendered="#{benEmpreendedor.empreendedor.id != 0}" >Deletar</button>
+				       <button jsf:outcome="empreendedor.xhtml" class="btn btn-danger" style="margin-top: 20px">Cancelar</button>
+				    
+				 </div>							               				 								
+			     
+				
+			</form>
+		</ui:define>
+	</ui:composition>
+
+</body>
+</html>

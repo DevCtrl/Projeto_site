@@ -128,9 +128,9 @@ public class ParceriaBen {
 	}
 	public void buscaProdutoFornecido(){		
 	    listaProdutoFronecido = comandoFornecido.buscaProdutoFornecidos(fornecido.getDataCadastro(),parceria.getId());	
-	    if(fornecido.getId() == 0)	        	
+	    if(parceria.getId() == 0)	        	
         	Alerta.warn("Selecione um vendedor para pesquisar");
-        if(listaProdutoFronecido == null)
+	    if(listaProdutoFronecido.isEmpty() && parceria.getId() != 0)
         	Alerta.warn("Nada foi encontrado nessa data");
 	}
 	

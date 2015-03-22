@@ -111,29 +111,29 @@
 							role="tabpanel" aria-labelledby="headingTwo">
 							<div class="panel-body">
 							  <form jsf:id="form3"> 
+							         <h:messages id="ms"  showDetail="false" errorClass="alert alert-danger " warnClass="alert alert-warning" fatalClass="alert alert-danger" infoClass="alert alert-info" />
 							       <div class=" col-xs-12">
 									  <div class="col-xs-3">
 									      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Adiconar</button>
 									  </div>
 									  <div class="col-xs-9">
 										<div class="input-group">
-											<input type="date" jsf:id="data" jsf:value="#{benParceria.fornecido.dataCadastro}" class="form-control">
-											  
-											</input>
-											<span class="input-group-btn">
-													<button type="button" class="btn btn-primary" ><i class="fa fa-search"></i>
-													   <f:ajax event="click" listener="#{benParceria.buscaProdutoFornecido}" render="tabelaFornecimento"/>
-													</button>
-											</span>						
+											<input type="date" jsf:id="data" jsf:value="#{benParceria.fornecido.dataCadastro}" class="form-control"/>
+											<span class="input-group-btn">																				
+												<button type="button" class="btn btn-primary" ><i class="fa fa-search"></i>
+												   <f:ajax event="click" listener="#{benParceria.buscaProdutoFornecido}" render="ms tabelaFornecimento"/>
+												</button>
+										   </span>		
+																
 							        	</div> 
 							          </div>								        	
 										
 									</div>
 									<br/>
-									<div class=" col-xs-12">									
+									<div class=" col-xs-12">										  					      							              							             
 							              <h:panelGroup layout="block" style="height:220px;overflow-y:scroll"> 
 											<h:dataTable id="tabelaFornecimento" var="list" value="#{benParceria.listaProdutoFronecido}" 
-												styleClass="table table-responsive  table-hover">							                    								             
+												styleClass="table table-responsive  table-hover" >							                    								             
 											          <f:facet name="header" ><span style="text-align: center"><h4>Produtos Fornecido</h4></span></f:facet>  
 											    
 												<h:column>	
@@ -145,7 +145,7 @@
 											          #{list.quantidade}
 											    </h:column>
 												<h:column>
-												    <f:facet name="header">Valor</f:facet>  									             
+												    <f:facet name="header">Valor unitario</f:facet>  									             
 											        <h:outputText value="#{list.valor_Varejo}" >
 																<f:convertNumber currencyCode="BRL" type="currency"/>
 													</h:outputText>            
@@ -165,7 +165,7 @@
 											          </h:commandLink>
 											    </h:column>
 											</h:dataTable>
-											<!-- final da tabela -->									
+											<!-- final da tabela -->																				
 										</h:panelGroup>
 									</div>
 								  </form> 
