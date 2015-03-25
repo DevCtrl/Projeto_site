@@ -14,11 +14,7 @@
      <ui:insert name="FormCliente">     
       <h:form id="formCli" prependId="false">         	       
         <h:dataTable id="tabelaEmpre" var="list" value="#{benEmpreendedor.lista}" 
-            styleClass="table table-responsive  table-hover" >
-           <h:column >
-              <f:facet name="header">Id</f:facet>
-              #{list.id}              
-          </h:column>
+            styleClass="table table-responsive  table-hover" >          
            <h:column >
               <f:facet name="header">Nome</f:facet>
               <h:commandLink action="#{benEmpreendedor.edita}" value="#{list.nome}">
@@ -38,8 +34,8 @@
              #{list.telefone} 
           </h:column>
           <h:column>
-             <f:facet name="header">Cep</f:facet>
-             #{list.cep}                                   
+             <f:facet name="header">FLP</f:facet>
+             #{list.flp}                                   
           </h:column>
       </h:dataTable> 
      <!-- final da tabela -->            

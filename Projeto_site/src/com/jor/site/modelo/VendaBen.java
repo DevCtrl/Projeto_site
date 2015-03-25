@@ -32,7 +32,7 @@ public class VendaBen {
 	VendaControler comandoVd = new VendaControler();
 	List lisPro = new ArrayList();
 	List<Produto> lisCarrinho = new ArrayList<Produto>();
-	List<Produto> lisVendido = new ArrayList<Produto>();
+	List lisVendido = new ArrayList();
 	private String ClientePesquisa;
 	private int quantidade = 1;
 	
@@ -43,6 +43,7 @@ public class VendaBen {
 	private double dinheiro = 0;
 	private boolean tipoPagamento ;
 	private String data;
+	private String dataPesquisaVenda;
 	
 	public VendaBen(){
 		lisPro = comando.listarDados();
@@ -78,11 +79,12 @@ public class VendaBen {
 	{
 	  if(getSubtotal() <= getDinheiro()){	  	  
 			if(!lisCarrinho.isEmpty()){
-				for (Produto produto : lisCarrinho) {
+				for (int i =0;i<lisCarrinho.size();i++) {
 					if(cli.getId() == 0 )
 					   cli.setId(255);
 					
 					vd.setCliente(cli);
+					pd = (Produto) comando.buscaProduto(lisCarrinho.get(i).getId());
 					vd.setProduto(pd);								
 					vd.setData(new SimpleDateFormat("dd/MM/yyyy").format(new Date()) );
 					
@@ -107,7 +109,16 @@ public class VendaBen {
 	  }
 	}
 	public void buscaVenda(){
-		//lisVendido = comando.buscaVenda(cli.getId(),data);
+		cliPesquisado = (Cliente) comandoCli.buscaCliente(cliPesquisado.getNome()); 
+		if(cliPesquisado.getId() != 0)	{			
+			lisVendido = comandoVd.buscaVenda(cliPesquisado.getId(),dataPesquisaVenda);
+		}else
+		{
+			Alerta.error("Selecione um cliente");
+		}
+		
+		
+		//System.out.println(lisVendido.get(0).getNome());
 	}
 	public void troca(){
 		
@@ -248,6 +259,22 @@ public class VendaBen {
 
 	public void setData(String data) {
 		this.data = data;
+	}
+
+	public Cliente getCliPesquisado() {
+		return cliPesquisado;
+	}
+
+	public void setCliPesquisado(Cliente cliPesquisado) {
+		this.cliPesquisado = cliPesquisado;
+	}
+
+	public String getDataPesquisaVenda() {
+		return dataPesquisaVenda;
+	}
+
+	public void setDataPesquisaVenda(String dataPesquisaVenda) {
+		this.dataPesquisaVenda = dataPesquisaVenda;
 	}
 	
 

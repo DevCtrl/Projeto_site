@@ -17,19 +17,16 @@ import com.jor.site.util.HibernateUtil;
 public class teste {
 	
 	public static void main(String[] args) {  
-	   RelatioControler c = new RelatioControler();
+	  
 	   List<Produto> p = new ArrayList<Produto>();
 		 VendaControler comando = new VendaControler();
-	   Date data = new Date();	
-	   DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+	  
        
 	  
-	   p = comando.buscaVenda(3, "14/03/2015");
+	   p = comando.buscaVenda();
 	 
 	   
-	   System.out.println(p.get(0).getNome());
+	   System.out.println(p.get(0).getNome()+" teste");
 	}  
-	public void b(){
-		
-	}
+	
 }

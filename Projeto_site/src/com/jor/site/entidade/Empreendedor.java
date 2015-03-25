@@ -36,7 +36,14 @@ public class Empreendedor  {
 	@Column(name= "cep")
 	private String Cep;
 	
-	private Double renda;
+	@Column(name= "flp")
+	private String Flp;
+	
+	@Column(name= "senhaFlp")
+	private String SenhaFlp;
+	
+	@Column(name= "senhaEmail")
+	private String SenhaEmail;
 	
 	@Column(name= "dataNacimento")
 	private String DataNacimento;
@@ -98,11 +105,24 @@ public class Empreendedor  {
 	public void setDataCadastro(String string) {
 		DataCadastro = string;
 	}
-	public Double getRenda() {
-		return renda;
+	
+	public String getFlp() {
+		return Flp;
 	}
-	public void setRenda(Double renda) {
-		this.renda = renda;
+	public void setFlp(String flp) {
+		Flp = flp;
+	}
+	public String getSenhaFlp() {
+		return SenhaFlp;
+	}
+	public void setSenhaFlp(String senhaFlp) {
+		SenhaFlp = senhaFlp;
+	}
+	public String getSenhaEmail() {
+		return SenhaEmail;
+	}
+	public void setSenhaEmail(String senhaEmail) {
+		SenhaEmail = senhaEmail;
 	}
 	public String getCep() {
 		return Cep;

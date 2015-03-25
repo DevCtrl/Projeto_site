@@ -1,9 +1,17 @@
 package com.jor.site.controle;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.Subqueries;
 
 import com.jor.site.entidade.Cliente;
 import com.jor.site.entidade.Produto;
@@ -40,19 +48,42 @@ public class VendaControler {
 			session.close();
 		}
 	}
-	public List<Produto> buscaVenda(long id, String data) {
+	public List<Produto> buscaVenda(long l,String data) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
+			System.out.println("metodo chamado");	   	    	
 	    	
 	    	session.beginTransaction();
-	        Query q = session.createQuery ("from Produto as p ,Venda as v "
-	        		                      + "where  p.id = 5");
-	        //q.setParameter("date", data);
-	        //q.setParameter("idCliente", id);
-	        return q.list();
+	        String sql ="from Produto where  id = any(from Venda"
+	       	                       + " where id_cliente =:id and data=:data )";
+	     
+	       Query q = session.createQuery(sql); 	       
+	       q.setParameter("data", data);
+	       q.setParameter("id", l);
+	       return  q.list();      
+	       
+	        
+	      
+	    
+	      
+	      
+	 //  List<Produto> pro = new ArrayList<Produto>();
+	 //  	 pro = q.list();
+	 //   for (int i = 0; i < pro.size(); i++) {
+	  //  	System.out.println(pro.get(i).getNome());
+		//}
+	   	 
+		//return null;
+	       
+	        
+	        
+	        
 	    } catch (Exception e) {
 	         System.out.println("erro ao pesquisar p"+e.getMessage());
 	    }
+		finally{
+			session.close();
+		}
 		return null;
 	}
 	

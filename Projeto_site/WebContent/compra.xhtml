@@ -27,16 +27,16 @@
 							<div class="panel-body">
 							      <div class="col-xs-4">
 										<div class="input-group">
-											<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
+											<input type="text" jsf:value="#{ben.cliPesquisado.nome}" class="form-control"/>
 											<span class="input-group-btn">
 														<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ><i class="fa fa-search"></i>
 												     	</button>
 												</span>						
 							        	</div> 
 							        	<br/>
-							        	 <input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>														
+							        	 <input type="text" jsf:value="#{ben.dataPesquisaVenda}" class="form-control"/>														
 							        	<br/>
-							        	 <button class="btn btn-primary">Pesquisa venda</button>
+							        	 <button type="submit" class="btn btn-primary" jsf:actionListener="#{ben.buscaVenda}">Pesquisa venda</button>
 										
 									</div>
 									<div class="panel panel-default col-xs-8">
@@ -45,7 +45,7 @@
 										</div>
 										<div class="panel-body">
 							
-											<h:dataTable id="tabelaCli" var="list" value="#{ben.lisPro}" rows="7"
+											<h:dataTable id="tabelaVenda" var="list" value="#{ben.lisVendido}" rows="7"
 												styleClass="table table-responsive  table-hover">
 							
 												<h:column>									              
