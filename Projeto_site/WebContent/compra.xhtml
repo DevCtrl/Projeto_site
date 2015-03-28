@@ -11,7 +11,7 @@
 		<ui:define name="Titulo">
 			<i class="fa fa-angle-right"></i> Venda</ui:define>			
 		<ui:define name="corpo">		 
-			<form jsf:id="form1">
+			<form jsf:id="form">   	 			      		   				
 				<div class="panel-group" id="accordion" role="tablist"
 					aria-multiselectable="true">
 					<div class="panel panel-primary">
@@ -25,13 +25,15 @@
 						<div id="collapseOne" class="panel-collapse collapse in"
 							role="tabpanel" aria-labelledby="headingOne">
 							<div class="panel-body">
+							
 							      <div class="col-xs-4">
 										<div class="input-group">
 											<input type="text" jsf:value="#{ben.cliPesquisado.nome}" class="form-control"/>
 											<span class="input-group-btn">
-														<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ><i class="fa fa-search"></i>
+														<button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#myModalCli" ><i class="fa fa-search"></i>
 												     	</button>
-											</span>						
+												     	
+											</span>						 
 							        	</div> 
 							        	<br/>
 							        	 <input type="text" jsf:value="#{ben.dataPesquisaVenda}" class="form-control"/>														
@@ -78,83 +80,19 @@
 									 </div>
 									</div>
 		
-							      
+							 
 							</div>
 						</div>
 					</div>
-					<div class="panel panel-info">
-						<div class="panel-heading" role="tab" id="headingTwo">
-							<h4 class="panel-title">
-								<a class="collapsed" data-toggle="collapse"
-									data-parent="#accordion" href="#collapseTwo"
-									aria-expanded="false" aria-controls="collapseTwo">
-									Trocar Produto </a>
-							</h4>
-						</div>
-						<div id="collapseTwo" class="panel-collapse collapse"
-							role="tabpanel" aria-labelledby="headingTwo">
-							<div class="panel-body">
-							      <div class="row">
-							        <div class="col-xs-5">
-							           <label>Produto a trocar</label>
-							          <div class="input-group">
-											<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
-											<span class="input-group-btn">
-														<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2"><i class="fa fa-search"></i>
-												     	</button>
-												</span>						
-							        	</div> 	
-							        </div>
-							        <div class="col-xs-3">
-							           <label>Quantidade</label>
-							           <input type="number" class="form-control"/>
-							        </div>
-							        <div class="col-xs-4">
-							           <br/>					           
-							           <label class="well pull-right">Valor  00,00</label>
-							        </div>
-							       </div>
-							       <div class="row"> 
-									 <div class="col-xs-5">
-							           <label>Produto requisitado</label>
-							           <div class="input-group">
-											<input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
-											<span class="input-group-btn">
-														<button type="submit" class="btn btn-primary" ><i class="fa fa-search"></i>
-												     	</button>
-												</span>						
-							        	</div> 	
-							         </div>
-							         <div class="col-xs-3">
-							           <label>Quantidade</label>
-							           <input type="number" class="form-control"/>
-							         </div>
-									 <div class="col-xs-4">
-									    <br/>
-							           
-							           <label class="well pull-right">Valor   00,00</label>
-							        </div>
-							        <br/>	
-									<button class="btn btn-primary">Trocar</button>
-									
-								  </div>
-							</div>
-						</div>
-					</div>			
-				</div>
-		 </form>
-		
-				
-				  <div class="containerc well">
-				    <h4>Carrinho de Compras <a href="vendas.xhtml" class="pull-right"><i class="fa fa-cart-plus fa-2x"></i></a></h4>
-				  </div>
-				
-				
-				
+				</div>	
+		       
+		       <button jsf:outcome="troca.xhtml" class="btn btn-info">Troca Produto</button>
+		      
 				
 		<!-- Modal -->
-				
-		<div class="modal fade" id="myModal" style="margin-top: 30px;">
+		
+			
+		<div class="modal fade" id="myModalCli" style="margin-top: 30px;">
 			 <div class="modal-dialog">
 			  <div class="modal-content">
 			   <div class="modal-header">
@@ -162,10 +100,12 @@
 					    <h4 class="modal-title">Cliente</h4>
 			   </div>
 			    <div class="modal-body">
-			         <h:dataTable  var="list" value="#{benCliente.lista}" rows="5"
+			         <h:dataTable id="tabelaCli" var="list" value="#{ben.lisCli}" rows="5"
 												styleClass="table table-responsive  table-hover">
-						<h:column>									              
-							         #{list.nome}            									                                                                                   
+						<h:column>
+						   <h:commandLink value=" #{list.nome}">
+						     <f:setPropertyActionListener target="#{ben.cliPesquisado}" value="#{list}"></f:setPropertyActionListener>									              
+							</h:commandLink>            									                                                                                   
 						</h:column>
 						<h:column>									             
 								     #{list.email}              
@@ -176,7 +116,9 @@
 					</h:dataTable>
 					<!-- final da tabela -->
 					 <label>Nome Cliente</label>					       
-					 <input jsf:id="ip" type="text" class="form-control" jsf:value="#{ben.clientePesquisa}" placeholder="digite o cliente"/>
+					 <input  type="text" class="form-control" jsf:value="#{ben.clientePesquisa}" placeholder="digite o cliente">
+					        <f:ajax event="keyup" listener="#{ben.buscaClientes}" render="tabelaCli"></f:ajax>
+					 </input>
 				</div>
 			   <div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>					       
@@ -186,41 +128,13 @@
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->	
 		<!-- Modal -->
-				
-		<div class="modal fade" id="myModal2" style="margin-top: 30px;">
-			 <div class="modal-dialog">
-			  <div class="modal-content">
-			   <div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					    <h4 class="modal-title">Cliente</h4>
-			   </div>
-			    <div class="modal-body">
-				 <h:dataTable  var="list" value="#{ben.lisPro}" rows="5"
-						styleClass="table table-responsive  table-hover">
-					<h:column>									              
-					         #{list.nome}            									                                                                                   
-					 </h:column>
-					<h:column>									             
-					         <h:outputText value="#{list.valor_Varejo}" >
-									<f:convertNumber currencyCode="BRL" type="currency"/>
-							</h:outputText>       
-					</h:column>												
-					<h:column>									             
-					           #{list.comprado} 
-					</h:column>
-				  </h:dataTable>
-				<!-- final da tabela -->
-					
-					 <label>Nome Produto</label>					       
-					 <input type="text" class="form-control" jsf:value="#{ben.clientePesquisa}" placeholder="digite o cliente"/>
-				</div>
-			   <div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>					       
-					<button type="submit" jsf:action="#{ben.buscaCliente}" class="btn btn-primary">Ok</button>
-			    </div>
-			  </div><!-- /.modal-content -->
-		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->	
+		
+		<!-- Modal -->
+		
+			
+		
+	  </form> 	
+		
 		</ui:define>
 	</ui:composition>
 </body>

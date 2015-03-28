@@ -48,41 +48,54 @@
 
 <body>
 	<form jsf:id="form1">
-		<div class="panel-group" id="accordion" 
-			aria-multiselectable="true" >
-			<div class="panel panel-primary">
-				<div class="panel-heading" id="headingOne">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" 
-							href="#collapseOne" 
-							> Pesquisar Venda </a>
-					</h4>
+		<button type="button" data-toggle="modal" data-target="#myModalPro">Modal 1</button>
+		<button type="button" data-toggle="modal" data-target="#myModalCli">Modal 2</button>
+		
+		
+		<!-- Modal -->
+		
+			
+		<div class="modal fade" id="myModalCli" style="margin-top: 30px;">
+			 <div class="modal-dialog">
+			  <div class="modal-content">
+			   <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					    <h4 class="modal-title">Cliente</h4>
+			   </div>
+			    <div class="modal-body">
+			        Modal 1
 				</div>
-				<div id="collapseOne" class="panel-collapse collapse"
-					role="tabpanel" aria-labelledby="headingOne">
-					<div class="panel-body">
-					  teste
-					</div>      
+			   <div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>					       
+					<button type="submit" jsf:action="#{ben.buscaCliente}" class="btn btn-primary">Ok</button>
+			    </div>
+			  </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->	
+		<!-- Modal -->
+		
+		<!-- Modal -->
+		
+			
+		<div class="modal fade" id="myModalPro" style="margin-top: 30px;">
+			 <div class="modal-dialog">
+			  <div class="modal-content">
+			   <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					    <h4 class="modal-title">Produtos</h4>
+			   </div>
+			    <div class="modal-body">
+			        Modal 2
 				</div>
-			</div>
-			<div class="panel panel-info">
-				<div class="panel-heading" role="tab" id="headingTwo">
-					<h4 class="panel-title">
-						<a class="collapsed" data-toggle="collapse"
-							data-parent="#accordion" href="#collapseTwo"
-							aria-expanded="false" aria-controls="collapseTwo">
-							Trocar Produto </a>
-					</h4>
-				</div>
-				<div id="collapseTwo" class="panel-collapse collapse"
-					role="tabpanel" aria-labelledby="headingTwo">
-					<div class="panel-body">
-					      teste 2
-					</div>
-				</div>
-			</div>			
-		</div>
- </form>
+			   <div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>					       
+					<button type="submit" jsf:action="#{ben.buscaCliente}" class="btn btn-primary">Ok</button>
+			    </div>
+			  </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->	
+		<!-- Modal -->	
+    </form>
 
 		
 		

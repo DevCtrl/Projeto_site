@@ -24,6 +24,8 @@ import com.jor.site.util.Alerta;
 public class VendaBen {
    
 	Produto pd = new Produto();
+	Produto produtoTroca1 = new Produto();
+	Produto produtoTroca2 = new Produto();
 	Cliente cli = new Cliente();
 	Cliente cliPesquisado = new Cliente();
 	Venda vd = new Venda();
@@ -33,6 +35,7 @@ public class VendaBen {
 	List<Produto> lisPro = new ArrayList<Produto>();
 	List<Produto> lisCarrinho = new ArrayList<Produto>();
 	List<Produto> lisVendido = new ArrayList<Produto>();
+	List<Cliente> lisCli = new ArrayList<Cliente>();
 	private String ClientePesquisa;
 	private int quantidade = 1;
 	
@@ -44,13 +47,12 @@ public class VendaBen {
 	private boolean tipoPagamento ;
 	private String data;
 	private String dataPesquisaVenda;
-	private Double totalPesquisaVenda = 0.0;
-	
+	private Double totalPesquisaVenda = 0.0;	
 	public VendaBen(){
 		
 		
 		  lisPro = comando.listarDados();
-		 
+		  lisCli = comandoCli.listarDados();
 	}
 		
 	public String add()
@@ -132,13 +134,37 @@ public class VendaBen {
 		}else
 		{
 			Alerta.error("Selecione um cliente");
+		}				
+	}
+	public void addTroca(){
+		produtoTroca1.setQuantidade(1);
+		System.out.println("camando chamado");
+	}
+	public void comparaTroca1()
+	{		
+		
+		if(produtoTroca1.getId() != 0)
+		  produtoTroca1.setComprado(produtoTroca1.getQuantidade()*produtoTroca1.getValor_Revenda());
+		else{
+			 Alerta.error("Primeiro Produto não exite");	
+			 produtoTroca1.setNome("");
 		}
-		
-		
-		//System.out.println(lisVendido.get(0).getNome());
+		 
+	}
+	public void comparaTroca2()
+	{  		
+		if(produtoTroca2.getId() != 0)
+		 produtoTroca2.setComprado(produtoTroca2.getQuantidade()*produtoTroca2.getValor_Revenda());
+		else{
+			 Alerta.error("Segundo Produto não exite");	
+			 produtoTroca1.setNome("");
+		}
 	}
 	public void troca(){
-		
+		if(produtoTroca1.getNome()!= "" && produtoTroca2.getNome()!= "")
+			 comandoVd.troca(produtoTroca1.getNome(),produtoTroca1.getQuantidade(),produtoTroca2.getNome(),produtoTroca2.getQuantidade());
+		else
+			Alerta.error("Selecione um produto cadastrado");
 	}
 	public void buscaProduto()
 	{  			
@@ -155,6 +181,9 @@ public class VendaBen {
 		else
 			cli.setNome(ClientePesquisa+" não e cliente");
 		return "null";
+	}
+	public void buscaClientes(){
+		lisCli = comandoCli.buscaClientes(ClientePesquisa);
 	}
 	public String buscapg(){
 		if(cliPesquisado.getId() != 0)
@@ -313,6 +342,30 @@ public class VendaBen {
 
 	public void setDataPesquisaVenda(String dataPesquisaVenda) {
 		this.dataPesquisaVenda = dataPesquisaVenda;
+	}
+
+	public List<Cliente> getLisCli() {
+		return lisCli;
+	}
+
+	public void setLisCli(List<Cliente> lisCli) {
+		this.lisCli = lisCli;
+	}
+
+	public Produto getProdutoTroca1() {
+		return produtoTroca1;
+	}
+
+	public void setProdutoTroca1(Produto produtoTroca1) {
+		this.produtoTroca1 = produtoTroca1;
+	}
+
+	public Produto getProdutoTroca2() {
+		return produtoTroca2;
+	}
+
+	public void setProdutoTroca2(Produto produtoTroca2) {
+		this.produtoTroca2 = produtoTroca2;
 	}
 	
 

@@ -48,6 +48,31 @@ public class VendaControler {
 			session.close();
 		}
 	}
+    public void troca(String nome, Integer quantidade, String nome2,Integer quantidade2) {
+    	Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			session.beginTransaction();
+			 //aumentar quantidade do produto no banco 
+			  String hql = "update Produto set quantidade = quantidade +:quantidade where nome = :nome";
+			  Query query = session.createQuery(hql);
+			  query.setParameter("quantidade", quantidade);
+			  query.setParameter("nome", nome);
+			  query.executeUpdate();
+			//diminuir quantidade do produto no banco   
+			  String hql2 = "update Produto set quantidade = quantidade -:quantidade where id = :id";
+			  Query query2 = session.createQuery(hql2);
+			  query.setParameter("quantidade", quantidade2);
+			  query.setParameter("nome", nome2);
+			  query.executeUpdate();
+			  
+			 session.getTransaction().commit(); 
+			 System.out.println("troca feita com sucesso");
+		}
+		finally {			
+			session.close();
+		}
+		
+	}
 	public List<Produto> buscaVenda(long l,String data) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
@@ -69,19 +94,11 @@ public class VendaControler {
 	        	p.setQuantidade(quant);
 	        	p.setComprado(v.get(i).getComprado());
 	        	pro.add(p);
-	        }
-	      
-	 //  List<Produto> pro = new ArrayList<Produto>();
-	 //  	 pro = q.list();
-	 //   for (int i = 0; i < pro.size(); i++) {
-	 //   	System.out.println(pro.get(i).getNome());
-	//	}
+	        }      
+	
 	   	 
-		return pro;
-	       
-	        
-	        
-	        
+		return pro;   	        	        
+		
 	    } catch (Exception e) {
 	         System.out.println("erro ao pesquisar p"+e.getMessage());
 	    }
