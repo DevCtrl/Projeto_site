@@ -30,6 +30,17 @@ public class Venda {
 	
 	@Column
 	private String data;
+    
+	@Column(name="comprado")
+	private double Comprado;
+	
+	public double getComprado() {
+		return Comprado;
+	}
+
+	public void setComprado(double comprado) {
+		Comprado = comprado;
+	}
 
 	public long getId() {
 		return id;
@@ -62,6 +73,8 @@ public class Venda {
 	public void setData(String data) {
 		this.data = data;
 	}
+
+	
 	
 	
 }

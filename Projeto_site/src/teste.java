@@ -23,7 +23,7 @@ public class teste {
 	  
        
 	  
-	   p = comando.buscaVenda();
+	   //p = comando.buscaVenda();
 	 
 	   
 	   System.out.println(p.get(0).getNome()+" teste");

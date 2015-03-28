@@ -30,9 +30,9 @@ public class VendaBen {
 	ProdutoControler comando = new ProdutoControler();
 	ClienteControler comandoCli = new ClienteControler();
 	VendaControler comandoVd = new VendaControler();
-	List lisPro = new ArrayList();
+	List<Produto> lisPro = new ArrayList<Produto>();
 	List<Produto> lisCarrinho = new ArrayList<Produto>();
-	List lisVendido = new ArrayList();
+	List<Produto> lisVendido = new ArrayList<Produto>();
 	private String ClientePesquisa;
 	private int quantidade = 1;
 	
@@ -44,10 +44,13 @@ public class VendaBen {
 	private boolean tipoPagamento ;
 	private String data;
 	private String dataPesquisaVenda;
+	private Double totalPesquisaVenda = 0.0;
 	
 	public VendaBen(){
-		lisPro = comando.listarDados();
 		
+		
+		  lisPro = comando.listarDados();
+		 
 	}
 		
 	public String add()
@@ -62,6 +65,7 @@ public class VendaBen {
 			lisCarrinho.add(pd);
 			
 			total = total + subtotal;
+			
 			
 			quantidade = 1;
 		   	return  "vendas.xhtml";
@@ -87,10 +91,12 @@ public class VendaBen {
 					pd = (Produto) comando.buscaProduto(lisCarrinho.get(i).getId());
 					vd.setProduto(pd);								
 					vd.setData(new SimpleDateFormat("dd/MM/yyyy").format(new Date()) );
+			    	vd.setComprado(lisCarrinho.get(i).getComprado());
+					
 					
 					comandoVd.inserir(vd);
 					//diminuir do estoque
-					comandoVd.diminuirEstoque(pd.getId(), pd.getQuantidade());
+					comandoVd.diminuirEstoque(lisCarrinho.get(i).getId(), lisCarrinho.get(i).getQuantidade());
 				}	
 				Alerta.info("venda foi  finalizada com sucesso");
 				lisCarrinho.clear();
@@ -112,6 +118,17 @@ public class VendaBen {
 		cliPesquisado = (Cliente) comandoCli.buscaCliente(cliPesquisado.getNome()); 
 		if(cliPesquisado.getId() != 0)	{			
 			lisVendido = comandoVd.buscaVenda(cliPesquisado.getId(),dataPesquisaVenda);
+			if(lisVendido.isEmpty()){
+				Alerta.error("Nenhuma pesquisa foi encontrada");
+				totalPesquisaVenda = 0.0;
+			}
+				
+			else{
+				for (int i = 0; i < lisVendido.size(); i++) {
+					totalPesquisaVenda = totalPesquisaVenda+lisVendido.get(i).getComprado();
+				}
+			}
+				
 		}else
 		{
 			Alerta.error("Selecione um cliente");
@@ -141,7 +158,24 @@ public class VendaBen {
 	}
 	public String buscapg(){
 		if(cliPesquisado.getId() != 0)
-		return "configurevenda.xhtml";
+		{
+			lisPro = comando.listarDados();
+			 if(lisCarrinho.size() > 0)
+			  {
+				
+				for (int i = 0; i < lisCarrinho.size();i++) {					
+					for (int j = 0; j < lisPro.size(); j++) {
+						System.out.println(lisCarrinho.get(i).getNome() +"="+ lisPro.get(j).getNome());
+						if(lisCarrinho.get(i).getNome().equals(lisPro.get(j).getNome())){							
+							lisPro.get(j).setQuantidade(lisPro.get(j).getQuantidade()-lisCarrinho.get(i).getQuantidade());											
+						    
+						}
+							
+					}
+				}
+			}
+			 return "configurevenda.xhtml";
+		}		
 		else{
 			Alerta.error("Selecione um cliente para venda");
 			return null;
@@ -210,6 +244,10 @@ public class VendaBen {
 
 	public int getDesconto() {
 		return desconto;
+	}
+
+	public Double getTotalPesquisaVenda() {
+		return totalPesquisaVenda;
 	}
 
 	public void setDesconto(int desconto) {

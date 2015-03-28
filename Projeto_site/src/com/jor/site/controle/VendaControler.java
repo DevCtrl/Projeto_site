@@ -54,26 +54,30 @@ public class VendaControler {
 			System.out.println("metodo chamado");	   	    	
 	    	
 	    	session.beginTransaction();
-	        String sql ="from Produto where  id = any(from Venda"
-	       	                       + " where id_cliente =:id and data=:data )";
-	     
-	       Query q = session.createQuery(sql); 	       
-	       q.setParameter("data", data);
-	       q.setParameter("id", l);
-	       return  q.list();      
-	       
-	        
-	      
-	    
-	      
+	           
+	    	List<Produto> pro = new ArrayList<Produto>(); 
+	    	Query q = session.createQuery("from Venda where id_cliente =:id and data=:data "); 
+	    	q.setParameter("data", data);
+		    q.setParameter("id", l);
+		    List<Venda> v = new ArrayList<Venda>();
+		    v = q.list();
+	        for(int i=0;i<v.size();i++){
+	        	Query h = session.createQuery("from Produto where id = "+v.get(i).getProduto().getId()); 
+	        	Produto p = new Produto();
+	        	p=(Produto) h.uniqueResult();
+	        	int quant = (int) (v.get(i).getComprado()/p.getValor_Revenda());
+	        	p.setQuantidade(quant);
+	        	p.setComprado(v.get(i).getComprado());
+	        	pro.add(p);
+	        }
 	      
 	 //  List<Produto> pro = new ArrayList<Produto>();
 	 //  	 pro = q.list();
 	 //   for (int i = 0; i < pro.size(); i++) {
-	  //  	System.out.println(pro.get(i).getNome());
-		//}
+	 //   	System.out.println(pro.get(i).getNome());
+	//	}
 	   	 
-		//return null;
+		return pro;
 	       
 	        
 	        
