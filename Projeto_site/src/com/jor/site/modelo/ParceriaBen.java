@@ -130,7 +130,7 @@ public class ParceriaBen {
 	    listaProdutoFronecido = comandoFornecido.buscaProdutoFornecidos(fornecido.getDataCadastro(),parceria.getId());	
 	    if(parceria.getId() == 0)	        	
         	Alerta.warn("Selecione um vendedor para pesquisar");
-	    if(listaProdutoFronecido.isEmpty() && parceria.getId() != 0)
+	    if(listaProdutoFronecido.isEmpty() && parceria.getId() != 0 && fornecido.getDataCadastro() != "")
         	Alerta.warn("Nada foi encontrado nessa data");
 	}
 	

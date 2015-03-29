@@ -48,55 +48,88 @@
 
 <body>
 	<form jsf:id="form1">
-		<button type="button" data-toggle="modal" data-target="#myModalPro">Modal 1</button>
-		<button type="button" data-toggle="modal" data-target="#myModalCli">Modal 2</button>
-		
-		
-		<!-- Modal -->
-		
-			
-		<div class="modal fade" id="myModalCli" style="margin-top: 30px;">
-			 <div class="modal-dialog">
-			  <div class="modal-content">
-			   <div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					    <h4 class="modal-title">Cliente</h4>
-			   </div>
-			    <div class="modal-body">
-			        Modal 1
-				</div>
-			   <div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>					       
-					<button type="submit" jsf:action="#{ben.buscaCliente}" class="btn btn-primary">Ok</button>
-			    </div>
-			  </div><!-- /.modal-content -->
-		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->	
-		<!-- Modal -->
-		
-		<!-- Modal -->
-		
-			
-		<div class="modal fade" id="myModalPro" style="margin-top: 30px;">
-			 <div class="modal-dialog">
-			  <div class="modal-content">
-			   <div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					    <h4 class="modal-title">Produtos</h4>
-			   </div>
-			    <div class="modal-body">
-			        Modal 2
-				</div>
-			   <div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>					       
-					<button type="submit" jsf:action="#{ben.buscaCliente}" class="btn btn-primary">Ok</button>
-			    </div>
-			  </div><!-- /.modal-content -->
-		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->	
-		<!-- Modal -->	
-    </form>
-
+		 
+			    					
+						   <div class="row-fluid">
+						     <div class="col-xs-4">
+						       <label>Nome Produto</label>
+						       <div class="input-group">									
+									<h:inputText value="#{ben.pdTroca1}" styleClass="form-control"></h:inputText>
+													 
+								 	</div> 
+						     </div>
+						      <div class="col-xs-4">
+						      <label>Quantidade</label>
+						        <input class="form-control" jsf:value="#{ben.quantidadeTroca1}"  type="number">
+						         <f:ajax event="change" listener="#{ben.comparaTroca1}" ></f:ajax>
+						        </input>
+						     </div>
+						    </div>
+						    <div class="row-fluid">
+						     <div class="col-xs-4">
+						       <label>Nome Produto</label>
+						       <div class="input-group">
+									<input jsf:id="nome2" type="text" jsf:value="#{ben.pdTroca2}"  class="form-control"/>														 
+								 
+						     </div>
+						     </div>
+						      <div class="col-xs-4">
+						      <label>Quantidade</label>
+						        <input class="form-control" jsf:value="#{ben.quantidadeTroca2}" type="number">
+						           <f:ajax event="change" listener="#{ben.comparaTroca2}" ></f:ajax>
+						        </input>
+						     </div>
+						     
+						   <div class="row-fluid" style="padding: 15px;">
+						      <button class="btn btn-success" jsf:actionListerner="#{ben.comparaTroca1}">Realizar troca</button>
+						      <button class="btn btn-danger" type="reset">Cancelar</button>
+						   </div>
+						   </div>
+					     
+				   	
+					
+						
+				
+					
+				<div class="modal fade" id="myModalPro" style="margin-top: 30px;">
+					 <div class="modal-dialog">
+					  <div class="modal-content">
+					   <div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							    <h4 class="modal-title">Produtos</h4>
+					   </div>
+					    <div class="modal-body">
+					         <h:dataTable id="tabelaPro" var="list" value="#{ben.lisPro}" rows="5"
+														styleClass="table table-responsive  table-hover">
+								<h:column>
+								   <h:commandLink value=" #{list.nome}" actionListener="#{ben.addTroca}">
+								     <f:setPropertyActionListener target="#{ben.produtoTroca1}" value="#{list}"></f:setPropertyActionListener>									              
+								   </h:commandLink>            									                                                                                   
+								</h:column>
+								<h:column>									             
+										     #{list.quantidade}              
+								</h:column>												
+								<h:column>									             
+											 #{list.valor_Varejo} 
+							    </h:column>
+							</h:dataTable>
+							<!-- final da tabela -->
+							 <label>Nome do Produto</label>					       
+							 <input  type="text" class="form-control" jsf:value="#{ben.pd.nome}" placeholder="digite o produto">
+							        <f:ajax event="keyup" listener="#{ben.buscaProduto}" render="tabelaPro"></f:ajax>
+							 </input>
+						</div>
+					   <div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>					       
+							<button type="submit" jsf:action="#{ben.buscaCliente}" class="btn btn-primary">Ok</button>
+					    </div>
+					  </div><!-- /.modal-content -->
+				  </div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->	
+				<!-- Modal -->	
+				
+			 
+</form>
 		
 		
 

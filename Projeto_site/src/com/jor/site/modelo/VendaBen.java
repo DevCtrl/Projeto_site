@@ -44,10 +44,15 @@ public class VendaBen {
 	private int desconto = 0;
 	private double troco = 0;
 	private double dinheiro = 0;
+	private double trocaValor=0.0;
+	private String tipoValorTroca;
 	private boolean tipoPagamento ;
 	private String data;
 	private String dataPesquisaVenda;
 	private Double totalPesquisaVenda = 0.0;	
+	private int quantidadeTroca1 = 0;
+	private int quantidadeTroca2 = 0;
+	
 	public VendaBen(){
 		
 		
@@ -136,35 +141,53 @@ public class VendaBen {
 			Alerta.error("Selecione um cliente");
 		}				
 	}
-	public void addTroca(){
-		produtoTroca1.setQuantidade(1);
-		System.out.println("camando chamado");
+	public void addTroca(){				
+		  quantidadeTroca1 = 1;		
+	}
+	public void addTroca2(){				
+		  quantidadeTroca2 = 1;			  
 	}
 	public void comparaTroca1()
-	{		
-		
-		if(produtoTroca1.getId() != 0)
-		  produtoTroca1.setComprado(produtoTroca1.getQuantidade()*produtoTroca1.getValor_Revenda());
-		else{
-			 Alerta.error("Primeiro Produto não exite");	
-			 produtoTroca1.setNome("");
+	{							
+		if(produtoTroca1.getId() != 0){
+		  produtoTroca1.setComprado(quantidadeTroca1*produtoTroca1.getValor_Revenda());		
+		  
 		}
-		 
 	}
 	public void comparaTroca2()
-	{  		
-		if(produtoTroca2.getId() != 0)
-		 produtoTroca2.setComprado(produtoTroca2.getQuantidade()*produtoTroca2.getValor_Revenda());
-		else{
-			 Alerta.error("Segundo Produto não exite");	
-			 produtoTroca1.setNome("");
-		}
+	{  			
+		
+		if(produtoTroca2.getId() != 0){
+			produtoTroca2.setComprado(quantidadeTroca2*produtoTroca2.getValor_Revenda());
+			if(produtoTroca1.getComprado() > produtoTroca2.getComprado()){
+				  trocaValor = produtoTroca1.getComprado() - produtoTroca2.getComprado();
+				  tipoValorTroca = "Você tem Credito ";
+			}
+		   else{
+				  trocaValor = produtoTroca2.getComprado() - produtoTroca1.getComprado();
+				  tipoValorTroca = "Falta Pagar  ";
+		   }
+	   }
+	
 	}
-	public void troca(){
-		if(produtoTroca1.getNome()!= "" && produtoTroca2.getNome()!= "")
-			 comandoVd.troca(produtoTroca1.getNome(),produtoTroca1.getQuantidade(),produtoTroca2.getNome(),produtoTroca2.getQuantidade());
+	public void trocar(){
+		
+		if(produtoTroca1.getNome()!= "" && produtoTroca2.getNome()!= ""){
+			System.out.println(produtoTroca1.getId()+" "+produtoTroca1.getNome()+" "+quantidadeTroca1);
+			comandoVd.diminuirEstoque(produtoTroca1.getId(), quantidadeTroca1);
+		    comandoVd.aumentaEstoque(produtoTroca2.getId(), quantidadeTroca2);
+		   
+		    produtoTroca1 = new Produto();
+		    produtoTroca2 = new Produto();
+		    quantidadeTroca2 =1;
+		    quantidadeTroca1 =1;
+		    trocaValor = 0.0;
+		    tipoValorTroca="";
+		    
+		}
 		else
 			Alerta.error("Selecione um produto cadastrado");
+		
 	}
 	public void buscaProduto()
 	{  			
@@ -228,7 +251,7 @@ public class VendaBen {
 		return lisPro;
 	}
 	public void setLisPro(List lisPro) {
-		this.lisPro = lisPro;
+		this.lisPro = comando.listarDados();
 	}
 	public List getLisCarrinho() {
 		return lisCarrinho;
@@ -367,6 +390,40 @@ public class VendaBen {
 	public void setProdutoTroca2(Produto produtoTroca2) {
 		this.produtoTroca2 = produtoTroca2;
 	}
+
+	public int getQuantidadeTroca1() {
+		return quantidadeTroca1;
+	}
+
+	public void setQuantidadeTroca1(int quantidadeTroca1) {
+		this.quantidadeTroca1 = quantidadeTroca1;
+	}
+
+	public int getQuantidadeTroca2() {
+		return quantidadeTroca2;
+	}
+
+	public void setQuantidadeTroca2(int quantidadeTroca2) {
+		this.quantidadeTroca2 = quantidadeTroca2;
+	}
+
+	public double getTrocaValor() {
+		return trocaValor;
+	}
+
+	public void setTrocaValor(double trocaValor) {
+		this.trocaValor = trocaValor;
+	}
+
+	public String getTipoValorTroca() {
+		return tipoValorTroca;
+	}
+
+	public void setTipoValorTroca(String tipoValorTroca) {
+		this.tipoValorTroca = tipoValorTroca;
+	}
+
+	
 	
 
 	

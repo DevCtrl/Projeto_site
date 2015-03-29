@@ -41,32 +41,30 @@ public class VendaControler {
 			  query.setParameter("quantidade", quantidade);
 			  query.setParameter("id", id);
 			  query.executeUpdate();
-			 session.getTransaction().commit(); 
-			 System.out.println("alteração feita com sucesso");
+			 session.getTransaction().commit(); 			
+		}
+		catch(Exception erro){
+			System.out.println(erro.getMessage());
 		}
 		finally {			
 			session.close();
 		}
 	}
-    public void troca(String nome, Integer quantidade, String nome2,Integer quantidade2) {
+    public void aumentaEstoque(long id, int quantidade) {
     	Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
+			
 			session.beginTransaction();
 			 //aumentar quantidade do produto no banco 
-			  String hql = "update Produto set quantidade = quantidade +:quantidade where nome = :nome";
+			  String hql = "update Produto set quantidade = quantidade +:quantidade where id = :id";
 			  Query query = session.createQuery(hql);
 			  query.setParameter("quantidade", quantidade);
-			  query.setParameter("nome", nome);
+			  query.setParameter("id", id);
 			  query.executeUpdate();
-			//diminuir quantidade do produto no banco   
-			  String hql2 = "update Produto set quantidade = quantidade -:quantidade where id = :id";
-			  Query query2 = session.createQuery(hql2);
-			  query.setParameter("quantidade", quantidade2);
-			  query.setParameter("nome", nome2);
-			  query.executeUpdate();
-			  
-			 session.getTransaction().commit(); 
-			 System.out.println("troca feita com sucesso");
+			session.getTransaction().commit(); 
+			session.beginTransaction();
+			
+			Alerta.info("Troca realizada com sucesso");
 		}
 		finally {			
 			session.close();

@@ -3,15 +3,15 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" xmlns:jsf="http://xmlns.jcp.org/jsf">
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
 
 <body>
 	<ui:composition template="sistema.xhtml">
 		<ui:define name="Titulo">
-			<i class="fa fa-angle-right"></i> Venda</ui:define>			
+			<i class="fa fa-angle-right"></i> pesquisa venda</ui:define>			
 		<ui:define name="corpo">		 
-			<form jsf:id="form">   	 			      		   				
+			<form jsf:id="form1">   	 			      		   				
 				<div class="panel-group" id="accordion" role="tablist"
 					aria-multiselectable="true">
 					<div class="panel panel-primary">
@@ -36,7 +36,7 @@
 											</span>						 
 							        	</div> 
 							        	<br/>
-							        	 <input type="text" jsf:value="#{ben.dataPesquisaVenda}" class="form-control"/>														
+							        	 <input type="date" jsf:id="data" jsf:value="#{ben.dataPesquisaVenda}" class="form-control"/>														
 							        	<br/>
 							        	 <button type="submit" class="btn btn-primary" jsf:actionListener="#{ben.buscaVenda}">Pesquisa venda</button>
 										
@@ -85,10 +85,13 @@
 						</div>
 					</div>
 				</div>	
-		       
-		       <button jsf:outcome="troca.xhtml" class="btn btn-info">Troca Produto</button>
-		      
+		        <div class="col-xs-12 well">
+		             <button jsf:outcome="troca.xhtml" class="btn btn-info"><i class="fa fa-cart-arrow-down fa-2x"></i> Troca Produto</button>
+		              <button jsf:outcome="vendas.xhtml" class="btn btn-info pull-right" >Vendas <i class="fa fa-cart-plus fa-2x" /></button>
+		            
 				
+		        </div>
+		     
 		<!-- Modal -->
 		
 			
