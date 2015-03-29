@@ -8,11 +8,15 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.swing.text.html.ListView;
+
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.jor.site.entidade.Cliente;
 import com.jor.site.entidade.Produto;
+import com.jor.site.entidade.Venda;
 import com.jor.site.util.HibernateUtil;
 
 public class RelatioControler {
@@ -147,6 +151,56 @@ public class RelatioControler {
 			    dezembro2++;
 	 }
 	 
+	 public List<Produto> relatorioVenda(){
+		 List<Produto> listPro = new ArrayList<Produto>();
+		 List<Produto> listResultado = new ArrayList<Produto>();
+		 listPro = new ProdutoControler().listarDados();
+		 List<Venda> lisVen = new ArrayList<Venda>();
+		 session = HibernateUtil.getSessionFactory().openSession();
+		 Criteria cri =session.createCriteria(Venda.class);
+		 lisVen = cri.list();
+		 session.close();
+		 
+		 for (int i = 0; i < listPro.size() ; i++) {
+			 Produto pd = new Produto();
+			 boolean op = false;
+			for (int j = 0; j < lisVen.size(); j++) {
+				if(listPro.get(i).getId() == lisVen.get(j).getProduto().getId()){				
+					
+					if(op == false){
+					pd.setQuantidade((int) ( lisVen.get(j).getComprado()/listPro.get(i).getValor_Revenda()));
+					pd.setNome(listPro.get(i).getNome());					
+					listResultado.add(pd);
+					  op = true;
+					}
+					else{
+						//pd.setQuantidade((int) ( pd.getQuantidade()+lisVen.get(j).getComprado()/listPro.get(i).getValor_Revenda()));
+						listResultado.get(listResultado.size()-1).setQuantidade((int) ( pd.getQuantidade()+lisVen.get(j).getComprado()/listPro.get(i).getValor_Revenda()));						
+					}
+				}
+				
+			}
+			op = false;
+		}
+		listPro.clear();
+		for (int j = 0; j < 4; j++) {		
+		  Produto p = new Produto();
+			 int cont = 0;
+			 int index = 0;
+			for (int i = 0; i< listResultado.size(); i++) {				
+				if(listResultado.get(i).getQuantidade() > cont ){
+					cont = listResultado.get(i).getQuantidade();
+					index = i;
+					
+				}
+			}
+			p.setNome(listResultado.get(index).getNome());
+			p.setQuantidade(listResultado.get(index).getQuantidade());
+			listResultado.remove(index);
+			listPro.add(p);
+		}	
+		return listPro;
+	 }
 	public int getJaneiro() {
 		return janeiro;
 	}

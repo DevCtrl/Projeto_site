@@ -13,9 +13,11 @@ public class tx {
 	  
        
 	  
-	    comando.buscaVenda(1,"22/03/2015");
+	    p = new RelatioControler().relatorioVenda();
 	 
-	   
+	   for (int i = 0; i < p.size(); i++) {
+		System.out.println(p.get(i).getNome()+" "+p.get(i).getQuantidade());
+	}
 	  // System.out.println(p.get(0).getNome());
 	}
 
