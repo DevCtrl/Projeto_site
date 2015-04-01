@@ -37,7 +37,7 @@
 		          <input class="form-control" jsf:id="cpf" jsf:value="#{benParceria.parceria.cpf}" placeholder="CPF" required="true" type="text"/>
 		          </div>
 		          <div class="col-xs-4">
-		          <input class="form-control" jsf:value="#{benParceria.parceria.rg}" placeholder="RG"  type="text" />
+		          <input class="form-control"  jsf:value="#{benParceria.parceria.rg}" placeholder="RG"  type="text" maxlength="11"/>
 		          </div>
 		          <div class="col-xs-4">
 		              <h:selectOneMenu value="#{benParceria.contrato.id}" styleClass="form-control">
@@ -211,7 +211,7 @@
 					    <input type="number" class="form-control" jsf:value="#{benParceria.quantidadeFornecido}" placeholder="Quantidade"/>
 					</div>
 					<div class="col-xs-4 pull-right">
-					    <input type="date" class="form-control" jsf:value="#{benParceria.dataContaFornecido}" placeholder="Data presta contas"/>
+					    <input type="date" jsf:id="data" class="form-control" jsf:value="#{benParceria.dataContaFornecido}" placeholder="Data presta contas"/>
 					</div>
 				</div>
 				<br />

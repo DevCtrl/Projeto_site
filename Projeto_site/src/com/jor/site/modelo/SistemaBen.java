@@ -9,9 +9,13 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
 import com.jor.site.controle.ClienteControler;
+import com.jor.site.controle.EmpreendedorControler;
+import com.jor.site.controle.ParceriaControler;
 import com.jor.site.controle.ProdutoControler;
 import com.jor.site.controle.UsuarioControler;
 import com.jor.site.entidade.Cliente;
+import com.jor.site.entidade.Empreendedor;
+import com.jor.site.entidade.Parceria;
 import com.jor.site.entidade.Produto;
 import com.jor.site.entidade.Usuario;
 import com.jor.site.util.Alerta;
@@ -25,9 +29,13 @@ public class SistemaBen {
 	private String senha;	
 	private  int quanteP = 0;
 	private  int quanteC = 0;
+	private  int quanteV = 0;
+	private  int quanteE = 0;
 	
 	List<Cliente> listc = new ArrayList<Cliente>();
 	List<Produto> listp = new ArrayList<Produto>();
+	List<Parceria> listv = new ArrayList<Parceria>();
+	List<Empreendedor> liste = new ArrayList<Empreendedor>();
 	Usuario us = new Usuario();
 	
 	
@@ -35,11 +43,13 @@ public class SistemaBen {
 	{
 		listc = new ClienteControler().listarDados();
 		listp = new ProdutoControler().listarDados();
-		for (Cliente cliente : listc) 
-			quanteC ++;
-		for (Produto produto : listp) 
-			quanteP ++;				
+		listv = new ParceriaControler().listarDados();
+		liste = new EmpreendedorControler().listarDados();
 		
+			quanteC = listc.size();
+		    quanteP = listp.size();		
+			quanteV = listv.size();		
+            quanteE = liste.size();
 	}			
 	public String login()
 	{
@@ -89,6 +99,12 @@ public class SistemaBen {
 	}
 	public void setUs(Usuario us) {
 		this.us = us;
+	}
+	public int getQuanteV() {
+		return quanteV;
+	}
+	public int getQuanteE() {
+		return quanteE;
 	}
     
 	

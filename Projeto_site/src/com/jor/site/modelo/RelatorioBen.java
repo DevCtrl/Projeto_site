@@ -41,14 +41,14 @@ public class RelatorioBen {
   }       
    
 public void painel() {
-	if(grafico == "graficoCli")
-		titulo="Graficos de Cliente Cadastrados";
-	if(grafico == "graficoProduto")
-		titulo="Graficos de Produtos Cadastrados";
-	if(grafico == "graficoVenda")
+	if(grafico.length() == 10)
+		titulo="Grafico de Clientes Cadastrados";  	
+	if(grafico.length() == 14)
+		titulo="Graficos de Produtos Cadastrados";		
+	if(grafico.length() == 12)
 		titulo="Graficos de Produtos Mais Vendidos";
-	System.out.println("metodo chamado");
-	System.out.println(grafico);
+	
+	
 }  
    
 public RelatioControler getComando() {

@@ -133,7 +133,7 @@
 				                                    <i class="fa fa-shopping-cart fa-5x"></i>
 				                                </div>
 				                                <div class="col-xs-9 text-right">
-				                                    <div class="huge">124</div>
+				                                    <div class="huge">#{benSistema.quanteV}</div>
 				                                    <div>Vendedores</div>
 				                                </div>
 				                            </div>
@@ -155,7 +155,7 @@
 				                                    <i class="fa fa-sitemap fa-5x"></i>
 				                                </div>
 				                                <div class="col-xs-9 text-right">
-				                                    <div class="huge">13</div>
+				                                    <div class="huge">#{benSistema.quanteE}</div>
 				                                    <div>Empreendedores</div>
 				                                </div>
 				                            </div>
@@ -191,7 +191,9 @@
 					<li><a href="cliente.xhtml"><i
 							class="glyphicon glyphicon-user"></i> Cliente</a></li>
 					<li><a href="empreendedor.xhtml"><i
-							class="glyphicon glyphicon-user"></i> Empreendedor</a></li>		
+							class="glyphicon glyphicon-user"></i> Empreendedor</a></li>
+					<li><a href="parcerias.xhtml"><i
+							class="glyphicon glyphicon-briefcase"></i> Vendedores</a></li>	
 					<li><a href="produto.xhtml"><i
 							class="glyphicon glyphicon-list-alt"></i> Produto</a></li>
 					<li><a id="user"  href="usuario.xhtml" ><i
@@ -199,9 +201,7 @@
 					<li><a href="compra.xhtml"><i
 					        class="glyphicon glyphicon-shopping-cart"></i> Vendas</a></li>
 					<li><a href="releatorio.xhtml"><i
-							class="glyphicon glyphicon-folder-open"></i> Relatorio</a></li>
-					<li><a href="parcerias.xhtml"><i
-							class="glyphicon glyphicon-briefcase"></i> Vendedores</a></li>
+							class="glyphicon glyphicon-folder-open"></i> Relatorio</a></li>					
 					<li><a id="config" href="configuracao.xhtml"><i
 							class="glyphicon glyphicon-cog"></i> configuração</a></li>
 				</ul>			 
@@ -236,12 +236,14 @@
                 	    $("#data").mask("99/99/9999");
                 	    $("#form1\\:cnpj").mask("99.999.999/9999-99");  
 				        $("#form1\\:telefone").mask("(99) 9999-9999");
-				        $("#form1\\:telefone2").mask("(99) 9999-9999");		          				         
+				        $("#form1\\:telefone2").mask("(99) 9999-9999");	
+				        $("#form1\\:cpf").mask("999.999.999-99");				                				         
 				        $("#form1\\:data").mask("99/99/9999");
 				        $("#form2\\:data").mask("99/99/9999");
 				        $("#form2\\:data2").mask("99/99/9999");  
-				        $("#form3\\:data").mask("99/99/9999");				          
-				       
+				        $("#form3\\:data").mask("99/99/9999");
+				        $("#formModal\\:data").mask("99/99/9999");				          
+				        
 				    });
 
 			 //bt disable	

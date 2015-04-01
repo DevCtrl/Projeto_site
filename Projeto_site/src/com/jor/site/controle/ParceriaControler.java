@@ -95,6 +95,10 @@ public class ParceriaControler {
 	    } catch (Exception e) {
 	         System.out.println("erro ao pesquisar p"+e.getMessage());
 	    }
+		finally
+		{
+			session.close();
+		}
 		return null;
 	}		
 	

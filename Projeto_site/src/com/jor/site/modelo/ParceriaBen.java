@@ -121,16 +121,19 @@ public class ParceriaBen {
 	}
 	public void deletarProdutoFornecido()
 	{
+	  if(fornecido.getId() != 0){	
 		comandoFornecido.deletar(fornecido);
 		fornecido = new ProdutoFornecido();
 		listaProdutoFronecido = new ArrayList();
-		
+	  }
+	  else
+		  Alerta.error("operação não foi executada \n Tente novamente");
 	}
 	public void buscaProdutoFornecido(){		
 	    listaProdutoFronecido = comandoFornecido.buscaProdutoFornecidos(fornecido.getDataCadastro(),parceria.getId());	
 	    if(parceria.getId() == 0)	        	
         	Alerta.warn("Selecione um vendedor para pesquisar");
-	    if(listaProdutoFronecido.isEmpty() && parceria.getId() != 0 && fornecido.getDataCadastro() != "")
+	    if(listaProdutoFronecido.isEmpty() && parceria.getId() != 0 && fornecido.getDataCadastro().length() == 10)
         	Alerta.warn("Nada foi encontrado nessa data");
 	}
 	

@@ -32,8 +32,7 @@ public class ProdutoFornecidoControler {
 	public void deletar(ProdutoFornecido ProdutoFornecido)
 	{
 		session = HibernateUtil.getSessionFactory().openSession();
-		try{
-			
+		try{			
 			session.beginTransaction();
 			session.delete(ProdutoFornecido);
 			session.getTransaction().commit();
@@ -52,8 +51,9 @@ public class ProdutoFornecidoControler {
 	
 	
 	public List buscaProdutoFornecidos(String data,int id) {
+		session = HibernateUtil.getSessionFactory().openSession();
 		try {
-	    	session = HibernateUtil.getSessionFactory().openSession();
+	    	
 	    	session.beginTransaction();
 	        Query q = session.createQuery ("from ProdutoFornecido where dataCadastro = '"+data+"' and "
 	        		                      + "id_parceria ='"+id+"'");
@@ -61,7 +61,7 @@ public class ProdutoFornecidoControler {
 	        return q.list();
 	        
 	    } catch (Exception e) {
-	         System.out.println("erro ao pesquisar p"+e.getMessage());
+	         System.out.println("erro ao pesquisar p "+e.getMessage());
 	    }
 		finally{
 			session.close();
