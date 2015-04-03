@@ -31,6 +31,23 @@ public class ProdutoFornecidoControler {
 			session.close();
 		}		
 	}
+  public void alterar(ProdutoFornecido ProdutoFornecido) {
+		session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			session.beginTransaction();
+			session.update(ProdutoFornecido);
+			session.getTransaction().commit();
+		}
+		catch(ExceptionInInitializerError er)
+		{
+			System.out.println("Erro ao Incluir ProdutoFornecido "+er.getLocalizedMessage());
+			Alerta.info("erro ao editar ProdutoFornecido");
+		}
+		finally {	
+			Alerta.info("ProdutoFornecido "+ProdutoFornecido.getNome()+" editado com sucesso");
+			session.close();
+		}		
+	}
 	public void deletar(ProdutoFornecido ProdutoFornecido)
 	{
 		session = HibernateUtil.getSessionFactory().openSession();
@@ -81,6 +98,7 @@ public class ProdutoFornecidoControler {
 		
 		return null;
 	}
+	
 	
 	
 }

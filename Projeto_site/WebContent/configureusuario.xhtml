@@ -51,10 +51,10 @@
 				  </div>
 				
                				 				
-				<button jsf:id="bt_incluir" jsf:action="#{benUsuario.cadastrar}" class="btn btn-primary" >Salvar</button>
+				<button jsf:id="bt_incluir" jsf:action="#{benUsuario.cadastrar}" class="btn btn-primary" >Salvar <i class="fa fa-user-plus "></i></button>
 				<button jsf:id="bt_editar"  jsf:action="#{benUsuario.deletar}"   class="btn btn-default" 
-				        jsf:rendered="#{benUsuario.usuario.id != 0}" >Deletar</button>
-				<button type="button" jsf:id="demo" jsf:outcome="usuario.xhtml" class="btn btn-danger">Cancelar</button>
+				        jsf:rendered="#{benUsuario.usuario.id != 0}" >Deletar <i class="fa fa-user-times "></i></button>
+				<button type="button" jsf:id="demo" jsf:outcome="usuario.xhtml" class="btn btn-danger">Cancelar <i class="fa fa-undo"></i></button>
 							     
 				
 			</form>

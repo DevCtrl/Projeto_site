@@ -30,12 +30,13 @@ public class ParceriaBen {
 	Parceria parceria = new Parceria();
 	Contrato contrato = new Contrato();
 	Produto p = new Produto();
+	Produto produtoSelecionado = new Produto();
 	ProdutoFornecido fornecido = new ProdutoFornecido();
 	ParceriaControler comandoParceria = new ParceriaControler();
 	ContratoControler comandoContrato = new ContratoControler();
 	ProdutoFornecidoControler comandoFornecido = new ProdutoFornecidoControler();
 	
-	private String dataPesquisaFornecido;
+	private String dataPesquisaFornecido;	
 	public String getDataPesquisaFornecido() {
 		return dataPesquisaFornecido;
 	}
@@ -43,7 +44,7 @@ public class ParceriaBen {
 		this.dataPesquisaFornecido = dataPesquisaFornecido;
 	}
 	private String dataContaFornecido;
-	private int quantidadeFornecido;
+	private int quantidadeFornecido = 1;
 	
 	public ParceriaBen() {
 		
@@ -126,22 +127,24 @@ public class ParceriaBen {
 	  }
 	  return "parceria.xhtml";
 	}
+	public String editarProdutoFornecido(){
+		comandoFornecido.alterar(fornecido);
+		buscaProdutoFornecido();
+		return "parcerias.xhtml";
+	}
 	public String pgProdutoFornecido(){
 		return "configurefornecimento";
 	}
-	public void deletarProdutoFornecido()
-	{
-	
-	  if(fornecido.getId() != 0){
-	
-		listaProdutoFronecido.remove(fornecido);
+	public String addNomeFornecido(){
+		fornecido.setNome(produtoSelecionado.getNome());
+		return "configurefornecimento";
+	}
+	public String deletarProdutoFornecido()	{	  	
+		
 		comandoFornecido.deletar(fornecido);		
 		buscaProdutoFornecido();		
 			
-	  }
-	  else{
-		  Alerta.error("operação não foi executada \n Tente novamente");		 
-	  }	  
+	  return "parcerias.xhtml";
 	}
 	public void buscaProdutoFornecido(){	
 		
@@ -211,6 +214,12 @@ public class ParceriaBen {
 	}
 	public void setDataContaFornecido(String dataContaFornecido) {
 		this.dataContaFornecido = dataContaFornecido;
+	}
+	public Produto getProdutoSelecionado() {
+		return produtoSelecionado;
+	}
+	public void setProdutoSelecionado(Produto produtoSelecionado) {
+		this.produtoSelecionado = produtoSelecionado;
 	}
 	
 }

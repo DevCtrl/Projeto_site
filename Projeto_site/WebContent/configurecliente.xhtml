@@ -66,10 +66,10 @@
 				  </div>
 				  
 				 <div class="row-fluid col-xs-12" >				      
-				      <button jsf:id="bt_conf_incluir"  jsf:action="#{benCliente.incluir}" class="btn btn-default"  style="margin-top: 20px">Salvar</button>		     						
+				      <button jsf:id="bt_conf_incluir"  jsf:action="#{benCliente.incluir}" class="btn btn-primary"  style="margin-top: 20px">Salvar <i class="fa fa-user-plus "></i></button>		     						
 				      <button jsf:id="bt_conf_delite"   jsf:action="#{benCliente.deletar}" class="btn btn-default"  style="margin-top: 20px"
-				          jsf:rendered="#{benCliente.cliente.id != 0}" >Deletar</button>
-				       <button jsf:outcome="cliente.xhtml" class="btn btn-danger" style="margin-top: 20px">Cancelar</button>
+				          jsf:rendered="#{benCliente.cliente.id != 0}" >Deletar <i class="fa fa-user-times "></i></button>
+				       <button jsf:outcome="cliente.xhtml" class="btn btn-danger" style="margin-top: 20px">Cancelar <i class="fa fa-undo"></i></button>
 				    
 				 </div>							               				 								
 			     

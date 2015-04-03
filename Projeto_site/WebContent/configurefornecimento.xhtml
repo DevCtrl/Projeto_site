@@ -7,24 +7,24 @@
 
 <body>
 	<ui:composition template="sistema.xhtml">
-	    <ui:define name="Titulo"><a href="usuario.xhtml"><i class="fa fa-angle-right"></i> usuario </a><i class="fa fa-angle-right"></i> cadastro </ui:define>	
+	    <ui:define name="Titulo"><a href="parceria.xhtml"><i class="fa fa-angle-right"></i> vendedor </a><i class="fa fa-angle-right"></i> edição </ui:define>	
 		<ui:define name="corpo">				
 			
-				<form jsf:id="form1" jsf:prependId="false" class="form-horizontal">
+				<form jsf:id="form1" class="form-horizontal">
 				  <div class="form-group">
 				    <label for="nome" class="col-sm-1 control-label">Nome</label>
 				    <div class="col-sm-4">
 					    <div class="input-group ">
 						  <input type="text" jsf:value="#{benParceria.fornecido.nome}" class="form-control"/>
 						  <span class="input-group-btn">
-								<button type="button" class="btn btn-primary"  ><i class="fa fa-search"></i>
+								<button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#myModal"><i class="fa fa-search"></i>
 							   	</button>
 			              </span>						
 	             	</div> 
 				    </div>	
 				    <label class="col-sm-1 control-label">Data</label>
 				    <div class="col-sm-3">
-				       <input type="text" jsf:value="#{benParceria.fornecido.dataContas}" class="form-control"  />
+				       <input type="text" jsf:id="data" jsf:value="#{benParceria.fornecido.dataContas}" class="form-control"  />
 				    </div>			    				   				    
 				  
 				    <label class="col-sm-1 control-label">Quantidade</label>
@@ -36,14 +36,46 @@
 				 
 				
                				 				
-				<button jsf:id="bt_incluir" jsf:action="#{benUsuario.cadastrar}" class="btn btn-primary" >Salvar</button>
-				<button jsf:id="bt_editar"  jsf:action="#{benUsuario.deletar}"   class="btn btn-default" 
-				        jsf:rendered="#{benUsuario.usuario.id != 0}" >Deletar</button>
-				<button type="button" jsf:id="demo" jsf:outcome="usuario.xhtml" class="btn btn-danger">Cancelar</button>
+				<button jsf:id="bt_incluir" jsf:action="#{benParceria.editarProdutoFornecido}" class="btn btn-primary" >Salvar</button>
+				<button jsf:id="bt_deletar"  jsf:action="#{benParceria.deletarProdutoFornecido}"   class="btn btn-default">Deletar</button>
+				<button type="button" jsf:id="cancel" jsf:outcome="parcerias.xhtml" class="btn btn-danger">Cancelar</button>
 							     
 				
-			</form>
-			
+				
+				
+				<div class="modal fade" id="myModal" style="margin-top: 30px;">
+					 <div class="modal-dialog">
+					  <div class="modal-content">
+					   <div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							    <h4 class="modal-title">Produtos</h4>
+					   </div>
+					    <div class="modal-body">
+					         <h:dataTable id="tabelaPro" var="list" value="#{ben.lisPro}" rows="5"
+														styleClass="table table-responsive  table-hover">
+								<h:column>
+								   <h:commandLink value=" #{list.nome}" action="#{benParceria.addNomeFornecido}">
+								     <f:setPropertyActionListener target="#{benParceria.produtoSelecionado}" value="#{list}"></f:setPropertyActionListener>									              
+								   </h:commandLink>            									                                                                                   
+								</h:column>
+								<h:column>									             
+										     #{list.quantidade}              
+								</h:column>												
+								<h:column>									             
+											 #{list.valor_Varejo} 
+							    </h:column>
+							</h:dataTable>
+							<!-- final da tabela -->
+							 <label>Nome do Produto</label>					       
+							 <input  type="text" class="form-control" jsf:value="#{ben.pd.nome}" placeholder="digite o produto">
+							        <f:ajax event="keyup" listener="#{ben.buscaProduto}" render="tabelaPro"></f:ajax>
+							 </input>
+						</div>					   
+					  </div><!-- /.modal-content -->
+				  </div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->	
+				<!-- Modal -->	
+			</form>			
 						
 				
 			

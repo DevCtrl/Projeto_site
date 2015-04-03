@@ -21,9 +21,10 @@
 			<div class="panel-body">	
 			   <label>Cliente</label>			   
 			   <a  data-toggle="modal" data-target="#myModal">
-			     <i class="glyphicon glyphicon-search"></i>
-			   </a> 
-			   <label class="pull-right">#{ben.cli.nome}</label>			
+			     <i class="glyphicon glyphicon-search"></i>			   </a> 
+			   
+			    <h:link outcome="cliente.xhtml" style="margin-left:1%;" styleClass="pull-right" rendered="#{ben.cliPesquisado.id == 0}"><i class="fa fa-plus-circle "></i></h:link>
+			   <label class="pull-right">#{ben.cli.nome}</label>				  		
 			</div>
 	
 			<!-- Table -->

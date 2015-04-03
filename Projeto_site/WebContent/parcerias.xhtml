@@ -155,8 +155,8 @@
 											          #{list.dataContas}
 											    </h:column>
 											     <h:column>									             
-											          <f:facet name="header">Deletar</f:facet>    
-											          <h:commandLink action="#{benParceria.pgProdutoFornecido}"><i class="fa fa-close fa-2x"></i>
+											          <f:facet name="header">Alterar</f:facet>    
+											          <h:commandLink action="#{benParceria.pgProdutoFornecido}"><i class="fa fa-pencil-square-o fa-2x"></i>
 											            <f:setPropertyActionListener target="#{benParceria.fornecido}" value="#{list}"></f:setPropertyActionListener>
 											          </h:commandLink>
 											    </h:column>
@@ -181,7 +181,7 @@
 					    <h4 class="modal-title">Selecionar Produto</h4>
 			   </div>
 			    <div class="modal-body">
-			         <h:dataTable  var="list" value="#{benProduto.lista}" rows="5"
+			         <h:dataTable id="tabelaPro" var="list" value="#{ben.lisPro}" rows="5"
 												styleClass="table table-responsive  table-hover">
 						<h:column>	
 						  <f:facet name="header">Produto</f:facet>								              
@@ -214,11 +214,12 @@
 				</div>
 				<br />
 			   <div class="modal-footer">
-					<div class="input-group">
-					  <input type="text" jsf:value="#{benCliente.cliente.nome}" class="form-control"/>
+					<div class="input-group">					 
+					  <input  type="text" class="form-control" jsf:value="#{ben.pd.nome}" placeholder="digite o produto">
+							        <f:ajax event="keyup" listener="#{ben.buscaProduto}" render="tabelaPro"></f:ajax>
+					  </input>
 					  <span class="input-group-btn">
-							<button type="button" class="btn btn-primary"  ><i class="fa fa-search"></i>
-						   	</button>
+							<a href="#" type="button" class="btn btn-primary"><i class="fa fa-search"></i> </a> 
 		              </span>						
 	             	</div> 
 			    </div>
