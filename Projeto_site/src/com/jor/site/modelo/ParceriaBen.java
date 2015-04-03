@@ -35,6 +35,13 @@ public class ParceriaBen {
 	ContratoControler comandoContrato = new ContratoControler();
 	ProdutoFornecidoControler comandoFornecido = new ProdutoFornecidoControler();
 	
+	private String dataPesquisaFornecido;
+	public String getDataPesquisaFornecido() {
+		return dataPesquisaFornecido;
+	}
+	public void setDataPesquisaFornecido(String dataPesquisaFornecido) {
+		this.dataPesquisaFornecido = dataPesquisaFornecido;
+	}
 	private String dataContaFornecido;
 	private int quantidadeFornecido;
 	
@@ -119,22 +126,32 @@ public class ParceriaBen {
 	  }
 	  return "parceria.xhtml";
 	}
+	public String pgProdutoFornecido(){
+		return "configurefornecimento";
+	}
 	public void deletarProdutoFornecido()
 	{
-	  if(fornecido.getId() != 0){	
-		comandoFornecido.deletar(fornecido);
-		fornecido = new ProdutoFornecido();
-		listaProdutoFronecido = new ArrayList();
+	
+	  if(fornecido.getId() != 0){
+	
+		listaProdutoFronecido.remove(fornecido);
+		comandoFornecido.deletar(fornecido);		
+		buscaProdutoFornecido();		
+			
 	  }
-	  else
-		  Alerta.error("operação não foi executada \n Tente novamente");
+	  else{
+		  Alerta.error("operação não foi executada \n Tente novamente");		 
+	  }	  
 	}
-	public void buscaProdutoFornecido(){		
-	    listaProdutoFronecido = comandoFornecido.buscaProdutoFornecidos(fornecido.getDataCadastro(),parceria.getId());	
-	    if(parceria.getId() == 0)	        	
+	public void buscaProdutoFornecido(){	
+		
+		
+		listaProdutoFronecido = comandoFornecido.buscaProdutoFornecidos(dataPesquisaFornecido,parceria.getId());	
+	  
+		if(parceria.getId() == 0)	        	
         	Alerta.warn("Selecione um vendedor para pesquisar");
-	    if(listaProdutoFronecido.isEmpty() && parceria.getId() != 0 && fornecido.getDataCadastro().length() == 10)
-        	Alerta.warn("Nada foi encontrado nessa data");
+	    if(listaProdutoFronecido.isEmpty() && parceria.getId() != 0)
+        	Alerta.warn("Nada foi encontrado nda  nessa data");
 	}
 	
 	public List getListaParceria() {

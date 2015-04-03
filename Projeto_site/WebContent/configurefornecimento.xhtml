@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">   
+
+<body>
+	<ui:composition template="sistema.xhtml">
+	    <ui:define name="Titulo"><a href="usuario.xhtml"><i class="fa fa-angle-right"></i> usuario </a><i class="fa fa-angle-right"></i> cadastro </ui:define>	
+		<ui:define name="corpo">				
+			
+				<form jsf:id="form1" jsf:prependId="false" class="form-horizontal">
+				  <div class="form-group">
+				    <label for="nome" class="col-sm-1 control-label">Nome</label>
+				    <div class="col-sm-4">
+					    <div class="input-group ">
+						  <input type="text" jsf:value="#{benParceria.fornecido.nome}" class="form-control"/>
+						  <span class="input-group-btn">
+								<button type="button" class="btn btn-primary"  ><i class="fa fa-search"></i>
+							   	</button>
+			              </span>						
+	             	</div> 
+				    </div>	
+				    <label class="col-sm-1 control-label">Data</label>
+				    <div class="col-sm-3">
+				       <input type="text" jsf:value="#{benParceria.fornecido.dataContas}" class="form-control"  />
+				    </div>			    				   				    
+				  
+				    <label class="col-sm-1 control-label">Quantidade</label>
+				    <div class="col-sm-2">
+				       <input type="number" jsf:value="#{benParceria.fornecido.quantidade}" 
+					       class="form-control" jsf:id="number" />
+				    </div>
+				   </div>			    				   				    
+				 
+				
+               				 				
+				<button jsf:id="bt_incluir" jsf:action="#{benUsuario.cadastrar}" class="btn btn-primary" >Salvar</button>
+				<button jsf:id="bt_editar"  jsf:action="#{benUsuario.deletar}"   class="btn btn-default" 
+				        jsf:rendered="#{benUsuario.usuario.id != 0}" >Deletar</button>
+				<button type="button" jsf:id="demo" jsf:outcome="usuario.xhtml" class="btn btn-danger">Cancelar</button>
+							     
+				
+			</form>
+			
+						
+				
+			
+		</ui:define>
+	</ui:composition>
+
+</body>
+</html>
+
