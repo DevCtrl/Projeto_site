@@ -14,7 +14,7 @@
      <ui:insert name="FormCliente">     
       <h:form id="formCli" prependId="false">         	       
         <h:dataTable id="tabelaCli" var="list" value="#{benCliente.lista}" 
-            styleClass="table table-responsive  table-hover" >
+            styleClass="table table-responsive  table-hover" rows="7">
            <h:column >
               <f:facet name="header">Id</f:facet>
               #{list.id}              

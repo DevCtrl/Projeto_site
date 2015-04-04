@@ -14,7 +14,7 @@
      <ui:insert name="FormCliente">     
       <h:form id="formCli" prependId="false">         	       
         <h:dataTable id="tabelaEmpre" var="list" value="#{benEmpreendedor.lista}" 
-            styleClass="table table-responsive  table-hover" >          
+            styleClass="table table-responsive  table-hover" rows="7">          
            <h:column >
               <f:facet name="header">Nome</f:facet>
               <h:commandLink action="#{benEmpreendedor.edita}" value="#{list.nome}">
@@ -48,7 +48,7 @@
 				<div class="input-group col-sm-4 col-sm-offset-8   ">
 					<input type="text" jsf:value="#{benEmpreendedor.empreendedor.nome}" class="form-control"/>
 					<span class="input-group-btn">
-							<button type="submit" class="btn btn-primary" jsf:action="#{benEmpreendedor.buscaCliente}"><i class="fa fa-search"></i>
+							<button type="submit" class="btn btn-primary" jsf:action="#{benEmpreendedor.buscaEmpreendedor}"><i class="fa fa-search"></i>
 					     	</button>
 					</span>						
         		</div>        	 																											
