@@ -20,6 +20,7 @@ public class ProdutoBen {
 	Produto produto = new Produto();
 	Produto produtoselecionado = new Produto();
 	ProdutoControler comando = new ProdutoControler();
+	private int quantidade = 1;
 	List lista = new ArrayList();
 	
 	public ProdutoBen(){
@@ -43,11 +44,13 @@ public class ProdutoBen {
 		
 		if(produto.getId() == 0)
 		{
-			produtoselecionado = (Produto) comando.buscaProdutoNome(produto.getNome());
-			if(produtoselecionado.getNome() == null){
+			produtoselecionado = (Produto) comando.buscaProdutoNome(produto.getNome());			
+			if(produtoselecionado.getNome() == null && produtoselecionado.getCodigo() == 0){
+				produto.setQuantidade(quantidade);
 				comando.inserir(produto);
 				lista = comando.listarDados();
 				produto = new Produto();	
+				quantidade = 1;
 			}		
 			else{
 				Alerta.error("produto já existe");
@@ -56,9 +59,11 @@ public class ProdutoBen {
 			
 		}else
 		{
+			produto.setQuantidade(quantidade + produto.getQuantidade());
 			comando.alterar(produto);
 			lista = comando.listarDados();
 			produto = new Produto();	
+			quantidade = 1;
 		}
 		
 		return "produto.xhtml";
@@ -93,6 +98,14 @@ public class ProdutoBen {
 
 	public void setLista(List lista) {
 		this.lista = lista;
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 	
 	

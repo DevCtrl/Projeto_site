@@ -78,14 +78,13 @@ public class ProdutoFornecidoControler {
 	public List buscaProdutoFornecidos(String data,int id) {
 		session = HibernateUtil.getSessionFactory().openSession();
 		try {
-	    	System.out.println("sesao foi aberta para pesquisar");
+	    	
 	    	session.beginTransaction();
 	        Query q = session.createQuery ("from ProdutoFornecido where dataCadastro = '"+data+"' and "
 	        		                      + "id_parceria ='"+id+"'");
 	        	       
 	        List list = q.list();
-	        session.close();
-	        System.out.println("sesao foi fechada para pesquisar");
+	        session.close();	       
 	        if(!list.isEmpty())
 	         return list;	
 	        else
@@ -96,6 +95,26 @@ public class ProdutoFornecidoControler {
 		
 			
 		
+		return null;
+	}
+	public ProdutoFornecido buscaProdutoNome(String nome) {
+		session = HibernateUtil.getSessionFactory().openSession();
+		try {
+	    	
+	    	session.beginTransaction();
+	        Query q = session.createQuery ("from ProdutoFornecido where nome = '"+nome+"'");
+	        	       
+	        ProdutoFornecido pf = (ProdutoFornecido) q.uniqueResult();
+	        
+	        session.close();	       
+	        if(pf == null)
+	         return pf = new ProdutoFornecido();	
+	        else
+	         return pf;	
+	       
+	    } catch (Exception e) {
+	         System.out.println("erro ao pesquisar p "+e.getMessage());
+	    }
 		return null;
 	}
 	

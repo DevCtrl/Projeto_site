@@ -31,13 +31,28 @@ public class RelatorioBen {
 	  comando.relatorioProduto();
 	  pro = comando.relatorioVenda();
 	  
-
-		nome1 = pro.get(0).getNome();
-		valor1 = pro.get(0).getQuantidade();
-		nome2 = pro.get(1).getNome();
-		valor2 = pro.get(1).getQuantidade();
-		nome3 = pro.get(2).getNome();
-		valor3 = pro.get(2).getQuantidade();
+      if(!pro.isEmpty()){
+    	 if(pro.size() == 1) {
+		  nome1 = pro.get(0).getNome();
+		  valor1 = pro.get(0).getQuantidade();
+    	 }
+    	 if(pro.size() == 2){
+    		 nome1 = pro.get(0).getNome();
+   		     valor1 = pro.get(0).getQuantidade();
+   		     nome2 = pro.get(1).getNome();
+		     valor2 = pro.get(1).getQuantidade();
+    	 }
+    	 if(pro.size() == 3){
+    		 nome1 = pro.get(0).getNome();
+   		     valor1 = pro.get(0).getQuantidade();
+   		     nome2 = pro.get(1).getNome();
+		     valor2 = pro.get(1).getQuantidade();
+		     nome3 = pro.get(2).getNome();
+			 valor3 = pro.get(2).getQuantidade();
+    	 }
+    	
+		 
+      }	
   }       
    
 public void painel() {

@@ -13,7 +13,9 @@ import org.eclipse.persistence.jpa.jpql.parser.IsExpressionFactory;
 
 import com.jor.site.controle.ContratoControler;
 import com.jor.site.controle.ParceriaControler;
+import com.jor.site.controle.ProdutoControler;
 import com.jor.site.controle.ProdutoFornecidoControler;
+import com.jor.site.controle.VendaControler;
 import com.jor.site.entidade.Contrato;
 import com.jor.site.entidade.Parceria;
 import com.jor.site.entidade.Produto;
@@ -37,14 +39,9 @@ public class ParceriaBen {
 	ProdutoFornecidoControler comandoFornecido = new ProdutoFornecidoControler();
 	
 	private String dataPesquisaFornecido;	
-	public String getDataPesquisaFornecido() {
-		return dataPesquisaFornecido;
-	}
-	public void setDataPesquisaFornecido(String dataPesquisaFornecido) {
-		this.dataPesquisaFornecido = dataPesquisaFornecido;
-	}
 	private String dataContaFornecido;
 	private int quantidadeFornecido = 1;
+	private int quantidadeFornecidoEditado =0 ;
 	
 	public ParceriaBen() {
 		
@@ -96,7 +93,7 @@ public class ParceriaBen {
 		
 	  }
 	  else{
-		  Alerta.error("Selecione uma empresa");
+		  Alerta.error("Selecione um vendedor");
 	  }
 	}
 	public void deletarContrato()
@@ -120,7 +117,14 @@ public class ParceriaBen {
 			 fornecido.setNome(p.getNome());
 			 fornecido.setQuantidade(getQuantidadeFornecido());
 			 fornecido.setValor_Varejo(p.getValor_Varejo());
-			 comandoFornecido.inserir(fornecido);
+			 
+			 p = (Produto) new ProdutoControler().buscaProduto(p.getId());
+			 System.out.println(p.getQuantidade()+" < "+getQuantidadeFornecido());
+			 if(p.getQuantidade() > getQuantidadeFornecido()){
+			    comandoFornecido.inserir(fornecido);
+			    new VendaControler().diminuirEstoque(p.getId(), getQuantidadeFornecido());
+			 }else
+				 Alerta.error("quantidade especificada é maior do que no estoque");
 		}			 
 	  else{
 		  Alerta.error("Selecione um vendedor");
@@ -128,11 +132,27 @@ public class ParceriaBen {
 	  return "parceria.xhtml";
 	}
 	public String editarProdutoFornecido(){
-		comandoFornecido.alterar(fornecido);
-		buscaProdutoFornecido();
+		p = (Produto) new ProdutoControler().buscaProdutoNome(fornecido.getNome());		
+		
+		if(fornecido.getQuantidade() > quantidadeFornecidoEditado){
+			if(p.getQuantidade() >   fornecido.getQuantidade() - quantidadeFornecidoEditado){
+				new VendaControler().diminuirEstoque(p.getId(), fornecido.getQuantidade() - quantidadeFornecidoEditado);
+				comandoFornecido.alterar(fornecido);
+				buscaProdutoFornecido();
+			}else{
+			  Alerta.error("Quantidade é maior do que tem no estoque");
+			  return null;
+			}
+		}else{
+			new VendaControler().aumentaEstoque(p.getId(), quantidadeFornecidoEditado - fornecido.getQuantidade() );
+			comandoFornecido.alterar(fornecido);
+			buscaProdutoFornecido();
+		}
+			
 		return "parcerias.xhtml";
 	}
 	public String pgProdutoFornecido(){
+		quantidadeFornecidoEditado = fornecido.getQuantidade();
 		return "configurefornecimento";
 	}
 	public String addNomeFornecido(){
@@ -221,5 +241,12 @@ public class ParceriaBen {
 	public void setProdutoSelecionado(Produto produtoSelecionado) {
 		this.produtoSelecionado = produtoSelecionado;
 	}
+	public String getDataPesquisaFornecido() {
+		return dataPesquisaFornecido;
+	}
+	public void setDataPesquisaFornecido(String dataPesquisaFornecido) {
+		this.dataPesquisaFornecido = dataPesquisaFornecido;
+	}
+	
 	
 }

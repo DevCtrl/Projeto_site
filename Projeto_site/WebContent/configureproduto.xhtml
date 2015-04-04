@@ -14,12 +14,17 @@
 					
 	           <form  jsf:id="from1" class="form-horizontal">
 				  <div class="row-fluid ">
-				     <div class="col-xs-6">
+				     <div class="col-xs-2">
+				       <label  class="control-label">Codigo</label>				       
+				       <input type="number" jsf:value="#{benProduto.produto.codigo}" required="true" maxlength="8" 
+						        class="form-control" jsf:id="codigo" />						        
+				     </div>
+				     <div class="col-xs-5">
 				       <label  class="control-label">Nome</label>				       
 				       <input type="text" jsf:value="#{benProduto.produto.nome}" required="true" maxlength="50"
 						        class="form-control" jsf:id="nome" placeholder="Entre com nome"/>						        
 				     </div>
-				     <div class="col-xs-6">
+				     <div class="col-xs-5">
 				       <label class="control-label">Descrição</label>
 				       <input type="text" jsf:value="#{benProduto.produto.descricao}" maxlength="50" 
 					          class="form-control" jsf:id="descricao" placeholder="Entre a descrição"/>
@@ -42,7 +47,7 @@
 				     </div>
 				     <div class="col-xs-4">
 				          <label  class="control-label">Data cadastro</label>
-				          <input type="date" jsf:value="#{benProduto.produto.dataCadastro}" disabled="true"
+				          <input type="text" jsf:value="#{benProduto.produto.dataCadastro}" disabled="true"
 					       class="form-control" jsf:id="data" placeholder="Entre com dataProduto"/>
 				     </div>
 				   </div> 
@@ -54,7 +59,7 @@
 				     </div>
 				     <div class="col-xs-4">
 				          <label class=" control-label">quantidade</label>				    
-				          <input type="number" jsf:value="#{benProduto.produto.quantidade}" min="0" max="999" required="true"
+				          <input type="number" jsf:value="#{benProduto.quantidade}" min="1" max="999" required="true"
 					           class="form-control" jsf:id="quantidade" placeholder="quantidade"/>
 				     </div>
 				     <div class="col-xs-4">

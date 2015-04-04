@@ -16,6 +16,8 @@ public class Produto {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+	@Column (name="codigo")
+	private int Codigo;
 	@Column (name="nome")
 	private String Nome;
 	@Column(name="descricao")
@@ -86,6 +88,13 @@ public class Produto {
 	public void setTipo(String tipo) {
 		Tipo = tipo;
 	}
+	public int getCodigo() {
+		return Codigo;
+	}
+	public void setCodigo(int codigo) {
+		Codigo = codigo;
+	}
+	
 	
 	
 	

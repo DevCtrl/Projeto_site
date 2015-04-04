@@ -183,7 +183,12 @@ public class RelatioControler {
 			op = false;
 		}
 		listPro.clear();
-		for (int j = 0; j < 4; j++) {		
+		int forP =0;
+		if(listResultado.size() >0 && listResultado.size() < 4)
+			forP = listResultado.size() ;
+		if(listResultado.size() >=4)
+			forP = 3;
+		for (int j = 0; j < forP; j++) {		
 		  Produto p = new Produto();
 			 int cont = 0;
 			 int index = 0;

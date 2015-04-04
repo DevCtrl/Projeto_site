@@ -19,16 +19,14 @@ import com.jor.site.entidade.Usuario;
 @SessionScoped
 public class UsuarioBen {
    
-	Usuario usuario = new Usuario();
-	Usuario usuarioSelecionado = new Usuario();
+	Usuario usuario = new Usuario();	
 	UsuarioControler comando = new UsuarioControler();
-	List lista = new ArrayList();
-	
-	
+	List lista = new ArrayList();	
 	
 	public String incluir()
 	{
-		usuario = new Usuario();
+		 
+		usuario = new Usuario();		
 		return "configureusuario.xhtml";
 	}
 	public String pgConfigure()
@@ -37,13 +35,14 @@ public class UsuarioBen {
 	}
 	public String cadastrar()
 	{
-		System.out.println("usario "+usuario.getNome());
 		
-		if(usuario.getId() == 0)
-		comando.inserir(usuario);
-		else
+		
+		if(usuario.getId() == 0){
+		 comando.inserir(usuario);
+		}
+		else{
 		comando.alterar(usuario);
-		
+		}
 		usuario = new Usuario();
 		lista  = comando.listarDados();
 		return "usuario.xhtml";
@@ -72,12 +71,7 @@ public class UsuarioBen {
 	public void setLista(List lista) {
 		this.lista = lista;
 	}
-	public Usuario getUsuarioSelecionado() {
-		return usuarioSelecionado;
-	}
-	public void setUsuarioSelecionado(Usuario usuarioSelecionado) {
-		this.usuarioSelecionado = usuarioSelecionado;
-	}
+	
 
 	
 	
