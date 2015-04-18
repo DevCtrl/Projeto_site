@@ -7,106 +7,259 @@
 <body>
   <ui:composition template="newsite.xhtml">  
   <ui:define name="conteudo">
-       <section id="feature" class="transparent-bg">
-        <div class="container">
-           <div class="center wow fadeInDown">
-                <h2>Nossos Serviços</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br/> et dolore magna aliqua. Ut enim ad minim veniam</p>
-            </div>
+      <!-- main-container start -->
+			<!-- ================ -->
+			<section class="main-container">
 
-            <div class="row">
-                <div class="features">
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-bullhorn"></i>
-                            <h2>Fresh and Clean</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
+				<div class="container">
+					<div class="row">
 
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-comments"></i>
-                            <h2>Retina ready</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
+						<!-- main start -->
+						<!-- ================ -->
+						<div class="main col-md-12">
 
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-cloud-download"></i>
-                            <h2>Easy to customize</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
-                
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-leaf"></i>
-                            <h2>Adipisicing elit</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
+							<!-- page-title start -->
+							<!-- ================ -->
+							<h1 class="page-title">Produtos</h1>
+							<div class="separator-2"></div>
+							<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas nulla suscipit <br class="hidden-sm hidden-xs"/> unde rerum mollitia dolorum.</p>
+							<!-- page-title end -->
+							
+							<div class="sorting-filters">
+								<form class="form-inline">
+									<div class="form-group">
+										<label>Sort by</label>
+										<select class="form-control">
+											<option selected="selected">Date</option>
+											<option>Price</option>
+											<option>Model</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label>Order</label>
+										<select class="form-control">
+											<option selected="selected">Acs</option>
+											<option>Desc</option>
+										</select> 
+									</div>
+									<div class="form-group">
+										<label>Price $ (min/max)</label>
+										<div class="row grid-space-10">
+											<div class="col-sm-6">
+												<input type="text" class="form-control"/>
+											</div>
+											<div class="col-sm-6">
+												<input type="text" class="form-control col-xs-6"/>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Category</label>
+										<select class="form-control">
+											<option selected="selected">Smartphones</option>
+											<option>Tablets</option>
+											<option>Smart Watches</option>
+											<option>Desktops</option>
+											<option>Software</option>
+											<option>Accessories</option>
+										</select> 
+									</div>
+									<div class="form-group">
+										<a href="#" class="btn btn-default">Submit</a>
+									</div>
+								</form>
+							</div>
 
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-cogs"></i>
-                            <h2>Sed do eiusmod</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
+							<!-- shop items start -->
+							<div class="masonry-grid-fitrows row grid-space-20">
+								<div class="col-md-4 col-sm-6 masonry-grid-item">
+									<div class="listing-item">
+										<div class="overlay-container">
+											<img src="#{request.contextPath}/resources/bootstrap/imagens/site/produtos/aloe_gel.jpeg" class="img-responsive" /> 
+											<a href="shop-product.html" class="overlay small">
+												<i class="fa fa-plus"></i>
+												<span>Veja Detalhes</span>
+											</a>
+										</div>
+										<div class="listing-item-body clearfix">
+											<h3 class="title"><a href="shop-product.html">Aloe Vera Gel</a></h3>											
+											<p>Suco feito do puro gel de Aloe. Rico em fibras, contém vitaminas, aminoácidos, minerais e enzimas importantes em nosso metabolismo</p>
+											<span class="price">$99.00</span>
+											<div class="elements-list pull-right">
+												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-md-4 col-sm-6 masonry-grid-item">
+									<div class="listing-item">
+										<div class="overlay-container">
+											<img src="#{request.contextPath}/resources/bootstrap/imagens/site/produtos/forever_fridoom.jpg" class="img-responsive" />  
+											<a href="shop-product.html" class="overlay small">
+												<i class="fa fa-plus"></i>
+												<span>Veja Detalhes</span>
+											</a>
+										</div>
+										<div class="listing-item-body clearfix">
+											<h3 class="title"><a href="shop-product.html">Forever Freedom </a></h3>
+											<p>É o suco de Aloe Vera feito do puro gel de Aloe, acrescido de suco de laranja. Rico em fibras, contém vitaminas, aminoácidos, minerais e enzimas.</p>
+											<span class="price">$299.00</span>
+											<div class="elements-list pull-right">
+												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-md-4 col-sm-6 masonry-grid-item">
+									<div class="listing-item">
+										<div class="overlay-container">
+											<img src="#{request.contextPath}/resources/bootstrap/imagens/site/produtos/aloe_creme.jpeg" class="img-responsive" />  
+											<a href="shop-product.html" class="overlay small">
+												<i class="fa fa-plus"></i>
+												<span>Veja Detalhes</span>
+											</a>
+											<span class="badge default-bg">Sale</span>
+										</div>
+										<div class="listing-item-body clearfix">
+											<h3 class="title"><a href="shop-product.html">Aloe Balancing Cream</a></h3>
+											<p>Para usar de manhã e à noite após o Aloe Nourishing Serum. Contém Aloe Vera, extratos revitalizantes e hidratantes avançados para ajudar.</p>
+											<div><del>$149.00</del></div>
+											<span class="price">$199.00</span>
+											<div class="elements-list pull-right">
+												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-6 masonry-grid-item">
+									<div class="listing-item">
+										<div class="overlay-container">
+											<img src="#{request.contextPath}/resources/bootstrap/imagens/site/produtos/sabonete.jpeg" class="img-responsive" />  
+											<a href="shop-product.html" class="overlay small">
+												<i class="fa fa-plus"></i>
+												<span>Veja Detalhes</span>
+											</a>
+										</div>
+										<div class="listing-item-body clearfix">
+											<h3 class="title"><a href="shop-product.html">Aloe Liquid Soap </a></h3>
+											<p>O Aloe Liquid Soap é um sabonete líquido perolado, hidratante e limpador de mãos e face. Ele proporciona uma volumosa espuma, fácil de aplicar e remover. </p>
+											<span class="price">$29.00</span>
+											<div class="elements-list pull-right">
+												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-6 masonry-grid-item">
+									<div class="listing-item">
+										<div class="overlay-container">
+											<img src="#{request.contextPath}/resources/bootstrap/imagens/site/produtos/dental.jpeg" class="img-responsive" />  
+											<a href="shop-product.html" class="overlay small">
+												<i class="fa fa-plus"></i>
+												<span>Veja Detalhes</span>
+											</a>
+											<span class="badge dark-bg">Out of Stock</span>
+										</div>
+										<div class="listing-item-body clearfix">
+											<h3 class="title"><a href="shop-product.html">Forever Bright Toothgel</a></h3>
+											<p>Gel dental à base de Aloe Vera, própolis e complexo de clorofila. Formulado para uso de toda a família (por não conter flúor, não oferece risco às criança</p>
+											<span class="price">$259.00</span>
+											<div class="elements-list pull-right">
+												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-6 masonry-grid-item">
+									<div class="listing-item">
+										<div class="overlay-container">
+											<img src="#{request.contextPath}/resources/bootstrap/imagens/site/produtos/fabe.jpeg" class="img-responsive" /> 
+											<a href="shop-product.html" class="overlay small">
+												<i class="fa fa-plus"></i>
+												<span>Veja Detalhes</span>
+											</a>
+										</div>
+										<div class="listing-item-body clearfix">
+											<h3 class="title"><a href="shop-product.html">FAB - Energy Drink</a></h3>											
+											<p>FAB é o novo energético da Forever, e o primeiro produto da companhia totalmente fabricado no Brasil. Com uma fórmula exclusiva</p>
+											<span class="price">$199.00</span>
+											<div class="elements-list pull-right">
+												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-6 masonry-grid-item">
+									<div class="listing-item">
+										<div class="overlay-container">
+											<img src="#{request.contextPath}/resources/bootstrap/imagens/site/produtos/aloe.jpg" class="img-responsive" />  
+											<a href="shop-product.html" class="overlay small">
+												<i class="fa fa-plus"></i>
+												<span>Veja Detalhes</span>
+											</a>
+										</div>
+										<div class="listing-item-body clearfix">
+											<h3 class="title"><a href="shop-product.html">Aloe Body Toner</a></h3>
+											<p>Loção à base de Aloe Vera, emulsificantes, hidratantes e umectantes, além de óleo de canela e pimenta. Energizante, é ideal para aplicação em massagens ou após o banho.</p>
+											<span class="price">$69.00</span>
+											<div class="elements-list pull-right">
+												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-6 masonry-grid-item">
+									<div class="listing-item">
+										<div class="overlay-container">
+											<img src="#{request.contextPath}/resources/bootstrap/imagens/site/produtos/aloe_beth.jpg" class="img-responsive" />  
+											<a href="shop-product.html" class="overlay small">
+												<i class="fa fa-plus"></i>
+												<span>Veja Detalhes</span>
+											</a>
+										</div>
+										<div class="listing-item-body clearfix">
+											<h3 class="title"><a href="shop-product.html">Aloe Bath Gelée </a></h3>
+											<p>Aloe Bath Gelée é o ingrediente perfeito para um banho revigorante e refrescante. </p>
+											<span class="price">$159.00</span>
+											<div class="elements-list pull-right">
+												<a href="#" class="wishlist" title="wishlist"><i class="fa fa-heart-o"></i></a>
+												<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- shop items end -->
+							
+							<div class="clearfix"></div>
 
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-heart"></i>
-                            <h2>Labore et dolore</h2>
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
-                </div><!--/.services-->
-            </div><!--/.row--> 
+							<!-- pagination start -->
+							<ul class="pagination">
+								<li><a href="#">«</a></li>
+								<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">»</a></li>
+							</ul>
+							<!-- pagination end -->
 
+						</div>
+						<!-- main end -->
 
-            <div class="get-started center wow fadeInDown">
-                <h2>Ready to get started</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore  magna aliqua. <br/>  Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-                <div class="request">
-                    <h4><a href="#">Request a free Quote</a></h4>
-                </div>
-            </div><!--/.get-started-->
-
-            <div class="clients-area center wow fadeInDown">
-                <h2>O que nosos clientes dizem</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br/> et dolore magna aliqua. Ut enim ad minim veniam</p>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4 wow fadeInDown">
-                    <div class="clients-comments text-center">
-                        <img src="#{request.contextPath}/resources/bootstrap/imagens/desenvolvedor/jorliano.jpg" class=" img-circle img-responsive " alt="" style="margin-left: 17%;"/>
-                      
-                        <h3>Excelentes Produtos ,muito ultio no dia a dia e eu recomendo</h3>
-                        <h4><span>- Jorliano Oliveira /</span>  Diretor de desenvolvimento da siscef.com</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 wow fadeInDown">
-                    <div class="clients-comments text-center">
-                         <img src="#{request.contextPath}/resources/bootstrap/imagens/desenvolvedor/michele.jpg" class="img-circle img-responsive" alt="" style="margin-left: 17%;"/>
-                       <h3>Excelentes Produtos ,muito ultio no dia a dia e eu recomendo</h3>
-                        <h4><span>- Michele Oliveira /</span>  Fundadora da siscef.com</h4>
-                    </div>
-                </div>
-                <div class="col-md-4 wow fadeInDown">
-                    <div class="clients-comments text-center">
-                         <img src="#{request.contextPath}/resources/bootstrap/imagens/desenvolvedor/auricelio.jpg" class="img-circle img-responsive" alt="" style="margin-left: 17%;"/>
-                        <h3>Excelentes Produtos ,muito ultio no dia a dia e eu recomendo</h3>
-                        <h4><span>- Auricelio Cardosa /</span>  Fundador da siscef.com</h4>
-                    </div>
-                </div>
-           </div>
-
-        </div><!--/.container-->
-    </section><!--/#feature-->
+					</div>
+				</div>
+			</section>
+			<!-- main-container end -->
      
   </ui:define>
   </ui:composition> 

@@ -7,130 +7,129 @@
 <body>
   <ui:composition template="newsite.xhtml">  
   <ui:define name="conteudo">
-        <section id="portfolio">
-        <div class="container">
-            <div class="center">
-               <h2>Portfolio</h2>
-               <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br/> et dolore magna aliqua. Ut enim ad minim veniam</p>
-            </div>
-        
+       <!-- page-intro start-->
+			<!-- ================ -->
+			<div class="page-intro">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<ol class="breadcrumb">
+								<li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
+								<li class="active">Portfolio Item</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- page-intro end -->
 
-            <ul class="portfolio-filter text-center">
-                <li><a class="btn btn-default active" href="#" data-filter="*">Todos trabalhos</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".bootstrap">Criativos</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".html">Photografia</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">Palestras</a></li>
-            </ul><!--/#portfolio-filter-->
+			<!-- main-container start -->
+			<!-- ================ -->
+			<section class="main-container">
 
-            <div class="row">
-                <div class="portfolio-items">
-                    <div class="portfolio-item apps col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img src="#{request.contextPath}/resources/bootstrap/imagens/site/negocio2.jpg" class="img-responsive" />
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item1.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>
-                    </div><!--/.portfolio-item-->
+				<div class="container">
+					<div class="row">
 
-                    <div class="portfolio-item joomla bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img src="#{request.contextPath}/resources/bootstrap/imagens/site/negocio2.jpg" class="img-responsive" />
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item2.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
+						<!-- main start -->
+						<!-- ================ -->
+						<div class="main col-md-12">
 
-                    <div class="portfolio-item bootstrap wordpress col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img src="#{request.contextPath}/resources/bootstrap/imagens/site/negocio2.jpg" class="img-responsive" />
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item3.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>        
-                    </div><!--/.portfolio-item-->
+							<!-- page-title start -->
+							<!-- ================ -->
+							<h1 class="page-title margin-top-clear">Oportunida de ouro</h1>
+							<!-- page-title end -->
+							<div class="row">
+								<div class="col-md-6">
+									<h3>Project Description</h3>
+									<div class="separator-2"></div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum pariatur omnis illo saepe numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam delectus accusantium voluptas et, tempora quos atque, fugiat, obcaecati voluptatibus commodi illo voluptates dolore nemo quo soluta quis.</p>
+									<p>Molestiae sed enim laboriosam atque delectus voluptates rerum nostrum sapiente obcaecati molestias quasi optio exercitationem, voluptate quis consequatur libero incidunt, in, quod. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nobis officiis, autem earum tenetur quidem. Quae non dicta earum. Ipsum autem eaque cum dolor placeat corporis quisquam dolorum at nesciunt.</p>
+								</div>
+								<div class="col-md-6">
+									<!-- Nav tabs -->
+									<ul class="nav nav-pills white space-top" role="tablist">
+										<li class="active"><a href="#portfolio-images" role="tab" data-toggle="tab" title="images"><i class="fa fa-camera pr-5"></i> Photo</a></li>
+										<li><a href="#portfolio-video" role="tab" data-toggle="tab" title="video"><i class="fa fa-video-camera pr-5"></i> Video</a></li>
+									</ul>
+									<!-- Tab panes -->
+									<div class="tab-content clear-style">
+										<div class="tab-pane active" id="portfolio-images">
+											<div id="about-slider" class="no-margin">
+												<div id="carousel-slider" class="carousel slide" data-ride="carousel" >
+													<!-- Indicators -->
+												  	<ol class="carousel-indicators visible-xs">
+													    <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+													    <li data-target="#carousel-slider" data-slide-to="1"></li>
+													    <li data-target="#carousel-slider" data-slide-to="2"></li>
+												  	</ol>
+								
+													<div class="carousel-inner" style="height: 400px;">
+														<div class="item active">
+															<img src="#{request.contextPath}/resources/bootstrap/imagens/marcas/imagem1.jpg" class="img-responsive" /> 
+													   </div>
+													   <div class="item">
+															<img src="#{request.contextPath}/resources/bootstrap/imagens/marcas/imagem2.jpg" class="img-responsive" /> 
+													   </div> 
+													   <div class="item">
+															<img src="#{request.contextPath}/resources/bootstrap/imagens/marcas/imagem3.jpg" class="img-responsive" /> 
+													   </div> 
+													</div>
+													
+													<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev" style="margin-left: 5%">
+														<i class="fa fa-angle-left"></i> 
+													</a>
+													
+													<a class=" right carousel-control hidden-xs" href="#carousel-slider" data-slide="next" style="margin-right: 5%">
+														<i class="fa fa-angle-right"></i> 
+													</a>
+												</div> <!--/#carousel-slider-->
+											</div><!--/#about-slider-->  
+											
+										</div>
+										<div class="tab-pane" id="portfolio-video">
+											<div class="embed-responsive embed-responsive-16by9">
+												<iframe class="embed-responsive-item" src="//player.vimeo.com/video/29198414?byline=0&amp;portrait=0"></iframe>
+												<p><a href="http://vimeo.com/29198414">Junte se a nós </a> from <a href="http://vimeo.com/staff">Vimeo Staff</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<hr/>
+							<div class="row">
+								<div class="col-md-3 col-xs-6">
+									<h3>Project Info</h3>
+									<ul class="list">
+										<li><strong class="vertical-divider">Client </strong> John Doe</li>
+										<li><strong class="vertical-divider">Date </strong> OCT 2014</li>
+										<li><strong class="vertical-divider">In </strong> Web Design</li>
+										<li><strong class="vertical-divider">Place </strong> Europe</li>
+										<li><strong class="vertical-divider">URL </strong> <a href="http://www.htmlcoder.me/preview/idea/v.1.0/">www.idea.com</a></li>
+									</ul>
+								</div>
+								<div class="col-md-3 col-xs-6">
+									<h3>Share This</h3>
+									<div id="share"></div>
+								</div>
+								<div class="col-md-6 col-xs-12">
+									<h3>More info</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+									<form role="form">
+										<div class="form-group has-feedback">
+											<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email"/>
+											<i class="fa fa-envelope-o form-control-feedback"></i>
+										</div>
+										<a href="#" class="btn btn-white margin-top-clear">Subscribe</a>
+									</form>
+								</div>
+							</div>
+						</div>
+						<!-- main end -->
 
-                    <div class="portfolio-item joomla wordpress apps col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img src="#{request.contextPath}/resources/bootstrap/imagens/site/negocio2.jpg" class="img-responsive" />
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item4.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>           
-                    </div><!--/.portfolio-item-->
-          
-                    <div class="portfolio-item joomla html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img src="#{request.contextPath}/resources/bootstrap/imagens/site/negocio2.jpg" class="img-responsive" />
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item5.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>      
-                    </div><!--/.portfolio-item-->
-
-                    <div class="portfolio-item wordpress html apps col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img src="#{request.contextPath}/resources/bootstrap/imagens/site/negocio2.jpg" class="img-responsive" />
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item6.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>         
-                    </div><!--/.portfolio-item-->
-
-                    <div class="portfolio-item wordpress html col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img src="#{request.contextPath}/resources/bootstrap/imagens/site/negocio1.jpg" class="img-responsive" />
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item7.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-
-                    <div class="portfolio-item wordpress html bootstrap col-xs-12 col-sm-4 col-md-3">
-                        <div class="recent-work-wrap">
-                            <img src="#{request.contextPath}/resources/bootstrap/imagens/site/negocio2.jpg" class="img-responsive" />
-                            <div class="overlay">
-                                <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item8.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
-                                </div> 
-                            </div>
-                        </div>          
-                    </div><!--/.portfolio-item-->
-                </div>
-            </div>
-        </div>
-    </section><!--/#portfolio-item-->
+					</div>
+				</div>
+			</section>
+			<!-- main-container end -->
 			
      
   </ui:define>

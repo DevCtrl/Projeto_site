@@ -30,6 +30,10 @@ public class SiteBen {
 	Site site = new Site();
     SiteControler comando = new SiteControler();
     String caminho;
+    private String imagem;
+    private String titulo;
+    private String conteudo;
+    private String video;
     private Part foto;
     
     Validar util = new Validar();
@@ -101,7 +105,62 @@ public class SiteBen {
     }  
     
     
-   
+   public String trabalho1(){
+	   imagem = site.getUrlImagem1();
+	   titulo = site.getTitulo1();
+	   conteudo = site.getConteudo1();
+	   video = site.getVideo1();
+	   return "siteconteudo.xhtml";
+   }
+   public String trabalho2(){
+	   imagem = site.getUrlImagem2();
+	   titulo = site.getTitulo2();
+	   conteudo = site.getConteudo2();
+	   video = site.getVideo2();
+	   return "siteconteudo.xhtml";
+   }
+   public String trabalho3(){
+	   imagem = site.getUrlImagem3();
+	   titulo = site.getTitulo3();
+	   conteudo = site.getConteudo3();
+	   video = site.getVideo3();
+	   return "siteconteudo.xhtml";
+   }
+   public String trabalho4(){
+	   imagem = site.getUrlImagem4();
+	   titulo = site.getTitulo4();
+	   conteudo = site.getConteudo4();
+	   video = site.getVideo4();
+	   return "siteconteudo.xhtml";
+   }
+   public String trabalho5(){
+	   imagem = site.getUrlImagem5();
+	   titulo = site.getTitulo5();
+	   conteudo = site.getConteudo5();
+	   video = site.getVideo5();
+	   return "siteconteudo.xhtml";
+   }
+   public String trabalho6(){
+	   imagem = site.getUrlImagem6();
+	   titulo = site.getTitulo6();
+	   conteudo = site.getConteudo6();
+	   video = site.getVideo6();
+	   return "siteconteudo.xhtml";
+   }
+   public String trabalho7(){
+	   imagem = site.getUrlImagem7();
+	   titulo = site.getTitulo7();
+	   conteudo = site.getConteudo7();
+	   video = site.getVideo7();
+	   return "siteconteudo.xhtml";
+   }
+   public String trabalho8(){
+	   imagem = site.getUrlImagem8();
+	   titulo = site.getTitulo8();
+	   conteudo = site.getConteudo8();
+	   video = site.getVideo8();
+	   return "siteconteudo.xhtml";
+   }
 
 
 	
@@ -119,16 +178,34 @@ public class SiteBen {
 	public void setSite(Site site) {
 		this.site = site;
 	}
+	public String getImagem() {
+		return imagem;
+	}
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	public String getConteudo() {
+		return conteudo;
+	}
+	public void setConteudo(String conteudo) {
+		this.conteudo = conteudo;
+	}
+	public String getVideo() {
+		return video;
+	}
+	public void setVideo(String video) {
+		this.video = video;
+	}
 
 	
 
-	//public Part getFile() {
-	//	return foto;
-	//}
-
-	//public void setFile(Part foto) {
-//		this.foto = foto;
-//	}	
+	
 
 	
 	

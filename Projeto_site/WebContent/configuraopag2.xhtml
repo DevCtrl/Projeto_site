@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+
+<body>
+	<ui:composition template="sistema.xhtml">
+		<ui:define name="Titulo">
+			<i class="fa fa-angle-right"></i> configuração pagina 2</ui:define>
+		<ui:define name="corpo">
+			<ui:insert >
+				<h:form id="form1" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-xs-5">
+                              <div class="panel panel-default">
+								  <div class="panel-heading">
+								      <h:inputFile  value="#{benSite.foto}" required="true" styleClass="btn btn-info btn-block"/>
+								     
+								  </div>
+								  <div class="panel-body">
+								    <img jsf:id="im" src="#{request.contextPath}#{benSite.site.urlImagem1}" class="img-responsive"  /> 
+								  </div>
+								</div>											                                                       													   										
+							
+                            						
+						</div>	
+						<div class="col-xs-7">
+						   <h:inputText styleClass="form-control" value="#{benSite.site.titulo1}"></h:inputText>
+						   <br/>						  
+						   <p:editor id="editor" widgetVar="editorWidget" value="#{benSite.site.conteudo1}" width="600" height="400"/>
+						   <!-- <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo1}"></h:inputTextarea> -->
+						   <br/>
+						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
+								action="#{benSite.criarImagem1}"></h:commandButton>
+						</div>											
+					</div>				
+			</h:form>
+			<br/>
+			<h:form id="form2" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-xs-5">
+                              <div class="panel panel-default">
+								  <div class="panel-heading">
+								      <h:inputFile  value="#{benSite.foto}" required="true" styleClass="btn btn-info btn-block"/>
+								     
+								  </div>
+								  <div class="panel-body">
+								    <img jsf:id="im" src="#{request.contextPath}#{benSite.site.urlImagem2}" class="img-responsive"  /> 
+								  </div>
+								</div>											                                                       													   										
+							
+                            						
+						</div>	
+						<div class="col-xs-7">
+						    <h:inputText styleClass="form-control" value="#{benSite.site.titulo2}"></h:inputText>
+						   <br/>
+						   <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo2}"></h:inputTextarea>
+						   <br/>
+						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
+								action="#{benSite.criarImagem2}"></h:commandButton>
+						</div>											
+					</div>				
+			</h:form>
+			<br/>
+			<h:form id="form3" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-xs-5">
+                              <div class="panel panel-default">
+								  <div class="panel-heading">
+								      <h:inputFile  value="#{benSite.foto}" required="true" styleClass="btn btn-info btn-block"/>
+								     
+								  </div>
+								  <div class="panel-body">
+								    <img jsf:id="im" src="#{request.contextPath}#{benSite.site.urlImagem3}" class="img-responsive"  /> 
+								  </div>
+								</div>											                                                       													   										
+							
+                            						
+						</div>	
+						<div class="col-xs-7">
+						    <h:inputText styleClass="form-control" value="#{benSite.site.titulo3}"></h:inputText>
+						   <br/>
+						   <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo3}"></h:inputTextarea>
+						   <br/>
+						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
+								action="#{benSite.criarImagem3}"></h:commandButton>
+						</div>											
+					</div>				
+			</h:form>
+			<br/>
+			<h:form id="form4" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-xs-5">
+                              <div class="panel panel-default">
+								  <div class="panel-heading">
+								      <h:inputFile  value="#{benSite.foto}" required="true" styleClass="btn btn-info btn-block"/>
+								     
+								  </div>
+								  <div class="panel-body">
+								    <img jsf:id="im" src="#{request.contextPath}#{benSite.site.urlImagem4}" class="img-responsive"  /> 
+								  </div>
+								</div>											                                                       													   										
+							
+                            						
+						</div>	
+						<div class="col-xs-7">
+						    <h:inputText styleClass="form-control" value="#{benSite.site.titulo4}"></h:inputText>
+						   <br/>
+						   <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo4}"></h:inputTextarea>
+						   <br/>
+						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
+								action="#{benSite.criarImagem4}"></h:commandButton>
+						</div>											
+					</div>				
+			</h:form>
+			<br/>
+			<h:form id="form5" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-xs-5">
+                              <div class="panel panel-default">
+								  <div class="panel-heading">
+								      <h:inputFile  value="#{benSite.foto}" required="true" styleClass="btn btn-info btn-block"/>
+								     
+								  </div>
+								  <div class="panel-body">
+								    <img jsf:id="im" src="#{request.contextPath}#{benSite.site.urlImagem5}" class="img-responsive"  /> 
+								  </div>
+								</div>											                                                       													   										
+							
+                            						
+						</div>	
+						<div class="col-xs-7">
+						    <h:inputText styleClass="form-control" value="#{benSite.site.titulo5}"></h:inputText>
+						   <br/>
+						   <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo5}"></h:inputTextarea>
+						   <br/>
+						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
+								action="#{benSite.criarImagem5}"></h:commandButton>
+						</div>											
+					</div>				
+			</h:form>
+			<br/>
+			<h:form id="form6" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-xs-5">
+                              <div class="panel panel-default">
+								  <div class="panel-heading">
+								      <h:inputFile  value="#{benSite.foto}" required="true" styleClass="btn btn-info btn-block"/>
+								     
+								  </div>
+								  <div class="panel-body">
+								    <img jsf:id="im" src="#{request.contextPath}#{benSite.site.urlImagem6}" class="img-responsive"  /> 
+								  </div>
+								</div>											                                                       													   										
+							
+                            						
+						</div>	
+						<div class="col-xs-7">
+						    <h:inputText styleClass="form-control" value="#{benSite.site.titulo6}"></h:inputText>
+						   <br/>
+						   <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo6}"></h:inputTextarea>
+						   <br/>
+						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
+								action="#{benSite.criarImagem6}"></h:commandButton>
+						</div>											
+					</div>				
+			</h:form>					
+			<br/>
+			<h:form id="form7" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-xs-5">
+                              <div class="panel panel-default">
+								  <div class="panel-heading">
+								      <h:inputFile  value="#{benSite.foto}" required="true" styleClass="btn btn-info btn-block"/>
+								     
+								  </div>
+								  <div class="panel-body">
+								    <img jsf:id="im" src="#{request.contextPath}#{benSite.site.urlImagem7}" class="img-responsive"  /> 
+								  </div>
+								</div>											                                                       													   										
+							
+                            						
+						</div>	
+						<div class="col-xs-7">
+						    <h:inputText styleClass="form-control" value="#{benSite.site.titulo7}"></h:inputText>
+						   <br/>
+						   <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo7}"></h:inputTextarea>
+						   <br/>
+						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
+								action="#{benSite.criarImagem7}"></h:commandButton>
+						</div>											
+					</div>				
+			</h:form>
+			<br/>
+			<h:form id="form8" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-xs-5">
+                              <div class="panel panel-default">
+								  <div class="panel-heading">
+								      <h:inputFile  value="#{benSite.foto}" required="true" styleClass="btn btn-info btn-block"/>
+								     
+								  </div>
+								  <div class="panel-body">
+								    <img jsf:id="im" src="#{request.contextPath}#{benSite.site.urlImagem8}" class="img-responsive"  /> 
+								  </div>
+								</div>											                                                       													   										
+							
+                            						
+						</div>	
+						<div class="col-xs-7">
+						    <h:inputText styleClass="form-control" value="#{benSite.site.titulo8}"></h:inputText>
+						   <br/>
+						   <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo8}"></h:inputTextarea>
+						   <br/>
+						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
+								action="#{benSite.criarImagem8}"></h:commandButton>
+						</div>											
+					</div>				
+			</h:form>
+				
+			</ui:insert>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>
+
+
+
+
+
+
+

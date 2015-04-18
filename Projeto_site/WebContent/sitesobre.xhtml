@@ -7,205 +7,163 @@
 <body>
   <ui:composition template="newsite.xhtml">  
   <ui:define name="conteudo">
-       <section id="about-us">
-        <div class="container">
-			<div class="center wow fadeInDown">
-				<h2>Sobre SISCEF</h2>
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br/> et dolore magna aliqua. Ut enim ad minim veniam</p>
+     <!-- page-intro start-->
+			<!-- ================ -->
+			<div class="page-intro">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<ol class="breadcrumb">
+								<li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
+								<li class="active">About</li>
+							</ol>
+						</div>
+					</div>
+				</div>
 			</div>
-			
-			<!-- about us slider -->
-			<div id="about-slider">
-				<div id="carousel-slider" class="carousel slide" data-ride="carousel" >
-					<!-- Indicators -->
-				  	<ol class="carousel-indicators visible-xs">
-					    <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
-					    <li data-target="#carousel-slider" data-slide-to="1"></li>
-					    <li data-target="#carousel-slider" data-slide-to="2"></li>
-				  	</ol>
+			<!-- page-intro end -->
 
-					<div class="carousel-inner">
-						<div class="item active">
-							<img src="#{request.contextPath}/resources/bootstrap/imagens/marcas/imagem1.jpg" class="img-responsive" /> 
-					   </div>
-					   <div class="item">
-							<img src="#{request.contextPath}/resources/bootstrap/imagens/marcas/imagem2.jpg" class="img-responsive" /> 
-					   </div> 
-					   <div class="item">
-							<img src="#{request.contextPath}/resources/bootstrap/imagens/marcas/imagem3.jpg" class="img-responsive" /> 
-					   </div> 
+			<!-- main-container start -->
+			<!-- ================ -->
+			<section class="main-container">
+
+				<div class="container">
+					<div class="row">
+
+						<!-- main start -->
+						<!-- ================ -->
+						<div class="main col-md-12">
+
+							<!-- page-title start -->
+							<!-- ================ -->
+							<h1 class="page-title wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">MInha Historia</h1>
+							<div class="separator-2"></div>
+							<!-- page-title end -->
+							
+							<div class="row">
+								<div class="col-md-6">
+									<div class="row">
+										<div class="col-md-6">
+											<img src="#{request.contextPath}/resources/bootstrap/imagens/marcas/imagem2.jpg" class="img-responsive" height="220" width="230"/> 
+										</div>
+										<div class="col-md-6">
+											<p>Quo soluta provident, quod reiciendis. Dolores nam totam aut illum ex ratione harum molestias maxime minima tempore, possimus, laudantium. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+										</div>
+									</div>
+									<p>Esse sequi veniam, assumenda voluptate necessitatibus ipsa dicta vero, minima natus cum cupiditate magnam et placeat quo adipisci.</p>
+									<ul class="list-icons">
+										<li class="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms"><i class="fa fa-check "></i> Etiam sed dolor ac diam volutpat</li>
+										<li class="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="700ms"><i class="fa fa-check"></i> Sed eget pulvinar quam, vel feugiat enim aliquam </li>
+										<li class="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="800ms"><i class="fa fa-check"></i> Erat volutpat. Phasellus eu porta ipsum suspendisse aliquet imperdiet</li>
+										<li class="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="900ms"><i class="fa fa-check"></i> Phasellus eu porta ipsum. Suspendisse aliquet imperdiet commodo</li>
+									</ul>
+									<div class="space hidden-md hidden-lg"></div>
+								</div>
+								<div class="col-md-6">
+								    <div id="about-slider" class="no-margin">
+										<div id="carousel-slider" class="carousel slide" data-ride="carousel" >
+											<!-- Indicators -->
+										  	<ol class="carousel-indicators visible-xs">
+											    <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+											    <li data-target="#carousel-slider" data-slide-to="1"></li>
+											    <li data-target="#carousel-slider" data-slide-to="2"></li>
+										  	</ol>
+						
+											<div class="carousel-inner" style="height: 400px;">
+												<div class="item active">
+													<img src="#{request.contextPath}/resources/bootstrap/imagens/marcas/imagem1.jpg" class="img-responsive" /> 
+											   </div>
+											   <div class="item">
+													<img src="#{request.contextPath}/resources/bootstrap/imagens/marcas/imagem2.jpg" class="img-responsive" /> 
+											   </div> 
+											   <div class="item">
+													<img src="#{request.contextPath}/resources/bootstrap/imagens/marcas/imagem3.jpg" class="img-responsive" /> 
+											   </div> 
+											</div>
+											
+											<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev" style="margin-left: 5%">
+												<i class="fa fa-angle-left"></i> 
+											</a>
+											
+											<a class=" right carousel-control hidden-xs" href="#carousel-slider" data-slide="next" style="margin-right: 5%">
+												<i class="fa fa-angle-right"></i> 
+											</a>
+										</div> <!--/#carousel-slider-->
+									</div><!--/#about-slider-->  							       
+							     						   
+								</div>
+							</div>
+							<h2>Nossa Equipe</h2>
+							<div class="separator-2"></div>
+							<div class="row grid-space-20">
+								<div class="col-sm-4">
+									<div class="image-box team-member">
+										<div class="overlay-container">
+											<img src="#{request.contextPath}/resources/bootstrap/imagens/desenvolvedor/auricelio.jpg" alt="" class="img-responsive" />
+											<div class="overlay">
+												<ul class="social-links colored clearfix">
+													<li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+													<li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+													<li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="image-box-body">
+											<h3 class="title">Auricelio Cardoso</h3>
+											<small>CEO</small>
+											<div class="separator-2"></div>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, optio voluptate sapiente hic.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="image-box team-member">
+										<div class="overlay-container">
+											<img src="#{request.contextPath}/resources/bootstrap/imagens/desenvolvedor/michele.jpg" alt="" class="img-responsive"/>
+											<div class="overlay">
+												<ul class="social-links colored clearfix">
+													<li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+													<li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+													<li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="image-box-body">
+											<h3 class="title">Michele Oliveira</h3>
+											<small>CTO</small>
+											<div class="separator-2"></div>
+											<p>Deserunt inventore dolorum iste expedita vel odio doloremque corporis officia tenetur quam quae atque.</p>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="image-box team-member">
+										<div class="overlay-container">
+											<img src="#{request.contextPath}/resources/bootstrap/imagens/desenvolvedor/jorliano.jpg" alt="" class="img-responsive"/>
+											<div class="overlay">
+												<ul class="social-links colored clearfix">
+													<li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+													<li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+													<li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="image-box-body">
+											<h3 class="title">Jorliano Oliveira</h3>
+											<small>Project Manager</small>
+											<div class="separator-2"></div>
+											<p>Dolorum deserunt inventore iste expedita vel odio doloremque corporis officia atque enetur quam quae.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- main end -->
+
 					</div>
-					
-					<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
-						<i class="fa fa-angle-left"></i> 
-					</a>
-					
-					<a class=" right carousel-control hidden-xs" href="#carousel-slider" data-slide="next">
-						<i class="fa fa-angle-right"></i> 
-					</a>
-				</div> <!--/#carousel-slider-->
-			</div><!--/#about-slider-->
-			
-			
-			<!-- Our Skill -->
-			<div class="skill-wrap clearfix">
-			
-				<div class="center wow fadeInDown">
-					<h2>Nossas Abilidades</h2>
-					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br/> et dolore magna aliqua. Ut enim ad minim veniam</p>
 				</div>
-				
-				<div class="row">
-		
-					<div class="col-sm-3">
-						<div class="sinlge-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-							<div class="joomla-skill">                                   
-								<p><em>85%</em></p>
-								<p>Joomla</p>
-							</div>
-						</div>
-					</div>
-					
-					 <div class="col-sm-3">
-						<div class="sinlge-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-							<div class="html-skill">                                  
-								<p><em>95%</em></p>
-								<p>HTML</p>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-sm-3">
-						<div class="sinlge-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms">
-							<div class="css-skill">                                    
-								<p><em>80%</em></p>
-								<p>CSS</p>
-							</div>
-						</div>
-					</div>
-					
-					 <div class="col-sm-3">
-						<div class="sinlge-skill wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms">
-							<div class="wp-skill">
-								<p><em>90%</em></p>
-								<p>Wordpress</p>                                     
-							</div>
-						</div>
-					</div>
-					
-				</div>
-	
-            </div><!--/.our-skill-->
-			
-
-			<!-- our-team -->
-			<div class="team">
-				<div class="center wow fadeInDown">
-					<h2>Equipe da SISCEF</h2>
-					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br/> et dolore magna aliqua. Ut enim ad minim veniam</p>
-				</div>
-
-				<div class="row clearfix">
-					<div class="col-md-4 col-sm-6">	
-						<div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-							<div class="media">
-								<div class="pull-left">
-									<img src="#{request.contextPath}/resources/bootstrap/imagens/desenvolvedor/auricelio.jpg" class=" img-responsive" alt="Generic placeholder image" width="120" height="150"/>
-								</div>
-								<div class="media-body">
-									<h4>Auricelio Cardoso</h4>
-									<h5>Fundador e CEO</h5>
-									<ul class="tag clearfix">
-										<li class="btn"><a href="#">Web</a></li>
-										<li class="btn"><a href="#">Ui</a></li>
-										<li class="btn"><a href="#">Ux</a></li>
-										<li class="btn"><a href="#">Photoshop</a></li>
-									</ul>
-									
-									<ul class="social_icons">
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
-										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-									</ul>
-								</div>
-							</div><!--/.media -->
-							<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-						</div>
-					</div><!--/.col-lg-4 -->
-					
-					
-					<div class="col-md-4 col-sm-6 col-md-offset-2">	
-						<div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-							<div class="media">
-								<div class="pull-left">
-									<img src="#{request.contextPath}/resources/bootstrap/imagens/desenvolvedor/michele.jpg"  class=" img-responsive" alt="Generic placeholder image" width="120" height="150"/>
-								</div>
-								<div class="media-body">
-									<h4>Michele Oliveira</h4>
-									<h5>Fundadora e CEO</h5>
-									<ul class="tag clearfix">
-										<li class="btn"><a href="#">Web</a></li>
-										<li class="btn"><a href="#">Ui</a></li>
-										<li class="btn"><a href="#">Ux</a></li>
-										<li class="btn"><a href="#">Photoshop</a></li>
-									</ul>
-									<ul class="social_icons">
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
-										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-									</ul>
-								</div>
-							</div><!--/.media -->
-							<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-						</div>
-					</div><!--/.col-lg-4 -->					
-				</div> <!--/.row -->
-				<div class="row team-bar">
-					<div class="first-one-arrow hidden-xs">
-						<hr/>
-					</div>
-					<div class="first-arrow hidden-xs">
-						<hr/> <i class="fa fa-angle-up"></i>
-					</div>
-					<div class="second-arrow hidden-xs">
-						<hr/> <i class="fa fa-angle-down"></i>
-					</div>	
-					<div class="third-arrow hidden-xs">
-						<hr/> <i class="fa fa-angle-up"></i>
-					</div>				
-				</div> <!--skill_border-->       
-
-				<div class="row clearfix">   
-					<div class="col-md-4 col-sm-6 col-md-offset-3">	
-						<div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
-							<div class="media">
-								<div class="pull-left">
-									<img src="#{request.contextPath}/resources/bootstrap/imagens/desenvolvedor/jorliano.jpg" class=" img-responsive" alt="Generic placeholder image" width="120" height="150"/>
-								</div>
-
-								<div class="media-body">
-									<h4>Jorliano Oliveira</h4>
-									<h5>Desenvolvedor</h5>
-									<ul class="tag clearfix">
-										<li class="btn"><a href="#">Web</a></li>
-										<li class="btn"><a href="#">Java</a></li>
-										<li class="btn"><a href="#">Desgner</a></li>
-										<li class="btn"><a href="#">Photoshop</a></li>
-									</ul>
-									<ul class="social_icons">
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
-										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-									</ul>
-								</div>
-							</div><!--/.media -->
-							<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-						</div>
-					</div>						  
-				</div>	<!--/.row-->
-			</div><!--section-->
-		</div><!--/.container-->
-    </section><!--/about-us-->
+			</section>
+			<!-- main-container end -->
      
   </ui:define>
   </ui:composition> 
