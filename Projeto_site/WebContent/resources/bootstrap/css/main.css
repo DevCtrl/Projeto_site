@@ -185,6 +185,7 @@ body > section {
 .top-bar {
   padding: 10px 0;
   background: #191919;
+  margin-bottom: -20px;
   border-bottom: 1px solid #222;
   line-height: 28px;
 }
@@ -636,24 +637,36 @@ input.search-form:hover {
   padding: 30px;
 }
 
-.recent-work-wrap .overlay-work .preview {
-    background-color: white;	
-	color: red;
-	margin-top : 40px;
-	margin-left: 35px;
-	width: 50px;
+.recent-work-wrap .overlay-work .preview {    
+	
+	display: inline-block;
+	width: 100px;
 	height: 50px;
-}
-.recent-work-wrap .overlay-work .preview2 {
-    background-color: white;	
-	color: red;
+	font-size: 35px;
+	color: #e84c3d;
+	background-color: #ffffff;
+	text-align: center;
 	position: absolute;
-	margin-top : 40px;
-	margin-left: 5px;
-	width: 50px;
-	height: 50px;
+	top: 50%;
+	left: 40%;
+	margin-top: -25px;
+	margin-left: -25px;
 }
-
+.recent-work-wrap .overlay-work .link {
+    position: static;
+	margin-top: 0;
+	margin-left: 0;
+}
+.recent-work-wrap .overlay-work .link a + commadlink {
+	left: 50px;
+	color: #ffffff;
+	background-color: #e84c3d;
+}
+.recent-work-wrap .overlay-work a:hover {
+	color: #ffffff;
+	background-color: #333333;
+	text-decoration: none;
+}
 .recent-work-wrap:hover .overlay-work {
   opacity: 1;
 }
