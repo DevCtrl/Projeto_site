@@ -7,7 +7,7 @@
 
 
 <body>
-  <ui:composition template="newsite.xhtml">  
+  <ui:composition template="index.xhtml">  
   <ui:define name="conteudo">
        <section id="blog" class="container">
         <div class="center">
@@ -26,7 +26,7 @@
                                 
                                 <div class="  blog-content">
                                   
-                                    <p>#{benSite.conteudo}</p>
+                                    <h:outputText value="#{benSite.conteudo}" escape="false"/>
                                     
 
                                     <div class="post-tags">

@@ -1,209 +1,351 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:jsf="http://xmlns.jcp.org/jsf">
-   
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
-        <meta charset="utf-8"/>
-        <title>site jor</title>
-        <meta name="generator" content="Bootply" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        
-        <!--[if lt IE 9]>
-          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-        
-        <!-- Bootstrap Css -->
-			<link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-			<link href="#{request.contextPath}/resources/bootstrap/css/StiloSite.css" rel="stylesheet" type="text/css"/>
-			<link href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-<h:head>
-
-</h:head> 
-<body> 
- <!-- Wrap all page content here -->
-<div id="wrap">
-  
-
-  
-  
-<!-- Fixed navbar -->
-<div class="navbar navbar-custom navbar-inverse navbar-fixed-top" id="nav">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav nav-justified">
-          <li><a href="#">Inicio</a></li>         
-          <li><a href="#section3">Novidades</a></li>
-          <li><a href="#section1">Entreterimento</a></li>
-          <li><a href="login.xhtml">login</a></li>
-          <li><a href="#section4">Sobre</a></li>                   
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div><!--/.container -->
-</div><!--/.navbar -->
-  
-<!-- Begin page content -->
-<div class="divider" id="section1"></div>
-  
-<div class="container">
-  <div class="col-sm-10 col-sm-offset-1">
-    <div class="page-header text-center">
-      <h1>#{benSite.site.titulo1}</h1>
-    </div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"	
+	xmlns:ui="http://java.sun.com/jsf/facelets"	
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>SISCEF</title>
+	
+	<!-- core CSS -->
     
-    <p class="lead text-center">
-      
-    </p>
-    <p class="text-center">
-      #{benSite.site.conteudo1}
-    </p>
-  </div>
-</div>
-    
-<div class="divider" id="section2"></div>
+	<link href="#{request.contextPath}/resources/bootstrap/css/animate.min.css" rel="stylesheet" type="text/css"/>
+	<link href="#{request.contextPath}/resources/bootstrap/css/prettyPhoto.css" rel="stylesheet" type="text/css"/>
+	<link href="#{request.contextPath}/resources/bootstrap/css/responsive.css" rel="stylesheet" type="text/css"/>
+	<link href="#{request.contextPath}/resources/bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
+	<link href="#{request.contextPath}/resources/bootstrap/css/StiloSite.css" rel="stylesheet" type="text/css"/>
+	
  
-<section class="bg-1"  >
-  <div class="col-sm-6 col-sm-offset-3 text-center"><h2 style="padding:20px;background-color:rgba(5,5,5,.3)">#{benSite.site.tituloImagem1}</h2></div>
-</section>
-  
-<div class="divider"></div>
    
-<div class="container" id="section3">
-  	<div class="col-sm-8 col-sm-offset-2 text-center">
-      <h1>#{benSite.site.titulo2}</h1>
-      
-      <p>
-        #{benSite.site.conteudo2}
-      </p>
-      
-      <hr>
-            
-	  <img src="#{request.contextPath}/resources/bootstrap/imagens/teste4.jpg" class="img-responsive" style="padding: 25px;"/>
-	 
-      </hr>
-  	</div><!--/col-->
-</div><!--/container-->
+    <!--fonte de icones externa -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+    <!-- Bootstrap Css -->
+	<link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>			
+	<link href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png"/>
+</head><!--/head-->
 
+<body class="homepage">
 
-  
-<section class="bg-2" id="section4">
-  <div class="col-sm-6 col-sm-offset-3 text-center"><h2 style="padding:20px;background-color:rgba(5,5,5,.3)">#{benSite.site.tituloImagem2}</h2></div>
-</section>
-  
-<div class="continer bg-4">
-	<div class="row">
-	   <div class="col-sm-4 col-xs-6">
-      
-        <div class="panel panel-default">
-          <div><img src="//placehold.it/450X250/565656/eee" class="img-responsive"/></div>
-          <div class="panel-body">
-            <p class="lead">Hacker News</p>
-            <p>120k Followers, 900 Posts</p>
-            
-            <p>
-              <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px"/>
-            </p>
-          </div>
-        </div><!--/panel-->
-      </div><!--/col-->
-      
-      <div class="col-sm-4 col-xs-6">
-      
-      	<div class="panel panel-default">
-          <div class="panel-thumbnail"><img src="//placehold.it/450X250/ffcc33/444" class="img-responsive"/></div>
-          <div class="panel-body">
-            <p class="lead">Bootstrap Templates</p>
-            <p>902 Followers, 88 Posts</p>
-            
-            <p>
-              <img src="https://lh5.googleusercontent.com/-AQznZjgfM3E/AAAAAAAAAAI/AAAAAAAAABA/WEPOnkQS_20/s28-c-k-no/photo.jpg" width="28px" height="28px"/>
-            </p>
-          </div>
-        </div><!--/panel--> 
-      </div><!--/col-->
-      
-      <div class="col-sm-4 col-xs-6">
-      
-      	<div class="panel panel-default">
-          <div class="panel-thumbnail"><img src="//placehold.it/450X250/f16251/444" class="img-responsive"/></div>
-          <div class="panel-body">
-            <p class="lead">Social Media</p>
-            <p>19k Followers, 789 Posts</p>
-            
-            <p>
-              <img src="https://lh4.googleusercontent.com/-eSs1F2O7N1A/AAAAAAAAAAI/AAAAAAAAAAA/caHwQFv2RqI/s28-c-k-no/photo.jpg" width="28px" height="28px"/>
-              <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px"/>
-            </p>
-          </div>
-        </div><!--/panel--> 
+    <header id="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-4">
+                        <div class="top-number"><p><i class="fa fa-phone-square"></i>  +0123 456 70 90</p></div>
+                    </div>
+                    <div class="col-sm-6 col-xs-8">
+                       <div class="social">
+                            <ul class="social-share">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                            </ul>
+                            <div class="search">
+                                <form role="form">
+                                    <input type="text" class="search-form" autocomplete="off" placeholder="Search"/>
+                                    <i class="fa fa-search"></i>
+                                </form>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </div><!--/.container-->
+        </div><!--/.top-bar-->
 
-      </div><!--/col--> 
-	</div><!--/row-->
-</div><!--/container-->
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html" style="margin-top: -15px;">  <img src="#{request.contextPath}/resources/bootstrap/imagens/marcas/forever.png" class="img-responsive" height="100" width="200"/></a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>                   
+                </div>
+				
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.xhtml">Inicio</a></li>
+                        <li><a href="historia.xhtml">Minha Historia</a></li>
+                        <li><a href="siteprodutos.xhtml">Produtos</a></li>
+                        <li><a href="oportunidade.xhtml">Oportunidade</a></li>                                             
+                        <li><a href="contato.xhtml">Contato</a></li>
+                        <li><a href="login.xhtml">Login</a></li>                        
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+		
+    </header><!--/header-->
+    <ui:insert name="conteudo">
+    
+        <div id="about-slider" class="no-margin">
+				<div id="carousel-slider" class="carousel slide" data-ride="carousel" >
+					<!-- Indicators -->
+				  	<ol class="carousel-indicators visible-xs">
+					    <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+					    <li data-target="#carousel-slider" data-slide-to="1"></li>
+					    <li data-target="#carousel-slider" data-slide-to="2"></li>
+				  	</ol>
 
-<div class="divider" id="section5"></div>
+					<div class="carousel-inner" style="height: 400px;">
+						<div class="item active">
+							<img src="#{request.contextPath}/resources/bootstrap/imagens/site/slide/slide1.jpg" class="img-responsive" /> 
+					   </div>
+					   <div class="item">
+							<img src="#{request.contextPath}/resources/bootstrap/imagens/site/slide/slide2.jpg" class="img-responsive" /> 
+					   </div> 
+					   <div class="item">
+							<img src="#{request.contextPath}/resources/bootstrap/imagens/site/slide/slide3.jpg" class="img-responsive" /> 
+					   </div> 
+					</div>
+					
+					<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev" style="margin-left: 5%">
+						<i class="fa fa-angle-left"></i> 
+					</a>
+					
+					<a class=" right carousel-control hidden-xs" href="#carousel-slider" data-slide="next" style="margin-right: 5%">
+						<i class="fa fa-angle-right"></i> 
+					</a>
+				</div> <!--/#carousel-slider-->
+			</div><!--/#about-slider-->   
 
-<div class="row-fluid">      <!-- 4:3 aspect ratio -->
-  <div class="col-xs-4">
-	<div class="embed-responsive embed-responsive-4by3">
-	  <iframe class="embed-responsive-item"  src="#{benSite.site.video1}"></iframe>
-	</div>                                                                    
-  </div> 
-  <div class="col-xs-4">
-	<div class="embed-responsive embed-responsive-4by3">
-	  <iframe class="embed-responsive-item" src="#{benSite.site.video2}"></iframe>
-	</div>
-  </div>  
-  <div class="col-xs-4">
-	<div class="embed-responsive embed-responsive-4by3">
-	  <iframe class="embed-responsive-item" src="#{benSite.site.video3}"></iframe>
-	</div>
-  </div>     
- </div><!-- /row -->
-<div class="container">
-  	<div class="col-sm-8 col-sm-offset-2 text-center">
-      <h2>Beautiful Bootstrap Templates</h2>
-      
-      
-      <h4>
-        We love templates. We love Bootstrap.
-      </h4>
-      <p>Get more free templates like this at the <a href="http://bootply.com">Bootstrap Playground</a>, Bootply.</p>
-     
-      <ul class="list-inline center-block">
-        <li><a href="http://facebook.com/bootply"><img src="/assets/example/soc_fb.png"/></a></li>
-        <li><a href="http://twitter.com/bootply"><img src="/assets/example/soc_tw.png"/></a></li>
-        <li><a href="http://google.com/+bootply"><img src="/assets/example/soc_gplus.png"/></a></li>
-        <li><a href="http://pinterest.com/in1"><img src="/assets/example/soc_pin.png"/></a></li>
-      </ul>
-      
-  	</div><!--/col-->
-</div><!--/container-->
-  
-</div><!--/wrap-->
+   
 
-<div id="footer">
-  <div class="container">
-    <p class="text-muted">This Bootstrap Example courtesy <a href="http://www.bootply.com">Bootply.com</a></p>
-  </div>
-</div>
+    <section id="recent-works">
+        <div class="container">
+            <div class="center wow fadeInDown">
+                <h2>Eventos Recentes</h2>
+                <p class="lead">Trabalhamos pensado em você crescer e a gente crescer junto <br/> Melhorando nossa abildade para melhor atendelos</p>
+            </div>
 
-<ul class="nav pull-right scroll-top">
-  <li><a href="#" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
-</ul>
+            <div class="row">
+            <h:form>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img src="#{request.contextPath}#{benSite.site.urlImagem1}" class="img-responsive" />
+                        <div class="overlay-work">
+                            <div class="preview">
+                                <h:commandLink action="#{benSite.trabalho1}" styleClass=" fa fa-link "></h:commandLink>                               
+                                <a  href="#{request.contextPath}#{benSite.site.urlImagem1}" rel="prettyPhoto"><i  class="fa fa-search-plus " ></i></a>
+                            </div> 
+                        </div>                                                                     
+                    </div>
+                </div>   
 
-</body> 
-  <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-  <script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
-  <!-- jsf para criar graficos -->
-  <script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/Chart.min.js"></script>
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                       <img src="#{request.contextPath}#{benSite.site.urlImagem2}" class="img-responsive" />
+                        <div class="overlay-work">
+                            <div class="preview">
+                                <h:commandLink action="#{benSite.trabalho2}" styleClass="fa fa-link "></h:commandLink>                               
+                                <a  href="#{request.contextPath}#{benSite.site.urlImagem2}" rel="prettyPhoto"><i  class="fa fa-search-plus " ></i></a>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                       <img src="#{request.contextPath}#{benSite.site.urlImagem3}" class="img-responsive" />
+                        <div class="overlay-work">
+                            <div class="preview">
+                                <h:commandLink action="#{benSite.trabalho3}" styleClass="fa fa-link "></h:commandLink>                               
+                                 <a  href="#{request.contextPath}#{benSite.site.urlImagem3}" rel="prettyPhoto"><i  class="fa fa-search-plus " ></i></a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img src="#{request.contextPath}#{benSite.site.urlImagem4}" class="img-responsive" />
+                        <div class="overlay-work">
+                            <div class="preview">
+                                <h:commandLink action="#{benSite.trabalho4}" styleClass=" fa fa-link "></h:commandLink>                               
+                                 <a  href="#{request.contextPath}#{benSite.site.urlImagem4}" rel="prettyPhoto"><i  class="fa fa-search-plus " ></i></a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+                
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                         <img src="#{request.contextPath}#{benSite.site.urlImagem5}" class="img-responsive" />
+                        <div class="overlay-work">
+                            <div class="preview">
+                                <h:commandLink action="#{benSite.trabalho5}" styleClass=" fa fa-link "></h:commandLink>                               
+                                 <a  href="#{request.contextPath}#{benSite.site.urlImagem5}" rel="prettyPhoto"><i  class="fa fa-search-plus " ></i></a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                         <img src="#{request.contextPath}#{benSite.site.urlImagem6}" class="img-responsive" />
+                        <div class="overlay-work">
+                            <div class="preview">
+                                <h:commandLink action="#{benSite.trabalho6}" styleClass=" fa fa-link "></h:commandLink>                               
+                                 <a  href="#{request.contextPath}#{benSite.site.urlImagem6}" rel="prettyPhoto"><i  class="fa fa-search-plus " ></i></a>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img src="#{request.contextPath}#{benSite.site.urlImagem7}" class="img-responsive" />
+                        <div class="overlay-work">
+                            <div class="preview">
+                                <h:commandLink action="#{benSite.trabalho7}" styleClass="fa fa-link "></h:commandLink>                               
+                                 <a  href="#{request.contextPath}#{benSite.site.urlImagem7}" rel="prettyPhoto"><i  class="fa fa-search-plus " ></i></a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                         <img src="#{request.contextPath}#{benSite.site.urlImagem8}" class="img-responsive" />
+                        <div class="overlay-work">
+                            <div class="preview">
+                                <h:commandLink action="#{benSite.trabalho8}" styleClass=" fa fa-link "></h:commandLink>                               
+                                 <a  href="#{request.contextPath}#{benSite.site.urlImagem8}" rel="prettyPhoto"><i  class="fa fa-search-plus " ></i></a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+               </h:form> 
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#recent-works-->
+
+    <section id="services" class="service-item">
+	   <div class="container">
+            <div class="center wow fadeInDown">
+                <h2>Nosos Produtos</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br/> et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div  style="height: 140px;width: 160px;">
+                             <img src="#{request.contextPath}/resources/bootstrap/imagens/site/produtos/pd1.jpg" class="img-responsive" />
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Limpeza de Pele</h3>
+                            <p>Deixando seu rosto e corpo bonito,com cremes aromaticos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div  style="height: 140px;width: 160px;">
+                              <img src="#{request.contextPath}/resources/bootstrap/imagens/site/produtos/pd2.jpg" class="img-responsive" />
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Parcerias</h3>
+                            <p>Venha fazer parte do nosso empreendimento</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div  style="height: 140px;width: 160px;">
+                             <img src="#{request.contextPath}/resources/bootstrap/imagens/site/produtos/pd3.jpg" class="img-responsive" />
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">SEO Marketing</h3>
+                            <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
+                        </div>
+                    </div>
+                </div>  
+
+                                                       
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#services-->  
+   
+
+   
+
+    <section id="conatcat-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="pull-left">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="media-body">
+                            <h2>Faça parte de nossa equipe FLP Clicando <a href="#">aqui</a> </h2>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-sm-4">
+                    <div class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                        <div class="pull-right">
+                            <img src="#{request.contextPath}/resources/bootstrap/imagens/marcas/imagem3.jpg" class="img-responsive" height="200" width="200"/>
+                        </div>                        
+                    </div>
+                </div>
+            </div>            
+               
+           
+        </div><!--/.container-->    
+    </section><!--/#conatcat-info-->
+    
+   </ui:insert><!-- final do conteiner da pagina -->
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                   <a target="_blank" href="#" >Desenvolvedor jorliano</a>. Todos diretos reservado.
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">                        
+                        <li><a href="#">20 de abril de 2015</a></li>
+                        <li><a href="#">Ceara </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+    
+    <!-- jQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	
+	<!-- Bootstrap -->
+	<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS -->
+	<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/jquery.isotope.min.js"></script>
+	<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/wow.min.js"></script>
+	<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/main.js"></script>
+	
+   
+   
+</body>
 </html>
+    
+
+ 

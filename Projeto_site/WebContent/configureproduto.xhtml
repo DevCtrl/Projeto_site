@@ -10,77 +10,111 @@
 	<ui:composition template="sistema.xhtml">
 	     <ui:define name="Titulo"><a href="produto.xhtml"><i class="fa fa-angle-right"></i> produto </a><i class="fa fa-angle-right"></i> cadastro </ui:define>	
 		<ui:define name="corpo">
-				
-					
-	           <form  jsf:id="from1" class="form-horizontal">
-				  <div class="row-fluid ">
-				     <div class="col-xs-2">
-				       <label  class="control-label">Codigo</label>				       
-				       <input type="number" jsf:value="#{benProduto.produto.codigo}" required="true" maxlength="8" 
-						        class="form-control" jsf:id="codigo" />						        
-				     </div>
-				     <div class="col-xs-5">
-				       <label  class="control-label">Nome</label>				       
-				       <input type="text" jsf:value="#{benProduto.produto.nome}" required="true" maxlength="50"
+		<section id="contact-page">
+        <div class="container">
+           
+         <h:form id="form1" enctype="multipart/form-data">
+            <div class="row contact-wrap"> 
+                <div class="status alert alert-success" style="display: none"></div>
+                
+                    <div class="col-sm-6 ">
+                        <div class="form-group">                                                                             
+                            <label  class="control-label">Nome</label>				       
+				            <input type="text" jsf:value="#{benProduto.produto.nome}" required="true" maxlength="50"
 						        class="form-control" jsf:id="nome" placeholder="Entre com nome"/>						        
-				     </div>
-				     <div class="col-xs-5">
-				       <label class="control-label">Descrição</label>
-				       <input type="text" jsf:value="#{benProduto.produto.descricao}" maxlength="50" 
-					          class="form-control" jsf:id="descricao" placeholder="Entre a descrição"/>
-				     </div>
-				  </div>
-				  <div class="row-fluid" >
-				     <div class="col-xs-4">
-				        <label for="valor_Varejo" class=" control-label">Valor Varejo</label>
-				          <input type="text" jsf:value="#{benProduto.produto.valor_Varejo}" required="true" maxlength="18"
-					       class="form-control" jsf:id="valor_Varejo" placeholder="Entre com valor_Varejo">
+                        </div>
+                        <div class="form-group">
+                             <label class=" control-label">Categoria</label>				       
+							 <h:selectOneMenu value="#{benProduto.produto.categoria}" styleClass="form-control">  
+							    <f:selectItem  itemLabel="Selecione a categoria"/>
+							    <f:selectItem itemValue="bebidas" itemLabel="Bebidas"/>  
+							    <f:selectItem itemValue="beleza" itemLabel="Beleza"/>
+							    <f:selectItem itemValue="nutricao" itemLabel="Nutrição"/>	
+							    <f:selectItem itemValue="cuidados" itemLabel="Cuidados Pessoais"/>							            
+						     </h:selectOneMenu> 		
+                        </div>
+                                            
+                    </div>
+                    <div class="col-sm-6">                       
+                                              
+                         <div class="form-group col-sm-7">
+                            <label>Descrição</label>
+                            <h:inputTextarea styleClass="form-control" value="#{benProduto.produto.descricao}" rows="5" />
+                            
+                        </div>
+                        <div class="form-group col-sm-5">
+                            <label>Imegem</label>
+                            
+						    <a href="#" class="thumbnail" >
+						      <img src="#{request.contextPath}#{benProduto.produto.urlImagem}" class="img-responsive" width="120" height="120"/> 
+						    </a>
+						     <h:inputFile  value="#{benProduto.foto}"  required="true" styleClass="btn btn-info btn-block"/>
+                        </div>  
+                    </div>
+              
+            </div><!--/.row-->
+            <div class="row">
+                     <div class="col-sm-4 ">
+                        <div class="form-group">                                                                             
+                            <label class=" control-label">Valor Revenda</label>
+				          <input type="text" jsf:value="#{benProduto.produto.valor_Revenda}" required="true" maxlength="18"
+					        class="form-control" jsf:id="valor_Revenda" placeholder="Entre valor_Revenda">
+					        <f:convertNumber minFractionDigits="2" />
+					      </input>
+                        </div>
+                        <div class="form-group">
+                            <label for="valor_Varejo" class=" control-label">Valor Varejo</label>
+				            <input type="text" jsf:value="#{benProduto.produto.valor_Varejo}" required="true" maxlength="18"
+					         class="form-control" jsf:id="valor_Varejo" placeholder="Entre com valor_Varejo">
 					          <f:convertNumber minFractionDigits="2" />
-					       </input>					  
-				     </div>
-				     <div class="col-xs-4">
-				         <label class=" control-label">Valor Revenda</label>
-				         <input type="text" jsf:value="#{benProduto.produto.valor_Revenda}" required="true" maxlength="18"
-					       class="form-control" jsf:id="valor_Revenda" placeholder="Entre valor_Revenda">
-					       <f:convertNumber minFractionDigits="2" />
-					     </input>  
-				     </div>
-				     <div class="col-xs-4">
-				          <label  class="control-label">Data cadastro</label>
+					         </input>			
+                        </div>                                           
+                    </div>
+                    <div class="col-sm-4 ">
+                        <div class="form-group">                                                                             
+                             <label  class="control-label">Data cadastro</label>
 				          <input type="text" jsf:value="#{benProduto.produto.dataCadastro}" disabled="true"
 					       class="form-control" jsf:id="data" placeholder="Entre com dataProduto"/>
-				     </div>
-				   </div> 
-				   <div class="row-fluid ">
-				     <div class="col-xs-4">
-				          <label class="control-label">estoque</label>				   
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">estoque</label>				   
 				          <input type="text" jsf:value="#{benProduto.produto.quantidade}" disabled="true"
 					            class="form-control" jsf:id="estoque" placeholder="Entre com estoque"/>
-				     </div>
-				     <div class="col-xs-4">
-				          <label class=" control-label">quantidade</label>				    
-				          <input type="number" jsf:value="#{benProduto.quantidade}" min="1" max="999" required="true"
-					           class="form-control" jsf:id="quantidade" placeholder="quantidade"/>
-				     </div>
-				     <div class="col-xs-4">
-				            <label class=" control-label">tipo</label>				       
+                        </div>
+                                           
+                    </div>
+                    <div class="col-sm-4 ">
+                        <div class="form-group">                                                                             
+                             <label class=" control-label">Tipo</label>				       
 							<h:selectOneMenu value="#{benProduto.produto.tipo}" styleClass="form-control">  
 							    <f:selectItem itemValue="unidade" itemLabel="Unidade"/>  
 							    <f:selectItem itemValue="pesoGm" itemLabel="Peso Grama"/>
 							    <f:selectItem itemValue="pesoKg" itemLabel="Peso Kilo"/>	
 							    <f:selectItem itemValue="cixa" itemLabel="Caixa"/>							            
 						     </h:selectOneMenu> 	
-				     </div>				     
-				   <div class="row-fluid col-xs-12 ">				      
+                        </div>
+                        <div class="form-group">
+                             <label class=" control-label">quantidade</label>				    
+				          <input type="number" jsf:value="#{benProduto.quantidade}" min="1" max="999" required="true"
+					           class="form-control" jsf:id="quantidade" placeholder="quantidade"/>
+                        </div>
+                                           
+                    </div>               
+            </div>
+             <div class="row-fluid  ">				      
 				          <button jsf:id="bt_conf_incluir" jsf:action="#{benProduto.cadastrar}" class="btn btn-primary " style="margin-top: 20px;">Salvar</button>				      
 				          <button jsf:id="bt_conf_delete"  jsf:action="#{benProduto.deletar}" class="btn btn-default "   style="margin-top: 20px;"
 				          					        jsf:rendered="#{benProduto.produto.id > 0}" >Deletar</button>				      
 				          <button jsf:outcome="produto.xhtml" class="btn btn-danger " style="margin-top: 20px;" >Cancelar <i class="fa fa-undo"></i></button>			      
 						 					   
 				   </div>
-				 </div>  			  				  				          			
-				
-			 </form>  
+            
+             </h:form>  
+            
+	           
+	        </div><!--/.container-->
+	    </section><!--/#contact-page-->   					 						 				     			    
+			
 			
 		</ui:define>
 	</ui:composition>

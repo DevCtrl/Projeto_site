@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"	
+	xmlns:ui="http://java.sun.com/jsf/facelets"	
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:p="http://primefaces.org/ui">
+
+<body>
+  <ui:composition template="index.xhtml">  
+  <ui:define name="conteudo">
+      <!-- main-container start -->
+			<!-- ================ -->
+			<section class="main-container">
+
+				<div class="container">
+					<div class="row">
+
+						<!-- main start -->
+						<!-- ================ -->
+						<div class="main col-md-12">
+
+							<!-- page-title start -->
+							<!-- ================ -->
+							<h1 class="page-title">Produtos</h1>
+							<div class="separator-2"></div>
+							<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas nulla suscipit <br class="hidden-sm hidden-xs"/> unde rerum mollitia dolorum.</p>
+							<!-- page-title end -->
+							
+							<div class="sorting-filters">
+								<form jsf:id="form" class="form-inline">
+								 <div class="row">	
+									<div class="form-group " style="margin-left: 5px;" >
+										<label>Ordenar por</label>
+										 <h:selectOneMenu value="#{benSite.ordenar}" styleClass="form-control">  
+										    <f:selectItem  itemLabel="Selecione"/>
+										    <f:selectItem itemValue="nome" itemLabel="Nome"/>  
+										    <f:selectItem itemValue="valor_Revenda" itemLabel="Preço"/>
+										    <f:selectItem itemValue="codigo" itemLabel="codigo"/>											    
+									     </h:selectOneMenu> 
+									</div>
+									<div class="form-group">
+										<label>Ordenar tipo</label>
+										<h:selectOneMenu value="#{benSite.ordenarTipo}" styleClass="form-control">  										    
+										    <f:selectItem itemValue="asc" itemLabel="Crecente"/>  
+										    <f:selectItem itemValue="desc" itemLabel="Decrecente"/>										    										    
+									     </h:selectOneMenu> 
+									</div>
+									<div class="form-group">
+										<label>Price $ (min/max)</label>
+										<div class="row grid-space-10">
+											<div class="col-sm-6">
+												<input type="text" jsf:value="#{benSite.priceMin}" class="form-control"/>
+											</div>
+											<div class="col-sm-6">
+												<input type="text" jsf:value="#{benSite.priceMax}" class="form-control col-xs-6"/>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Category</label>
+										<h:selectOneMenu value="#{benSite.categoria}" styleClass="form-control">  
+										    <f:selectItem  itemLabel="Selecione a categoria"/>
+										    <f:selectItem itemValue="bebidas" itemLabel="Bebidas"/>  
+										    <f:selectItem itemValue="beleza" itemLabel="Beleza"/>
+										    <f:selectItem itemValue="nutricao" itemLabel="Nutrição"/>	
+										    <f:selectItem itemValue="cuidados" itemLabel="Cuidados Pessoais"/>							            
+									     </h:selectOneMenu> 
+									</div>
+									<div class="form-group">										
+										<h:commandButton actionListener="#{benSite.pesquisar}" value="pesquisar" styleClass="btn btn-default" />										  								
+									</div>
+								  </div>	
+								</form>
+							</div>
+
+							<!-- shop items start -->
+							<h:form id="form2">	
+							<div class="masonry-grid-fitrows row grid-space-20">
+							 
+							 <p:dataGrid id="grid" var="list" value="#{benSite.listaProduto}" style="width: 100%"  columns="4" styleClass="table table-responcive table-hover" rows="10"> 	
+					           <p:panel >
+					                <div class="  masonry-grid-item">
+														<div class="listing-item">
+															<div class="overlay-container">
+																<img src="#{request.contextPath}#{list.urlImagem}" class="img-responsive" /> 
+																<a href="shop-product.html" class="overlay small">
+																	<i class="fa fa-plus"></i>
+																	<span>Veja Detalhes</span>
+																</a>
+															</div>
+															<div class="listing-item-body clearfix">
+																<h3 class="title"><a href="shop-product.html">#{list.nome}</a></h3>											
+																<p>#{list.descricao}</p>
+																<span class="price"> <h:outputText value="#{list.valor_Revenda}" >
+																		<f:convertNumber currencyCode="BRL" type="currency"/>
+																</h:outputText>  </span>
+																<div class="elements-list pull-right">																	
+																	<a href="#"><i class="fa fa-shopping-cart pr-10"></i>Add to Cart</a>
+																</div>
+															</div>
+														</div>
+													</div>     					         
+					        
+								    </p:panel>			
+								 </p:dataGrid>																															
+								
+							</div>
+							<!-- shop items end -->
+							
+							<div class="clearfix"></div>
+
+							<!-- pagination start -->
+						   
+							<ul class="pagination" style="position: static;"> 
+								<li><h:commandLink styleClass="fa fa-angle-double-left"   actionListener="#{benSite.paginarAnterio}" value=" anterior"  disabled="#{benSite.paginaAtual == 0}"/></li>																					
+							</ul>
+							<ul class="pagination pull-right">								
+								<li><h:commandLink value="proximo " actionListener="#{benSite.paginarProximo}" ><span class="fa fa-angle-double-right"></span></h:commandLink></li>
+							</ul>
+							<!-- pagination end -->
+                          </h:form>
+						</div>
+						<!-- main end -->
+					</div >
+				</div>
+			</section>
+			<!-- main-container end -->
+     
+  </ui:define>
+  </ui:composition> 
+ </body> 
+</html>

@@ -1,94 +1,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:jsf="http://xmlns.jcp.org/jsf">
-
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<meta charset="utf-8" />
-<title>site</title>
-<meta name="generator" content="Bootply" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-<!--[if lt IE 9]>
-          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-
-
-<h:head>
-	<!-- Bootstrap -->
-	<link
-		href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css"
-		rel="stylesheet" type="text/css" />
-	<link
-		href="#{request.contextPath}/resources/bootstrap/css/bootstrap.css"
-		rel="stylesheet" type="text/css" />
-	<link
-		href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css"
-		rel="stylesheet" type="text/css" />
-	<!--stilo painel  -->
-	<link
-		href="#{request.contextPath}/resources/bootstrap/css/stiloPainel.css"
-		rel="stylesheet" type="text/css" />
-	<!--fonte de icones externa -->
-	<link rel="stylesheet"
-		href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-	<!-- Sidbar -->
-	<link
-		href="#{request.contextPath}/resources/bootstrap/css/estilo.sidbars.css"
-		rel="stylesheet" type="text/css" />
-	<link
-		href="#{request.contextPath}/resources/bootstrap/css/slidebars.css"
-		rel="stylesheet" type="text/css" />
-
-</h:head>
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">   
 
 
 <body>
-	
-		         
-				   
+	<ui:composition template="sistema.xhtml">
+	     <ui:define name="Titulo"><a href="produto.xhtml"><i class="fa fa-angle-right"></i> produto </a><i class="fa fa-angle-right"></i> cadastro </ui:define>	
+		<ui:define name="corpo">
+				<section id="contact-page">
+        <div class="container">
+           
+          <form id="jsf:form" >  
+                  
+            
+             </form>  
+            
+           
+        </div><!--/.container-->
+    </section><!--/#contact-page-->
+					
+	          
+				    
+					 
+						 				     
+				    
 			
-						   
-			 								
-			 
+			
+		</ui:define>
+	</ui:composition>
 
-<h:form id="form" enctype="multipart/form-data">
-  <h:inputFile id="f" value="#{benSite.foto}"
-     />
-  <h:commandButton value="Upload"
-      actionListener="#{benSite.carregarImagem}">
-   
-  </h:commandButton>
-  <h:inputTextarea value="#{benSite.site.icon}"
-      readonly="true"/>
-</h:form>
-		
-
-
-
-
-
-
-
-
-		<!-- jQuery -->
-		<script
-			src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script type="text/javascript"
-			src="#{request.contextPath}/resources/bootstrap/js/jquery.maskedinput.js">
-		</script>
-		<!-- Bootstrap -->
-		<script type="text/javascript"
-			src="#{request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
-		<!-- Slidebars -->
-		<script type="text/javascript"
-			src="#{request.contextPath}/resources/bootstrap/js/slidebars.js">
-		</script>
-		<script type="text/javascript">
-   
-     </script>
 </body>
 </html>
+

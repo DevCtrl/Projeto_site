@@ -1,20 +1,59 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" 
 	xmlns:jsf="http://xmlns.jcp.org/jsf">
 
+    
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta charset="utf-8" />
+	<title>site</title>
+	<meta name="generator" content="Bootply" />
+	<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
 
+      <!--[if lt IE 9]>
+          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+
+<h:head>
+<!-- Bootstrap -->
+<link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css"	rel="stylesheet" type="text/css" />
+<link href="#{request.contextPath}/resources/bootstrap/css/bootstrap.css"	rel="stylesheet" type="text/css" />
+<link href="#{request.contextPath}/resources/bootstrap/css/bootstrap-theme.css"	rel="stylesheet" type="text/css" />
+<!--stilo painel  -->
+<link href="#{request.contextPath}/resources/bootstrap/css/stiloPainel.css"	rel="stylesheet" type="text/css"/>
+<!--fonte de icones externa -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+<!-- Sidbar -->
+<link href="#{request.contextPath}/resources/bootstrap/css/estilo.sidbars.css" rel="stylesheet" type="text/css"/>
+<link href="#{request.contextPath}/resources/bootstrap/css/slidebars.css" rel="stylesheet" type="text/css"/>
+<!-- Efeitos -->
+<link href="#{request.contextPath}/resources/bootstrap/css/animate.min.css" rel="stylesheet" type="text/css"/>
+</h:head>
 <body>
-	<ui:composition template="sistema.xhtml">
-		<ui:define name="Titulo">
-			<i class="fa fa-angle-right"></i> configuração pagina 2</ui:define>
-		<ui:define name="corpo">
-			<ui:insert >
+    <!-- Header -->
+       <div class="navbar navbar-inverse navbar-fixed-top sb-slide" >
+	
+			<div class="navbar-header">					
+			    <a class="navbar-brand " rel="home" href="sistema.xhtml" style="color: lime;"><i class="fa fa-chevron-circle-left"></i></a>
+				<a class="navbar-brand pull-right" rel="home" href="#" style="color: lime;"><i><strong>Configura site</strong></i></a>
+			</div>			
+			
+		</div>
+		
+	
+	<!-- /Header -->	
+
+
+
+	           <h:messages id="msgs"  style="width: 48%;margin-left: 50%;margin-bottom: -8%"  showDetail="false" errorClass="alert alert-danger " warnClass="alert alert-warning" fatalClass="alert alert-danger" infoClass="alert alert-info" />
 				<h:form id="form1" enctype="multipart/form-data">
-					<div class="row">
+					<div class="row" style="margin-top: 10%;">
+					   
 						<div class="col-xs-5">
                               <div class="panel panel-default">
 								  <div class="panel-heading">
@@ -24,19 +63,22 @@
 								  <div class="panel-body">
 								    <img jsf:id="im" src="#{request.contextPath}#{benSite.site.urlImagem1}" class="img-responsive"  /> 
 								  </div>
-								</div>											                                                       													   										
-							
-                            						
+								</div>							                                                       													   																	                            						
 						</div>	
+						
 						<div class="col-xs-7">
 						   <h:inputText styleClass="form-control" value="#{benSite.site.titulo1}"></h:inputText>
-						   <br/>						  
-						   <p:editor id="editor" widgetVar="editorWidget" value="#{benSite.site.conteudo1}" width="600" height="400"/>
+						   <br/>	
+						  <f:view contentType="text/html"> 			  
+						   <p:editor id="editor" widgetVar="editorWidget" value="#{benSite.site.conteudo1}" />
+						   </f:view>
+						   
 						   <!-- <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo1}"></h:inputTextarea> -->
 						   <br/>
 						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
 								action="#{benSite.criarImagem1}"></h:commandButton>
-						</div>											
+						</div>	
+																
 					</div>				
 			</h:form>
 			<br/>
@@ -58,7 +100,9 @@
 						<div class="col-xs-7">
 						    <h:inputText styleClass="form-control" value="#{benSite.site.titulo2}"></h:inputText>
 						   <br/>
-						   <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo2}"></h:inputTextarea>
+						   <f:view contentType="text/html"> 			  
+						   <p:editor id="editor" widgetVar="editorWidget" value="#{benSite.site.conteudo2}" />
+						   </f:view>
 						   <br/>
 						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
 								action="#{benSite.criarImagem2}"></h:commandButton>
@@ -84,7 +128,9 @@
 						<div class="col-xs-7">
 						    <h:inputText styleClass="form-control" value="#{benSite.site.titulo3}"></h:inputText>
 						   <br/>
-						   <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo3}"></h:inputTextarea>
+						    <f:view contentType="text/html"> 			  
+						   <p:editor id="editor" widgetVar="editorWidget" value="#{benSite.site.conteudo3}" />
+						   </f:view>
 						   <br/>
 						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
 								action="#{benSite.criarImagem3}"></h:commandButton>
@@ -110,7 +156,9 @@
 						<div class="col-xs-7">
 						    <h:inputText styleClass="form-control" value="#{benSite.site.titulo4}"></h:inputText>
 						   <br/>
-						   <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo4}"></h:inputTextarea>
+						   <f:view contentType="text/html"> 			  
+						   <p:editor id="editor" widgetVar="editorWidget" value="#{benSite.site.conteudo4}" />
+						   </f:view>
 						   <br/>
 						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
 								action="#{benSite.criarImagem4}"></h:commandButton>
@@ -134,9 +182,11 @@
                             						
 						</div>	
 						<div class="col-xs-7">
-						    <h:inputText styleClass="form-control" value="#{benSite.site.titulo5}"></h:inputText>
+						   <h:inputText styleClass="form-control" value="#{benSite.site.titulo5}"></h:inputText>
 						   <br/>
-						   <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo5}"></h:inputTextarea>
+						   <f:view contentType="text/html"> 			  
+						   <p:editor id="editor" widgetVar="editorWidget" value="#{benSite.site.conteudo5}" />
+						   </f:view>				   						  
 						   <br/>
 						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
 								action="#{benSite.criarImagem5}"></h:commandButton>
@@ -162,7 +212,9 @@
 						<div class="col-xs-7">
 						    <h:inputText styleClass="form-control" value="#{benSite.site.titulo6}"></h:inputText>
 						   <br/>
-						   <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo6}"></h:inputTextarea>
+						   <f:view contentType="text/html"> 			  
+						   <p:editor id="editor" widgetVar="editorWidget" value="#{benSite.site.conteudo6}" />
+						   </f:view>
 						   <br/>
 						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
 								action="#{benSite.criarImagem6}"></h:commandButton>
@@ -188,7 +240,9 @@
 						<div class="col-xs-7">
 						    <h:inputText styleClass="form-control" value="#{benSite.site.titulo7}"></h:inputText>
 						   <br/>
-						   <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo7}"></h:inputTextarea>
+						   <f:view contentType="text/html"> 			  
+						   <p:editor id="editor" widgetVar="editorWidget" value="#{benSite.site.conteudo7}" />
+						   </f:view>
 						   <br/>
 						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
 								action="#{benSite.criarImagem7}"></h:commandButton>
@@ -214,17 +268,19 @@
 						<div class="col-xs-7">
 						    <h:inputText styleClass="form-control" value="#{benSite.site.titulo8}"></h:inputText>
 						   <br/>
-						   <h:inputTextarea styleClass="form-control" rows="14" value="#{benSite.site.conteudo8}"></h:inputTextarea>
+						   <f:view contentType="text/html"> 			  
+						   <p:editor id="editor" widgetVar="editorWidget" value="#{benSite.site.conteudo8}" />
+						   </f:view>
 						   <br/>
 						   <h:commandButton class="btn btn-primary pull-right" value="Salvar"
 								action="#{benSite.criarImagem8}"></h:commandButton>
 						</div>											
 					</div>				
-			</h:form>
-				
-			</ui:insert>
-		</ui:define>
-	</ui:composition>
+			</h:form>				
+			<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/jquery.maskedinput.js">
+		</script>
+		<!-- Bootstrap -->
+		<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
 

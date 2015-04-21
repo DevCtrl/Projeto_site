@@ -20,7 +20,7 @@ public class Produto {
 	private int Codigo;
 	@Column (name="nome")
 	private String Nome;
-	@Column(name="descricao")
+	@Column(name="descricao",length= 400)
 	private String Descricao;
 	@Column(name="valor_Varejo")
 	private Double Valor_Varejo;
@@ -34,6 +34,10 @@ public class Produto {
 	private Double Comprado;
 	@Column(name="dataCadastro")
 	private String DataCadastro;
+	@Column(name="urlImagem")
+	private String UrlImagem;
+	@Column(name="categoria")
+	private String Categoria;
 	public long getId() {
 		return id;
 	}
@@ -93,6 +97,18 @@ public class Produto {
 	}
 	public void setCodigo(int codigo) {
 		Codigo = codigo;
+	}
+	public String getUrlImagem() {
+		return UrlImagem;
+	}
+	public void setUrlImagem(String urlImagem) {
+		UrlImagem = urlImagem;
+	}
+	public String getCategoria() {
+		return Categoria;
+	}
+	public void setCategoria(String categoria) {
+		Categoria = categoria;
 	}
 	
 	
