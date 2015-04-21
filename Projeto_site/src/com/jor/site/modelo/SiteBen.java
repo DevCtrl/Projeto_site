@@ -16,6 +16,8 @@ import javax.servlet.http.Part;
 
 
 
+
+import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
@@ -200,34 +202,35 @@ public class SiteBen {
 	   	return null;
   } 
 
- public void enviar() throws EmailException {
+ public void enviar()  {
 	 String conteudo ="Nome :"+ nomeMenssage+"    Telefone :"+telefoneMenssage+"\n"+
                       "Objetivo : "+objetivoMenssage+"\n"+conteudoMenssage;
-	 Alerta.info(conteudo);
-	 System.out.println(conteudo+" teste");
+	// Alerta.info(conteudo);
+	
 	 //Email em =  new Email();
 	// em.enviarEmail("jorliano@hotmail.com",conteudo);
-	 SimpleEmail email = new SimpleEmail();
-	 email.setHostName("mail.myserver.com"); // o servidor SMTP para envio do e-mail
-	 email.addTo("jorliano@hotmail", "John Doe"); //destinatário
-	 email.setFrom("jorliano32@gmail.com", "Me"); // remetente
-	 email.setSubject("Mensagem de Teste"); // assunto do e-mail
-	 email.setMsg("Teste de Email utilizando commons-email"); //conteudo do e-mail
-	 email.send(); //envia o e-mail
+	
+	
 
- /*
-  Email email = new SimpleEmail();
-email.setHostName("smtp.gmail.com");
-email.setSmtpPort(465);
-email.setAuthenticator(new DefaultAuthenticator("jorliano32@gmail.com", "leandrogmail"));
-email.setSSLOnConnect(true);
-email.setFrom("jorliano32@gmail.com");
-email.setSubject("TestMail");
-email.setMsg("This is a test mail ... :-)");
-email.addTo("jorliano@hotmail.com");
-email.send();
+  SimpleEmail email = new SimpleEmail();
+	email.setHostName("smtp.gmail.com");
+	email.setSmtpPort(465);
+	email.setAuthenticator(new DefaultAuthenticator("jorliano32@gmail.com", "leandrogmail"));
+	email.setSSLOnConnect(true);
+	try {
+		email.setFrom("jorliano32@gmail.com");
+		email.setSubject("TestMail");
+		email.setMsg("teste "+conteudo);
+		email.addTo("jorliano@hotmail.com");
+		email.send();
+	} catch (EmailException e) {
+		// TODO Auto-generated catch block
+		// Alerta.info("reeo ao enviar o email);
+		e.printStackTrace();
+	}
+
  
-  * */
+  
 	 
 
  }

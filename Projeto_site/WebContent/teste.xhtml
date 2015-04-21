@@ -5,33 +5,18 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:jsf="http://xmlns.jcp.org/jsf">   
 
-
+<h:head></h:head>
 <body>
-	<ui:composition template="sistema.xhtml">
-	     <ui:define name="Titulo"><a href="produto.xhtml"><i class="fa fa-angle-right"></i> produto </a><i class="fa fa-angle-right"></i> cadastro </ui:define>	
-		<ui:define name="corpo">
-				<section id="contact-page">
-        <div class="container">
+	
            
-          <form id="jsf:form" >  
-                  
+          <h:form>
+                   <button type="submit"  jsf:actionListener="#{benTeste.enviar}" class="btn btn-primary btn-lg" >Submit Message</button>
+                    <h:commandButton value="ok" actionListener="#{benTeste.enviar}"></h:commandButton>
             
-             </form>  
+          </h:form>
             
            
-        </div><!--/.container-->
-    </section><!--/#contact-page-->
-					
-	          
-				    
-					 
-						 				     
-				    
-			
-			
-		</ui:define>
-	</ui:composition>
-
+       
 </body>
 </html>
 

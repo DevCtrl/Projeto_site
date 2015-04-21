@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+
+<body>
+	<ui:composition template="index.xhtml">
+		<ui:define name="conteudo">
+			<!-- page-intro start-->
+			<!-- ================ -->
+			<div class="page-intro">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<ol class="breadcrumb">								
+								<li class="active">Detalhe dos Produtos</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- page-intro end -->
+
+			<!-- main-container start -->
+			<!-- ================ -->
+			<section class="main-container">
+
+			<div class="container">
+				<div class="row">
+
+					<!-- main start -->
+					<!-- ================ -->
+					<div class="main col-md-12">
+
+						<!-- page-title start -->
+						<!-- ================ -->
+						<h1 class="page-title margin-top-clear">Product Title</h1>
+						<!-- page-title end -->
+
+						<div class="row">
+							<div class="col-md-4">
+								<!-- Nav tabs -->
+								<ul class="nav nav-pills white space-top" role="tablist">
+									<li class="active"><a href="#product-images" role="tab"
+										data-toggle="tab" title="images"><i
+											class="fa fa-camera pr-5"></i> Photo</a></li>									
+								</ul>
+
+								<!-- Tab panes start-->
+								<div class="tab-content clear-style">
+									<div class="tab-pane active" id="product-images">
+										<div class="owl-carousel content-slider-with-controls-bottom">
+											<div class="overlay-container">
+												<img src="#{request.contextPath}/resources/boostrap/imegens/site/produtos/aloe_beth.jpg" alt=""/> <a
+													href="images/product-1-1.png" class="popup-img overlay"
+													title="image title"><i class="fa fa-search-plus"></i></a>
+											</div>											
+										</div>
+									</div>									
+								</div>
+								<!-- Tab panes end-->
+								<hr/>
+									<span class="price"><del>$159.00</del> $99.00</span>
+									<div class="elements-list pull-right clearfix">
+										<span><i class="fa fa-star text-default"></i><i
+											class="fa fa-star text-default"></i><i
+											class="fa fa-star text-default"></i><i
+											class="fa fa-star text-default"></i><i class="fa fa-star"></i></span>
+										<a href="#" class="wishlist"><i class="fa fa-heart-o pr-5"></i>Wishlist</a>
+									</div>
+									<div class="clearfix"></div>
+									<hr/>
+										<div class="row">
+											<form role="form">
+												<div class="col-md-4">
+													<div class="form-group">
+														<label>Quantity</label> <input type="text"
+															class="form-control" value="1"/>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label>Color</label> <select class="form-control">
+															<option>Red</option>
+															<option>White</option>
+															<option>Black</option>
+															<option>Blue</option>
+															<option>Orange</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group">
+														<label>Size</label> <select class="form-control">
+															<option>5.3"</option>
+															<option>5.7"</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-md-12">
+													<input type="submit" value="Add to Cart"
+														class="btn btn-default"/>
+												</div>
+											</form>
+										</div>
+							</div>
+
+							<!-- product side start -->
+							<aside class="col-md-8">
+							<div class="sidebar">
+								<div class="side product-item vertical-divider-left">
+									<div class="tabs-style-2">
+										<!-- Nav tabs -->
+										<ul class="nav nav-tabs" role="tablist">
+											<li class="active"><a href="#h2tab1" role="tab"
+												data-toggle="tab"><i class="fa fa-file-text-o pr-5"></i>Description</a></li>											
+											<li><a href="#h2tab3" role="tab" data-toggle="tab"><i
+													class="fa fa-star pr-5"></i>(3) Reviews</a></li>
+										</ul>
+										<!-- Tab panes -->
+										<div
+											class="tab-content padding-top-clear padding-bottom-clear">
+											<div class="tab-pane fade in active" id="h2tab1">
+												<h4 class="title">Lorem ipsum dolor sit amet,
+													consectetur adipisicing elit.</h4>
+												<p>Perspiciatis necessitatibus accusamus eligendi
+													ducimus architecto reiciendis odit officiis? Alias
+													repellendus veritatis consectetur, aliquam laborum possimus
+													dolorem quidem, sit saepe explicabo sint.</p>
+												<h4>Nostrum, consequuntur laudantium ea suscipit minima</h4>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+													elit. Nostrum, consequuntur laudantium ea suscipit minima
+													aliquid vitae possimus dolor voluptatibus autem minus alias
+													quos praesentium debitis veniam nemo et odit dolores!</p>
+												<p>Alias odio, cupiditate sed, possimus aut quasi ullam.
+													Provident dicta, officia sunt quis doloribus sed nobis,
+													fuga ab repudiandae. Quam atque, consequuntur non nesciunt
+													enim dolores incidunt quis officiis voluptate est
+													asperiores mollitia quia accusamus a nulla architecto
+													repellendus placeat. Explicabo cum nihil, recusandae
+													numquam repudiandae temporibus aliquid saepe ea nobis
+													aliquam vero eaque odit doloribus tempore dicta ratione!
+													Rerum numquam doloribus delectus. Lorem ipsum dolor sit
+													amet, consectetur adipisicing elit. Soluta praesentium unde
+													perferendis beatae asperiores aspernatur vero, veritatis!
+													Vel libero cum, culpa odio, est totam eaque, ipsam
+													voluptates saepe, quo id!</p>
+											</div>											
+											<div class="tab-pane fade" id="h2tab3">												
+
+												
+												<div class="comments-form">
+													<h2 class="title">Solicite seu produto</h2>
+													<form role="form" id="comment-form">
+														<div class="form-group has-feedback">
+															<label for="name4">Name</label> <input type="text"
+																class="form-control" id="name4" placeholder=""
+																name="name4" required ="true"/> <i
+																class="fa fa-user form-control-feedback"></i>
+														</div>
+														<div class="form-group has-feedback">
+															<label for="subject4">Produto</label> <input type="text"
+																class="form-control" id="subject4" placeholder=""
+																name="subject4" required="true"/> <i
+																class="fa fa-pencil form-control-feedback"></i>
+														</div>
+														<div class="form-group has-feedback">
+															<label for="subject4">Telefone</label> <input type="text"
+																class="form-control" id="subject4" placeholder=""
+																name="subject4" required="true"/> <i
+																class="fa fa-fone form-control-feedback"></i>
+														</div>
+														<div class="form-group">
+															<label>Quantidade</label> <select class="form-control"
+																id="review">
+																<option value="five">5</option>
+																<option value="four">4</option>
+																<option value="three">3</option>
+																<option value="two">2</option>
+																<option value="one">1</option>
+																<option value="five">outra</option>
+															</select>
+														</div>
+														<div class="form-group has-feedback">
+															<label for="message4">Message</label>
+															<textarea class="form-control" rows="8" id="message4"
+																placeholder="" name="message4" required="true"></textarea>
+															<i class="fa fa-envelope-o form-control-feedback"></i>
+														</div>
+														<input type="submit" value="Submit"
+															class="btn btn-default"/>
+													</form>
+												</div>
+												<!-- comments form end -->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							</aside>
+							<!-- product side end -->
+						</div>
+
+					</div>
+					<!-- main end -->
+
+				</div>
+			</div>
+			</section>
+			<!-- main-container end -->
+
+		</ui:define>
+	</ui:composition>
+</body>
+</html>
