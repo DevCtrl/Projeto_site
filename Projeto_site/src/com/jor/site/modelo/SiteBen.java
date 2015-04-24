@@ -218,9 +218,14 @@ public class SiteBen {
 	   Email em = new Email();
 	   String conteudo = "Nome : "+nomeMenssage+"\n"
 			            +"Telefone : "+telefoneMenssage+" Email : "+emailMenssage+"\n"
-			            +"Menssage : "+conteudoMenssage+"\n"+objetivoMenssage;
+			            +"Menssage : "+conteudoMenssage+"\n"+"Objetivo : "+objetivoMenssage;
 	  
-	   em.enviarEmail("jorliano@hotmail.com", "testando o email");
+	   em.enviarEmail("jorliano@hotmail.com", conteudo);
+	   nomeMenssage = "";
+	   telefoneMenssage ="";
+	   emailMenssage="";
+	   conteudoMenssage="";
+	   objetivoMenssage="";
    }
  
 //pesquisar tipo produtos
