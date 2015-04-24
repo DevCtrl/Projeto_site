@@ -59,7 +59,7 @@
             </div> 
             <div class="row contact-wrap"> 
                 <div class="status alert alert-success" style="display: none"></div>
-                 <h:form>
+                 <h:form id="form1">
                     <div class="col-sm-5 col-sm-offset-1">
                         <div class="form-group">
                             <label>nome *</label>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="form-group">
                             <label>Telefone</label>
-                            <input type="number" jsf:value="#{benSite.telefoneMenssage}" class="form-control"/>
+                            <input type="tel" jsf:id="telefone" jsf:value="#{benSite.telefoneMenssage}" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <label>Nome Compania</label>

@@ -58,14 +58,15 @@ public class Validar {
 		 }	*/
 /*Ler arquivo part e gera um arquivo q serar salvo */	
 	 private final int limitTamanho = 2000000;
-	    private final String tipoArquivo = "jpeg|jpg|gif";	   
+	    private final String tipoArquivo = "jpeg|jpg|gif|png";	   
 
 	    public Validar() {
 	    }
-
+      
 	    public String Upload(Part foto ,String caminho) {
 	        String arquivoSalvo = "semImagens.jpg";
 	        try {	        	
+	        	
 	            if (foto.getSize() > 0) {
 	                String nomeArquivo = getFilename(foto);	               
 	                if (verificaTipoArquivo(nomeArquivo)) {

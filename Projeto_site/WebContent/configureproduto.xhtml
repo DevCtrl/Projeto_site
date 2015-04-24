@@ -33,20 +33,28 @@
 							    <f:selectItem itemValue="cuidados" itemLabel="Cuidados Pessoais"/>							            
 						     </h:selectOneMenu> 		
                         </div>
-                                            
+                        <div class="form-group">                                                                             
+                             <label class=" control-label">Tipo</label>				       
+							<h:selectOneMenu value="#{benProduto.produto.tipo}" styleClass="form-control">  
+							    <f:selectItem itemValue="unidade" itemLabel="Unidade"/>  
+							    <f:selectItem itemValue="pesoGm" itemLabel="Peso Grama"/>
+							    <f:selectItem itemValue="pesoKg" itemLabel="Peso Kilo"/>	
+							    <f:selectItem itemValue="cixa" itemLabel="Caixa"/>							            
+						     </h:selectOneMenu> 	
+                        </div>                    
                     </div>
                     <div class="col-sm-6">                       
                                               
                          <div class="form-group col-sm-7">
                             <label>Descrição</label>
-                            <h:inputTextarea styleClass="form-control" value="#{benProduto.produto.descricao}" rows="5" />
+                            <h:inputTextarea styleClass="form-control" value="#{benProduto.produto.descricao}" rows="8" />
                             
                         </div>
                         <div class="form-group col-sm-5">
-                            <label>Imegem</label>
+                            <label>Imegem 220 x 220</label>
                             
-						    <a href="#" class="thumbnail" >
-						      <img src="#{request.contextPath}#{benProduto.produto.urlImagem}" class="img-responsive" width="120" height="120"/> 
+						    <a href="#" class="thumbnail" >						    
+						      <img src="#{request.contextPath}#{benProduto.produto.urlImagem}"  class="img-responsive" width="120" height="120"/> 
 						    </a>
 						     <h:inputFile  value="#{benProduto.foto}"  required="true" styleClass="btn btn-info btn-block"/>
                         </div>  
@@ -84,15 +92,7 @@
                                            
                     </div>
                     <div class="col-sm-4 ">
-                        <div class="form-group">                                                                             
-                             <label class=" control-label">Tipo</label>				       
-							<h:selectOneMenu value="#{benProduto.produto.tipo}" styleClass="form-control">  
-							    <f:selectItem itemValue="unidade" itemLabel="Unidade"/>  
-							    <f:selectItem itemValue="pesoGm" itemLabel="Peso Grama"/>
-							    <f:selectItem itemValue="pesoKg" itemLabel="Peso Kilo"/>	
-							    <f:selectItem itemValue="cixa" itemLabel="Caixa"/>							            
-						     </h:selectOneMenu> 	
-                        </div>
+                        
                         <div class="form-group">
                              <label class=" control-label">quantidade</label>				    
 				          <input type="number" jsf:value="#{benProduto.quantidade}" min="1" max="999" required="true"

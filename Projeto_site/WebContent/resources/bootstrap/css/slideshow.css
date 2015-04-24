@@ -73,28 +73,27 @@
 .tparrows {
 
     cursor: pointer;
-
-    background: rgba(0, 0, 0, 0.5) !important;
+   
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    width: 40px !important;
-    height: 40px !important;
+    width: 45px !important;
+    height: 45px !important;
 
 }
 .tparrows:hover {
     color: #fff;
 }
 .tp-leftarrow:before {
-    content: '\e824';
+    background-image: url(../imagens/setaesquerda.png);
 }
 .tp-rightarrow:before {
-    content: '\e825';
+    background-image: url(../imagens/setadireita.png);
 }
 .tparrows.tp-rightarrow:before {
     margin-left: 1px;
 }
 .tparrows:hover {
-    background: rgba(0, 0, 0, 1) !important;
+    
 }
 
 

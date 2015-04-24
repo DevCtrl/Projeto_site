@@ -95,7 +95,7 @@
 										<!-- Nav tabs -->
 										<ul class="nav nav-tabs" role="tablist">
 											<li class="active"><a href="#h2tab1" role="tab"
-												data-toggle="tab"><i class="fa fa-file-text-o pr-5"></i>Descrisão</a></li>											
+												data-toggle="tab"><i class="fa fa-file-text-o pr-5"></i>Descrição</a></li>											
 											<li><a href="#h2tab3" role="tab" data-toggle="tab"><i
 													class="fa fa-star pr-5"></i>Solicite o seu</a></li>
 										</ul>
@@ -117,37 +117,33 @@
 												
 												<div class="comments-form">
 													<h2 class="title">Solicite seu produto</h2>
-													<form role="form" id="comment-form">
+													<form role="form" jsf:id="form1">
 														<div class="form-group has-feedback">
-															<label for="name4">Nome</label> <input type="text"
-																class="form-control" id="name4" placeholder=""
-																name="name4" required ="true"/> <i
+															<label for="name4">Nome</label> <input type="text" jsf:value="#{benSite.nomeMenssage}"
+																class="form-control"  name="name4" required ="true"/> <i
 																class="fa fa-user form-control-feedback"></i>
 														</div>
 														<div class="form-group has-feedback">
-															<label for="subject4">Produto</label> <input type="text"
-																class="form-control" id="subject4" jsf:value="#{benSite.produto.nome}"
-																name="subject4" required="true"/> <i
+															<label >Produto</label> <input type="text"
+																class="form-control"  jsf:value="#{benSite.produto.nome}"
+																 required="true"/> <i
 																class="fa fa-pencil form-control-feedback"></i>
 														</div>
 														<div class="form-group has-feedback">
-															<label for="subject4">Telefone</label> <input type="text"
-																class="form-control" id="subject4" placeholder=""
-																name="subject4" required="true"/> <i
-																class="fa fa-fone form-control-feedback"></i>
+															<label >Telefone</label> <input type="tel"
+																class="form-control" jsf:id="telefone"  jsf:value="#{benSite.telefoneMenssage}"
+																 required="true"/> <i class="fa fa-fone form-control-feedback"></i>
 														</div>
 														<div class="form-group">
 															<label>Quantidade</label> 
-															<input type="number" class="form-control" />
+															<input type="number" class="form-control" jsf:value="#{benSite.quantidade}" />
 														</div>
 														<div class="form-group has-feedback">
 															<label for="message4">Message</label>
-															<textarea class="form-control" rows="8" id="message4"
-																placeholder="" name="message4" required="true"></textarea>
+															<h:inputTextarea styleClass="form-control" rows="8" value="#{benSite.conteudoMenssage}" required="true"></h:inputTextarea>														
 															<i class="fa fa-envelope-o form-control-feedback"></i>
 														</div>
-														<input type="submit" value="Submit"
-															class="btn btn-default"/>
+														<button type="submit" class="btn btn-danger btn-lg" jsf:actionListener="#{benSite.senEmailProduto}">Solicitar</button>														
 													</form>
 												</div>
 												<!-- comments form end -->

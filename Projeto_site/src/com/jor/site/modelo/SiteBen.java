@@ -44,6 +44,7 @@ public class SiteBen {
     private String conteudoMenssage;
     private String telefoneMenssage;
     private String objetivoMenssage;
+    private int quantidade;
     //pesquisar
     private String ordenar;
     private String categoria;
@@ -227,6 +228,19 @@ public class SiteBen {
 	   conteudoMenssage="";
 	   objetivoMenssage="";
    }
+ //enviar email solicitar produto
+   public  void senEmailProduto(){
+	   Email em = new Email();
+	   String conteudo = "Nome : "+nomeMenssage+" Telefone : "+telefoneMenssage+"\n"
+			            +"Produto solicitado : "+produto.getNome()+" Quantidade :"+quantidade+"\n"
+			            +"Menssage : "+conteudoMenssage;
+	  
+	   em.enviarEmail("jorliano@hotmail.com", conteudo);
+	   nomeMenssage = "";
+	   telefoneMenssage ="";	   
+	   conteudoMenssage="";
+	   quantidade = 1;
+   }
  
 //pesquisar tipo produtos
  public  void pesquisar() {	
@@ -373,6 +387,12 @@ public class SiteBen {
 	}
 	public void setProduto(Produto produto) {
 		this.produto = produto;
+	}
+	public int getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 
 	
