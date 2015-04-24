@@ -10,6 +10,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 
@@ -17,6 +19,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.jor.site.entidade.Cliente;
+import com.jor.site.entidade.Produto;
 import com.jor.site.entidade.Site;
 import com.jor.site.util.Alerta;
 import com.jor.site.util.HibernateUtil;
@@ -59,49 +62,24 @@ public class SiteControler {
 		return null;
 		
 	}
-    public void salvarImagem(String caminho,String nome) throws IOException
-    {
-    	    	
-    	
-    //	System.out.println(caminho);
-//    	File file = new File("/resources/bootstrap/imagens/newfoto.jpg");
-    	InputStream input = getClass().getResourceAsStream("WebContent/resources/bootstrap/imagens/newfoto.jpg");  
-    	byte conteudo[] = new byte[input.available()]; 
-    	input.read(conteudo);
-    	
-    	  
-    //	
-    //	String extension = caminho;
-    	
-        FileOutputStream outPut = new FileOutputStream(new File("WebContent/resources/bootstrap/imagens/site/trabalhos/","negocio2.jpg"));
-        outPut.write(conteudo);
-        input.close();
-        outPut.flush();
-        outPut.close();
-    	Alerta.info("sucesso");
-        
-        System.out.println("salvo");
-        
-        // Lendo de um input stream
-   //     InputStream is = new BufferedInputStream(
-   //         new FileInputStream("/bootstrap/imagens/newfoto.jpg"));
-  //      BufferedImage image = ImageIO.read(is);
-
-
-      //Alerta.info("sucesso");
-      System.out.println("sucesso");
-    	
-    /*	BufferedImage input = toBufferedImage(image); 
-    	BufferedImage img = (BufferedImage) image;
-		String extension = caminho.substring(caminho.lastIndexOf(".") + 1);			
-		BufferedImage bi = new BufferedImage(img.getWidth(),
-		img.getHeight(), BufferedImage.TYPE_INT_RGB);
-		Graphics2D grph = (Graphics2D) bi.getGraphics();
-		grph.drawImage(img, 0, 0, null);
-		grph.dispose();
-		ImageIO.write(bi, extension,
-			    new File("WebContent/resources/bootstrap/imagens/site/trabalhos/"+nome));
-		
-   */
-    }
+    //dimiui o conteudo da descrição do produto   
+   	public List diminuirTexto(){
+   		List<Produto> p = new ArrayList<Produto>();
+   		p = new ProdutoControler().listarDados();
+   		
+   		for (int i = 0; i < p.size(); i++) {
+   			int fim = 50;
+   			
+   			if( p.get(i).getDescricao() != null){
+   			   if(p.get(i).getDescricao().length() < 50)
+   				   fim = p.get(i).getDescricao().length();
+   			   
+   				String texto = p.get(i).getDescricao().substring(0,fim);
+   				p.get(i).setDescricao(texto);
+   			}else
+   				p.get(i).setDescricao("sem texto");
+   			
+   		}
+   		return p;
+   	}
 }

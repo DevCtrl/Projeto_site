@@ -84,15 +84,16 @@
 														<div class="listing-item">
 															<div class="overlay-container">
 																<img src="#{request.contextPath}#{list.urlImagem}" class="img-responsive" /> 
-																<a href="descricao.xhtml" class="overlay small">
-																	<i class="fa fa-plus"></i>
-																	<span>Veja Detalhes</span>
-																</a>
+																
+																<h:commandLink styleClass="overlay small " action="#{benSite.detalhesSite}"><span >Veja Detalhes</span>
+																   <f:setPropertyActionListener value="#{list}" target="#{benSite.produto}"></f:setPropertyActionListener>
+																</h:commandLink>																
 															</div>
 															<div class="listing-item-body clearfix">
 																<h3 class="title"><a href="shop-product.html">#{list.nome}</a></h3>											
 																<p>#{list.descricao}</p>
-																<span class="price"> <h:outputText value="#{list.valor_Revenda}" >
+																<span class="price"> 
+																<h:outputText value="#{list.valor_Revenda}" >
 																		<f:convertNumber currencyCode="BRL" type="currency"/>
 																</h:outputText>  </span>
 																<div class="elements-list pull-right">																	

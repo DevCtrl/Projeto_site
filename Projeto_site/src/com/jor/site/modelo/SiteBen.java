@@ -17,6 +17,8 @@ import javax.servlet.http.Part;
 
 
 
+
+
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
@@ -57,20 +59,30 @@ public class SiteBen {
     private String video;
     private Part foto;
     //
-    Produto p = new Produto();
-    List listaProduto = new ArrayList();
-    
+    Produto produto = new Produto();
+    List<Produto> listaProduto = new ArrayList<Produto>();    
     Validar util = new Validar();
-    public SiteBen(){
+    
+    
+    @SuppressWarnings("unchecked")
+	public SiteBen(){
     	site = (Site) comando.buscaSite();     
-    	listaProduto = new ProdutoControler().listarDados();
+    	listaProduto = comando.diminuirTexto();
+    	
     }  
     @PostConstruct
     public void load(){
     	site = (Site) comando.buscaSite();
     	
     }
-	
+   
+    public String detalhesSite(){   	
+    	System.out.println("metodo chamado");
+    	System.out.println(produto.getNome());
+    	produto = (Produto) new ProdutoControler().buscaProduto(produto.getId());
+    	System.out.println(produto.getNome());
+    	return "descricao.xhtml";
+    }
     public String criarImagem1(){
     	if(foto != null)
     	util.Upload(foto,"trabalhos/negocio1.jpg");
@@ -201,14 +213,22 @@ public class SiteBen {
 	   	util.Upload(foto,"slide/slide3.jpg");    	
 	   	return null;
   } 
-
+// enviar email
+   public void sendEmail(){
+	   Email em = new Email();
+	   String conteudo = "Nome : "+nomeMenssage+"\n"
+			            +"Telefone : "+telefoneMenssage+" Email : "+emailMenssage+"\n"
+			            +"Menssage : "+conteudoMenssage+"\n"+objetivoMenssage;
+	  
+	   em.enviarEmail("jorliano@hotmail.com", "testando o email");
+   }
  
-//pesquisar tipo prosutos
+//pesquisar tipo produtos
  public  void pesquisar() {	
 		 paginaAtual = 0;
 	  listaProduto = new ProdutoControler().buscaProdutoPor(categoria, ordenar, ordenarTipo, priceMin, priceMax,paginaAtual);		
  }
-//pesquisar tipo prosutos
+//pesquisar tipo prodsutos
  public  void pesquisarPaginas() {					
 	 listaProduto = new ProdutoControler().buscaProdutoPor(categoria, ordenar, ordenarTipo, priceMin, priceMax,paginaAtual);		
  }
@@ -330,10 +350,11 @@ public class SiteBen {
 	public void setPriceMax(double priceMax) {
 		this.priceMax = priceMax;
 	}
-	public List getListaProduto() {
+	
+	public List<Produto> getListaProduto() {
 		return listaProduto;
 	}
-	public void setListaProduto(List listaProduto) {
+	public void setListaProduto(List<Produto> listaProduto) {
 		this.listaProduto = listaProduto;
 	}
 	public int getPaginaAtual() {
@@ -341,6 +362,12 @@ public class SiteBen {
 	}
 	public void setPaginaAtual(int paginaAtual) {
 		this.paginaAtual = paginaAtual;
+	}
+	public Produto getProduto() {
+		return produto;
+	}
+	public void setProduto(Produto produto) {
+		this.produto = produto;
 	}
 
 	

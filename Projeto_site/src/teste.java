@@ -10,6 +10,7 @@ import org.apache.commons.mail.SimpleEmail;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import com.jor.site.controle.ProdutoControler;
 import com.jor.site.entidade.Produto;
 import com.jor.site.util.Email;
 import com.jor.site.util.HibernateUtil;
@@ -19,7 +20,19 @@ public class teste {
 	public static void main(String[] args) {  	
 		//login 550001632484
 			
-	 	Email em = new Email();
+		
+		
+		
+		
+		
+		
+		
+		
+	//	String ds = d.substring(0,5);
+		//System.out.println(ds);
+		
+		
+		Email em = new Email();
 	 	em.enviarEmail("jorliano@hotmail.com", "testando o email");
 	     
 		 /* SimpleEmail email = new SimpleEmail();

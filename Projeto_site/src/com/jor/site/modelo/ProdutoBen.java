@@ -1,6 +1,7 @@
 package com.jor.site.modelo;
 
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,7 +23,7 @@ public class ProdutoBen {
 	Produto produto = new Produto();
 	Produto produtoselecionado = new Produto();
 	ProdutoControler comando = new ProdutoControler();
-	private Part foto;
+	private Part foto = null;
 	private int quantidade = 1;
 	List lista = new ArrayList();
 	
@@ -30,15 +31,15 @@ public class ProdutoBen {
 		lista = comando.listarDados();
 		
 	}
-	public String criarImagem1(){
+	public String criarImagem1() throws IOException{
 		Validar util = new Validar();
-		if(foto != null) {   	
+		if(foto != null && foto.getSize() != 0) {				
     	 util.Upload(foto,"produtos/"+produto.getNome().trim()+".jpg");
-    	 produto.setUrlImagem("/resources/bootstrap/imagens/site/produtos/"+produto.getNome().trim()+".jpg");
-    	 Alerta.error(produto.getUrlImagem());
-    	 setFoto(null);
-		}
+    	 produto.setUrlImagem("/resources/bootstrap/imagens/site/produtos/"+produto.getNome().trim()+".jpg");   	 
     	
+    	 foto.delete();
+		}	 
+		
     	return null;
     }
 	public String incluir()
@@ -53,7 +54,7 @@ public class ProdutoBen {
 					
 		return "configureproduto.xhtml";
 	}
-	public String cadastrar()
+	public String cadastrar() throws IOException
 	{
 		
 		if(produto.getId() == 0)
@@ -62,8 +63,10 @@ public class ProdutoBen {
 			if(produtoselecionado.getNome() == null && produtoselecionado.getCodigo() == 0){
 				produto.setQuantidade(quantidade);
 				criarImagem1();
-				if(produto.getUrlImagem() == "")
+				if(produto.getUrlImagem() == "" || produto.getUrlImagem() == null){
 					produto.setUrlImagem("/resources/bootstrap/imagens/servico/interrogacao.jpeg");
+				   System.out.println("if chamado");	
+				}
 				comando.inserir(produto);
 				lista = comando.listarDados();
 				produto = new Produto();	
@@ -77,9 +80,7 @@ public class ProdutoBen {
 		}else
 		{
 			produto.setQuantidade(quantidade + produto.getQuantidade());
-			criarImagem1();
-			if(produto.getUrlImagem() == "")
-				produto.setUrlImagem("/resources/bootstrap/imagens/servico/interrogacao.jpeg");
+			criarImagem1();			
 			comando.alterar(produto);
 			lista = comando.listarDados();
 			produto = new Produto();	

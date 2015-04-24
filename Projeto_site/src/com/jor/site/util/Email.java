@@ -2,6 +2,7 @@ package com.jor.site.util;
 
 
 import java.util.Properties;
+
 import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -15,8 +16,51 @@ public class Email
 {
       public void enviarEmail(String destinatario,String menssage){
     	  
-            Properties props = new Properties();
-            /** Parâmetros de conexão com servidor Gmail */
+    	  Properties props = new Properties();
+          /** Parâmetros de conexão com servidor Gmail */
+		 
+			props.put("mail.smtp.auth", "true");
+			props.put("mail.smtp.starttls.enable", "true");
+			props.put("mail.smtp.host", "smtp.gmail.com");
+			props.put("mail.smtp.port", "587");
+
+          Session session = Session.getDefaultInstance(props,
+                      new javax.mail.Authenticator() {
+                           protected PasswordAuthentication getPasswordAuthentication()
+                           {
+                                 return new PasswordAuthentication("jorliano32@gmail.com", "leandrogmail");
+                           }
+                      });
+
+          /** Ativa Debug para sessão */
+          session.setDebug(true);
+
+          try {
+
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress("jorliano32@gmail.com")); //Remetente
+
+                Address[] toUser = InternetAddress //Destinatário(s)
+                           .parse(destinatario);  
+
+                message.setRecipients(Message.RecipientType.TO, toUser);
+                message.setSubject("projeto SISCEF");//Assunto
+                message.setText(menssage);
+                /**Método para enviar a mensagem criada*/
+                Transport.send(message);
+
+               // Alerta.info("Dados enviado com sucesso");
+
+           } catch (MessagingException e) {
+                throw new RuntimeException(e);
+          }
+		
+    	  
+    	  
+    	  
+    	  
+         /*   Properties props = new Properties();
+            /** Parâmetros de conexão com servidor Gmail 
             props.put("mail.smtp.host", "smtp.gmail.com");
             props.put("mail.smtp.socketFactory.port", "465");
             props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
@@ -31,7 +75,7 @@ public class Email
                              }
                         });
 
-            /** Ativa Debug para sessão */
+            /** Ativa Debug para sessão 
             session.setDebug(true);
 
             try {
@@ -45,14 +89,14 @@ public class Email
                   message.setRecipients(Message.RecipientType.TO, toUser);
                   message.setSubject("Comentario do site ");//Assunto
                   message.setText(menssage);
-                  /**Método para enviar a mensagem criada*/
+                  /**Método para enviar a mensagem criada
                   Transport.send(message);
 
                  // Alerta.info("Dados enviado com sucesso");
 
              } catch (MessagingException e) {
                   throw new RuntimeException(e);
-            }
+            }*/
       }
 }
 
