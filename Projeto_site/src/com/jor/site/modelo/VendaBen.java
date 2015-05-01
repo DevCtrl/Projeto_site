@@ -66,6 +66,8 @@ public class VendaBen {
 	 pesquisaEstque = (Produto) comando.buscarClassePorId("Produto",pd.getId());
 	 if(pesquisaEstque == null)
 		 pesquisaEstque = new Produto();
+	 
+	 
 	    if(pesquisaEstque.getQuantidade() >= getQuantidade()){
 			subtotal = quantidade * pd.getValor_Revenda();
 			pd.setComprado(subtotal);
@@ -102,7 +104,7 @@ public class VendaBen {
 			    	vd.setComprado(lisCarrinho.get(i).getComprado());
 					
 					
-					comandoVd.inserir(vd,"Venda realizada com sucesso");
+					comandoVd.inserir(vd);
 					//diminuir do estoque
 					comandoVd.diminuirEstoque(lisCarrinho.get(i).getId(), lisCarrinho.get(i).getQuantidade());
 				}	

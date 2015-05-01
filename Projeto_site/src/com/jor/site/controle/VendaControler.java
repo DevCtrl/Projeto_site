@@ -20,7 +20,18 @@ import com.jor.site.util.Alerta;
 import com.jor.site.util.HibernateUtil;
 
 public class VendaControler extends Controler{
-
+    
+	public void inserir(Object objeto){
+	 Session	session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			session.beginTransaction();
+			session.save(objeto);
+			session.getTransaction().commit();
+		}		
+		finally {				
+			session.close();
+		}		
+	}
 	
 	public void diminuirEstoque(long id,int quantidade) {
 		Session session = HibernateUtil.getSessionFactory().openSession();

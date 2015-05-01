@@ -24,7 +24,7 @@ public class ProdutoFornecidoControler extends Controler{
 	        		                      + "id_parceria ='"+id+"'");
 	        	       
 	        List list = q.list();
-	        session.close();	       
+	              
 	        if(!list.isEmpty())
 	         return list;	
 	        else
@@ -32,6 +32,9 @@ public class ProdutoFornecidoControler extends Controler{
 	    } catch (Exception e) {
 	         System.out.println("erro ao pesquisar p "+e.getMessage());
 	    }
+		finally{
+			 session.close();	
+		}
 		
 			
 		

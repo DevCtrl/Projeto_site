@@ -142,7 +142,7 @@
 											    </h:column>
 												<h:column>
 												    <f:facet name="header">Valor unitario</f:facet>  									             
-											        <h:outputText value="#{list.valor_Revenda}" >
+											        <h:outputText value="#{list.valor_Varejo}" >
 																<f:convertNumber currencyCode="BRL" type="currency"/>
 													</h:outputText>            
 											    </h:column>												
@@ -208,7 +208,7 @@
 					    <input type="number" class="form-control" jsf:value="#{benParceria.quantidadeFornecido}" placeholder="Quantidade"/>
 					</div>
 					<div class="col-xs-4 pull-right">
-					    <input type="text" jsf:id="data" class="form-control" jsf:value="#{benParceria.dataContaFornecido}" placeholder="Data presta contas"/>
+					    <input type="text" jsf:id="data" class="form-control" jsf:value="#{benParceria.dataContaFornecido}" placeholder="Data presta contas" required="true"/>
 					</div>
 				 </div>	
 				</div>

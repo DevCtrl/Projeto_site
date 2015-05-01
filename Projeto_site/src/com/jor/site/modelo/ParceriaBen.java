@@ -170,13 +170,13 @@ public class ParceriaBen {
 	}
 	public void buscaProdutoFornecido(){	
 		
-		
-		listaProdutoFronecido = comandoFornecido.buscaProdutoFornecidos(dataPesquisaFornecido,parceria.getId());	
 	  
-		if(parceria.getId() == 0)	        	
-        	Alerta.warn("Selecione um vendedor para pesquisar");
+		if(parceria.getId() != 0)	
+		   listaProdutoFronecido = comandoFornecido.buscaProdutoFornecidos(dataPesquisaFornecido,parceria.getId());	
+		else
+          Alerta.warn("Selecione um vendedor para pesquisar");
 	    if(listaProdutoFronecido.isEmpty() && parceria.getId() != 0)
-        	Alerta.warn("Nada foi encontrado nda  nessa data");
+        	Alerta.warn("Nada foi encontrado nessa data");
 	}
 	
 	public List getListaParceria() {
