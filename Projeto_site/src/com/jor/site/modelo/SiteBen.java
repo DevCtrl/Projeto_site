@@ -44,7 +44,7 @@ public class SiteBen {
     private String conteudoMenssage;
     private String telefoneMenssage;
     private String objetivoMenssage;
-    private int quantidade;
+    private int quantidade = 1;
     //pesquisar
     private String ordenar;
     private String categoria;

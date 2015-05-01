@@ -1,12 +1,12 @@
 package com.jor.site.entidade;
 
-import java.util.Date;
-
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -19,8 +19,8 @@ public class Produto {
 	@Column (name="codigo")
 	private int Codigo;
 	@Column (name="nome")
-	private String Nome;
-	@Column(name="descricao",length= 400)
+	private String Nome;	
+	@Column(name="descricao",columnDefinition="text")
 	private String Descricao;
 	@Column(name="valor_Varejo")
 	private Double Valor_Varejo;

@@ -18,45 +18,10 @@ import org.apache.commons.compress.utils.IOUtils;
 import org.omg.CORBA.portable.InputStream;
 
 
-public class Validar {
-  
+public class Validar { 
 	
 	
-	/* public static byte[] tratarImagem(java.io.InputStream inputStream) {
-		 byte[] byteArray = null;
-		    if (inputStream != null) {
-		     try {
-		      byteArray = IOUtils.toByteArray(inputStream);
-		     } catch (IOException e) {
-		        e.printStackTrace();
-		     }
-		 }
-		 return byteArray;
-		 }
-	 public byte[] setThumbnail(byte[] arquivo, String extensao) {
-		  ImageIcon imageIcon = new ImageIcon(arquivo);
-		  Image inImage = imageIcon.getImage();
-		  double scale = 100 / (double) inImage.getWidth(null);
-		  int scaledW = (int) (scale * inImage.getWidth(null));
-		  int scaledH = (int) (scale * inImage.getHeight(null));
-		  BufferedImage outImage = new BufferedImage(scaledW, scaledH, BufferedImage.TYPE_INT_RGB);
-		  AffineTransform tx = new AffineTransform();
-		 if (scale < 1.0d) {
-		 tx.scale(scale, scale);
-		 }
-		 Graphics2D g2d = outImage.createGraphics();
-		 g2d.drawImage(inImage, tx, null);
-		 g2d.dispose();
-		 try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-		    ImageIO.write(outImage, extensao, baos);
-		 return baos.toByteArray();
-		 } 
-		 catch (IOException e) {
-		    System.out.println(e.getMessage());
-		 }
-		 return null;
-		 }	*/
-/*Ler arquivo part e gera um arquivo q serar salvo */	
+	/*Ler arquivo part e gera um arquivo q serar salvo */	
 	 private final int limitTamanho = 2000000;
 	    private final String tipoArquivo = "jpeg|jpg|gif|png";	   
 

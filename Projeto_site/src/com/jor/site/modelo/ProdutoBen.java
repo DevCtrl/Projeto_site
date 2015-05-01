@@ -48,6 +48,7 @@ public class ProdutoBen {
 		produto.setQuantidade(0);
 		SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");       		
 		produto.setDataCadastro(sdf.format(new Date()));
+		produto.setUrlImagem("/resources/bootstrap/imagens/servico/interrogacao.jpeg");
 		return "configureproduto.xhtml";
 	}
 	public String configurePg()	{   
@@ -67,7 +68,7 @@ public class ProdutoBen {
 				criarImagem1();
 				if(produto.getUrlImagem() == "" || produto.getUrlImagem() == null){
 					produto.setUrlImagem("/resources/bootstrap/imagens/servico/interrogacao.jpeg");
-				   System.out.println("if chamado");	
+				   
 				}
 				comando.inserir(produto, "Produto "+produto.getNome()+" salvo com sucesso");
 				lista = comando.listarDados("Produto");

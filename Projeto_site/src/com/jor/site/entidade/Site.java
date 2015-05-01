@@ -15,7 +15,7 @@ public class Site {
 	
 	@Column(name="titulo1")
 	private String Titulo1;
-	@Column(name="conteudo1",length= 8000)
+	@Column(name="conteudo1",columnDefinition="text")
 	private String Conteudo1;
 	@Column(name="urlImagem1")
 	private String UrlImagem1;
@@ -24,7 +24,7 @@ public class Site {
 	
 	@Column(name="titulo2")
 	private String Titulo2;
-	@Column(name="conteudo2",length= 8000)
+	@Column(name="conteudo2",columnDefinition="text")
 	private String Conteudo2;
 	@Column(name="urlImagem2")
 	private String UrlImagem2;
@@ -34,7 +34,7 @@ public class Site {
 	
 	@Column(name="titulo3")
 	private String Titulo3;
-	@Column(name="conteudo3",length= 8000)
+	@Column(name="conteudo3",columnDefinition="text")
 	private String Conteudo3;
 	@Column(name="urlImagem3")
 	private String UrlImagem3;
@@ -43,7 +43,7 @@ public class Site {
 	
 	@Column(name="titulo4")
 	private String Titulo4;
-	@Column(name="conteudo4",length= 8000)
+	@Column(name="conteudo4",columnDefinition="text")
 	private String Conteudo4;
 	@Column(name="urlImagem4")
 	private String UrlImagem4;
@@ -52,7 +52,7 @@ public class Site {
 	
 	@Column(name="titulo5")
 	private String Titulo5;
-	@Column(name="conteudo5",length= 8000)
+	@Column(name="conteudo5",columnDefinition="text")
 	private String Conteudo5;
 	@Column(name="urlImagem5")
 	private String UrlImagem5;
@@ -61,7 +61,7 @@ public class Site {
 	
 	@Column(name="titulo6")
 	private String Titulo6;
-	@Column(name="conteudo6",length= 8000)
+	@Column(name="conteudo6",columnDefinition="text")
 	private String Conteudo6;
 	@Column(name="urlImagem6")
 	private String UrlImagem6;
@@ -70,7 +70,7 @@ public class Site {
 	
 	@Column(name="titulo7")
 	private String Titulo7;
-	@Column(name="conteudo7",length= 8000)
+	@Column(name="conteudo7",columnDefinition="text")
 	private String Conteudo7;
 	@Column(name="urlImagem7")
 	private String UrlImagem7;
@@ -79,7 +79,7 @@ public class Site {
 	
 	@Column(name="titulo8")
 	private String Titulo8;
-	@Column(name="conteudo8",length= 4000)
+	@Column(name="conteudo8",columnDefinition="text")
 	private String Conteudo8;
 	@Column(name="urlImagem8")
 	private String UrlImagem8;
